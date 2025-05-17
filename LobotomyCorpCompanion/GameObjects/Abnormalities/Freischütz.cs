@@ -10,36 +10,36 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Freischütz()
         {
-            name = "Der Freischütz";
-            derivedName = "Magic Bullet";
-            riskLevel = RiskLevel.HE;
+            Name = "Der Freischütz";
+            DerivedName = "Magic Bullet";
+            RiskLevel = RiskLevel.HE;
 
-            weapon = new EgoWeapon(derivedName, 40, 1, [0, 0, 3, 0, 0], DamageType.BLACK, WeaponRange.VeryLong, RiskLevel.WAW, 20, 22, AttackSpeed.Normal);
+            Weapon = new EgoWeapon(DerivedName, 40, 1, [0, 0, 3, 0, 0], DamageType.BLACK, RiskLevel.WAW, 20, 22, 50 ,2.3);
 
-            suit = new EgoSuit(derivedName, 45, 1, [3, 0, 0, 3, 0], riskLevel, [0.7, 0.7, 0.7, 1.5]);
+            Suit = new EgoSuit(DerivedName, 45, 1, [3, 0, 0, 3, 0], RiskLevel, [0.7, 0.7, 0.7, 1.5]);
 
-            gift = new EgoGift(derivedName, Slot.Mouth_2, [-5,-5, 0, 0,10,10]);
+            Gift = new EgoGift(DerivedName, Slot.Mouth_2, new SecondaryStats(HP:-5,SP:-5,AS:10,MS:10));
         }
 
-        public override void WeaponEffect(Employee employee)
+        internal override void WeaponEffect(Employee employee)
         {
             employee.SpecialEffects.Add("Piercing Bullet crosses the entire room.");
             employee.SpecialEffects.Add("Friendly Fire!");
         }
 
-        public override void SuitEffect(Employee employee)
+        internal override void SuitEffect(Employee employee)
         {
             if (employee.weapon == this)
             {
-                employee.damageBoni += 3;
+                employee.permanentBoni.damageFlat += 3;
             }
         }
 
-        public override void GiftEffect(Employee employee)
+        internal override void GiftEffect(Employee employee)
         {
             if (employee.weapon == this)
             {
-                employee.damageBoni += 3;
+                employee.permanentBoni.damageFlat += 3;
             }
         }
     }

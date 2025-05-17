@@ -10,22 +10,22 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Apple()
         {
-            name = "Snow White's Apple";
-            derivedName = "Green Stem";
-            riskLevel = RiskLevel.WAW;
+            Name = "Snow White's Apple";
+            DerivedName = "Green Stem";
+            RiskLevel = RiskLevel.WAW;
 
-            weapon = new EgoWeapon(derivedName, 50, 3, [0, 0, 3, 0, 0], DamageType.BLACK, WeaponRange.Medium, riskLevel, 8, 16, AttackSpeed.Fast);
+            Weapon = new EgoWeapon(DerivedName, 50, 3, [0, 0, 3, 0, 0], DamageType.BLACK, RiskLevel, 8, 16, 1, 1.0);
 
-            suit = new EgoSuit(derivedName, 50, 2, [0, 3, 0, 0, 0], riskLevel, [0.8, 1.2, 0.6, 1.5]);
+            Suit = new EgoSuit(DerivedName, 50, 2, [0, 3, 0, 0, 0], RiskLevel, [0.8, 1.2, 0.6, 1.5]);
 
-            gift = new EgoGift(derivedName, Slot.Brooch, [0, 6, 0, 0, 0, 0]);
+            Gift = new EgoGift(DerivedName, Slot.Brooch, new SecondaryStats(SP:6));
         }
 
-        public override void GiftEffect(Employee employee)
+        internal override void GiftEffect(Employee employee)
         {
             if(employee.weapon==this)
             {
-                employee.damageBoni += 5;
+                employee.permanentBoni.damageFlat += 5;
             }
         }
     }

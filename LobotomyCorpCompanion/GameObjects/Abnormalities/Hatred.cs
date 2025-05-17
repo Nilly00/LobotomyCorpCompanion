@@ -10,18 +10,18 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Hatred()
         {
-            name = "The Queen of Hatred";
-            derivedName = "In the Name of Love and Hate";
-            riskLevel = RiskLevel.WAW;
+            Name = "The Queen of Hatred";
+            DerivedName = "In the Name of Love and Hate";
+            RiskLevel = RiskLevel.WAW;
 
-            weapon = new EgoWeapon(derivedName, 70, 1, [3, 0, 0, 3, 4], DamageType.HEALING, WeaponRange.VeryLong, riskLevel, 5, 8, AttackSpeed.VeryFast);
+            Weapon = new EgoWeapon(DerivedName, 70, 1, [3, 0, 0, 3, 4], DamageType.HEALING, RiskLevel, 5, 8, 1, 1.0);
 
-            suit = new EgoSuit(derivedName, 60, 1, [0, 3, 3, 0, 4], riskLevel, [0.7, 0.8, 0.4, 2.0]);
+            Suit = new EgoSuit(DerivedName, 60, 1, [0, 3, 3, 0, 4], RiskLevel, [0.7, 0.8, 0.4, 2.0]);
 
-            gift = new EgoGift(derivedName, Slot.Hat, [0, 0, 2, 2, 4, 4]);
+            Gift = new EgoGift(DerivedName, Slot.Hat, new SecondaryStats(SR:2,WS:2,AS:4,MS:4));
         }
 
-        public override void WeaponEffect(Employee employee)
+        internal override void WeaponEffect(Employee employee)
         {
             employee.SpecialEffects.Add("Heals other Employees instead of attacking Monsters");
         }

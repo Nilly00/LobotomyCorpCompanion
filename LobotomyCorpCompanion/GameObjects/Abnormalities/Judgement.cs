@@ -10,24 +10,24 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Judgement()
         {
-            name = "Judgement Bird";
-            derivedName = "Justitia";
-            riskLevel = RiskLevel.WAW;
+            Name = "Judgement Bird";
+            DerivedName = "Justitia";
+            RiskLevel = RiskLevel.WAW;
 
-            weapon = new EgoWeapon(derivedName, 150, 1, [0, 0, 0, 5, 5], DamageType.PALE, WeaponRange.Medium, RiskLevel.ALEPH, 2, 4, AttackSpeed.Normal);
+            Weapon = new EgoWeapon(DerivedName, 150, 1, [0, 0, 0, 5, 5], DamageType.PALE, RiskLevel.ALEPH, 2, 4, 1, 1.0);
 
-            suit = new EgoSuit(derivedName, 120, 1, [0, 0, 0, 5, 5], RiskLevel.ALEPH, [0.5, 0.5, 0.5, 0.5]);
+            Suit = new EgoSuit(DerivedName, 120, 1, [0, 0, 0, 5, 5], RiskLevel.ALEPH, [0.5, 0.5, 0.5, 0.5]);
 
-            gift = new EgoGift(derivedName, Slot.Eye, [0, 0, 0, 0, 3, 3]);
+            Gift = new EgoGift(DerivedName, Slot.Eye, new SecondaryStats(AS:3,MS:3));
         }
 
-        public override void WeaponEffect(Employee employee)
+        internal override void WeaponEffect(Employee employee)
         {
             employee.SpecialEffects.Add("Hits 5 Times");
             employee.SpecialEffects.Add("Special Attack that hits 13 Times");
         }
 
-        public override void GiftEffect(Employee employee)
+        internal override void GiftEffect(Employee employee)
         {
             employee.SpecialEffects.Add("REPRESSION SR +6%");
         }

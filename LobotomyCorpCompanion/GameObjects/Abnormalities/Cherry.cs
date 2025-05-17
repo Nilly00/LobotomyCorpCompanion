@@ -10,18 +10,18 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Cherry()
         {
-            name = "Grave of Cherry Blossoms";
-            derivedName = "Cherry Blossoms";
-            riskLevel = RiskLevel.TETH;
+            Name = "Grave of Cherry Blossoms";
+            DerivedName = "Cherry Blossoms";
+            RiskLevel = RiskLevel.TETH;
 
-            weapon = new EgoWeapon(derivedName, 25, 1, [0, 0, 0, 0, 0], DamageType.WHITE, WeaponRange.Medium, riskLevel, 1, 2, AttackSpeed.VeryFast);
+            Weapon = new EgoWeapon(DerivedName, 25, 1, [0, 0, 0, 0, 0], DamageType.WHITE,RiskLevel, 1, 2,5 ,1.0);
 
-            suit = new EgoSuit(derivedName, 30, 1, [0, 2, 0, 0, 0], riskLevel, [1.2, 0.6, 0.7, 2.0]);
+            Suit = new EgoSuit(DerivedName, 30, 1, [0, 2, 0, 0, 0], RiskLevel, [1.2, 0.6, 0.7, 2.0]);
 
-            gift = new EgoGift(derivedName, Slot.Hat, [2, 0, 0, 0, 2, 2]);
+            Gift = new EgoGift(DerivedName, Slot.Hat, new SecondaryStats(HP:2,AS:2,MS:2));
         }
 
-        public override void WeaponEffect(Employee employee)
+        internal override void WeaponEffect(Employee employee)
         {
             employee.SpecialEffects.Add("Multihit!");
         }

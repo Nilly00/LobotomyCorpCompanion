@@ -10,23 +10,23 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Bear()
         {
-            name = "Happy Teddy Bear";
-            derivedName = "Bear Paws";
-            riskLevel = RiskLevel.HE;
+            Name = "Happy Teddy Bear";
+            DerivedName = "Bear Paws";
+            RiskLevel = RiskLevel.HE;
 
-            weapon = new EgoWeapon(derivedName, 40, 2, [2, 0, 0, 0, 0], DamageType.RED, WeaponRange.VeryShort, riskLevel, 6, 7, AttackSpeed.Normal);
+            Weapon = new EgoWeapon(DerivedName, 40, 2, [2, 0, 0, 0, 0], DamageType.RED, RiskLevel, 6, 7, 1, 1.0);
 
-            suit = new EgoSuit(derivedName, 30, 3, [0, 0, 0, 0, 2], riskLevel, [0.8, 1.0, 1.0, 1.5]);
+            Suit = new EgoSuit(DerivedName, 30, 3, [0, 0, 0, 0, 2], RiskLevel, [0.8, 1.0, 1.0, 1.5]);
 
-            gift = new EgoGift(derivedName, Slot.Hat, [0, 4, 0, 0, 0, 0]);
+            Gift = new EgoGift(DerivedName, Slot.Hat, new SecondaryStats(SP:4));
         }
 
-        public override void WeaponEffect(Employee employee)
+        internal override void WeaponEffect(Employee employee)
         {
             employee.SpecialEffects.Add("Dual Weapon");
         }
 
-        public override void GiftEffect(Employee employee)
+        internal override void GiftEffect(Employee employee)
         {
             employee.SpecialEffects.Add("ATTACHMENT work SR +3%");
         }

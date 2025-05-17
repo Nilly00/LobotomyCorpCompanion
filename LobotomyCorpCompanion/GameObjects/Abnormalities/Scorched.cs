@@ -10,15 +10,15 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Scorched()
         {
-            name = "Scorched Girl";
-            derivedName = "Fourth Match Flame";
-            riskLevel = RiskLevel.TETH;
+            Name = "Scorched Girl";
+            DerivedName = "Fourth Match Flame";
+            RiskLevel = RiskLevel.TETH;
 
-            weapon = new EgoWeapon(derivedName, 35, 1, [0, 0, 0, 0, 0], DamageType.RED, WeaponRange.VeryLong, riskLevel, 20, 30, AttackSpeed.VerySlow);
+            Weapon = new EgoWeapon(DerivedName, 35, 1, [0, 0, 0, 0, 0], DamageType.RED, RiskLevel, 20, 30, 15, 5.0);
 
-            suit = new EgoSuit(derivedName, 25, 2, [0, 0, 0, 0, 0], riskLevel, [0.6, 1.0, 1.2, 2.0]);
+            Suit = new EgoSuit(DerivedName, 25, 2, [0, 0, 0, 0, 0], RiskLevel, [0.6, 1.0, 1.2, 2.0]);
 
-            gift = new EgoGift(derivedName, Slot.Mouth_2, [4, 0, 0, 0, 0, 0]);
+            Gift = new EgoGift(DerivedName, Slot.Mouth_2, new SecondaryStats(HP:4));
         }
     }
 }

@@ -10,30 +10,30 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public White()
         {
-            name = "White Night";
-            derivedName = "Paradise Lost";
-            riskLevel = RiskLevel.ALEPH;
+            Name = "White Night";
+            DerivedName = "Paradise Lost";
+            RiskLevel = RiskLevel.ALEPH;
 
-            weapon = new EgoWeapon(derivedName, 0, 1, [5, 5, 5, 5, 5], DamageType.PALE, WeaponRange.VeryLong, riskLevel,22,28, AttackSpeed.Fast);
+            Weapon = new EgoWeapon(DerivedName, 0, 1, [5, 5, 5, 5, 5], DamageType.PALE, RiskLevel,22,28, 1, 1.0);
 
-            suit = new EgoSuit(derivedName,333, 1, [5, 5, 5, 5, 5], riskLevel, [0.5, 0.5, 0.5, 0.3]);
+            Suit = new EgoSuit(DerivedName,333, 1, [5, 5, 5, 5, 5], RiskLevel, [0.5, 0.5, 0.5, 0.3]);
 
-            gift = new EgoGift(derivedName, Slot.Left_back, [10,10, 0, 0,10,10]);
+            Gift = new EgoGift(DerivedName, Slot.Left_back, new SecondaryStats(HP:10,SP:10,AS:10,MS:10));
         }
 
-        public override void WeaponEffect(Employee employee)
+        internal override void WeaponEffect(Employee employee)
         {
             //todo a bunch of stuff
             employee.SpecialEffects.Add("");
         }
 
-        public override void SuitEffect(Employee employee)
+        internal override void SuitEffect(Employee employee)
         {
             //todo a bunch of stuff
             employee.SpecialEffects.Add("");
         }
 
-        public override void GiftEffect(Employee employee)
+        internal override void GiftEffect(Employee employee)
         {
             employee.SpecialEffects.Add("");
         }

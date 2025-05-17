@@ -10,13 +10,13 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Refraction()
         {
-            name = "Dimensional Refraction Variant";
-            derivedName = "Diffraction";
-            riskLevel = RiskLevel.WAW;
+            Name = "Dimensional Refraction Variant";
+            DerivedName = "Diffraction";
+            RiskLevel = RiskLevel.WAW;
 
-            weapon = new EgoWeapon(derivedName, 50, 3, [0, 0, 0, 0, 0], DamageType.WHITE, WeaponRange.Short, riskLevel, 15, 17, AttackSpeed.Normal);
+            Weapon = new EgoWeapon(DerivedName, 50, 3, [0, 0, 0, 0, 0], DamageType.WHITE, RiskLevel, 15, 17, 3, 2.0);
 
-            gift = new EgoGift(derivedName, Slot.Helmet, [0, 6, 0, 0, 0, 0]);
+            Gift = new EgoGift(DerivedName, Slot.Helmet, new SecondaryStats(SP:6));
         }
     }
 }

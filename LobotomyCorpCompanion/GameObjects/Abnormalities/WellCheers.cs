@@ -4,15 +4,15 @@
     {
         public WellCheers()
         {
-            name = "Opened Can of WellCheers";
-            derivedName = "Soda";
-            riskLevel = RiskLevel.ZAYIN;
+            Name = "Opened Can of WellCheers";
+            DerivedName = "Soda";
+            RiskLevel = RiskLevel.ZAYIN;
 
-            weapon = new EgoWeapon(derivedName, 20, 2, [0, 0, 0, 0, 0], DamageType.RED, WeaponRange.Long, riskLevel, 1, 2, AttackSpeed.VeryFast);
+            Weapon = new EgoWeapon(DerivedName, 20, 2, [0, 0, 0, 0, 0], DamageType.RED, RiskLevel, 1, 2, 10, 0.7f);
 
-            suit = new EgoSuit(derivedName, 15, 5, [0, 0, 0, 0, 0], riskLevel, [0.8, 1.0, 1.0, 2.0]);
+            Suit = new EgoSuit(DerivedName, 15, 5, [0, 0, 0, 0, 0], RiskLevel, [0.8, 1.0, 1.0, 2.0]);
 
-            gift = new EgoGift(derivedName, Slot.Mouth_2, [2, 0, 0, 0, 0, 0]);
+            Gift = new EgoGift(DerivedName, Slot.Mouth_2, new SecondaryStats(HP:2));
         }
     }
 }

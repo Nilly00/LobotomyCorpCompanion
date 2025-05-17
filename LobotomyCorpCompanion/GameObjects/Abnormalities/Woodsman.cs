@@ -10,15 +10,15 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Woodsman()
         {
-            name = "Warm-hearted Woodsman";
-            derivedName = "Logging";
-            riskLevel = RiskLevel.HE;
+            Name = "Warm-hearted Woodsman";
+            DerivedName = "Logging";
+            RiskLevel = RiskLevel.HE;
 
-            weapon = new EgoWeapon(derivedName, 60, 2, [0, 2, 0, 0, 0], DamageType.RED, WeaponRange.Medium, riskLevel, 15, 21, AttackSpeed.Slow);
+            Weapon = new EgoWeapon(DerivedName, 60, 2, [0, 2, 0, 0, 0], DamageType.RED, RiskLevel, 15, 21, 1, 1.0);
 
-            suit = new EgoSuit(derivedName, 30, 3, [0, 0, 0, 0, 0], riskLevel, [0.8, 1.2, 0.8, 1.5]);
+            Suit = new EgoSuit(DerivedName, 30, 3, [0, 0, 0, 0, 0], RiskLevel, [0.8, 1.2, 0.8, 1.5]);
 
-            gift = new EgoGift(derivedName, Slot.Brooch, [2, 0, 2, 2, 0, 0]);
+            Gift = new EgoGift(DerivedName, Slot.Brooch, new SecondaryStats(HP:2,SR:2,WS:2));
         }
     }
 }

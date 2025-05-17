@@ -11,16 +11,16 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Big()
         {
-            name = "Big Bird";
-            derivedName = "Lamp";
-            riskLevel = RiskLevel.WAW;
+            Name = "Big Bird";
+            DerivedName = "Lamp";
+            RiskLevel = RiskLevel.WAW;
 
-            weapon = new EgoWeapon(derivedName, 70, 1, [3, 3, 0, 0, 0], DamageType.BLACK, WeaponRange.Medium, riskLevel, 22, 28, AttackSpeed.Slow);
+            Weapon = new EgoWeapon(DerivedName, 70, 1, [3, 3, 0, 0, 0], DamageType.BLACK,RiskLevel, 22, 28, 5, 3.0);
 
-            suit = new EgoSuit(derivedName, 60, 1, [0, 0, 3, 3, 4], riskLevel, [0.8, 0.7, 0.4, 1.5]);
+            Suit = new EgoSuit(DerivedName, 60, 1, [0, 0, 3, 3, 4], RiskLevel, [0.8, 0.7, 0.4, 1.5]);
         }
 
-        public override void WeaponEffect(Employee employee)
+        internal override void WeaponEffect(Employee employee)
         {
             employee.SpecialEffects.Add("25% chance to make the target more vulnerable to BLACK damage");
         }

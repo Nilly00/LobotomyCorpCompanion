@@ -10,16 +10,16 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Censored()
         {
-            name = "CENSORED";
-            derivedName = "CENSORED";
-            riskLevel = RiskLevel.ALEPH;
+            Name = "CENSORED";
+            DerivedName = "CENSORED";
+            RiskLevel = RiskLevel.ALEPH;
 
-            weapon = new EgoWeapon(derivedName,222, 1, [5, 0, 0, 0, 5], DamageType.BLACK, WeaponRange.Short, riskLevel,7,11, AttackSpeed.Fast);
+            Weapon = new EgoWeapon(DerivedName,222, 1, [5, 0, 0, 0, 5], DamageType.BLACK,RiskLevel,7,11, 1, 1.0);
 
-            gift = new EgoGift(derivedName, Slot.Eye, [0,10, 0, 0, 0, 0]);
+            Gift = new EgoGift(DerivedName, Slot.Eye, new SecondaryStats(SP:10));
         }
 
-        public override void WeaponEffect(Employee employee)
+        internal override void WeaponEffect(Employee employee)
         {
             employee.SpecialEffects.Add("Hits twice");
             employee.SpecialEffects.Add("10% chance to deal 15-30 damage 3 times");

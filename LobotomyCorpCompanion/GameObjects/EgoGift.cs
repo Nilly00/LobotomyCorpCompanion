@@ -24,10 +24,10 @@ namespace LobotomyCorpCompanion.GameObjects
         Neckwear,
         Special,
     }
-    internal class EgoGift(string Name, Slot slot, int[] SecondaryStats)
+    internal class EgoGift(string Name, Slot slot, SecondaryStats secondary)
     {
         readonly internal string Name = Name;
         readonly internal Slot Slot = slot;
-        readonly internal int[] SecondaryStats = SecondaryStats; //HP,SP,WR,WS,AS,MS
+        readonly internal SecondaryStats SecondaryStats = secondary; //HP,SP,WR,WS,AS,MS
     }
 }

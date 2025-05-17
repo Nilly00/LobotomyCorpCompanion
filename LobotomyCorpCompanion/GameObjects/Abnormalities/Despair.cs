@@ -10,18 +10,18 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Despair()
         {
-            name = "The Knight of Despair";
-            derivedName = "The Sword Sharpened with Tears";
-            riskLevel = RiskLevel.WAW;
+            Name = "The Knight of Despair";
+            DerivedName = "The Sword Sharpened with Tears";
+            RiskLevel = RiskLevel.WAW;
 
-            weapon = new EgoWeapon(derivedName, 70, 1, [0, 0, 0, 4, 0], DamageType.WHITE, WeaponRange.Medium, riskLevel, 9, 12, AttackSpeed.Fast);
+            Weapon = new EgoWeapon(DerivedName, 70, 1, [0, 0, 0, 4, 0], DamageType.WHITE,RiskLevel, 9, 12, 1, 1.0);
 
-            suit = new EgoSuit(derivedName, 60, 1, [0, 0, 0, 4, 0], riskLevel, [0.8, 0.8, 0.8, 0.8]);
+            Suit = new EgoSuit(DerivedName, 60, 1, [0, 0, 0, 4, 0], RiskLevel, [0.8, 0.8, 0.8, 0.8]);
 
-            gift = new EgoGift(derivedName, Slot.Cheek, [0, 2, 0, 0, 4, 4]);
+            Gift = new EgoGift(DerivedName, Slot.Cheek, new SecondaryStats(SP:2,AS:4,MS:4));
         }
 
-        public override void WeaponEffect(Employee employee)
+        internal override void WeaponEffect(Employee employee)
         {
             employee.SpecialEffects.Add("25% chance to deal an additional 9-18 damage");
         }

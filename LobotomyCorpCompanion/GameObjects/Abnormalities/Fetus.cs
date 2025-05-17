@@ -10,18 +10,18 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Fetus()
         {
-            name = "Nameless Fetus";
-            derivedName = "Syrinx";
-            riskLevel = RiskLevel.HE;
+            Name = "Nameless Fetus";
+            DerivedName = "Syrinx";
+            RiskLevel = RiskLevel.HE;
 
-            weapon = new EgoWeapon(derivedName, 45, 1, [2, 0, 0, 0, 0], DamageType.WHITE, WeaponRange.Long, riskLevel, 3, 3, AttackSpeed.VeryFast);
+            Weapon = new EgoWeapon(DerivedName, 45, 1, [2, 0, 0, 0, 0], DamageType.WHITE,RiskLevel, 3, 3, 10, 0.5);
 
-            suit = new EgoSuit(derivedName, 45, 1, [0, 0, 3, 0, 0], riskLevel, [1.2, 0.5, 0.8, 1.5]);
+            Suit = new EgoSuit(DerivedName, 45, 1, [0, 0, 3, 0, 0], RiskLevel, [1.2, 0.5, 0.8, 1.5]);
 
-            gift = new EgoGift(derivedName, Slot.Helmet, [-2, -2, 0, 0, 6, 6]);
+            Gift = new EgoGift(DerivedName, Slot.Helmet, new SecondaryStats(HP:-2,SP:-2,AS:6,MS:6));
         }
 
-        public override void GiftEffect(Employee employee)
+        internal override void GiftEffect(Employee employee)
         {
             //todo special effect damage redution
         }

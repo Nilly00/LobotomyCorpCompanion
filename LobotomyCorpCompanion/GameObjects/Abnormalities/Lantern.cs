@@ -10,15 +10,15 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Lantern()
         {
-            name = "Meat Lantern";
-            derivedName = "Lantern";
-            riskLevel = RiskLevel.TETH;
+            Name = "Meat Lantern";
+            DerivedName = "Lantern";
+            RiskLevel = RiskLevel.TETH;
 
-            weapon = new EgoWeapon(derivedName, 25, 2, [0, 0, 0, 0, 0], DamageType.BLACK, WeaponRange.Medium, riskLevel, 12, 18, AttackSpeed.Slow);
+            Weapon = new EgoWeapon(DerivedName, 25, 2, [0, 0, 0, 0, 0], DamageType.BLACK, RiskLevel, 12, 18, 5, 3.0);
 
-            suit = new EgoSuit(derivedName, 30, 2, [0, 0, 0, 0, 0], riskLevel, [0.8, 0.7, 1.2, 2.0]);
+            Suit = new EgoSuit(DerivedName, 30, 2, [0, 0, 0, 0, 0], RiskLevel, [0.8, 0.7, 1.2, 2.0]);
 
-            gift = new EgoGift(derivedName, Slot.Mouth_2, [5, 0, 0, 0, 0, 0]);
+            Gift = new EgoGift(DerivedName, Slot.Mouth_2, new SecondaryStats(HP: 5));
         }
     }
 }

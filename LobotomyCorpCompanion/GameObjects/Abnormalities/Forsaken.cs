@@ -10,15 +10,15 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Forsaken()
         {
-            name = "Forsaken Murderer";
-            derivedName = "Regret";
-            riskLevel = RiskLevel.TETH;
+            Name = "Forsaken Murderer";
+            DerivedName = "Regret";
+            RiskLevel = RiskLevel.TETH;
 
-            weapon = new EgoWeapon(derivedName, 25, 2, [0, 0, 0, 0, 0], DamageType.RED, WeaponRange.Long, riskLevel, 10, 15, AttackSpeed.Slow);
+            Weapon = new EgoWeapon(DerivedName, 25, 2, [0, 0, 0, 0, 0], DamageType.RED, RiskLevel, 10, 15, 5, 3.0);
 
-            suit = new EgoSuit(derivedName, 25, 2, [0, 0, 0, 0, 0], riskLevel, [0.7, 1.2, 0.8, 2.0]);
+            Suit = new EgoSuit(DerivedName, 25, 2, [0, 0, 0, 0, 0], RiskLevel, [0.7, 1.2, 0.8, 2.0]);
 
-            gift = new EgoGift(derivedName, Slot.Mouth_1, [2, 2, 0, 0, 0, 0]);
+            Gift = new EgoGift(DerivedName, Slot.Mouth_1, new SecondaryStats(HP:2,SP:2));
         }
     }
 }

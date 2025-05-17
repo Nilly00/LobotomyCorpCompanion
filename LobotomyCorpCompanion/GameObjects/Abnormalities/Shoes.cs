@@ -10,33 +10,33 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Shoes()
         {
-            name = "The Red Shoes";
-            derivedName = "Sanguine Desire";
-            riskLevel = RiskLevel.HE;
+            Name = "The Red Shoes";
+            DerivedName = "Sanguine Desire";
+            RiskLevel = RiskLevel.HE;
 
-            weapon = new EgoWeapon(derivedName, 40, 2, [0, 0, 0, 0, 0], DamageType.RED, WeaponRange.VeryShort, riskLevel, 4, 7, AttackSpeed.VeryFast);
+            Weapon = new EgoWeapon(DerivedName, 40, 2, [0, 0, 0, 0, 0], DamageType.RED, RiskLevel, 4, 7, 2, 1.0);
 
-            suit = new EgoSuit(derivedName, 50, 1, [0, 0, 3, 0, 0], riskLevel, [0.5, 1.2, 0.8, 1.5]);
+            Suit = new EgoSuit(DerivedName, 50, 1, [0, 0, 3, 0, 0], RiskLevel, [0.5, 1.2, 0.8, 1.5]);
 
-            gift = new EgoGift(derivedName, Slot.Mouth_2, [4, 0, 0, 0, 0, 0]);
+            Gift = new EgoGift(DerivedName, Slot.Mouth_2, new SecondaryStats(HP:4));
         }
 
-        public override void WeaponEffect(Employee employee)
+        internal override void WeaponEffect(Employee employee)
         {
             if (employee.ranks[2] > 3)
             {
-                employee.damageBoni += 4;
+                employee.permanentBoni.damageFlat += 4;
                 employee.SpecialEffects.Add("take SP damage equal to 4% of Max. SP on each attack");
             }
         }
 
-        public override void GiftEffect(Employee employee)
+        internal override void GiftEffect(Employee employee)
         {
             if (employee.weapon == this)
             {
-                employee.secondaryStats[2] -= 10;
-                employee.secondaryStats[3] -= 10;
-                employee.secondaryStats[5] += 10;
+                employee.permanentBoni.secondaryStats.SR -= 10;
+                employee.permanentBoni.secondaryStats.WS -= 10;
+                employee.permanentBoni.secondaryStats.AS += 10;
             }
         }
     }

@@ -10,15 +10,15 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Shy()
         {
-            name = "Today's Shy look";
-            derivedName = "Today's Expression";
-            riskLevel = RiskLevel.TETH;
+            Name = "Today's Shy look";
+            DerivedName = "Today's Expression";
+            RiskLevel = RiskLevel.TETH;
 
-            weapon = new EgoWeapon(derivedName, 25, 2, [0, 0, 0, 0, 0], DamageType.BLACK, WeaponRange.Long, riskLevel, 2, 3, AttackSpeed.VeryFast);
+            Weapon = new EgoWeapon(DerivedName, 25, 2, [0, 0, 0, 0, 0], DamageType.BLACK, RiskLevel, 2, 3, 10, 0.7);
 
-            suit = new EgoSuit(derivedName, 30, 1, [2, 0, 0, 0, 0], riskLevel, [0.7, 0.6, 1.5, 2.0]);
+            Suit = new EgoSuit(DerivedName, 30, 1, [2, 0, 0, 0, 0], RiskLevel, [0.7, 0.6, 1.5, 2.0]);
 
-            gift = new EgoGift(derivedName, Slot.Eye, [0,-2, 4, 4, 0, 0]);
+            Gift = new EgoGift(DerivedName, Slot.Eye, new SecondaryStats(SP:-2,SR:4,WS:4));
         }
     }
 }

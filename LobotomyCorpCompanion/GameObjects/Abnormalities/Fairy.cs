@@ -10,15 +10,15 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Fairy()
         {
-            name = "Fairy Festival";
-            derivedName = "Wingbeat";
-            riskLevel = RiskLevel.ZAYIN;
+            Name = "Fairy Festival";
+            DerivedName = "Wingbeat";
+            RiskLevel = RiskLevel.ZAYIN;
 
-            weapon = new EgoWeapon(derivedName, 10, 5, [0, 0, 0, 0, 0], DamageType.RED, WeaponRange.Short, riskLevel, 5, 7, AttackSpeed.Normal);
+            Weapon = new EgoWeapon(DerivedName, 10, 5, [0, 0, 0, 0, 0], DamageType.RED, RiskLevel, 5, 7, 3, 2.0);
+            
+            Suit = new EgoSuit(DerivedName, 10, 5, [0, 0, 0, 0, 0], RiskLevel, [0.8, 0.8, 1.0, 2.0]);
 
-            suit = new EgoSuit(derivedName, 10, 5, [0, 0, 0, 0, 0], riskLevel, [0.8, 0.8, 1.0, 2.0]);
-
-            gift = new EgoGift(derivedName, Slot.Hand_2, [0, 0, 2, 2, 0, 0]);
+            Gift = new EgoGift(DerivedName, Slot.Hand_2, new SecondaryStats(SR:2,WS:2));
         }
     }
 }

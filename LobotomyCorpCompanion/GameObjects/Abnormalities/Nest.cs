@@ -10,18 +10,18 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Nest()
         {
-            name = "The Naked Nest";
-            derivedName = "Exuviae";
-            riskLevel = RiskLevel.WAW;
+            Name = "The Naked Nest";
+            DerivedName = "Exuviae";
+            RiskLevel = RiskLevel.WAW;
 
-            weapon = new EgoWeapon(derivedName,60, 2, [0, 0, 0, 0, 4], DamageType.RED, WeaponRange.Long, riskLevel,35,50, AttackSpeed.VerySlow);
+            Weapon = new EgoWeapon(DerivedName,60, 2, [0, 0, 0, 0, 4], DamageType.RED, RiskLevel,35,50, 1, 1.0);
 
-            suit = new EgoSuit(derivedName,50, 2, [0, 0, 0, 0, 3], riskLevel, [0.6, 0.8, 1.2, 1.5]);
+            Suit = new EgoSuit(DerivedName,50, 2, [0, 0, 0, 0, 3], RiskLevel, [0.6, 0.8, 1.2, 1.5]);
 
-            gift = new EgoGift(derivedName, Slot.Hand_2, [5, 2, 0, 0, 0, 0]);
+            Gift = new EgoGift(DerivedName, Slot.Hand_2, new SecondaryStats(HP:5,SP:2));
         }
 
-        public override void WeaponEffect(Employee employee)
+        internal override void WeaponEffect(Employee employee)
         {
             employee.SpecialEffects.Add("25% chance to make the target more vulnerable to RED damage");
         }

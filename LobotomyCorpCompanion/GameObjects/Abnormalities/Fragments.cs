@@ -10,18 +10,18 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Fragments()
         {
-            name = "Fragment of the Universe";
-            derivedName = "Fragments from Somewhere";
-            riskLevel = RiskLevel.TETH;
+            Name = "Fragment of the Universe";
+            DerivedName = "Fragments from Somewhere";
+            RiskLevel = RiskLevel.TETH;
 
-            weapon = new EgoWeapon(derivedName, 20, 3, [0, 0, 0, 0, 0], DamageType.BLACK, WeaponRange.Medium, riskLevel, 5, 9, AttackSpeed.Fast);
+            Weapon = new EgoWeapon(DerivedName, 20, 3, [0, 0, 0, 0, 0], DamageType.BLACK, RiskLevel, 5, 9, 4, 1.5);
 
-            suit = new EgoSuit(derivedName, 25, 2, [0, 0, 0, 0, 0], riskLevel, [1.0, 1.2, 0.6, 0.0]);
+            Suit = new EgoSuit(DerivedName, 25, 2, [0, 0, 0, 0, 0], RiskLevel, [1.0, 1.2, 0.6, 0.0]);
 
-            gift = new EgoGift(derivedName, Slot.Brooch, [0, 0, 2, 2, 0, 0]);
+            Gift = new EgoGift(DerivedName, Slot.Brooch, new SecondaryStats(SR:2,WS:2));
         }
 
-        public override void WeaponEffect(Employee employee)
+        internal override void WeaponEffect(Employee employee)
         {
             if (employee.ranks[1] > 5)
             {

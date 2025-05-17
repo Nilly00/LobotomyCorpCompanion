@@ -10,15 +10,15 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public OldLady()
         {
-            name = "Old Lady";
-            derivedName = "Solitude";
-            riskLevel = RiskLevel.TETH;
+            Name = "Old Lady";
+            DerivedName = "Solitude";
+            RiskLevel = RiskLevel.TETH;
 
-            weapon = new EgoWeapon(derivedName, 30, 2, [0, 0, 0, 0, 0], DamageType.WHITE, WeaponRange.Long, riskLevel, 2, 3, AttackSpeed.VeryFast);
+            Weapon = new EgoWeapon(DerivedName, 30, 2, [0, 0, 0, 0, 0], DamageType.WHITE, RiskLevel, 2, 3, 10, 0.7);
 
-            suit = new EgoSuit(derivedName, 20, 3, [0, 0, 0, 0, 0], riskLevel, [1.5, 0.8, 0.8, 2.0]);
+            Suit = new EgoSuit(DerivedName, 20, 3, [0, 0, 0, 0, 0], RiskLevel, [1.5, 0.8, 0.8, 2.0]);
 
-            gift = new EgoGift(derivedName, Slot.Eye, [0, 0, 3, 3, 0, 0]);
+            Gift = new EgoGift(DerivedName, Slot.Eye, new SecondaryStats(SR:3,WS:3));
         }
     }
 }

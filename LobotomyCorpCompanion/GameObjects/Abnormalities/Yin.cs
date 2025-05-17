@@ -10,17 +10,17 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Yin()
         {
-            name = "Yin";
-            derivedName = "Discord";
-            riskLevel = RiskLevel.WAW;
+            Name = "Yin";
+            DerivedName = "Discord";
+            RiskLevel = RiskLevel.WAW;
 
-            weapon = new EgoWeapon(derivedName,60, 2, [0, 0, 3, 0, 0], DamageType.BLACK, WeaponRange.Medium, riskLevel, 8,13, AttackSpeed.Fast);
+            Weapon = new EgoWeapon(DerivedName,60, 2, [0, 0, 3, 0, 0], DamageType.BLACK, RiskLevel, 8,13, 1, 1.0);
 
-            suit = new EgoSuit(derivedName,50, 2, [0, 0, 0, 3, 0], riskLevel, [1.2, 0.8, 0.6, 1.5]);
+            Suit = new EgoSuit(DerivedName,50, 2, [0, 0, 0, 3, 0], RiskLevel, [1.2, 0.8, 0.6, 1.5]);
 
-            gift = new EgoGift(derivedName, Slot.Helmet, [-10,-10, 0, 0,20,20]);
+            Gift = new EgoGift(DerivedName, Slot.Helmet, new SecondaryStats(HP:-10,SP:-10,AS:20,MS:20));
         }
-        public override void GiftEffect(Employee employee)
+        internal override void GiftEffect(Employee employee)
         {
             employee.SpecialEffects.Add("8% chance to heal as much as damage taken");
         }

@@ -10,15 +10,15 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Training()
         {
-            name = "Standard Training-Dummy Rabbit";
-            derivedName = "Standard Training E.G.O";
-            riskLevel = RiskLevel.TETH;
+            Name = "Standard Training-Dummy Rabbit";
+            DerivedName = "Standard Training E.G.O";
+            RiskLevel = RiskLevel.TETH;
 
-            weapon = new EgoWeapon(derivedName, 1, 5, [0, 0, 0, 0, 0], DamageType.WHITE, WeaponRange.Short, riskLevel, 5, 7, AttackSpeed.Normal);
+            Weapon = new EgoWeapon(DerivedName, 1, 5, [0, 0, 0, 0, 0], DamageType.WHITE, RiskLevel, 5, 7, 4 ,1.0);
 
-            suit = new EgoSuit(derivedName, 1, 5, [0, 0, 0, 0, 0], riskLevel, [0.5, 1.0, 1.5, 2.0]);
+            Suit = new EgoSuit(DerivedName, 1, 5, [0, 0, 0, 0, 0], RiskLevel, [0.5, 1.0, 1.5, 2.0]);
 
-            gift = new EgoGift(derivedName, Slot.Hat, [2, 2, 0, 0, 0, 0]);
+            Gift = new EgoGift(DerivedName, Slot.Hat, new SecondaryStats(HP:2,SP:2));
         }
     }
 }

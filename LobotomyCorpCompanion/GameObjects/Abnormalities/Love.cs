@@ -10,25 +10,25 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Love()
         {
-            name = "Melting Love";
-            derivedName = "Adoration";
-            riskLevel = RiskLevel.ALEPH;
+            Name = "Melting Love";
+            DerivedName = "Adoration";
+            RiskLevel = RiskLevel.ALEPH;
 
-            weapon = new EgoWeapon(derivedName,222, 1, [0, 0, 5, 0, 5], DamageType.BLACK, WeaponRange.Long, riskLevel,22,44, AttackSpeed.Slow);
+            Weapon = new EgoWeapon(DerivedName,222, 1, [0, 0, 5, 0, 5], DamageType.BLACK, RiskLevel,22,44, 1, 1.0);
 
-            suit = new EgoSuit(derivedName,120, 1, [5, 0, 0, 0, 5], riskLevel, [0.3, 0.6, 0.3, 1.0]);
+            Suit = new EgoSuit(DerivedName,120, 1, [5, 0, 0, 0, 5], RiskLevel, [0.3, 0.6, 0.3, 1.0]);
 
-            gift = new EgoGift(derivedName, Slot.Helmet, [5,10,-5,-5, 0, 0]);
+            Gift = new EgoGift(DerivedName, Slot.Helmet, new SecondaryStats(HP:5,SP:10,SR:-5,WS:-5));
         }
 
-        public override void WeaponEffect(Employee employee)
+        internal override void WeaponEffect(Employee employee)
         {
             employee.SpecialEffects.Add("Reduces the Movement Speed of the target by 30% for 3 seconds");
             employee.SpecialEffects.Add("Target takes 2 BLACK damage every second for 5 seconds");
         }
 
 
-        public override void GiftEffect(Employee employee)
+        internal override void GiftEffect(Employee employee)
         {
             if(employee.suit == this)
             {

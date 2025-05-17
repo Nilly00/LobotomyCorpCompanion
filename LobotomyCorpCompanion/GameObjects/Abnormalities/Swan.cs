@@ -10,16 +10,16 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Swan()
         {
-            name = "Dream of a Black Swan";
-            derivedName = "Black Swan";
-            riskLevel = RiskLevel.WAW;
+            Name = "Dream of a Black Swan";
+            DerivedName = "Black Swan";
+            RiskLevel = RiskLevel.WAW;
 
-            weapon = new EgoWeapon(derivedName, 60, 2, [0, 3, 0, 0, 0], DamageType.BLACK, WeaponRange.Short, riskLevel, 5, 7, AttackSpeed.Fast);
+            Weapon = new EgoWeapon(DerivedName, 60, 2, [0, 3, 0, 0, 0], DamageType.BLACK, RiskLevel, 5, 7, 3, 1.6);
 
-            suit = new EgoSuit(derivedName, 50, 2, [0, 0, 3, 0, 0], riskLevel, [0.6, 1.2, 0.8, 1.5]);
+            Suit = new EgoSuit(DerivedName, 50, 2, [0, 0, 3, 0, 0], RiskLevel, [0.6, 1.2, 0.8, 1.5]);
         }
 
-        public override void WeaponEffect(Employee employee)
+        internal override void WeaponEffect(Employee employee)
         {
             employee.SpecialEffects.Add("Chance to reflect damage taken");
         }

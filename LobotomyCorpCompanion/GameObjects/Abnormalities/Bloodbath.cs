@@ -10,15 +10,15 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Bloodbath()
         {
-            name = "Bloodbath";
-            derivedName = "Wrist Cutter";
-            riskLevel = RiskLevel.TETH;
+            Name = "Bloodbath";
+            DerivedName = "Wrist Cutter";
+            RiskLevel = RiskLevel.TETH;
 
-            weapon = new EgoWeapon(derivedName, 25, 2, [0, 0, 0, 0, 0], DamageType.WHITE, WeaponRange.VeryShort, riskLevel, 2, 3, AttackSpeed.VeryFast);
+            Weapon = new EgoWeapon(DerivedName, 25, 2, [0, 0, 0, 0, 0], DamageType.WHITE,RiskLevel, 2, 3, 2, 0.7);
 
-            suit = new EgoSuit(derivedName, 25, 2, [0, 0, 0, 0, 0], riskLevel, [1.0, 0.6, 1.2, 2.0]);
+            Suit = new EgoSuit(DerivedName, 25, 2, [0, 0, 0, 0, 0], RiskLevel, [1.0, 0.6, 1.2, 2.0]);
 
-            gift = new EgoGift(derivedName, Slot.Hand_2, [0, 0, 2, 2, 0, 0]);
+            Gift = new EgoGift(DerivedName, Slot.Hand_2, new SecondaryStats(SR:2, WS:2));
         }
     }
 }

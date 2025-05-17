@@ -10,15 +10,15 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Laetitia()
         {
-            name = "Laetitia";
-            derivedName = "Laetitia";
-            riskLevel = RiskLevel.HE;
+            Name = "Laetitia";
+            DerivedName = "Laetitia";
+            RiskLevel = RiskLevel.HE;
 
-            weapon = new EgoWeapon(derivedName, 40, 2, [0, 2, 0, 0, 0], DamageType.BLACK, WeaponRange.VeryLong, riskLevel, 5, 6, AttackSpeed.VeryFast);
+            Weapon = new EgoWeapon(DerivedName, 40, 2, [0, 2, 0, 0, 0], DamageType.BLACK, RiskLevel, 5, 6, 1, 1.0);
 
-            suit = new EgoSuit(derivedName, 45, 1, [0, 0, 0, 0, 3], riskLevel, [0.7, 0.7, 0.7, 1.5]);
+            Suit = new EgoSuit(DerivedName, 45, 1, [0, 0, 0, 0, 3], RiskLevel, [0.7, 0.7, 0.7, 1.5]);
 
-            gift = new EgoGift(derivedName, Slot.Helmet, [0, 4, 0, 0, 0, 0]);
+            Gift = new EgoGift(DerivedName, Slot.Helmet, new SecondaryStats(SP:4));
         }
     }
 }

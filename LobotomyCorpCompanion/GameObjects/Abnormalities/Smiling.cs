@@ -10,25 +10,27 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Smiling()
         {
-            name = "Mountain of Smiling Bodies";
-            derivedName = "Smile";
-            riskLevel = RiskLevel.ALEPH;
+            Name = "Mountain of Smiling Bodies";
+            DerivedName = "Smile";
+            RiskLevel = RiskLevel.ALEPH;
 
-            weapon = new EgoWeapon(derivedName,222, 1, [0, 0, 5, 0, 5], DamageType.BLACK, WeaponRange.Medium, riskLevel, 12,18, AttackSpeed.Fast);
+            Weapon = new EgoWeapon(DerivedName,222, 1, [0, 0, 5, 0, 5], DamageType.BLACK, RiskLevel, 12,18, 1, 1.0);
 
-            suit = new EgoSuit(derivedName,120, 1, [0, 0, 5, 0, 5], riskLevel, [0.5, 0.5, 0.2, 1.0]);
+            Suit = new EgoSuit(DerivedName,120, 1, [0, 0, 5, 0, 5], RiskLevel, [0.5, 0.5, 0.2, 1.0]);
 
-            gift = new EgoGift(derivedName, Slot.Eye, [5, 5, 0, 0, 0, 0]);
+            Gift = new EgoGift(DerivedName, Slot.Eye, new SecondaryStats(HP: 5, SP: 5));
         }
 
-        public override void WeaponEffect(Employee employee)
+        internal override void WeaponEffect(Employee employee)
         {
             employee.SpecialEffects.Add("Each time an attack target dies, Fortitude and Justice will rise by 3 up to 30");
+            employee.conditionalBoni.primaryStats.Fortitude += 30;
+            employee.conditionalBoni.primaryStats.Justice += 30;
             employee.SpecialEffects.Add("Decrease the target’s Movement Speed on normal attack");
             employee.SpecialEffects.Add("30% chance to deal 55-65 Damage AOE");
         }
 
-        public override void SuitEffect(Employee employee)
+        internal override void SuitEffect(Employee employee)
         {
             employee.SpecialEffects.Add("Recover HP when passing over an employee's dead body");
         }

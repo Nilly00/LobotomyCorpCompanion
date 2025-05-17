@@ -11,18 +11,18 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Queen()
         {
-            name = "Snow Queen";
-            derivedName = "Frost Splinter";
-            riskLevel = RiskLevel.HE;
+            Name = "Snow Queen";
+            DerivedName = "Frost Splinter";
+            RiskLevel = RiskLevel.HE;
 
-            weapon = new EgoWeapon(derivedName, 35, 3, [0, 0, 0, 0, 0], DamageType.WHITE, WeaponRange.Medium, riskLevel, 6, 12, AttackSpeed.Fast);
+            Weapon = new EgoWeapon(DerivedName, 35, 3, [0, 0, 0, 0, 0], DamageType.WHITE, RiskLevel, 6, 12, 4, 1.5);
 
-            suit = new EgoSuit(derivedName, 35, 2, [2, 0, 0, 0, 0], riskLevel, [1.3, 0.6, 0.8, 1.5]);
+            Suit = new EgoSuit(DerivedName, 35, 2, [2, 0, 0, 0, 0], RiskLevel, [1.3, 0.6, 0.8, 1.5]);
 
-            gift = new EgoGift("Those who know the Cruelty of Winter and the Aroma of Roses", Slot.Cheek, [6, 6, 0, 0, 0, 0]);
+            Gift = new EgoGift("Those who know the Cruelty of Winter and the Aroma of Roses", Slot.Cheek, new SecondaryStats(HP:6,SP:6));
         }
 
-        public override void WeaponEffect(Employee employee)
+        internal override void WeaponEffect(Employee employee)
         {
             employee.SpecialEffects.Add("Reduces the Movement Speed of the target by 30% for 3 seconds");
         }

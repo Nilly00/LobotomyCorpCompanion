@@ -10,23 +10,25 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Singing()
         {
-            name = "Singing Machine";
-            derivedName = "Harmony";
-            riskLevel = RiskLevel.HE;
+            Name = "Singing Machine";
+            DerivedName = "Harmony";
+            RiskLevel = RiskLevel.HE;
 
-            weapon = new EgoWeapon(derivedName, 40, 2, [2, 0, 0, 0, 2], DamageType.WHITE, WeaponRange.Long, riskLevel, 30, 50, AttackSpeed.VerySlow);
+            Weapon = new EgoWeapon(DerivedName, 40, 2, [2, 0, 0, 0, 2], DamageType.WHITE, RiskLevel, 30, 50, 15 ,5);
 
-            gift = new EgoGift(derivedName, Slot.Cheek, [8,-4, 0, 0, 0, 0]);
+            Gift = new EgoGift(DerivedName, Slot.Cheek, new SecondaryStats(HP:8,SP:-4));
         }
 
-        public override void WeaponEffect(Employee employee)
+        internal override void WeaponEffect(Employee employee)
         {
             employee.SpecialEffects.Add("When above 10% HP consume 5% HP twice for +30% damage");
+            employee.conditionalBoni.damagePercent *= 1.3;
         }
 
-        public override void GiftEffect(Employee employee)
+        internal override void GiftEffect(Employee employee)
         {
             employee.SpecialEffects.Add("Upon taking WHITE damage, recover 20% of the damage as SP and Attack Speed +10");
+            employee.conditionalBoni.secondaryStats.AS += 10;
         }
     }
 }

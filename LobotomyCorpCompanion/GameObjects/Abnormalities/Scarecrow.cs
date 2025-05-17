@@ -10,13 +10,13 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Scarecrow()
         {
-            name = "Scarecrow Searching for Wisdom";
-            derivedName = "Harvest";
-            riskLevel = RiskLevel.HE;
+            Name = "Scarecrow Searching for Wisdom";
+            DerivedName = "Harvest";
+            RiskLevel = RiskLevel.HE;
 
-            weapon = new EgoWeapon(derivedName, 45, 3, [0, 0, 0, 0, 0], DamageType.BLACK, WeaponRange.Medium, riskLevel, 6,12, AttackSpeed.Fast);
+            Weapon = new EgoWeapon(DerivedName, 45, 3, [0, 0, 0, 0, 0], DamageType.BLACK, RiskLevel, 6,12, 4, 1.5);
 
-            suit = new EgoSuit(derivedName, 35, 2, [0, 2, 0, 0, 0], riskLevel, [0.6, 0.8, 1.3, 1.5]);
+            Suit = new EgoSuit(DerivedName, 35, 2, [0, 2, 0, 0, 0], RiskLevel, [0.6, 0.8, 1.3, 1.5]);
         }
     }
 }

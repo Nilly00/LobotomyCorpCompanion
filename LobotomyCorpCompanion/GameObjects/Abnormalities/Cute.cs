@@ -10,18 +10,18 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Cute()
         {
-            name = "Ppodae";
-            derivedName = "SO CUTE!!!";
-            riskLevel = RiskLevel.TETH;
+            Name = "Ppodae";
+            DerivedName = "SO CUTE!!!";
+            RiskLevel = RiskLevel.TETH;
 
-            weapon = new EgoWeapon(derivedName, 25, 2, [0, 0, 0, 0, 0], DamageType.RED, WeaponRange.VeryShort, riskLevel, 4, 6, AttackSpeed.Normal);
+            Weapon = new EgoWeapon(DerivedName, 25, 2, [0, 0, 0, 0, 0], DamageType.RED, RiskLevel, 4, 6, 2, 2.0);
 
-            suit = new EgoSuit(derivedName, 20, 3, [0, 0, 0, 0, 0], riskLevel, [0.8, 1.2, 0.8, 0.0]);
+            Suit = new EgoSuit(DerivedName, 20, 3, [0, 0, 0, 0, 0], RiskLevel, [0.8, 1.2, 0.8, 0.0]);
 
-            gift = new EgoGift(derivedName, Slot.Hat, [4, 0, 2, 2, 0, 0]);
+            Gift = new EgoGift(DerivedName, Slot.Hat, new SecondaryStats(HP:4,SR:2,WS:2));
         }
 
-        public override void WeaponEffect(Employee employee)
+        internal override void WeaponEffect(Employee employee)
         {
             employee.SpecialEffects.Add("Dual Weapon");
         }

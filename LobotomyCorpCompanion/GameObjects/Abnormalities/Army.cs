@@ -10,28 +10,27 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Army()
         {
-            name = "Army in Black";
-            derivedName = "Pink";
-            riskLevel = RiskLevel.ALEPH;
+            Name = "Army in Black";
+            DerivedName = "Pink";
+            RiskLevel = RiskLevel.ALEPH;
 
-            weapon = new EgoWeapon(derivedName,222, 1, [0, 5, 0, 0, 5], DamageType.WHITE, WeaponRange.VeryLong, riskLevel,20,24, AttackSpeed.Normal);
+            Weapon = new EgoWeapon(DerivedName,222, 1, [0, 5, 0, 0, 5], DamageType.WHITE, RiskLevel,20,24, 1, 1.0);
 
-            suit = new EgoSuit(derivedName,120, 1, [5, 0, 0, 0, 5], riskLevel, [0.5, 0.3, 0.4, 1.0]);
+            Suit = new EgoSuit(DerivedName,120, 1, [5, 0, 0, 0, 5], RiskLevel, [0.5, 0.3, 0.4, 1.0]);
 
-            gift = new EgoGift(derivedName, Slot.Helmet, [0, 0, 0, 0, 5, 5]);
+            Gift = new EgoGift(DerivedName, Slot.Helmet, new SecondaryStats(AS:5, MS:5));
         }
 
-        public override void WeaponEffect(Employee employee)
+        internal override void WeaponEffect(Employee employee)
         {
             employee.SpecialEffects.Add("Requires 2 seconds of setup time before commencing attack.");
         }
 
-        public override void GiftEffect(Employee employee)
+        internal override void GiftEffect(Employee employee)
         {
             if (employee.weapon == this)
             {
-                //todo properly implement damage boost
-                employee.SpecialEffects.Add("+15% Damage");
+                employee.permanentBoni.damagePercent *= 1.15;
             }
         }
     }

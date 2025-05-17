@@ -10,18 +10,18 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Luna()
         {
-            name = "Il Pianto della Luna";
-            derivedName = "Moonlight";
-            riskLevel = RiskLevel.WAW;
+            Name = "Il Pianto della Luna";
+            DerivedName = "Moonlight";
+            RiskLevel = RiskLevel.WAW;
 
-            weapon = new EgoWeapon(derivedName,70, 1, [3, 0, 0, 0, 0], DamageType.WHITE, WeaponRange.Short, riskLevel, 8,10, AttackSpeed.Fast);
+            Weapon = new EgoWeapon(DerivedName,70, 1, [3, 0, 0, 0, 0], DamageType.WHITE, RiskLevel, 8,10, 1, 1.0);
 
-            suit = new EgoSuit(derivedName,60, 1, [0, 0, 3, 0, 0], riskLevel, [0.8, 0.4, 0.7, 2.0]);
+            Suit = new EgoSuit(DerivedName,60, 1, [0, 0, 3, 0, 0], RiskLevel, [0.8, 0.4, 0.7, 2.0]);
 
-            gift = new EgoGift(derivedName, Slot.Brooch, [1, 1, 1, 1, 1, 1]);
+            Gift = new EgoGift(DerivedName, Slot.Brooch, new SecondaryStats(1, 1, 1, 1, 1, 1));
         }
 
-        public override void WeaponEffect(Employee employee)
+        internal override void WeaponEffect(Employee employee)
         {
             employee.SpecialEffects.Add("Special Attack granting BLACK shields to employees in the room");
         }

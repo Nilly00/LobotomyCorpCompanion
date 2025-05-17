@@ -10,28 +10,28 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Prince()
         {
-            name = "The Little Prince";
-            derivedName = "Spore";
-            riskLevel = RiskLevel.WAW;
+            Name = "The Little Prince";
+            DerivedName = "Spore";
+            RiskLevel = RiskLevel.WAW;
 
-            weapon = new EgoWeapon(derivedName,50, 3, [0, 0, 2, 0, 2], DamageType.WHITE, WeaponRange.Medium, riskLevel, 8,16, AttackSpeed.Fast);
+            Weapon = new EgoWeapon(DerivedName,50, 3, [0, 0, 2, 0, 2], DamageType.WHITE, RiskLevel, 8,16, 1, 1.0);
 
-            suit = new EgoSuit(derivedName,50, 3, [0, 2, 0, 0, 2], riskLevel, [0.8, 0.6, 1.2, 1.5]);
+            Suit = new EgoSuit(DerivedName,50, 3, [0, 2, 0, 0, 2], RiskLevel, [0.8, 0.6, 1.2, 1.5]);
 
-            gift = new EgoGift(derivedName, Slot.Hand_2, [0, 5, 2, 2, 0, 0]);
+            Gift = new EgoGift(DerivedName, Slot.Hand_2, new SecondaryStats(SP:5,SR:2,WS:2));
         }
 
-        public override void WeaponEffect(Employee employee)
+        internal override void WeaponEffect(Employee employee)
         {
             employee.SpecialEffects.Add("25% chance to make the target more vulnerable to WHITE damage");
         }
 
-        public override void SuitEffect(Employee employee)
+        internal override void SuitEffect(Employee employee)
         {
             employee.SpecialEffects.Add("");
         }
 
-        public override void GiftEffect(Employee employee)
+        internal override void GiftEffect(Employee employee)
         {
             employee.SpecialEffects.Add("");
         }

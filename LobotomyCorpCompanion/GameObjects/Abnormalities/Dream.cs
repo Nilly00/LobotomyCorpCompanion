@@ -10,15 +10,15 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Dream()
         {
-            name = "Void Dream";
-            derivedName = "Engulfing Dream";
-            riskLevel = RiskLevel.TETH;
+            Name = "Void Dream";
+            DerivedName = "Engulfing Dream";
+            RiskLevel = RiskLevel.TETH;
 
-            weapon = new EgoWeapon(derivedName, 25, 2, [0, 0, 0, 0, 0], DamageType.WHITE, WeaponRange.Medium, riskLevel, 1, 2, AttackSpeed.VeryFast);
+            Weapon = new EgoWeapon(DerivedName, 25, 2, [0, 0, 0, 0, 0], DamageType.WHITE,RiskLevel, 1, 2, 8, 1.0);
 
-            suit = new EgoSuit(derivedName, 25, 2, [0, 0, 0, 0, 0], riskLevel, [1.2, 0.8, 0.7, 2.0]);
+            Suit = new EgoSuit(DerivedName, 25, 2, [0, 0, 0, 0, 0], RiskLevel, [1.2, 0.8, 0.7, 2.0]);
 
-            gift = new EgoGift(derivedName, Slot.Hat, [0, 4, 0, 0, 0, 0]);
+            Gift = new EgoGift(DerivedName, Slot.Hat, new SecondaryStats(SP:4));
         }
     }
 }

@@ -10,18 +10,18 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Butterflies()
         {
-            name = "Funeral of the Dead Butterflies";
-            derivedName = "Solemn Lament";
-            riskLevel = RiskLevel.HE;
+            Name = "Funeral of the Dead Butterflies";
+            DerivedName = "Solemn Lament";
+            RiskLevel = RiskLevel.HE;
 
-            weapon = new EgoWeapon(derivedName, 50, 1, [0, 0, 0, 3, 0], DamageType.BLACK_WHITE, WeaponRange.Long, riskLevel, 2, 2, AttackSpeed.VeryFast);
+            Weapon = new EgoWeapon(DerivedName, 50, 1, [0, 0, 0, 3, 0], DamageType.BLACK_WHITE, RiskLevel, 2, 2, 10, 0.5);
 
-            suit = new EgoSuit(derivedName, 45, 1, [0, 0, 0, 3, 0], riskLevel, [1.2, 0.8, 0.5, 1.5]);
+            Suit = new EgoSuit(DerivedName, 45, 1, [0, 0, 0, 3, 0], RiskLevel, [1.2, 0.8, 0.5, 1.5]);
 
-            gift = new EgoGift(derivedName, Slot.Right_back, [1, 1, 1, 1, 1, 1]);
+            Gift = new EgoGift(DerivedName, Slot.Right_back, new SecondaryStats(1, 1, 1, 1, 1, 1));
         }
 
-        public override void WeaponEffect(Employee employee)
+        internal override void WeaponEffect(Employee employee)
         {
             employee.SpecialEffects.Add("Dual Weapon");
         }

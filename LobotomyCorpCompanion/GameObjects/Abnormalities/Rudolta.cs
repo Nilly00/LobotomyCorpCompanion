@@ -10,20 +10,15 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     {
         public Rudolta()
         {
-            name = "Rudolta of the Sleigh";
-            derivedName = "Christmas";
-            riskLevel = RiskLevel.HE;
+            Name = "Rudolta of the Sleigh";
+            DerivedName = "Christmas";
+            RiskLevel = RiskLevel.HE;
 
-            weapon = new EgoWeapon(derivedName, 35, 3, [0, 0, 0, 0, 0], DamageType.WHITE, WeaponRange.Short, riskLevel, 11, 13, AttackSpeed.Normal);
+            Weapon = new EgoWeapon(DerivedName, 35, 3, [0, 0, 0, 0, 0], DamageType.WHITE, RiskLevel, 11, 13, 1, 1.0);
 
-            suit = new EgoSuit(derivedName, 40, 3, [2, 0, 0, 0, 0], riskLevel, [0.8, 0.6, 1.3, 1.5]);
+            Suit = new EgoSuit(DerivedName, 40, 3, [2, 0, 0, 0, 0], RiskLevel, [0.8, 0.6, 1.3, 1.5]);
 
-            gift = new EgoGift(derivedName, Slot.Hat, [-4, 8, 0, 0, 0, 0]);
-        }
-
-        public override void GiftEffect(Employee employee)
-        {
-            employee.SpecialEffects.Add("");
+            Gift = new EgoGift(DerivedName, Slot.Hat, new SecondaryStats(HP:-4,SP:8));
         }
     }
 }
