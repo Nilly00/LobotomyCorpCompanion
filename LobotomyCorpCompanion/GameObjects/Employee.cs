@@ -1,31 +1,20 @@
-﻿using System;
-using System.Collections.Frozen;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
-using LobotomyCorpCompanion.GameObjects;
-using LobotomyCorpCompanion.GameObjects.Abnormalities;
-using static System.Net.Mime.MediaTypeNames;
-
-namespace LobotomyCorpCompanion.GameObjects
+﻿namespace LobotomyCorpCompanion.GameObjects
 {
-    internal struct PrimaryStats(int? fortitude = null, int? prudence = null, int? temperance = null, int? justice = null)
+    internal struct PrimaryStats(int fortitude = 0, int prudence = 0, int temperance = 0, int justice = 0)
     {
-        internal int? Fortitude { get; set; } = fortitude;
-        internal int? Prudence { get; set; } = prudence;
-        internal int? Temperance { get; set; } = temperance;
-        internal int? Justice { get; set; } = justice;
+        internal int Fortitude  = fortitude;
+        internal int Prudence   = prudence;
+        internal int Temperance = temperance;
+        internal int Justice    = justice;
 
         public static PrimaryStats operator +(PrimaryStats summand1, PrimaryStats summand2)
         {
             return new PrimaryStats
             {
-                Fortitude  = (summand1.Fortitude  ?? 0) + (summand2.Fortitude  ?? 0),
-                Prudence   = (summand1.Prudence   ?? 0) + (summand2.Prudence   ?? 0),
-                Temperance = (summand1.Temperance ?? 0) + (summand2.Temperance ?? 0),
-                Justice    = (summand1.Justice    ?? 0) + (summand2.Justice    ?? 0)
+                Fortitude  = summand1.Fortitude  + summand2.Fortitude,
+                Prudence   = summand1.Prudence   + summand2.Prudence,
+                Temperance = summand1.Temperance + summand2.Temperance,
+                Justice    = summand1.Justice    + summand2.Justice
             };
         }
         public override readonly string ToString() { 
@@ -33,14 +22,14 @@ namespace LobotomyCorpCompanion.GameObjects
         }
 
     }
-    internal struct SecondaryStats(int? HP = null, int? SP = null, int? SR = null, int? WS = null, int? AS = null, int? MS = null)
+    internal struct SecondaryStats(int HP = 0, int SP = 0, int SR = 0, int WS = 0, int AS = 0, int MS = 0)
     {
-        internal int? HP { get; set; } = HP;
-        internal int? SP { get; set; } = SP;
-        internal int? SR { get; set; } = SR;
-        internal int? WS { get; set; } = WS;
-        internal int? AS { get; set; } = AS;
-        internal int? MS { get; set; } = MS;
+        internal int HP = HP;
+        internal int SP = SP;
+        internal int SR = SR;
+        internal int WS = WS;
+        internal int AS = AS;
+        internal int MS = MS;
 
         public static SecondaryStats operator +(SecondaryStats summand1, SecondaryStats summand2)
         {
@@ -55,56 +44,32 @@ namespace LobotomyCorpCompanion.GameObjects
             };
         }
     }
-    internal struct Resistances(float red, float white, float black, float pale)
+    internal struct StatSet()
     {
-        internal float red = red;
-        internal float white = white;
-        internal float black = black;
-        internal float pale = pale;
-    }
-    internal struct StatBoni
-    {
-
         internal PrimaryStats primaryStats = new PrimaryStats();
         internal SecondaryStats secondaryStats = new SecondaryStats();
-        internal int damageFlat = 0;
-        internal double damagePercent = 1;
-        internal double movespeedPercent = 1;
         internal Resistances resistances = new Resistances();
-        internal float[] healing = new float[2];//hp/sp healing
+        internal int damageFlat = 0;
+        internal double damagePercent = 1.0;
+        internal double attackSpeedPercent = 1.0;
+        internal double MovespeedPercent = 1.0;
+        internal double HPHealing = 1.0;
+        internal double SPHealing = 1.0;
 
-        public StatBoni()
-        {
-        }
 
-        public static StatBoni operator +(StatBoni summand1, StatBoni summand2)
-        {
-            return new StatBoni
-            {
-                primaryStats = summand1.primaryStats + summand2.primaryStats,
-                secondaryStats = summand1.secondaryStats + summand2.secondaryStats,
-                damageFlat = summand1.damageFlat + summand2.damageFlat,
-                damagePercent = summand1.damagePercent * summand2.damagePercent,
-                healing = new float[2] { summand1.healing[0] * summand2.healing[0], summand1.healing[1] * summand2.healing[1] },
-            };
-        }
-    }
-    internal struct StatSet
-    {
-        internal PrimaryStats primaryStats;
-        internal SecondaryStats secondaryStats;
-        internal Resistances resistances;
-        internal int damage;
-        internal double attackSpeed;
-        public static StatSet operator +(StatSet set, StatBoni boni)
+        public static StatSet operator +(StatSet set, StatSet boni)
         {
             return new StatSet
             {
-                primaryStats = set.primaryStats + boni.primaryStats,
-                secondaryStats = set.secondaryStats + boni.secondaryStats,
-                damage = (int)Math.Round((set.damage + boni.damageFlat * (1 + boni.damagePercent))),
-
-                attackSpeed = set.attackSpeed,
+                primaryStats =      set.primaryStats        + boni.primaryStats,
+                secondaryStats =    set.secondaryStats      + boni.secondaryStats,
+                resistances =       set.resistances         * boni.resistances,
+                damageFlat =        set.damageFlat          + boni.damageFlat,
+                damagePercent =     set.damagePercent       * boni.damagePercent,
+                attackSpeedPercent= set.attackSpeedPercent  * boni.attackSpeedPercent,
+                MovespeedPercent  = set.MovespeedPercent    * boni.MovespeedPercent,
+                HPHealing =         set.HPHealing           * boni.HPHealing,
+                SPHealing =         set.SPHealing           * boni.SPHealing
             };
         }
 
@@ -181,7 +146,7 @@ namespace LobotomyCorpCompanion.GameObjects
             { "Grand Senior",   new SecondaryStats(4,4,4,4,4,4) },
         }.ToFrozenDictionary();
 
-        internal static StatBoni globalBoni;
+        internal static StatSet globalBonuses;
 
         //saved stats
         private string Name = "BongBong";
@@ -189,45 +154,29 @@ namespace LobotomyCorpCompanion.GameObjects
         private string PrimaryTitle = "Blunt";
         private string SecondaryTitle = "Newbie";
 
-        private Department department = Department.Departments["Bench"];
+        internal Department department = Department.Departments["Bench"];
         internal int daysInService = 0;
 
-        internal Abnormality weapon = Abnormality.Abnormalities["Default"];
-        internal Abnormality suit = Abnormality.Abnormalities["Default"];
-        internal Abnormality?[] gifts = new Abnormality[14];
+        internal EgoWeapon weapon = Standard_Weapon.Instance;
+        internal EgoSuit suit;//todo fix up
+        internal EgoGift[] gifts = new EgoGift[14];
 
         //derived stats
-        internal bool isCaptain;
-        internal int[] ranks;
+        internal int[] ranks = [1,1,1,1,1];
 
-        internal StatBoni permanentBoni = new();
-        internal StatBoni conditionalBoni = new();
-
-        internal StatSet minStats = new();
-        internal StatSet maxStats = new();
+        internal StatSet permanentBoni = new();
+        internal StatSet conditionalBoni = new();
 
         internal List<string> SpecialEffects;
 
-        public Employee(string name, PrimaryStats primaryStats, string primaryTitle, string secondaryTitle, Department department, Abnormality suit, Abnormality weapon, Abnormality?[] gifts)
+        public Employee()
         {
-            Name = name;
-            PrimaryTitle = primaryTitle;
-            SecondaryTitle = secondaryTitle;
-            primaryLevels = primaryStats;
-            this.department = department;
-            this.suit = suit;
-            this.weapon = weapon;
-            this.gifts = gifts;
-            Calculate();
+
         }
 
         public void Calculate()
         {
             CalcRank();
-            CalcBoni();
-            AddSpecialEffects();
-            CalcMinStats();
-            CalcMaxStats();
         }
         public static int StatToRank(int stat)
         {
@@ -253,56 +202,6 @@ namespace LobotomyCorpCompanion.GameObjects
                 points < 12 ? 3 :
                 points < 16 ? 4 :
                               5 ;
-        }
-        private void CalcBoni()
-        {
-            //permanent boni
-
-            //add gift stats
-            for (int i = 0; i < gifts.Length; i++)
-            {
-                if (gifts[i] == null) continue;
-                this.permanentBoni.secondaryStats += gifts[i].Gift.SecondaryStats;
-            }
-            //add title boni
-            this.permanentBoni.secondaryStats += PrimaryTitles[this.PrimaryTitle];
-            this.permanentBoni.secondaryStats += secondaryTitles[this.SecondaryTitle];
-            //add department boni
-            this.department.ServiceBenefits(this);
-
-            //temporary boni
-            this.conditionalBoni += globalBoni;
-
-        }
-        private void AddSpecialEffects()
-        {
-            SpecialEffects.Clear();
-            weapon.WeaponEffect(this);
-            suit.SuitEffect(this);
-            for (int i = 0; i < gifts.Length; i++)
-            {
-                if (gifts[i] == null) continue;
-                gifts[i].GiftEffect(this);
-            }
-        }
-        private void CalcMinStats()
-        {
-            this.minStats.primaryStats = this.primaryLevels;
-            this.minStats.primaryStats += this.permanentBoni.primaryStats;
-
-
-            this.minStats.secondaryStats.HP = this.minStats.primaryStats.Fortitude;
-            this.minStats.secondaryStats.SP = this.minStats.primaryStats.Prudence;
-            this.minStats.secondaryStats.SR = this.minStats.primaryStats.Temperance;
-            this.minStats.secondaryStats.WS = this.minStats.primaryStats.Temperance;
-            this.minStats.secondaryStats.AS = this.minStats.primaryStats.Justice;
-            this.minStats.secondaryStats.MS = this.minStats.primaryStats.Justice;
-            
-            this.minStats.secondaryStats += (SecondaryStats)this.permanentBoni.secondaryStats;
-        }
-        private void CalcMaxStats()
-        {
-            this.maxStats = this.minStats;
         }
     }
 }

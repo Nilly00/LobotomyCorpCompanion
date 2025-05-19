@@ -1,64 +1,60 @@
-﻿using System;
-using System.Collections.Frozen;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LobotomyCorpCompanion.GameObjects.Departments;
-
-namespace LobotomyCorpCompanion.GameObjects
+﻿namespace LobotomyCorpCompanion.GameObjects
 {
     internal abstract class Department
     {
+        //unchanging
         internal string Name;
         internal int employeeCap = 5;
-        internal List<Employee> employees = new List<Employee>();
         internal int abnormalityCap = 4;
-        internal List<Abnormality>? abnormalities;
-        internal bool enabled = false;
+        //read from array
+        internal bool enabled;
+        //calculated at runtime
+        internal List<Abnormality>? abnormalities = new List<Abnormality>();
+        internal List<Employee>? employees = new List<Employee>();
 
         internal static readonly FrozenDictionary<string, Department> Departments = new Dictionary<string, Department>
         {
-            {"Architecture Team",       new Architecture()  },
-            {"Central Command Team",    new CentralCommand()},
-            {"Control Team",            new Control()       },
-            {"Disciplinary Team",       new Disciplinary()  },
-            {"Extraction Team",         new Extraction()    },
-            {"Information Team",        new Information()   },
-            {"Record Team",             new Record()        },
-            {"Safety Team",             new Safety()        },
-            {"Trainign Team",           new Training()      },
-            {"Welfare Team",            new Welfare()       },
-            {"Bench",                   new Bench()         },
+            {"Architecture Team",       Architecture.Instance           },
+            {"Central Command Team",    CentralCommand.Instance         },
+            {"Control Team",            Control.Instance                },
+            {"Disciplinary Team",       Disciplinary.Instance           },
+            {"Extraction Team",         Extraction.Instance             },
+            {"Information Team",        Information.Instance            },
+            {"Record Team",             Record.Instance                 },
+            {"Safety Team",             Safety.Instance                 },
+            {"Trainign Team",           Department.Training.Instance    },
+            {"Welfare Team",            Welfare.Instance                },
+            {"Bench",                   Bench.Instance                  },
         }.ToFrozenDictionary();
+
+
+        protected Department(
+            string name,
+            int employeeCap = 5,
+            int abnormalityCap = 4,
+            bool enabled = false
+            )
+        {
+            this.Name = name;
+            this.employeeCap = employeeCap;
+            this.abnormalityCap = abnormalityCap;
+            this.enabled = enabled;
+        }
 
         internal virtual void ClerkEffect(){}
 
         internal virtual void ServiceBenefits(Employee employee){}
 
+        //todo
         internal void AddEmployee(Employee employee)
         {
-            if (employees.Count == employeeCap)
-            {
-                throw new Exception("Employee cap reached!");
-            }
-            else
-            {
-
-            }
-
+            
         }
 
+        //todo
         internal void RemoveEmployee(Employee employee)
         {
-            if (employees.Contains(employee))
-            {
-                employees.Remove(employee);
-            }
-            else
-            {
-                throw new Exception("Employee not found!");
-            }
+            //todo
         }
     }
 }

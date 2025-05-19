@@ -1,12 +1,4 @@
-﻿using System;
-using System.Data;
-using System.IO;
-using LobotomyCorpCompanion.GameObjects;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-
-
-/*
+﻿/*
  
 [JsonIgnore]
 over things to be ignored
@@ -46,3 +38,16 @@ class TestClass
     }
 }
 */
+
+struct AbnormalitySave(bool unlocked = false, Department department = Bench.Instance, int researchLevel = 0)
+{
+    internal bool unlocked;
+    internal Department department;
+    internal int researchLevel;
+}
+internal static class SaveManagament
+{
+    internal static Dictionary<string, AbnormalitySave> Abnormalities;
+
+
+}

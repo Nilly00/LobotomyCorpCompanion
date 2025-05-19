@@ -1,0 +1,24 @@
+﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
+{
+    internal sealed class Singing_Gift : EgoGift_Cheek
+    {
+        // Singleton instance
+        private static readonly Singing_Gift _instance = new Singing_Gift();
+
+        // Public accessor
+        public static Singing_Gift Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Singing_Gift() : base(
+            name: "Harmony",
+            secondaryStats: new SecondaryStats(HP: 8, SP: -4)
+        )
+        { }
+
+        internal override void Effect(Employee employee)
+        {
+            employee.SpecialEffects.Add("Upon taking WHITE damage, recover 20% of the damage as SP and Attack Speed +10");
+            employee.conditionalBoni.secondaryStats.AS += 10;
+        }
+    }
+}

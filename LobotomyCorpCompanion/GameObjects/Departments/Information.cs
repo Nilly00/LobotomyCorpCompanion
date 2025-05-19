@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LobotomyCorpCompanion.GameObjects.Departments
+﻿namespace LobotomyCorpCompanion.GameObjects.Departments
 {
     internal class Information : Department
     {
@@ -14,9 +8,9 @@ namespace LobotomyCorpCompanion.GameObjects.Departments
             employeeCap = 5;
             employees = new List<Employee>();
             abnormalityCap = 5;
-            abnormalities = new List<Abnormality>();
+            abnormalities = new List<AbnormalityOld>();
         }
-        internal override void ClerkEffect(Employee employee)
+        internal override void ClerkEffect()
         {
             // todo effect
         }

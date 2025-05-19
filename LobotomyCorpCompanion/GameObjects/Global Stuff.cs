@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LobotomyCorpCompanion.GameObjects
+﻿namespace LobotomyCorpCompanion.GameObjects
 {
-    enum DamageType
+    public enum DamageType
     {
         //standard
         RED,
@@ -19,12 +13,27 @@ namespace LobotomyCorpCompanion.GameObjects
         SPECIAL,
     }
 
-    enum RiskLevel
+    public enum RiskLevel
     {
-        ZAYIN,
-        TETH,
-        HE,
-        WAW,
-        ALEPH,
+        ZAYIN   = 0,
+        TETH    = 1,
+        HE      = 2,
+        WAW     = 3,
+        ALEPH   = 4,
+    }
+
+    public static class RiskLevelExtensions
+    {
+        public static double RiskMultiplier(this RiskLevel attacker, RiskLevel defender)
+        {
+            double[,] multiplierTable = {
+            {1.0,   1.0,    1.2,    1.5,    2.0},
+            {0.8,   1.0,    1.0,    1.2,    1.5},
+            {0.7,   0.8,    1.0,    1.9,    1.2},
+            {0.6,   0.7,    0.8,    1.0,    1.0},
+            {0.4,   0.6,    0.7,    0.8,    1.0}
+            };
+            return multiplierTable[(int)defender, (int)attacker];
+        }
     }
 }

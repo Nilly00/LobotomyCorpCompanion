@@ -1,23 +1,58 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LobotomyCorpCompanion.GameObjects
-{    internal class EgoWeapon(string name, int cost, int maxCount, int[] requirements, DamageType type, RiskLevel riskLevel, int damageMin, int damageMax, int range, double attackSpeed)
+﻿namespace LobotomyCorpCompanion.GameObjects
+{    internal abstract class EgoWeapon
     {
+        internal readonly Abnormality origin;
         internal readonly string name;
-        internal readonly int cost = cost;
-        internal int maxCount = maxCount;
+        internal readonly int cost;
+        internal readonly int maxCount;
 
-        internal int[] requirements = requirements; //{Fortitude, Prudence, Temperance, Justice, AgentRank}
+        internal readonly int[] requirements; //{Fortitude, Prudence, Temperance, Justice, AgentRank}
 
-        internal DamageType type = type;
-        internal RiskLevel riskLevel = riskLevel;
-        internal int damageMin = damageMin;
-        internal int damageMax = damageMax;
-        internal int range = range;
-        internal double attackSpeed = attackSpeed;
+        internal readonly DamageType type;
+        internal readonly RiskLevel riskLevel;
+        internal readonly int damageMin;
+        internal readonly int damageMax;
+        internal readonly int range;
+        internal readonly double attackSpeed;
+
+        protected EgoWeapon(
+            Abnormality origin,
+            string name,
+            int cost,
+            int maxCount,
+            int[] requirements,
+            DamageType type,
+            RiskLevel riskLevel,
+            int damageMin,int damageMax,
+            int range,
+            double attackSpeed)
+        {
+            this.origin = origin;
+            this.name = name;
+            this.cost = cost;
+            this.maxCount = maxCount;
+            this.requirements = requirements;
+            this.type = type;
+            this.riskLevel = riskLevel;
+            this.damageMin = damageMin;
+            this.damageMax = damageMax;
+            this.range = range;
+            this.attackSpeed = attackSpeed;
+        }
+
+        internal virtual bool CheckRequirements(Employee employee) {
+            
+            //todo implement default check
+            return false;
+        }
+        internal virtual void Effect(Employee employee){}
+        internal virtual void WeaponCalculate()
+        {
+            //todo write default weapon calculation
+        }
+        internal virtual void DualWeapon()
+        {
+            //todo write dual weapon calculation
+        }
     }
 }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LobotomyCorpCompanion.GameObjects.Departments
+﻿namespace LobotomyCorpCompanion.GameObjects.Departments
 {
     internal class Architecture : Department
     {
@@ -13,7 +7,7 @@ namespace LobotomyCorpCompanion.GameObjects.Departments
             Name = "Architecture Team";
             employees = new List<Employee>();
             abnormalityCap = 8;
-            abnormalities = new List<Abnormality>();
+            abnormalities = new List<AbnormalityOld>();
         }
         internal override void ClerkEffect(){}
         internal override void ServiceBenefits(Employee employee)

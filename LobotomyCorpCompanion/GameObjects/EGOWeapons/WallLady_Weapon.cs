@@ -1,0 +1,34 @@
+﻿namespace LobotomyCorpCompanion.GameObjects.EGOWeapons
+{
+    internal sealed class WallLady_Weapon : EgoWeapon
+    {
+        // Singleton instance
+        private static readonly WallLady_Weapon _instance = new WallLady_Weapon();
+
+        // Public accessor
+        public static WallLady_Weapon Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private WallLady_Weapon() : base(
+            name: "Screaming Wedge",
+            cost: 35,
+            maxCount: 2,
+            requirements: new int[] { 0, 2, 0, 0, 0 },
+            type: DamageType.WHITE,
+            riskLevel: RiskLevel.HE,
+            damageMin: 7,
+            damageMax: 14,
+            range: 20,
+            attackSpeed: 2.0)
+        {
+        }
+
+        internal override void Effect(Employee employee)
+        {
+            if (employee.ranks[0] < 3 && employee.ranks[1] < 3)
+            {
+                employee.SpecialEffects.Add("50% chance to take 5 SP damage with each attack");
+            }
+        }
+    }
+}
