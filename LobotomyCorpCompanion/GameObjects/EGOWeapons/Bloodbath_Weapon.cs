@@ -10,6 +10,8 @@
 
         // Private constructor to prevent external instantiation
         private Bloodbath_Weapon() : base(
+            origin: Bloodbath.Instance,
+            unlockLevel: 3,
             name: "Wrist Cutter",
             cost: 25,
             maxCount: 2,
@@ -21,16 +23,6 @@
             range: 2,
             attackSpeed: 0.7)
         {
-        }
-
-        internal override void Effect(Employee employee)
-        {
-            //todo special effect
-        }
-
-        internal override void WeaponCalculate()
-        {
-            //todo special calculation
         }
     }
 }

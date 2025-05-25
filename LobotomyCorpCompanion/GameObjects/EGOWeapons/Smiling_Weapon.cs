@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Smiling_Weapon() : base(
+            origin: Smiling.Instance,
             name: "Smile",
+            unlockLevel: 4,
             cost: 222,
             maxCount: 1,
             requirements: new int[] { 0, 0, 5, 0, 5 },
@@ -26,8 +28,8 @@
         internal override void Effect(Employee employee)
         {
             employee.SpecialEffects.Add("Each time an attack target dies, Fortitude and Justice will rise by 3 up to 30");
-            employee.conditionalBoni.primaryStats.Fortitude += 30;
-            employee.conditionalBoni.primaryStats.Justice += 30;
+            employee.conditionalBonuses.primaryStats.Fortitude += 30;
+            employee.conditionalBonuses.primaryStats.Justice += 30;
             employee.SpecialEffects.Add("Decrease the target’s Movement Speed on normal attack");
         }
 

@@ -1,14 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Bald : AbnormalityOld
+    internal class Bald : Abnormality
     {
-        public Bald()
-        {
-            Name = "You're Bald...";
-            DerivedName = "Tough";
-            RiskLevel = RiskLevel.ZAYIN;
+        // Singleton instance
+        private static readonly Bald _instance = new Bald();
 
-            //Gift = new EgoGift(DerivedName, Slot.Eye, new SecondaryStats(AS:2, MS:2));
+        // Public accessor
+        public static Bald Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Bald() : base(
+            name: "You're Bald...",
+            riskLevel: RiskLevel.ZAYIN,
+            weapon: Bald_Weapon.Instance,
+            suit: Bald_Suit.Instance,
+            gift: Bald_Gift.Instance
+            )
+        {
         }
     }
 }

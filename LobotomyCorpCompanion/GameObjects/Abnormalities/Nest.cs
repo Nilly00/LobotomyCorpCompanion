@@ -1,14 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Nest : AbnormalityOld
+    internal class Nest : Abnormality
     {
-        public Nest()
-        {
-            Name = "The Naked Nest";
-            DerivedName = "Exuviae";
-            RiskLevel = RiskLevel.WAW;
+        // Singleton instance
+        private static readonly Nest _instance = new Nest();
 
-            //Gift = new EgoGift(DerivedName, Slot.Hand_2, new SecondaryStats(HP:5,SP:2));
+        // Public accessor
+        public static Nest Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Nest() : base(
+            name: "The Naked Nest",
+            riskLevel: RiskLevel.WAW,
+            weapon: Nest_Weapon.Instance,
+            suit: Nest_Suit.Instance,
+            gift: Nest_Gift.Instance
+            )
+        {
         }
     }
 }

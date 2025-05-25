@@ -12,6 +12,7 @@
         private Scorched_Suit() : base(
             origin: Scorched.Instance,
             name: "Fourth Match Flame",
+            unlockLevel: 3,
             cost: 25,
             maxCount: 2,
             requirements: new int[] { 0, 0, 0, 0, 0 },

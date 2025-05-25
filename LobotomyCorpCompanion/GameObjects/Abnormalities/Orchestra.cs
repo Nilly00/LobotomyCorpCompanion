@@ -1,23 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Orchestra : AbnormalityOld
+    internal class Orchestra : Abnormality
     {
-        public Orchestra()
-        {
-            Name = "The Silent Orchestra";
-            DerivedName = "Da Capo";
-            RiskLevel = RiskLevel.ALEPH;
+        // Singleton instance
+        private static readonly Orchestra _instance = new Orchestra();
 
-            //Gift = new EgoGift(DerivedName, Slot.Eye, new SecondaryStats(SR:4,WS:4));
+        // Public accessor
+        public static Orchestra Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Orchestra() : base(
+            name: "The Silent Orchestra",
+            riskLevel: RiskLevel.ALEPH,
+            weapon: Orchestra_Weapon.Instance,
+            suit: Orchestra_Suit.Instance,
+            gift: Orchestra_Gift.Instance
+            )
+        {
         }
-
-        /*internal override void GiftEffect(Employee employee)
-        {
-            if(employee.suit == this)
-            {
-                //todo
-                employee.SpecialEffects.Add("WHITE resist becomes -1");
-            }
-        }*/
     }
 }

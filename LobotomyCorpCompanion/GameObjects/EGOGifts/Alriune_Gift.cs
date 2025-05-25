@@ -12,6 +12,7 @@
         private Alriune_Gift() : base(
             origin: Alriune.Instance,
             name: "Faint Aroma",
+            unlockLevel: 2,
             secondaryStats: new SecondaryStats(SP: 4, WS: 2)
         )
         { }

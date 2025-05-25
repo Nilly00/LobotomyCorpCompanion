@@ -1,18 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Galaxy : AbnormalityOld
+    internal class Galaxy : Abnormality
     {
-        public Galaxy()
-        {
-            Name = "Child of the Galaxy";
-            DerivedName = "Our Galaxy";
-            RiskLevel = RiskLevel.HE;
-            //Gift = new EgoGift(DerivedName, Slot.Neckwear, new SecondaryStats(SR:3,WS:3));
-        }
+        // Singleton instance
+        private static readonly Galaxy _instance = new Galaxy();
 
-        internal override void GiftEffect(Employee employee)
+        // Public accessor
+        public static Galaxy Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Galaxy() : base(
+            name: "Child of the Galaxy",
+            riskLevel: RiskLevel.HE,
+            weapon: Galaxy_Weapon.Instance,
+            suit: Galaxy_Suit.Instance,
+            gift: Galaxy_Gift.Instance
+            )
         {
-            employee.SpecialEffects.Add("Periodically recover a small amount of HP");
         }
     }
 }

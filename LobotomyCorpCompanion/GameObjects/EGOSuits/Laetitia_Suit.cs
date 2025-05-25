@@ -12,6 +12,7 @@
         private Laetitia_Suit() : base(
             origin: Laetitia.Instance,
             name: "Laetitia",
+            unlockLevel: 4,
             cost: 45,
             maxCount: 1,
             requirements: new int[] { 0, 0, 0, 0, 3 },

@@ -1,14 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Yin : AbnormalityOld
+    internal class Yin : Abnormality
     {
-        public Yin()
-        {
-            Name = "Yin";
-            DerivedName = "Discord";
-            RiskLevel = RiskLevel.WAW;
+        // Singleton instance
+        private static readonly Yin _instance = new Yin();
 
-            //Gift = new EgoGift(DerivedName, Slot.Helmet, new SecondaryStats(HP:-10,SP:-10,AS:20,MS:20));
+        // Public accessor
+        public static Yin Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Yin() : base(
+            name: "Yin",
+            riskLevel: RiskLevel.WAW,
+            weapon: Yin_Weapon.Instance,
+            suit: Yin_Suit.Instance,
+            gift: Yin_Gift.Instance
+            )
+        {
         }
     }
 }

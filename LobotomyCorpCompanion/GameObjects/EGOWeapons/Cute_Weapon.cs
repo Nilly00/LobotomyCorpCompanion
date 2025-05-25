@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Cute_Weapon() : base(
+            origin: Cute.Instance,
             name: "SO CUTE!!!",
+            unlockLevel: 3,
             cost: 25,
             maxCount: 2,
             requirements: new int[] { 0, 0, 0, 0, 0 },

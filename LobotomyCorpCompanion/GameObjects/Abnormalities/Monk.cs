@@ -1,14 +1,24 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Monk : AbnormalityOld
+    internal class Monk : Abnormality
     {
-        public Monk()
-        {
-            Name = "Clouded Monk";
-            DerivedName = "Amita";
-            RiskLevel = RiskLevel.WAW;
+        // Singleton instance
+        private static readonly Monk _instance = new Monk();
 
-            //Gift = new EgoGift(DerivedName, Slot.Hand_1, new SecondaryStats(HP:10,SP:-4));
+        // Public accessor
+        public static Monk Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Monk() : base(
+            name: "Clouded Monk",
+            riskLevel: RiskLevel.WAW,
+            weapon: Monk_Weapon.Instance,
+            suit: Monk_Suit.Instance,
+            gift: Monk_Gift.Instance
+
+            //todo monk ignores suit level when dealing damage. Implement special calculation
+            )
+        {
         }
     }
 }

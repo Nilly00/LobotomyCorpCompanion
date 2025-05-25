@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Laetitia_Weapon() : base(
+            origin: Laetitia.Instance,
             name: "Laetitia",
+            unlockLevel: 4,
             cost: 40,
             maxCount: 2,
             requirements: new int[] { 0, 2, 0, 0, 0 },

@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Orchestra_Weapon() : base(
+            origin: Orchestra.Instance,
             name: "Da Capo",
+            unlockLevel: 4,
             cost: 222,
             maxCount: 1,
             requirements: new int[] { 0, 5, 0, 0, 5 },

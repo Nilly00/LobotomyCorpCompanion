@@ -12,6 +12,7 @@
         private Hatred_Suit() : base(
             origin: Hatred.Instance,
             name: "In the Name of Love and Hate",
+            unlockLevel: 4,
             cost: 60,
             maxCount: 1,
             requirements: new int[] { 0, 3, 3, 0, 4 },

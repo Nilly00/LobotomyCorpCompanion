@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Scarecrow_Weapon() : base(
+            origin: Scarecrow.Instance,
             name: "Harvest",
+            unlockLevel: 3,
             cost: 45,
             maxCount: 3,
             requirements: new int[] { 0, 0, 0, 0, 0 },

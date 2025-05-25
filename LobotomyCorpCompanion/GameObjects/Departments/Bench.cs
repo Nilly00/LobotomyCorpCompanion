@@ -1,14 +1,16 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Departments
 {
-    internal class Bench : Department
+    internal sealed class Bench : Department
     {
-        public Bench()
-        {
-            Name = "Bench";
-            employees = new List<Employee>();
-        }
+        // Singleton instance
+        private static readonly Bench _instance = new Bench();
 
-        internal override void ClerkEffect(){}
-        internal override void ServiceBenefits(Employee employee){}
+        // Public accessor
+        public static Bench Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Bench() : base(name: "Bench",employeeCap: -1,abnormalityCap: -1){ }
+
+
     }
 }

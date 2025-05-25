@@ -1,14 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Wolf : AbnormalityOld
+    internal class Wolf : Abnormality
     {
-        public Wolf()
-        {
-            Name = "The Big and Will be Bad Wolf";
-            DerivedName = "Cobalt Scar";
-            RiskLevel = RiskLevel.WAW;
+        // Singleton instance
+        private static readonly Wolf _instance = new Wolf();
 
-            //Gift = new EgoGift(DerivedName, Slot.Face, new SecondaryStats(HP:4,AS:2,MS:2));
+        // Public accessor
+        public static Wolf Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Wolf() : base(
+            name: "The Big and Will be Bad Wolf",
+            riskLevel: RiskLevel.WAW,
+            weapon: Wolf_Weapon.Instance,
+            suit: Wolf_Suit.Instance,
+            gift: Wolf_Gift.Instance
+            )
+        {
         }
     }
 }

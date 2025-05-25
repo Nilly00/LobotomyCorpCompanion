@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Galaxy_Weapon() : base(
+            origin: Galaxy.Instance,
             name: "Our Galaxy",
+            unlockLevel: 4,
             cost: 45,
             maxCount: 1,
             requirements: new int[] { 0, 2, 0, 0, 2 },

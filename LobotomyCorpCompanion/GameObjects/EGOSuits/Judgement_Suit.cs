@@ -12,6 +12,7 @@
         private Judgement_Suit() : base(
             origin: Judgement.Instance,
             name: "Justitia",
+            unlockLevel: 4,
             cost: 120,
             maxCount: 1,
             requirements: new int[] { 0, 0, 0, 5, 5 },

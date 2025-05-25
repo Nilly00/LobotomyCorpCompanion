@@ -12,6 +12,7 @@
         private Greed_Suit() : base(
             origin: Greed.Instance,
             name: "Gold Rush",
+            unlockLevel: 3,
             cost: 60,
             maxCount: 1,
             requirements: new int[] { 0, 0, 4, 0, 4 },

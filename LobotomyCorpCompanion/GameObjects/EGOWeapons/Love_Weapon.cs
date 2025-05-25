@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Love_Weapon() : base(
+            origin: Love.Instance,
             name: "Adoration",
+            unlockLevel: 4,
             cost: 222,
             maxCount: 1,
             requirements: new int[] { 0, 0, 5, 0, 5 },

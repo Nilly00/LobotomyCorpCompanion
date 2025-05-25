@@ -12,6 +12,7 @@
         private Default_Suit() : base(
             origin: Default.Instance,
             name: "Standard Uniform",
+            unlockLevel: 0,
             cost: -1,
             maxCount: -1,
             requirements: new int[] { 0, 0, 0, 0, 0 },

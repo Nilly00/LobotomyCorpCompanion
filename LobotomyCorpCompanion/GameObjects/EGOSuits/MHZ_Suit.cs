@@ -12,6 +12,7 @@
         private MHZ_Suit() : base(
             origin: MHZ.Instance,
             name: "Noise",
+            unlockLevel: 2,
             cost: 30,
             maxCount: 1,
             requirements: new int[] { 0, 2, 0, 0, 0 },

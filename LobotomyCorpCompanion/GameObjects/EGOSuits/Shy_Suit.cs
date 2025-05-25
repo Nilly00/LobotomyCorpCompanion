@@ -12,6 +12,7 @@
         private Shy_Suit() : base(
             origin: Shy.Instance,
             name: "Today's Expression",
+            unlockLevel: 4,
             cost: 30,
             maxCount: 1,
             requirements: new int[] { 2, 0, 0, 0, 0 },

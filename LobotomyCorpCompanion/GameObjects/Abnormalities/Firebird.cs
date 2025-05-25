@@ -1,14 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Firebird : AbnormalityOld
+    internal class Firebird : Abnormality
     {
-        public Firebird()
-        {
-            Name = "The Firebird";
-            DerivedName = "Feather of Honor";
-            RiskLevel = RiskLevel.WAW;
+        // Singleton instance
+        private static readonly Firebird _instance = new Firebird();
 
-            //Gift = new EgoGift(DerivedName, Slot.Hat, new SecondaryStats(SP:2,AS:4,MS:4));
+        // Public accessor
+        public static Firebird Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Firebird() : base(
+            name: "The Firebird",
+            riskLevel: RiskLevel.WAW,
+            weapon: Firebird_Weapon.Instance,
+            suit: Firebird_Suit.Instance,
+            gift: Firebird_Gift.Instance
+            )
+        {
         }
     }
 }

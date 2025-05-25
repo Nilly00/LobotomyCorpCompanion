@@ -12,6 +12,7 @@
         private Wolf_Suit() : base(
             origin: Wolf.Instance,
             name: "Cobalt Scar",
+            unlockLevel: 4,
             cost: 60,
             maxCount: 1,
             requirements: new int[] { 4, 0, 0, 0, 4 },

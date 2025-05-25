@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private OneSin_Weapon() : base(
+            origin: OneSin.Instance,
             name: "Penitence",
+            unlockLevel: 3,
             cost: 15,
             maxCount: 5,
             requirements: new int[] { 0, 0, 0, 0, 0 },

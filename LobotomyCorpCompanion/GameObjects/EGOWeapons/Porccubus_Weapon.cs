@@ -1,16 +1,18 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOWeapons
 {
-    internal sealed class Porcubus_Weapon : EgoWeapon
+    internal sealed class Porccubus_Weapon : EgoWeapon
     {
         // Singleton instance
-        private static readonly Porcubus_Weapon _instance = new Porcubus_Weapon();
+        private static readonly Porccubus_Weapon _instance = new Porccubus_Weapon();
 
         // Public accessor
-        public static Porcubus_Weapon Instance => _instance;
+        public static Porccubus_Weapon Instance => _instance;
 
         // Private constructor to prevent external instantiation
-        private Porcubus_Weapon() : base(
+        private Porccubus_Weapon() : base(
+            origin: Porccubus.Instance,
             name: "Pleasure",
+            unlockLevel: 4,
             cost: 45,
             maxCount: 1,
             requirements: new int[] { 0, 0, 3, 0, 0 },

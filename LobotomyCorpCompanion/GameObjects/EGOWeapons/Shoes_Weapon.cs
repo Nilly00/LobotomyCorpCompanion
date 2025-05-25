@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Shoes_Weapon() : base(
+            origin: Shoes.Instance,
             name: "Sanguine Desire",
+            unlockLevel: 3,
             cost: 40,
             maxCount: 2,
             requirements: new int[] { 0, 0, 0, 0, 0 },
@@ -27,7 +29,7 @@
         {
             if (employee.ranks[2] > 3)
             {
-                employee.permanentBoni.damageFlat += 4;
+                employee.permanentBonuses.damageFlat += 4;
                 employee.SpecialEffects.Add("take SP damage equal to 4% of Max. SP on each attack");
             }
         }

@@ -16,7 +16,9 @@ namespace LobotomyCorpCompanion.GameObjects.EGOWeapons
 
         // Private constructor to prevent external instantiation
         private Apple_Weapon() : base(
+            origin: Apple.Instance, 
             name: "Green Stem",
+            unlockLevel: 4,
             cost: 50,
             maxCount: 3,
             requirements: new int[] { 0, 0, 3, 0, 0 },

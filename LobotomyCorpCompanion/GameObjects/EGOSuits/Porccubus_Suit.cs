@@ -12,6 +12,7 @@
         private Porccubus_Suit() : base(
             origin: Porccubus.Instance,
             name: "Pleasure",
+            unlockLevel: 3,
             cost: 30,
             maxCount: 3,
             requirements: new int[] { 0, 0, 0, 0, 0 },

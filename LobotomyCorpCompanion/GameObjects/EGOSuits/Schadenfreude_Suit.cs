@@ -12,6 +12,7 @@
         private Schadenfreude_Suit() : base(
             origin: Schadenfreude.Instance,
             name: "Gaze",
+            unlockLevel: 3,
             cost: 30,
             maxCount: 3,
             requirements: new int[] { 0, 0, 0, 0, 0 },
@@ -24,7 +25,7 @@
         internal override void Effect(Employee employee)
         {
             employee.SpecialEffects.Add("JUSTICE and Defense boosted while on screen");
-            employee.conditionalBoni.primaryStats.Justice += 10;
+            employee.conditionalBonuses.primaryStats.Justice += 10;
             //todo figure out how to do this nonesense
         }
     }

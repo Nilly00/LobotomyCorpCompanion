@@ -1,22 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Judgement : AbnormalityOld
+    internal class Judgement : Abnormality
     {
-        public Judgement()
+        // Singleton instance
+        private static readonly Judgement _instance = new Judgement();
+
+        // Public accessor
+        public static Judgement Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Judgement() : base(
+            name: "Judgement Bird",
+            riskLevel: RiskLevel.WAW,
+            weapon: Judgement_Weapon.Instance,
+            suit: Judgement_Suit.Instance,
+            gift: Judgement_Gift.Instance
+            )
         {
-            Name = "Judgement Bird";
-            DerivedName = "Justitia";
-            RiskLevel = RiskLevel.WAW;
-
-            Suit = new EgoSuit(DerivedName, 120, 1, [0, 0, 0, 5, 5], RiskLevel.ALEPH, new Resistances(0.5, 0.5, 0.5, 0.5));
-
-            //Gift = new EgoGift(DerivedName, Slot.Eye, new SecondaryStats(AS:3,MS:3));
-        }
-
-        internal override void GiftEffect(Employee employee)
-        {
-            employee.SpecialEffects.Add("REPRESSION SR +6%");
-            //immune to fire bird's blind
         }
     }
 }

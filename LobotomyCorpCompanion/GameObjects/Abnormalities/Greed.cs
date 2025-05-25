@@ -1,18 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Greed : AbnormalityOld
+    internal class Greed : Abnormality
     {
-        public Greed()
-        {
-            Name = "The King of Greed";
-            DerivedName = "Gold Rush";
-            RiskLevel = RiskLevel.WAW;
-            //Gift = new EgoGift(DerivedName, Slot.Hand_1, new SecondaryStats(HP:6));
-        }
+        // Singleton instance
+        private static readonly Greed _instance = new Greed();
 
-        internal override void GiftEffect(Employee employee)
+        // Public accessor
+        public static Greed Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Greed() : base(
+            name: "The King of Greed",
+            riskLevel: RiskLevel.WAW,
+            weapon: Greed_Weapon.Instance,
+            suit: Greed_Suit.Instance,
+            gift: Greed_Gift.Instance
+            )
         {
-            employee.SpecialEffects.Add("INSTINCT SR +6%");
         }
     }
 }

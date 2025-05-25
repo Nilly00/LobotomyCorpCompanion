@@ -1,16 +1,18 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOWeapons
 {
-    internal sealed class Standard_Weapon : EgoWeapon
+    internal sealed class Default_Weapon : EgoWeapon
     {
         // Singleton instance
-        private static readonly Standard_Weapon _instance = new Standard_Weapon();
+        private static readonly Default_Weapon _instance = new Default_Weapon();
 
         // Public accessor
-        public static Standard_Weapon Instance => _instance;
+        public static Default_Weapon Instance => _instance;
 
         // Private constructor to prevent external instantiation
-        private Standard_Weapon() : base(
+        private Default_Weapon() : base(
+            origin: Default.Instance,
             name: "Standard Riot Stick",
+            unlockLevel: 0,
             cost: -1,
             maxCount: -1,
             requirements: new int[] { 0, 0, 0, 0, 0 },

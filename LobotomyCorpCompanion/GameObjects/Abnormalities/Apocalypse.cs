@@ -1,14 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Apocalypse : AbnormalityOld
+    internal class Apocalypse : Abnormality
     {
-        public Apocalypse()
-        {
-            Name = "Apocalypse Bird";
-            DerivedName = "Twilight";
-            RiskLevel = RiskLevel.ALEPH;
+        // Singleton instance
+        private static readonly Apocalypse _instance = new Apocalypse();
 
-            //Gift = new EgoGift("Through the Dark Twilight", Slot.Right_back, new SecondaryStats(7, 7, 7, 7, 7, 7));
+        // Public accessor
+        public static Apocalypse Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Apocalypse() : base(
+            name: "Apocalypse Bird",
+            riskLevel: RiskLevel.ALEPH,
+            weapon: Apocalypse_Weapon.Instance,
+            suit: Apocalypse_Suit.Instance,
+            gift: Apocalypse_Gift.Instance
+            )
+        {
         }
     }
 }

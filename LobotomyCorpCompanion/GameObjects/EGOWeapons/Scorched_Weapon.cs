@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Scorched_Weapon() : base(
-            name: "Fourth MAtch Flame",
+            origin: Scorched.Instance,
+            name: "Fourth Match Flame",
+            unlockLevel: 4,
             cost: 35,
             maxCount: 1,
             requirements: new int[] { 0, 0, 0, 0, 0 },

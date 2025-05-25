@@ -11,6 +11,7 @@
         // Private constructor to prevent external instantiation
         private Cherry_Suit() : base(
             origin: Cherry.Instance,
+            unlockLevel: 3,
             name: "Cherry Blossoms",
             cost: 30,
             maxCount: 1,

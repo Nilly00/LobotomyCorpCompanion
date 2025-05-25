@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Apple_Gift() : base(
+            origin: Apple.Instance,
             name: "Green Stem",
+            unlockLevel: 2,
             secondaryStats: new SecondaryStats(SP: 6)
         )
         { }
@@ -19,7 +21,7 @@
         {
             if (true) //todo proper weapon check
             {
-                employee.permanentBoni.damageFlat += 5;
+                employee.permanentBonuses.damageFlat += 5;
             }
         }
     }

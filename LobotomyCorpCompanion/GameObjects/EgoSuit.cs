@@ -1,24 +1,42 @@
-﻿namespace LobotomyCorpCompanion.GameObjects
-{
-    internal struct Resistances(double red = 1.0, double white = 1.0, double black = 1.0, double pale = 1.0)
-    {
-        internal double red   = red;
-        internal double white = white;
-        internal double black = black;
-        internal double pale  = pale;
+﻿using System.Runtime.Versioning;
 
-        public static Resistances operator *(Resistances faktor1, Resistances faktor2)
+namespace LobotomyCorpCompanion.GameObjects
+{
+    internal struct Resistances
+    {
+        internal double red;
+        internal double white;
+        internal double black;
+        internal double pale;
+
+        internal Resistances(double Red = 1.0, double White = 1.0, double Black = 1.0, double Pale = 1.0)
+        {
+            red   = Red;
+            white = White;
+            black = Black;
+            pale  = Pale;
+        }
+
+        public Resistances()
+        {
+            red   = 1.0;
+            white = 1.0;
+            black = 1.0;
+            pale  = 1.0;
+        }
+
+        public static Resistances operator *(Resistances factor1, Resistances factor2)
         {
             return new Resistances
             {
-                red   = faktor1.red   * faktor2.red,
-                white = faktor1.white * faktor2.white,
-                black = faktor1.black * faktor2.black,
-                pale  = faktor1.pale  * faktor2.pale
+                red   = factor1.red   * factor2.red,
+                white = factor1.white * factor2.white,
+                black = factor1.black * factor2.black,
+                pale  = factor1.pale  * factor2.pale
             };
         }
 
-        public static Resistances operator +(Resistances resistances, float bonus)
+        public static Resistances operator +(Resistances resistances, double bonus)
         {
             return new Resistances
             {
@@ -28,22 +46,29 @@
                 pale  = resistances.pale  * (1 - bonus)
             };
         }
+
+        public override string ToString()
+        {
+            return $"Red: {red}, White: {white}, Black: {black}, Pale: {pale}";
+        }
     }
     internal abstract class EgoSuit
     {
         internal readonly Abnormality origin;
         internal readonly string name;
+        internal readonly short unlockLevel;
         internal readonly int cost;
         internal readonly int maxCount;
 
         internal readonly int[] requirements; //{Fortitude, Prudence, Temperance, Justice, AgentRank}
 
-        internal readonly RiskLevel riskLeve;
-        Resistances resistances;
+        internal readonly RiskLevel riskLevel;
+        internal readonly Resistances resistances;
 
         protected EgoSuit(
             Abnormality origin,
             string name,
+            short unlockLevel,
             int cost,
             int maxCount,
             int[] requirements,
@@ -52,11 +77,14 @@
         {
             this.origin = origin;
             this.name = name;
+            this.unlockLevel = unlockLevel;
             this.cost = cost;
             this.maxCount = maxCount;
             this.requirements = requirements;
-            this.riskLeve = riskLevel;
+            this.riskLevel = riskLevel;
             this.resistances = resistances;
+
+            //System.Console.WriteLine($"EgoSuit {name} created: {resistances.ToString()}");
         }
 
         internal virtual bool CheckRequirements(Employee employee)

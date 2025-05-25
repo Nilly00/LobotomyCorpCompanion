@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Despair_Gift() : base(
+            origin: Despair.Instance,
             name: "The Sword Sharpened with Tears",
+            unlockLevel: 3,
             secondaryStats: new SecondaryStats(SP: 2, AS: 4, MS: 4)
         )
         { }

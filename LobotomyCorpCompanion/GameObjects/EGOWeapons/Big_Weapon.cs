@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Big_Weapon() : base(
+            origin: Big.Instance,
             name: "Lamp",
+            unlockLevel: 4,
             cost: 70,
             maxCount: 1,
             requirements: new int[] { 3, 3, 0, 0, 0 },
@@ -26,11 +28,6 @@
         internal override void Effect(Employee employee)
         {
             employee.SpecialEffects.Add("25% chance to make the target more vulnerable to BLACK damage");
-        }
-
-        internal override void WeaponCalculate()
-        {
-            //todo special calculation
         }
     }
 }

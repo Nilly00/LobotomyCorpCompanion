@@ -12,6 +12,7 @@
         private Lantern_Suit() : base(
             origin: Lantern.Instance,
             name: "Lantern",
+            unlockLevel: 3,
             cost: 30,
             maxCount: 2,
             requirements: new int[] { 0, 0, 0, 0, 0 },

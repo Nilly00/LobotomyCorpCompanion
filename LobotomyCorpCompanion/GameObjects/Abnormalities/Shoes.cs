@@ -1,24 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Shoes : AbnormalityOld
+    internal class Shoes : Abnormality
     {
-        public Shoes()
-        {
-            Name = "The Red Shoes";
-            DerivedName = "Sanguine Desire";
-            RiskLevel = RiskLevel.HE;
+        // Singleton instance
+        private static readonly Shoes _instance = new Shoes();
 
-            //Gift = new EgoGift(DerivedName, Slot.Mouth_2, new SecondaryStats(HP:4));
+        // Public accessor
+        public static Shoes Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Shoes() : base(
+            name: "The Red Shoes",
+            riskLevel: RiskLevel.HE,
+            weapon: Shoes_Weapon.Instance,
+            suit: Shoes_Suit.Instance,
+            gift: Shoes_Gift.Instance
+            )
+        {
         }
-
-        /*internal override void GiftEffect(Employee employee)
-        {
-            if (employee.weapon == this)
-            {
-                employee.permanentBoni.secondaryStats.SR -= 10;
-                employee.permanentBoni.secondaryStats.WS -= 10;
-                employee.permanentBoni.secondaryStats.AS += 10;
-            }
-        }*/
     }
 }

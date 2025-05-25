@@ -12,6 +12,7 @@
         private Beauty_Suit() : base(
             origin: Beauty.Instance,
             name: "Horn",
+            unlockLevel: 2,
             cost: 30,
             maxCount: 3,
             requirements: new int[] { 0, 0, 0, 0, 0 },

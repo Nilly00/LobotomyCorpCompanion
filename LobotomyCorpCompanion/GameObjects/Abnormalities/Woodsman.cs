@@ -1,12 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Woodsman : AbnormalityOld
+    internal class Woodsman : Abnormality
     {
-        public Woodsman()
+        // Singleton instance
+        private static readonly Woodsman _instance = new Woodsman();
+
+        // Public accessor
+        public static Woodsman Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Woodsman() : base(
+            name: "Warm-hearted Woodsman",
+            riskLevel: RiskLevel.HE,
+            weapon: Woodsman_Weapon.Instance,
+            suit: Woodsman_Suit.Instance,
+            gift: Woodsman_Gift.Instance
+            )
         {
-            Name = "Warm-hearted Woodsman";
-            DerivedName = "Logging";
-            RiskLevel = RiskLevel.HE;
         }
     }
 }

@@ -12,6 +12,7 @@
         private Butterflies_Suit() : base(
             origin: Butterflies.Instance,
             name: "Solemn Lament",
+            unlockLevel: 4,
             cost: 45,
             maxCount: 1,
             requirements: new int[] { 0, 0, 0, 3, 0 },

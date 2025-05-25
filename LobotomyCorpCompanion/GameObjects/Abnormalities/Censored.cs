@@ -1,14 +1,21 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Censored : AbnormalityOld
+    internal class Censored : Abnormality
     {
-        public Censored()
-        {
-            Name = "CENSORED";
-            DerivedName = "CENSORED";
-            RiskLevel = RiskLevel.ALEPH;
+        // Singleton instance
+        private static readonly Censored _instance = new Censored();
 
-            //Gift = new EgoGift(DerivedName, Slot.Eye, new SecondaryStats(SP:10));
+        // Public accessor
+        public static Censored Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Censored() : base(
+            name: "CENSORED",
+            riskLevel: RiskLevel.ALEPH,
+            weapon: Censored_Weapon.Instance,
+            gift: Censored_Gift.Instance
+            )
+        {
         }
     }
 }

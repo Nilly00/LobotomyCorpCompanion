@@ -1,19 +1,20 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Plague : AbnormalityOld
+    internal class Plague : Abnormality
     {
+        // Singleton instance
+        private static readonly Plague _instance = new Plague();
 
-        public Plague()
-        {
-            Name = "Plague Doctor";
-            DerivedName = "Benediction";
-            RiskLevel = RiskLevel.ZAYIN;
+        // Public accessor
+        public static Plague Instance => _instance;
 
-            //Gift = new EgoGift(DerivedName, Slot.Special, new SecondaryStats(HP: 6, SP: 6, SR: 6, WS: 6, AS: 6, MS: 6));
-        }
-        internal override void GiftEffect(Employee employee)
+        // Private constructor to prevent external instantiation
+        private Plague() : base(
+            name: "The Plague Doctor",
+            riskLevel: RiskLevel.ZAYIN,
+            gift: Plague_Gift.Instance
+            )
         {
-            employee.SpecialEffects.Add("𝔹𝕃𝔼𝕊𝕊𝔼𝔻");
         }
     }
 }

@@ -3,6 +3,7 @@
     {
         internal readonly Abnormality origin;
         internal readonly string name;
+        internal readonly short unlockLevel;
         internal readonly int cost;
         internal readonly int maxCount;
 
@@ -18,6 +19,7 @@
         protected EgoWeapon(
             Abnormality origin,
             string name,
+            short unlockLevel,
             int cost,
             int maxCount,
             int[] requirements,
@@ -29,6 +31,7 @@
         {
             this.origin = origin;
             this.name = name;
+            this.unlockLevel = unlockLevel;
             this.cost = cost;
             this.maxCount = maxCount;
             this.requirements = requirements;

@@ -12,6 +12,7 @@
         private Forsaken_Suit() : base(
             origin: Forsaken.Instance,
             name: "Regret",
+            unlockLevel: 3,
             cost: 25,
             maxCount: 2,
             requirements: new int[] { 0, 0, 0, 0, 0 },

@@ -1,16 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Wellcheers : AbnormalityOld
+    internal class Wellcheers : Abnormality
     {
-        public Wellcheers()
+        // Singleton instance
+        private static readonly Wellcheers _instance = new Wellcheers();
+
+        // Public accessor
+        public static Wellcheers Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Wellcheers() : base(
+            name: "Opened Can of Wellcheers",
+            riskLevel: RiskLevel.ZAYIN,
+            weapon: Wellcheers_Weapon.Instance,
+            suit: Wellcheers_Suit.Instance,
+            gift: Wellcheers_Gift.Instance
+            )
         {
-            Name = "Opened Can of Wellcheers";
-            DerivedName = "Soda";
-            RiskLevel = RiskLevel.ZAYIN;
-
-            Suit = new EgoSuit(DerivedName, 15, 5, [0, 0, 0, 0, 0], RiskLevel, new Resistances(0.8, 1.0, 1.0, 2.0));
-
-            //Gift = new EgoGift(DerivedName, Slot.Mouth_2, new SecondaryStats(HP:2));
         }
     }
 }

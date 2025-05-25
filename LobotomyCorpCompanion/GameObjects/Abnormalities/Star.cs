@@ -1,14 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Star : AbnormalityOld
+    internal class Star : Abnormality
     {
-        public Star()
-        {
-            Name = "Blue Star";
-            DerivedName = "Sound of a Star";
-            RiskLevel = RiskLevel.ALEPH;
+        // Singleton instance
+        private static readonly Star _instance = new Star();
 
-            //Gift = new EgoGift(DerivedName, Slot.Eye, new SecondaryStats(MS:10));
+        // Public accessor
+        public static Star Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Star() : base(
+            name: "Blue Star",
+            riskLevel: RiskLevel.ALEPH,
+            weapon: Star_Weapon.Instance,
+            suit: Star_Suit.Instance,
+            gift: Star_Gift.Instance
+            )
+        {
         }
     }
 }

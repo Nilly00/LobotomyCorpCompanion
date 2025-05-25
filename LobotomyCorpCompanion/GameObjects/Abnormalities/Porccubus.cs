@@ -1,14 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Porccubus : AbnormalityOld
+    internal class Porccubus : Abnormality
     {
-        public Porccubus()
-        {
-            Name = "Porccubus";
-            DerivedName = "Pleasure";
-            RiskLevel = RiskLevel.HE;
+        // Singleton instance
+        private static readonly Porccubus _instance = new Porccubus();
 
-            //Gift = new EgoGift(DerivedName, Slot.Neckwear, new SecondaryStats(SP:10,SR:-6,WS:-6));
+        // Public accessor
+        public static Porccubus Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Porccubus() : base(
+            name: "Porccubus",
+            riskLevel: RiskLevel.HE,
+            weapon: Porccubus_Weapon.Instance,
+            suit: Porccubus_Suit.Instance,
+            gift: Porccubus_Gift.Instance
+            )
+        {
         }
     }
 }

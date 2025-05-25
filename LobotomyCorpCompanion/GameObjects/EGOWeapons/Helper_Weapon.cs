@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Helper_Weapon() : base(
+            origin: Helper.Instance,
             name: "Grinder Mk4",
+            unlockLevel: 4,
             cost: 50,
             maxCount: 1,
             requirements: new int[] { 2, 0, 0, 0, 0 },
@@ -26,6 +28,7 @@
         internal override void WeaponCalculate()
         {
             //todo special calculation
+            //hits 6 times
         }
     }
 }

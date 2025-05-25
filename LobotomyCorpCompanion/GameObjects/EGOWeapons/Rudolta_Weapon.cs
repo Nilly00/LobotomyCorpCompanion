@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Rudolta_Weapon() : base(
+            origin: Rudolta.Instance,
             name: "Christmas",
+            unlockLevel: 3,
             cost: 35,
             maxCount: 3,
             requirements: new int[] { 0, 0, 0, 0, 0 },

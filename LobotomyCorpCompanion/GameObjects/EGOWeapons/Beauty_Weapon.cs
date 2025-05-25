@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Beauty_Weapon() : base(
+            origin:Beauty.Instance,
             name: "Horn",
+            unlockLevel: 3,
             cost: 30,
             maxCount: 3,
             requirements: new int[] { 0, 0, 0, 0, 0 },

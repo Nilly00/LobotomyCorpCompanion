@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Swan_Weapon() : base(
+            origin: Swan.Instance,
             name: "Black Swan",
+            unlockLevel: 4,
             cost: 60,
             maxCount: 2,
             requirements: new int[] { 0, 3, 0, 0, 0 },
@@ -25,7 +27,7 @@
 
         internal override void Effect(Employee employee)
         {
-            employee.SpecialEffects.Add("Chance to reflect damage taken");
+            employee.SpecialEffects.Add("25% Chance to reflect damage taken");
         }
     }
 }

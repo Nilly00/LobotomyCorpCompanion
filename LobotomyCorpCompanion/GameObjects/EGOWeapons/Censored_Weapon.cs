@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Censored_Weapon() : base(
+            origin: Censored.Instance,
             name: "CENSORED",
+            unlockLevel: 4,
             cost: 222,
             maxCount: 1,
             requirements: new int[] { 5, 0, 0, 0, 5 },

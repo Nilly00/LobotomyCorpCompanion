@@ -12,6 +12,7 @@
         private Fetus_Suit() : base(
             origin: Fetus.Instance,
             name: "Syrinx",
+            unlockLevel: 4,
             cost: 45,
             maxCount: 1,
             requirements: new int[] { 0, 0, 3, 0, 0 },

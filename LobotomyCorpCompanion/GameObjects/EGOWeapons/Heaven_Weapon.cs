@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Heaven_Weapon() : base(
+            origin: Heaven.Instance,
             name: "Heaven",
+            unlockLevel: 4,
             cost: 40,
             maxCount: 3,
             requirements: new int[] { 0, 0, 0, 0, 3 },

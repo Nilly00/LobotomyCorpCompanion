@@ -11,6 +11,7 @@
         // Private constructor to prevent external instantiation
         private Bloodbath_Suit() : base(
             origin: Bloodbath.Instance,
+            unlockLevel: 3,
             name: "Wrist Cutter",
             cost: 25,
             maxCount: 2,

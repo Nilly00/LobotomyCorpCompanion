@@ -1,14 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Swan : AbnormalityOld
+    internal class Swan : Abnormality
     {
-        public Swan()
-        {
-            Name = "Dream of a Black Swan";
-            DerivedName = "Black Swan";
-            RiskLevel = RiskLevel.WAW;
+        // Singleton instance
+        private static readonly Swan _instance = new Swan();
 
-            Suit = new EgoSuit(DerivedName, 50, 2, [0, 0, 3, 0, 0], RiskLevel, new Resistances(0.6, 1.2, 0.8, 1.5));
+        // Public accessor
+        public static Swan Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Swan() : base(
+            name: "Dream of a Black Swan",
+            riskLevel: RiskLevel.WAW,
+            weapon: Swan_Weapon.Instance,
+            suit: Swan_Suit.Instance,
+            gift: Swan_Gift.Instance
+            )
+        {
         }
     }
 }

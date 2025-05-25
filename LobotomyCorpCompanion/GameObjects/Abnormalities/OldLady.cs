@@ -1,14 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class OldLady : AbnormalityOld
+    internal class OldLady : Abnormality
     {
-        public OldLady()
-        {
-            Name = "Old Lady";
-            DerivedName = "Solitude";
-            RiskLevel = RiskLevel.TETH;
+        // Singleton instance
+        private static readonly OldLady _instance = new OldLady();
 
-            //Gift = new EgoGift(DerivedName, Slot.Eye, new SecondaryStats(SR:3,WS:3));
+        // Public accessor
+        public static OldLady Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private OldLady() : base(
+            name: "Old Lady",
+            riskLevel: RiskLevel.TETH,
+            weapon: OldLady_Weapon.Instance,
+            suit: OldLady_Suit.Instance,
+            gift: OldLady_Gift.Instance
+            )
+        {
         }
     }
 }

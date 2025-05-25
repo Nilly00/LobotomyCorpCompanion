@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Hatred_Weapon() : base(
+            origin: Hatred.Instance,
             name: "In the Name of Love and Hate",
+            unlockLevel: 4,
             cost: 70,
             maxCount: 1,
             requirements: new int[] { 3, 0, 0, 3, 4 },

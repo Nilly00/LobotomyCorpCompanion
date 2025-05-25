@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Prince_Weapon() : base(
+            origin: Prince.Instance,
             name: "Spore",
+            unlockLevel: 4,
             cost: 50,
             maxCount: 3,
             requirements: new int[] { 0, 0, 2, 0, 2 },

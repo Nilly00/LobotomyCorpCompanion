@@ -1,28 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class White : AbnormalityOld
+    internal class White : Abnormality
     {
-        public White()
+        // Singleton instance
+        private static readonly White _instance = new White();
+
+        // Public accessor
+        public static White Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private White() : base(
+            name: "White Night",
+            riskLevel: RiskLevel.ALEPH,
+            weapon: White_Weapon.Instance,
+            suit: White_Suit.Instance,
+            gift: White_Gift.Instance
+            )
         {
-            Name = "White Night";
-            DerivedName = "Paradise Lost";
-            RiskLevel = RiskLevel.ALEPH;
-
-
-            Suit = new EgoSuit(DerivedName,333, 1, [5, 5, 5, 5, 5], RiskLevel, new Resistances(0.5, 0.5, 0.5, 0.3));
-
-            //Gift = new EgoGift(DerivedName, Slot.Left_back, new SecondaryStats(HP:10,SP:10,AS:10,MS:10));
-        }
-
-        internal override void SuitEffect(Employee employee)
-        {
-            //todo a bunch of stuff
-            employee.SpecialEffects.Add("");
-        }
-
-        internal override void GiftEffect(Employee employee)
-        {
-            employee.SpecialEffects.Add("");
         }
     }
 }

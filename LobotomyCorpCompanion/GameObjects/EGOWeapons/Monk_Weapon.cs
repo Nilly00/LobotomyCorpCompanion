@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Monk_Weapon() : base(
+            origin: Monk.Instance,
             name: "Amita",
+            unlockLevel: 4,
             cost: 70,
             maxCount: 1,
             requirements: new int[] { 3, 0, 0, 0, 3 },

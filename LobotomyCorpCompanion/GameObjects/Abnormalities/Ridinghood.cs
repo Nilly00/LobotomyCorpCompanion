@@ -1,14 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Ridinghood : AbnormalityOld
+    internal class Ridinghood : Abnormality
     {
-        public Ridinghood()
-        {
-            Name = "Litle Red Riding Hood";
-            DerivedName = "Crimson Scar";
-            RiskLevel = RiskLevel.WAW;
+        // Singleton instance
+        private static readonly Ridinghood _instance = new Ridinghood();
 
-            //Gift = new EgoGift(DerivedName, Slot.Mouth_1, new SecondaryStats(HP:3,AS:3,WS:3));
+        // Public accessor
+        public static Ridinghood Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Ridinghood() : base(
+            name: "Litle Red Riding Hood",
+            riskLevel: RiskLevel.WAW,
+            weapon: Ridinghood_Weapon.Instance,
+            suit: Ridinghood_Suit.Instance,
+            gift: Ridinghood_Gift.Instance
+            )
+        {
         }
     }
 }

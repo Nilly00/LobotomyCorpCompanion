@@ -1,13 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Smiling : AbnormalityOld
+    internal class Smiling : Abnormality
     {
-        public Smiling()
+        // Singleton instance
+        private static readonly Smiling _instance = new Smiling();
+
+        // Public accessor
+        public static Smiling Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Smiling() : base(
+            name: "Mountain of Smiling Bodies",
+            riskLevel: RiskLevel.ALEPH,
+            weapon: Smiling_Weapon.Instance,
+            suit: Smiling_Suit.Instance,
+            gift: Smiling_Gift.Instance
+            )
         {
-            Name = "Mountain of Smiling Bodies";
-            DerivedName = "Smile";
-            RiskLevel = RiskLevel.ALEPH;
-            //Gift = new EgoGift(DerivedName, Slot.Eye, new SecondaryStats(HP: 5, SP: 5));
         }
     }
 }

@@ -1,14 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Scorched : AbnormalityOld
+    internal class Scorched : Abnormality
     {
-        public Scorched()
-        {
-            Name = "Scorched Girl";
-            DerivedName = "Fourth Match Flame";
-            RiskLevel = RiskLevel.TETH;
+        // Singleton instance
+        private static readonly Scorched _instance = new Scorched();
 
-            //Gift = new EgoGift(DerivedName, Slot.Mouth_2, new SecondaryStats(HP:4));
+        // Public accessor
+        public static Scorched Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Scorched() : base(
+            name: "Scorched Girl",
+            riskLevel: RiskLevel.TETH,
+            weapon: Scorched_Weapon.Instance,
+            suit: Scorched_Suit.Instance,
+            gift: Scorched_Gift.Instance
+            )
+        {
         }
     }
 }

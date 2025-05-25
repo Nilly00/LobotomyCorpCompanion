@@ -1,19 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class OneSin : AbnormalityOld
+    internal class OneSin : Abnormality
     {
+        // Singleton instance
+        private static readonly OneSin _instance = new OneSin();
 
-        public OneSin()
-        {
-            Name = "One Sin and Hundreds of Good Deeds";
-            DerivedName = "Penitence";
-            RiskLevel = RiskLevel.ZAYIN;
+        // Public accessor
+        public static OneSin Instance => _instance;
 
-            //Gift = new EgoGift(DerivedName, Slot.Hat, new SecondaryStats(SP: 2));
-        }
-        internal override void GiftEffect(Employee employee)
+        // Private constructor to prevent external instantiation
+        private OneSin() : base(
+            name: "One Sin and Hundreds of Good Deeds",
+            riskLevel: RiskLevel.ZAYIN,
+            weapon: OneSin_Weapon.Instance,
+            suit: OneSin_Suit.Instance,
+            gift: OneSin_Gift.Instance
+            )
         {
-            employee.SpecialEffects.Add("Work Success Rate +10% with One Sin");
         }
     }
 }

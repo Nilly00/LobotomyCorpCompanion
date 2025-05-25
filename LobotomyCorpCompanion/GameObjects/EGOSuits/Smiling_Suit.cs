@@ -12,6 +12,7 @@
         private Smiling_Suit() : base(
             origin: Smiling.Instance,
             name: "Smile",
+            unlockLevel: 4,
             cost: 120,
             maxCount: 1,
             requirements: new int[] { 0, 0, 5, 0, 5 },

@@ -1,13 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Fairy : AbnormalityOld
+    internal class Fairy : Abnormality
     {
-        public Fairy()
+        // Singleton instance
+        private static readonly Fairy _instance = new Fairy();
+
+        // Public accessor
+        public static Fairy Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Fairy() : base(
+            name: "Fairy Festival",
+            riskLevel: RiskLevel.ZAYIN,
+            weapon: Fairy_Weapon.Instance,
+            suit: Fairy_Suit.Instance,
+            gift: Fairy_Gift.Instance
+            )
         {
-            Name = "Fairy Festival";
-            DerivedName = "Wingbeat";
-            RiskLevel = RiskLevel.ZAYIN;
-            //Gift = new EgoGift(DerivedName, Slot.Hand_2, new SecondaryStats(SR:2,WS:2));
         }
     }
 }

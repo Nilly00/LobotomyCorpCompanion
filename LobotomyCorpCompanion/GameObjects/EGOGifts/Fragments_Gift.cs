@@ -10,6 +10,8 @@
 
         // Private constructor to prevent external instantiation
         private Fragments_Gift() : base(
+            origin: Fragments.Instance,
+            unlockLevel: 2,
             name: "Fragments from Somewhere",
             secondaryStats: new SecondaryStats(SR: 2, WS: 2)
         )

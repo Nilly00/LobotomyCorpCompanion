@@ -1,13 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Laetitia : AbnormalityOld
+    internal class Laetitia : Abnormality
     {
-        public Laetitia()
+        // Singleton instance
+        private static readonly Laetitia _instance = new Laetitia();
+
+        // Public accessor
+        public static Laetitia Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Laetitia() : base(
+            name: "Laetitia",
+            riskLevel: RiskLevel.WAW,
+            weapon: Laetitia_Weapon.Instance,
+            suit: Laetitia_Suit.Instance,
+            gift: Laetitia_Gift.Instance
+            )
         {
-            Name = "Laetitia";
-            DerivedName = "Laetitia";
-            RiskLevel = RiskLevel.HE;
-            //Gift = new EgoGift(DerivedName, Slot.Helmet, new SecondaryStats(SP:4));
         }
     }
 }

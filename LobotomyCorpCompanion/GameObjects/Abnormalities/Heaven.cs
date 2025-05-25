@@ -1,14 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Heaven : AbnormalityOld
+    internal class Heaven : Abnormality
     {
-        public Heaven()
-        {
-            Name = "The Burrowing Heaven";
-            DerivedName = "Heaven";
-            RiskLevel = RiskLevel.WAW;
+        // Singleton instance
+        private static readonly Heaven _instance = new Heaven();
 
-            //Gift = new EgoGift(DerivedName, Slot.Helmet, new SecondaryStats(HP:4,SR:2,WS:2));
+        // Public accessor
+        public static Heaven Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Heaven() : base(
+            name: "The Burrowing Heaven",
+            riskLevel: RiskLevel.WAW,
+            weapon: Heaven_Weapon.Instance,
+            suit: Heaven_Suit.Instance,
+            gift: Heaven_Gift.Instance
+            )
+        {
         }
     }
 }

@@ -1,14 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Snow : AbnormalityOld
+    internal class Snow : Abnormality
     {
-        public Snow()
-        {
-            Name = "Snow Queen";
-            DerivedName = "Frost Splinter";
-            RiskLevel = RiskLevel.HE;
+        // Singleton instance
+        private static readonly Snow _instance = new Snow();
 
-            Suit = new EgoSuit(DerivedName, 35, 2, [2, 0, 0, 0, 0], RiskLevel, new Resistances(1.3, 0.6, 0.8, 1.5));
+        // Public accessor
+        public static Snow Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Snow() : base(
+            name: "Snow Queen",
+            riskLevel: RiskLevel.HE,
+            weapon: Snow_Weapon.Instance,
+            suit: Snow_Suit.Instance,
+            gift: Snow_Gift.Instance
+            )
+        {
         }
     }
 }

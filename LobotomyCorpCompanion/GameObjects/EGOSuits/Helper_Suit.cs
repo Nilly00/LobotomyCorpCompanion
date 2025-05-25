@@ -12,6 +12,7 @@
         private Helper_Suit() : base(
             origin: Helper.Instance,
             name: "Grinder Mk4",
+            unlockLevel: 3,
             cost: 35,
             maxCount: 3,
             requirements: new int[] { 0, 2, 0, 0, 0 },

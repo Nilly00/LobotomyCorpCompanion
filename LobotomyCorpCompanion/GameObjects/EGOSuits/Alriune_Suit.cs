@@ -12,7 +12,8 @@
         private Alriune_Suit() : base(
             origin: Alriune.Instance,
             name: "Faint Aroma",
-            cost: 60,
+            unlockLevel: 3,
+            cost: 50,
             maxCount: 2,
             requirements: new int[] { 0, 3, 0, 0, 0 },
             riskLevel: RiskLevel.WAW,

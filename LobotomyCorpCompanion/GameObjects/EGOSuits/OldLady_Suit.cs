@@ -12,6 +12,7 @@
         private OldLady_Suit() : base(
             origin: OldLady.Instance,
             name: "Solitude",
+            unlockLevel: 2,
             cost: 20,
             maxCount: 3,
             requirements: new int[] { 0, 0, 0, 0, 0 },

@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Fragments_Weapon() : base(
+            origin: Fragments.Instance,
             name: "Fragments from Somewhere",
+            unlockLevel: 3,
             cost: 20,
             maxCount: 3,
             requirements: new int[] { 0, 0, 0, 0, 0 },

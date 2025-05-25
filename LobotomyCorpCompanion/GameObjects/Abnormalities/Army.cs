@@ -1,17 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Army : AbnormalityOld
+    internal class Army : Abnormality
     {
-        public Army()
+        // Singleton instance
+        private static readonly Army _instance = new Army();
+
+        // Public accessor
+        public static Army Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Army() : base(
+            name: "Army in Black",
+            riskLevel: RiskLevel.ALEPH,
+            weapon: Army_Weapon.Instance,
+            suit: Army_Suit.Instance,
+            gift: Army_Gift.Instance
+            )
         {
-            Name = "Army in Black";
-            DerivedName = "Pink";
-            RiskLevel = RiskLevel.ALEPH;
-            //Gift = new EgoGift(DerivedName, Slot.Helmet, new SecondaryStats(AS:5, MS:5));
         }
-            /*if (employee.weapon == this)
-            {
-                employee.permanentBoni.damagePercent *= 1.15;
-            }*/
     }
 }

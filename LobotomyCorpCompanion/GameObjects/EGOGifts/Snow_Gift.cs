@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Snow_Gift() : base(
+            origin: Snow.Instance,
             name: "Those who know the Cruelty of Winter and the Aroma of Roses",
+            unlockLevel: 0,
             secondaryStats: new SecondaryStats(HP: 6, SP: 6)
         )
         { }

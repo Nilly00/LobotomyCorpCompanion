@@ -12,6 +12,7 @@
         private Army_Suit() : base(
             origin: Army.Instance,
             name: "Pink",
+            unlockLevel: 4,
             cost: 120,
             maxCount: 1,
             requirements: new int[] { 5, 0, 0, 0, 5 },

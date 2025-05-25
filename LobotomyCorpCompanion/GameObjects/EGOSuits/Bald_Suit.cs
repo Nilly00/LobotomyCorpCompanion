@@ -12,6 +12,7 @@
         private Bald_Suit() : base(
             origin: Bald.Instance,
             name: "Tough",
+            unlockLevel: 4,
             cost: 10,
             maxCount: 5,
             requirements: new int[] { 0, 0, 0, 0, 0 },

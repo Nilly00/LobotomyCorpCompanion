@@ -12,6 +12,7 @@
         private Crumbling_Suit() : base(
             origin: Crumbling.Instance,
             name: "Life for a Daredevil",
+            unlockLevel: 2,
             cost: 30,
             maxCount: 1,
             requirements: new int[] { 0, 2, 0, 0, 0 },

@@ -11,6 +11,7 @@
         // Private constructor to prevent external instantiation
         private Big_Suit() : base(
             origin: Big.Instance,
+            unlockLevel: 4,
             name: "Lamp",
             cost: 60,
             maxCount: 1,

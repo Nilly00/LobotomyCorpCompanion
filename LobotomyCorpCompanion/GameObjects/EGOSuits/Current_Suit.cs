@@ -12,6 +12,7 @@
         private Current_Suit() : base(
             origin: Current.Instance,
             name: "Ecstasy",
+            unlockLevel: 3,
             cost: 40,
             maxCount: 3,
             requirements: new int[] { 0, 0, 2, 0, 2 },

@@ -12,6 +12,7 @@
         private Despair_Suit() : base(
             origin: Despair.Instance,
             name: "The Sword Sharpened with Tears",
+            unlockLevel: 4,
             cost: 60,
             maxCount: 1,
             requirements: new int[] { 0, 0, 0, 4, 0 },

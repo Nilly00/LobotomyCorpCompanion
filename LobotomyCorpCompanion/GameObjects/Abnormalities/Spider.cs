@@ -1,16 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Spider : AbnormalityOld
+    internal class Spider : Abnormality
     {
-        public Spider()
+        // Singleton instance
+        private static readonly Spider _instance = new Spider();
+
+        // Public accessor
+        public static Spider Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Spider() : base(
+            name: "Spider Bud",
+            riskLevel: RiskLevel.TETH,
+            weapon: Spider_Weapon.Instance,
+            suit: Spider_Suit.Instance,
+            gift: Spider_Gift.Instance
+            )
         {
-            Name = "Spider Bud";
-            DerivedName = "Red Eyes";
-            RiskLevel = RiskLevel.TETH;
-
-            Suit = new EgoSuit(DerivedName, 30, 1, [2, 0, 0, 0, 0], RiskLevel, new Resistances(0.8, 0.8, 0.8, 2.0));
-
-            //Gift = new EgoGift(DerivedName, Slot.Eye, new SecondaryStats(SR:3,WS:3));
         }
     }
 }

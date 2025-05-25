@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Despair_Weapon() : base(
+            origin: Despair.Instance,
             name: "The Sword Sharpened with Tears",
+            unlockLevel: 4,
             cost: 70,
             maxCount: 1,
             requirements: new int[] { 0, 0, 0, 4, 0 },

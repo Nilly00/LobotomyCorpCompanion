@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Wolf_Weapon() : base(
+            origin: Wolf.Instance,
             name: "Cobalt Scar",
+            unlockLevel: 4,
             cost: 70,
             maxCount: 1,
             requirements: new int[] { 3, 0, 3, 0, 3 },
@@ -27,7 +29,7 @@
         {
             employee.SpecialEffects.Add("Deals DOT");
             employee.SpecialEffects.Add("While below 50% HP +50% damage and FRIENDLY FIRE!");
-            employee.conditionalBoni.damagePercent *= 1.5;
+            employee.conditionalBonuses.damagePercent *= 1.5;
         }
     }
 }

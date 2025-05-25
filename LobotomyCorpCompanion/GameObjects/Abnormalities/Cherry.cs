@@ -1,14 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Cherry : AbnormalityOld
+    internal class Cherry : Abnormality
     {
-        public Cherry()
-        {
-            Name = "Grave of Cherry Blossoms";
-            DerivedName = "Cherry Blossoms";
-            RiskLevel = RiskLevel.TETH;
+        // Singleton instance
+        private static readonly Cherry _instance = new Cherry();
 
-            //Gift = new EgoGift(DerivedName, Slot.Hat, new SecondaryStats(HP:2,AS:2,MS:2));
+        // Public accessor
+        public static Cherry Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Cherry() : base(
+            name: "Grave of Cherry Blossoms",
+            riskLevel: RiskLevel.TETH,
+            weapon: Cherry_Weapon.Instance,
+            suit: Cherry_Suit.Instance,
+            gift: Cherry_Gift.Instance
+            )
+        {
         }
     }
 }

@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Butterflies_Weapon() : base(
+            origin: Butterflies.Instance,
             name: "Solemn Lament",
+            unlockLevel: 4,
             cost: 50,
             maxCount: 1,
             requirements: new int[] { 0, 0, 0, 3, 0 },

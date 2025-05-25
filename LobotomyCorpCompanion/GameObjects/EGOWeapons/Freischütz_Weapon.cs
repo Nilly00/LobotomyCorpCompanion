@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Freischütz_Weapon() : base(
+            origin: Freischütz.Instance,
             name: "Magic Bullet",
+            unlockLevel: 4,
             cost: 40,
             maxCount: 1,
             requirements: new int[] { 0, 0, 3, 0, 0 },

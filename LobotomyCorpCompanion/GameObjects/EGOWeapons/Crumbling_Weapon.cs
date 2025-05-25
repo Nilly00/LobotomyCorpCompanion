@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Crumbling_Weapon() : base(
+            origin: Crumbling.Instance,
             name: "Life for a Daredevil",
+            unlockLevel: 3,
             cost: 35,
             maxCount: 1,
             requirements: new int[] { 0, 0, 2, 0, 0 },

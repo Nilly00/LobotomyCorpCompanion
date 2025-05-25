@@ -12,7 +12,7 @@
         private Default() : base(
             name: "Standard",
             riskLevel: RiskLevel.ZAYIN,
-            //weapon: Alriune_Weapon.Instance,
+            weapon: Default_Weapon.Instance,
             suit: Default_Suit.Instance
             )
         {

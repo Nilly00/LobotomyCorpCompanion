@@ -12,6 +12,7 @@
         private Firebird_Suit() : base(
             origin: Firebird.Instance,
             name: "Feather of Honor",
+            unlockLevel: 3,
             cost: 50,
             maxCount: 2,
             requirements: new int[] { 3, 0, 0, 0, 3 },

@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Spider_Weapon() : base(
+            origin: Spider.Instance,
             name: "Red Eyes",
+            unlockLevel: 3,
             cost: 20,
             maxCount: 3,
             requirements: new int[] { 0, 0, 0, 0, 0 },
@@ -28,7 +30,7 @@
             if (employee.ranks[0] < 1)
             {
                 employee.SpecialEffects.Add("+2.5 MS during supression or combat");
-                employee.conditionalBoni.secondaryStats.MS += 2;
+                employee.conditionalBonuses.secondaryStats.MS += 2;
             }
         }
     }

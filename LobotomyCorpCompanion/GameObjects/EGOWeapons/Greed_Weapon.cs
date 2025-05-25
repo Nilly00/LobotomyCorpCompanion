@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Greed_Weapon() : base(
+            origin: Greed.Instance,
             name: "Gold Rush",
+            unlockLevel: 4,
             cost: 100,
             maxCount: 1,
             requirements: new int[] { 5, 0, 0, 0, 5 },

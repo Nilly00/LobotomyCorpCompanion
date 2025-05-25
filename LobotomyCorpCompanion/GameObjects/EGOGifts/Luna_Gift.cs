@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Luna_Gift() : base(
+            origin: Luna.Instance,
             name: "Moonlight",
+            unlockLevel: 3,
             secondaryStats: new SecondaryStats(1, 1, 1, 1, 1, 1)
         )
         { }

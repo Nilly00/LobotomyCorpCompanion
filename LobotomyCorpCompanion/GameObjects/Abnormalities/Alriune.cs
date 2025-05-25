@@ -13,7 +13,8 @@
             name: "Alriune",
             riskLevel: RiskLevel.WAW,
             weapon: Alriune_Weapon.Instance,
-            suit: Alriune_Suit.Instance
+            suit: Alriune_Suit.Instance,
+            gift: Alriune_Gift.Instance
             )
         {
         }

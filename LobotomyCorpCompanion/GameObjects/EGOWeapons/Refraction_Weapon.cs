@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Refraction_Weapon() : base(
+            origin: Refraction.Instance,
             name: "Dimensional Refraction Variant",
+            unlockLevel: 4,
             cost: 50,
             maxCount: 3,
             requirements: new int[] { 0, 0, 0, 0, 0 },

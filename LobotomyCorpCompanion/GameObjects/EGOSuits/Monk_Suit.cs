@@ -12,6 +12,7 @@
         private Monk_Suit() : base(
             origin: Monk.Instance,
             name: "Amita",
+            unlockLevel: 4,
             cost: 50,
             maxCount: 2,
             requirements: new int[] { 0, 2, 2, 0, 0 },

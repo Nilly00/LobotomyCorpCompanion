@@ -1,13 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Forsaken : AbnormalityOld
+    internal class Forsaken : Abnormality
     {
-        public Forsaken()
+        // Singleton instance
+        private static readonly Forsaken _instance = new Forsaken();
+
+        // Public accessor
+        public static Forsaken Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Forsaken() : base(
+            name: "Forsaken Murderer",
+            riskLevel: RiskLevel.TETH,
+            weapon: Forsaken_Weapon.Instance,
+            suit: Forsaken_Suit.Instance,
+            gift: Forsaken_Gift.Instance
+            )
         {
-            Name = "Forsaken Murderer";
-            DerivedName = "Regret";
-            RiskLevel = RiskLevel.TETH;
-            //Gift = new EgoGift(DerivedName, Slot.Mouth_1, new SecondaryStats(HP:2,SP:2));
         }
     }
 }

@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Schadenfreude_Weapon() : base(
+            origin: Schadenfreude.Instance,
             name: "Gaze",
+            unlockLevel: 4,
             cost: 45,
             maxCount: 1,
             requirements: new int[] { 0, 2, 2, 0, 0 },
@@ -22,10 +24,14 @@
             attackSpeed: 2.9)
         {
         }
-
+        internal override void Effect(Employee employee)
+        {
+            employee.SpecialEffects.Add("DOT");
+        }
         internal override void WeaponCalculate()
         {
             //todo special calculation
+            //hits 9 times
         }
     }
 }

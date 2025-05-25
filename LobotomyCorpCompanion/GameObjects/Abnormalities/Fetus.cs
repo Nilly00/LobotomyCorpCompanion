@@ -1,19 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Fetus : AbnormalityOld
+    internal class Fetus : Abnormality
     {
-        public Fetus()
-        {
-            Name = "Nameless Fetus";
-            DerivedName = "Syrinx";
-            RiskLevel = RiskLevel.HE;
+        // Singleton instance
+        private static readonly Fetus _instance = new Fetus();
 
-            //Gift = new EgoGift(DerivedName, Slot.Helmet, new SecondaryStats(HP:-2,SP:-2,AS:6,MS:6));
-        }
+        // Public accessor
+        public static Fetus Instance => _instance;
 
-        internal override void GiftEffect(Employee employee)
+        // Private constructor to prevent external instantiation
+        private Fetus() : base(
+            name: "Nameless Fetus",
+            riskLevel: RiskLevel.HE,
+            weapon: Fetus_Weapon.Instance,
+            suit: Fetus_Suit.Instance,
+            gift: Fetus_Gift.Instance
+            )
         {
-            employee.permanentBoni.resistances.white *= 0.95;
         }
     }
 }

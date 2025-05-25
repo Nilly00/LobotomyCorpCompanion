@@ -12,6 +12,7 @@
         private Fragments_Suit() : base(
             origin: Fragments.Instance,
             name: "Fragments from Somewhere",
+            unlockLevel: 3,
             cost: 25,
             maxCount: 2,
             requirements: new int[] { 0, 0, 0, 0, 0 },

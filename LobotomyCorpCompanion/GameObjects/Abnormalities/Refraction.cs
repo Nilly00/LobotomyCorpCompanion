@@ -1,14 +1,21 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Refraction : AbnormalityOld
+    internal class Refraction : Abnormality
     {
-        public Refraction()
-        {
-            Name = "Dimensional Refraction Variant";
-            DerivedName = "Diffraction";
-            RiskLevel = RiskLevel.WAW;
+        // Singleton instance
+        private static readonly Refraction _instance = new Refraction();
 
-            //Gift = new EgoGift(DerivedName, Slot.Helmet, new SecondaryStats(SP:6));
+        // Public accessor
+        public static Refraction Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Refraction() : base(
+            name: "Dimensional Refration Variant",
+            riskLevel: RiskLevel.WAW,
+            weapon: Refraction_Weapon.Instance,
+            gift: Refraction_Gift.Instance
+            )
+        {
         }
     }
 }

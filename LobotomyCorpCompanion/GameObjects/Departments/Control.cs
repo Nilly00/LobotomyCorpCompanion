@@ -1,23 +1,39 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Departments
 {
-    internal class Control : Department
+    internal sealed class Control : Department
     {
-        public Control()
-        {
-            Name = "Control Team";
-            employees = new List<Employee>();
-            abnormalities = new List<AbnormalityOld>();
-            enabled = true;
-        }
+        // Singleton instance
+        private static readonly Control _instance = new Control();
+
+        // Public accessor
+        public static Control Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Control() : base(name: "Control"){ }
+
         internal override void ClerkEffect()
         {
-            if (this.enabled)
-            {
-                Employee.globalBonuses.secondaryStats.MS += 5;
-            }
+            Employee.globalBonuses.secondaryStats.MS += 5;
         }
+
         internal override void ServiceBenefits(Employee employee)
         {
+            if (employee.isCaptain)
+            {
+                employee.permanentBonuses.secondaryStats.MS += 10;
+            }
+            else if (employee.daysInService > 6)
+            {
+                employee.permanentBonuses.secondaryStats.MS += 7;
+            }
+            else if (employee.daysInService > 2)
+            {
+                employee.permanentBonuses.secondaryStats.MS += 5;
+            }
+            else
+            {
+                employee.permanentBonuses.secondaryStats.MS += 3;
+            }
         }
     }
 }

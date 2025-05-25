@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private WallLady_Weapon() : base(
+            origin: WallLady.Instance,
             name: "Screaming Wedge",
+            unlockLevel: 3,
             cost: 35,
             maxCount: 2,
             requirements: new int[] { 0, 2, 0, 0, 0 },

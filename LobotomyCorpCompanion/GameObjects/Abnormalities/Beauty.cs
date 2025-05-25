@@ -1,13 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Beauty : AbnormalityOld
+    internal class Beauty : Abnormality
     {
-        public Beauty()
+        // Singleton instance
+        private static readonly Beauty _instance = new Beauty();
+
+        // Public accessor
+        public static Beauty Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Beauty() : base(
+            name: "Beauty and the Beast",
+            riskLevel: RiskLevel.HE,
+            weapon: Beauty_Weapon.Instance,
+            suit: Beauty_Suit.Instance,
+            gift: Beauty_Gift.Instance
+            )
         {
-            Name = "Beauty and the Beast";
-            DerivedName = "Horn";
-            RiskLevel = RiskLevel.TETH;
-            //Gift = new EgoGift(DerivedName, Slot.Hat, new SecondaryStats(HP:2, SP:2));
         }
     }
 }

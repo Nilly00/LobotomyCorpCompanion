@@ -1,22 +1,39 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Departments
 {
-    internal class Information : Department
+    internal sealed class Information : Department
     {
-        public Information()
-        {
-            Name = "Information Team";
-            employeeCap = 5;
-            employees = new List<Employee>();
-            abnormalityCap = 5;
-            abnormalities = new List<AbnormalityOld>();
-        }
+        // Singleton instance
+        private static readonly Information _instance = new Information();
+
+        // Public accessor
+        public static Information Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Information() : base(name: "Information"){ }
+
         internal override void ClerkEffect()
         {
-            // todo effect
+            Employee.globalBonuses.secondaryStats.SR += 5;
         }
+
         internal override void ServiceBenefits(Employee employee)
         {
-            // todo effect
+            if (employee.isCaptain)
+            {
+                employee.permanentBonuses.primaryStats.Temperance += 10;
+            }
+            else if (employee.daysInService > 6)
+            {
+                employee.permanentBonuses.primaryStats.Temperance += 7;
+            }
+            else if (employee.daysInService > 2)
+            {
+                employee.permanentBonuses.primaryStats.Temperance += 5;
+            }
+            else
+            {
+                employee.permanentBonuses.primaryStats.Temperance += 3;
+            }
         }
     }
 }

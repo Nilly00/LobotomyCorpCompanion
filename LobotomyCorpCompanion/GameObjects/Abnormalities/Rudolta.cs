@@ -1,13 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Rudolta : AbnormalityOld
+    internal class Rudolta : Abnormality
     {
-        public Rudolta()
+        // Singleton instance
+        private static readonly Rudolta _instance = new Rudolta();
+
+        // Public accessor
+        public static Rudolta Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Rudolta() : base(
+            name: "Rudolta of the Sleigh",
+            riskLevel: RiskLevel.HE,
+            weapon: Rudolta_Weapon.Instance,
+            suit: Rudolta_Suit.Instance,
+            gift: Rudolta_Gift.Instance
+            )
         {
-            Name = "Rudolta of the Sleigh";
-            DerivedName = "Christmas";
-            RiskLevel = RiskLevel.HE;
-            //Gift = new EgoGift(DerivedName, Slot.Hat, new SecondaryStats(HP:-4,SP:8));
         }
     }
 }

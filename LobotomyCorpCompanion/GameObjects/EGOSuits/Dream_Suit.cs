@@ -12,6 +12,7 @@
         private Dream_Suit() : base(
             origin: Dream.Instance,
             name: "Engulfing Dream",
+            unlockLevel: 3,
             cost: 25,
             maxCount: 2,
             requirements: new int[] { 0, 0, 0, 0, 0 },

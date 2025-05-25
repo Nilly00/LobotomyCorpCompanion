@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Snow_Weapon() : base(
+            origin: Snow.Instance,
             name: "Frost Splinter",
+            unlockLevel: 3,
             cost: 35,
             maxCount: 3,
             requirements: new int[] { 0, 0, 0, 0, 0 },

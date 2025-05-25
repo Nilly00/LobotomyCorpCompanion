@@ -12,6 +12,7 @@
         private WallLady_Suit() : base(
             origin: WallLady.Instance,
             name: "Screaming Wedge",
+            unlockLevel: 2,
             cost: 30,
             maxCount: 2,
             requirements: new int[] { 0, 0, 0, 0, 0 },

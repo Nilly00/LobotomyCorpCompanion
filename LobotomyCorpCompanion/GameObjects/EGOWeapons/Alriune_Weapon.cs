@@ -12,6 +12,7 @@
         private Alriune_Weapon() : base(
             origin: Alriune.Instance,
             name: "Faint Aroma",
+            unlockLevel: 4,
             cost: 60,
             maxCount: 2,
             requirements: new int[] { 0, 3, 0, 0, 0 },

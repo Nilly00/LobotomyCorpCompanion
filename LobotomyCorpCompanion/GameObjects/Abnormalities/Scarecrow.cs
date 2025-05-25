@@ -1,12 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Scarecrow : AbnormalityOld
+    internal class Scarecrow : Abnormality
     {
-        public Scarecrow()
+        // Singleton instance
+        private static readonly Scarecrow _instance = new Scarecrow();
+
+        // Public accessor
+        public static Scarecrow Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Scarecrow() : base(
+            name: "Scarecrow Searching for Wisdom",
+            riskLevel: RiskLevel.HE,
+            weapon: Scarecrow_Weapon.Instance,
+            suit: Scarecrow_Suit.Instance,
+            gift: Scarecrow_Gift.Instance
+            )
         {
-            Name = "Scarecrow Searching for Wisdom";
-            DerivedName = "Harvest";
-            RiskLevel = RiskLevel.HE;
         }
     }
 }

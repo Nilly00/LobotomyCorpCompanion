@@ -1,16 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Departments
 {
-    internal class Training : Department
+    internal sealed class Training : Department
     {
-        public Training()
-        {
-            Name = "Training Team";
-            employees = new List<Employee>();
-            abnormalities = new List<AbnormalityOld>();
-        }
+        // Singleton instance
+        private static readonly Training _instance = new Training();
+
+        // Public accessor
+        public static Training Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Training() : base(name: "Training"){ }
+
         internal override void ServiceBenefits(Employee employee)
         {
-            // todo effect
+            if (employee.isCaptain)
+            {
+                employee.permanentBonuses.primaryStats += 4;
+            }
         }
     }
 }

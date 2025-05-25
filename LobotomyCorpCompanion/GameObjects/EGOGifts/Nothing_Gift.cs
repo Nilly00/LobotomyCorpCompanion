@@ -10,14 +10,16 @@
 
         // Private constructor to prevent external instantiation
         private Nothing_Gift() : base(
+            origin: Nothing.Instance,
             name: "Mimicry",
+            unlockLevel: 4,
             secondaryStats: new SecondaryStats(HP: 10)
         )
         { }
 
         internal override void Effect(Employee employee)
         {
-            employee.permanentBoni.HPHealing *= 1.05f;
+            employee.permanentBonuses.HPHealing *= 1.05f;
         }
     }
 }

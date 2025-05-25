@@ -1,21 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Love : AbnormalityOld
+    internal class Love : Abnormality
     {
-        public Love()
-        {
-            Name = "Melting Love";
-            DerivedName = "Adoration";
-            RiskLevel = RiskLevel.ALEPH;
-            //Gift = new EgoGift(DerivedName, Slot.Helmet, new SecondaryStats(HP:5,SP:10,SR:-5,WS:-5));
-        }
+        // Singleton instance
+        private static readonly Love _instance = new Love();
 
-        /*internal override void GiftEffect(Employee employee)
+        // Public accessor
+        public static Love Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Love() : base(
+            name: "Melting Love",
+            riskLevel: RiskLevel.ALEPH,
+            weapon: Love_Weapon.Instance,
+            suit: Love_Suit.Instance,
+            gift: Love_Gift.Instance
+            )
         {
-            if(employee.suit == this)
-            {
-                employee.SpecialEffects.Add("When falling below 20% HP gain a 100 RED shield that lasts for 3 seconds. 12 Second Cooldown. Half MS while shielded");
-            }
-        }*/
+        }
     }
 }

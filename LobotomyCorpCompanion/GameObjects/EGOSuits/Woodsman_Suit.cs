@@ -12,6 +12,7 @@
         private Woodsman_Suit() : base(
             origin: Woodsman.Instance,
             name: "Logging",
+            unlockLevel: 3,
             cost: 30,
             maxCount: 3,
             requirements: new int[] { 0, 0, 0, 0, 0 },

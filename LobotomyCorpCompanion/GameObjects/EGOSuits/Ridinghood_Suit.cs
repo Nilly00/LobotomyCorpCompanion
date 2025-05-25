@@ -12,6 +12,7 @@
         private Ridinghood_Suit() : base(
             origin: Ridinghood.Instance,
             name: "Crimson Scar",
+            unlockLevel: 4,
             cost: 60,
             maxCount: 1,
             requirements: new int[] { 3, 0, 0, 3, 4 },
@@ -24,7 +25,7 @@
         internal override void Effect(Employee employee)
         {
             employee.SpecialEffects.Add("Movement Speed +30% when suppressing");
-            employee.conditionalBoni.MovespeedPercent *= 1.3;
+            employee.conditionalBonuses.MovespeedPercent *= 1.3;
         }
     }
 }

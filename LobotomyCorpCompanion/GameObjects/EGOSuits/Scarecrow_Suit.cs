@@ -12,6 +12,7 @@
         private Scarecrow_Suit() : base(
             origin: Scarecrow.Instance,
             name: "Harvest",
+            unlockLevel: 3,
             cost: 35,
             maxCount: 2,
             requirements: new int[] { 0, 2, 0, 0, 0 },

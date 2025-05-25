@@ -12,6 +12,7 @@
         private Orchestra_Suit() : base(
             origin: Orchestra.Instance,
             name: "Da Capo",
+            unlockLevel: 4,
             cost: 120,
             maxCount: 1,
             requirements: new int[] { 0, 5, 0, 0, 5 },

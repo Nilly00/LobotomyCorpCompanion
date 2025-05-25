@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Lantern_Weapon() : base(
+            origin: Lantern.Instance,
             name: "Lantern",
+            unlockLevel: 3,
             cost: 25,
             maxCount: 2,
             requirements: new int[] { 0, 0, 0, 0, 0 },

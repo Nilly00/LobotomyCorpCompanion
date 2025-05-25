@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Bee_Weapon() : base(
+            origin: Bee.Instance,
             name: "Hornet",
+            unlockLevel: 4,
             cost: 60,
             maxCount: 2,
             requirements: new int[] { 3, 0, 0, 0, 0 },

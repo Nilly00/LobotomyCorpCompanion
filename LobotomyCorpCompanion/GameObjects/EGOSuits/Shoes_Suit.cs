@@ -12,6 +12,7 @@
         private Shoes_Suit() : base(
             origin: Shoes.Instance,
             name: "Sanguine Desire",
+            unlockLevel: 3,
             cost: 50,
             maxCount: 1,
             requirements: new int[] { 0, 0, 3, 0, 0 },

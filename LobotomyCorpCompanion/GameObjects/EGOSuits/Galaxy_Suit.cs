@@ -12,6 +12,7 @@
         private Galaxy_Suit() : base(
             origin: Galaxy.Instance,
             name: "Our Galaxy",
+            unlockLevel: 1,
             cost: 30,
             maxCount: 2,
             requirements: new int[] { 0, 0, 0, 0, 0 },

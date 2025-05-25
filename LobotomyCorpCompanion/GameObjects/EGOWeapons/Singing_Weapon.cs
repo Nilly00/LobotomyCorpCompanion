@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Singing_Weapon() : base(
+            origin: Singing.Instance,
             name: "Harmony",
+            unlockLevel: 4,
             cost: 40,
             maxCount: 2,
             requirements: new int[] { 2, 0, 0, 0, 2 },
@@ -26,7 +28,7 @@
         internal override void Effect(Employee employee)
         {
             employee.SpecialEffects.Add("When above 10% HP consume 5% HP twice for +30% damage");
-            employee.conditionalBoni.damagePercent *= 1.3;
+            employee.conditionalBonuses.damagePercent *= 1.3;
         }
     }
 }

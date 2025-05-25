@@ -1,16 +1,18 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOWeapons
 {
-    internal sealed class WellCheers_Weapon : EgoWeapon
+    internal sealed class Wellcheers_Weapon : EgoWeapon
     {
         // Singleton instance
-        private static readonly WellCheers_Weapon _instance = new WellCheers_Weapon();
+        private static readonly Wellcheers_Weapon _instance = new Wellcheers_Weapon();
 
         // Public accessor
-        public static WellCheers_Weapon Instance => _instance;
+        public static Wellcheers_Weapon Instance => _instance;
 
         // Private constructor to prevent external instantiation
-        private WellCheers_Weapon() : base(
+        private Wellcheers_Weapon() : base(
+            origin: Wellcheers.Instance,
             name: "Soda",
+            unlockLevel: 3,
             cost: 20,
             maxCount: 2,
             requirements: new int[] { 0, 0, 0, 0, 0 },

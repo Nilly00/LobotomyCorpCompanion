@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Nest_Weapon() : base(
+            origin: Nest.Instance,
             name: "Exuviae",
+            unlockLevel: 4,
             cost: 60,
             maxCount: 2,
             requirements: new int[] { 0, 0, 0, 0, 4 },

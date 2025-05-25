@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Firebird_Weapon() : base(
+            origin: Firebird.Instance,
             name: "Feather of Honour",
+            unlockLevel: 0,
             cost: -1,
             maxCount: 3,
             requirements: new int[] { 3, 0, 0, 0, 0 },

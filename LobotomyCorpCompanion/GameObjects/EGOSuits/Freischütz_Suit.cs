@@ -12,6 +12,7 @@
         private Freischütz_Suit() : base(
             origin: Freischütz.Instance,
             name: "Magic Bullet",
+            unlockLevel: 4,
             cost: 45,
             maxCount: 1,
             requirements: new int[] { 3, 0, 0, 3, 0 },
@@ -25,7 +26,7 @@
         {
             if (origin.SameWeapon(employee))
             {
-                employee.permanentBoni.damageFlat += 3;
+                employee.permanentBonuses.damageFlat += 3;
             }
         }
     }

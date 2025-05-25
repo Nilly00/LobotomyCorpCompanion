@@ -1,18 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Bear : AbnormalityOld
+    internal class Bear : Abnormality
     {
-        public Bear()
-        {
-            Name = "Happy Teddy Bear";
-            DerivedName = "Bear Paws";
-            RiskLevel = RiskLevel.HE;
+        // Singleton instance
+        private static readonly Bear _instance = new Bear();
 
-            //Gift = new EgoGift(DerivedName, Slot.Hat, new SecondaryStats(SP:4));
-        }
-        internal override void GiftEffect(Employee employee)
+        // Public accessor
+        public static Bear Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Bear() : base(
+            name: "Happy Bear",
+            riskLevel: RiskLevel.HE,
+            weapon: Bear_Weapon.Instance,
+            suit: Bear_Suit.Instance,
+            gift: Bear_Gift.Instance
+            )
         {
-            employee.SpecialEffects.Add("ATTACHMENT work SR +3%");
         }
     }
 }

@@ -1,15 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Hatred : AbnormalityOld
+    internal class Hatred : Abnormality
     {
-        public Hatred()
+        // Singleton instance
+        private static readonly Hatred _instance = new Hatred();
+
+        // Public accessor
+        public static Hatred Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Hatred() : base(
+            name: "The Queen of Hatred",
+            riskLevel: RiskLevel.WAW,
+            weapon: Hatred_Weapon.Instance,
+            suit: Hatred_Suit.Instance,
+            gift: Hatred_Gift.Instance
+            )
         {
-            Name = "The Queen of Hatred";
-            DerivedName = "In the Name of Love and Hate";
-            RiskLevel = RiskLevel.WAW;
-
-            //Gift = new EgoGift(DerivedName, Slot.Hat, new SecondaryStats(SR:2,WS:2,AS:4,MS:4));
         }
-
     }
 }

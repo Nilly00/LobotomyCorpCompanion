@@ -10,17 +10,19 @@
 
         // Private constructor to prevent external instantiation
         private MHZ_Gift() : base(
+            origin: MHZ.Instance,
             name: "Noise",
-            secondaryStats: new SecondaryStats(AS: 2)
+            unlockLevel: 3,
+            secondaryStats: new SecondaryStats(AS: 2, MS:2)
         )
         { }
 
         internal override void Effect(Employee employee)
         {
-            if (true) //todo add suit depencency
+            if (origin.SameSuit(employee))
             {
-                employee.permanentBoni.secondaryStats.SP -= 10;
-                employee.permanentBoni.secondaryStats.AS += 10;
+                employee.permanentBonuses.secondaryStats.SP -= 10;
+                employee.permanentBonuses.secondaryStats.AS += 10;
             }
         }
     }

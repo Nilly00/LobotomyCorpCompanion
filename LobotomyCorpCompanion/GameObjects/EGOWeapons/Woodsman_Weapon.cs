@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Woodsman_Weapon() : base(
+            origin: Woodsman.Instance,
             name: "Logging",
+            unlockLevel: 4,
             cost: 60,
             maxCount: 2,
             requirements: new int[] { 0, 2, 0, 0, 0 },

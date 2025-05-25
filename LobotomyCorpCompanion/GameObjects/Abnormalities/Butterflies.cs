@@ -1,14 +1,22 @@
-﻿
-namespace LobotomyCorpCompanion.GameObjects.Abnormalities
+﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Butterflies : AbnormalityOld
+    internal class Butterflies : Abnormality
     {
-        public Butterflies()
+        // Singleton instance
+        private static readonly Butterflies _instance = new Butterflies();
+
+        // Public accessor
+        public static Butterflies Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Butterflies() : base(
+            name: "Funeral of the dead Butterflies",
+            riskLevel: RiskLevel.HE,
+            weapon: Butterflies_Weapon.Instance,
+            suit: Butterflies_Suit.Instance,
+            gift: Butterflies_Gift.Instance
+            )
         {
-            Name = "Funeral of the Dead Butterflies";
-            DerivedName = "Solemn Lament";
-            RiskLevel = RiskLevel.HE;
-            //Gift = new EgoGift(DerivedName, Slot.Right_back, new SecondaryStats(1, 1, 1, 1, 1, 1));
         }
     }
 }

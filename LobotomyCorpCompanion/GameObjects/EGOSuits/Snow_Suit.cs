@@ -12,6 +12,7 @@
         private Snow_Suit() : base(
             origin: Snow.Instance,
             name: "Frost Splinter",
+            unlockLevel: 3,
             cost: 35,
             maxCount: 2,
             requirements: new int[] { 2, 0, 0, 0, 0 },

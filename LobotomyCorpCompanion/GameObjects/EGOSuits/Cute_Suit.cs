@@ -12,6 +12,7 @@
         private Cute_Suit() : base(
             origin: Cute.Instance,
             name: "SO CUTE!!!",
+            unlockLevel: 3,
             cost: 20,
             maxCount: 3,
             requirements: new int[] { 0, 0, 0, 0, 0 },

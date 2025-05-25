@@ -1,16 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Punishing : AbnormalityOld
+    internal class Punishing : Abnormality
     {
-        public Punishing()
+        // Singleton instance
+        private static readonly Punishing _instance = new Punishing();
+
+        // Public accessor
+        public static Punishing Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Punishing() : base(
+            name: "Punishing",
+            riskLevel: RiskLevel.TETH,
+            weapon: Punishing_Weapon.Instance,
+            suit: Punishing_Suit.Instance,
+            gift: Punishing_Gift.Instance
+            )
         {
-            Name = "Punishing Bird";
-            DerivedName = "Beak";
-            RiskLevel = RiskLevel.TETH;
-
-            Suit = new EgoSuit(DerivedName, 25, 2, [0, 0, 0, 0, 0], RiskLevel, new Resistances(0.7, 0.8, 1.2, 2.0));
-
-            //Gift = new EgoGift(DerivedName, Slot.Neckwear, new SecondaryStats(AS:2,MS:2));
         }
     }
 }

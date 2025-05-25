@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Ridinghood_Weapon() : base(
+            origin: Ridinghood.Instance,
             name: "Crimson Scar",
+            unlockLevel: 4,
             cost: 70,
             maxCount: 1,
             requirements: new int[] { 3, 0, 0, 3, 0 },
@@ -26,7 +28,7 @@
         internal override void Effect(Employee employee)
         {
             employee.SpecialEffects.Add("While below 50% HP +50% damage and FRIENDLY FIRE!");
-            employee.conditionalBoni.damagePercent *= 1.5;
+            employee.conditionalBonuses.damagePercent *= 1.5;
         }
     }
 }

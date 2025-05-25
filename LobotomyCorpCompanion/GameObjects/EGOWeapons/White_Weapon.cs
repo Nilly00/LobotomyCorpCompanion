@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private White_Weapon() : base(
+            origin: White.Instance,
             name: "Paradise Lost",
+            unlockLevel: 0,
             cost: -1,
             maxCount: 1,
             requirements: new int[] { 5, 5, 5, 5, 5 },

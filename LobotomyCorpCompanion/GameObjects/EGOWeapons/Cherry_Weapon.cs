@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Cherry_Weapon() : base(
+            origin: Cherry.Instance,
             name: "Cherry Blossoms",
+            unlockLevel: 3,
             cost: 25,
             maxCount: 1,
             requirements: new int[] { 0, 0, 0, 0, 0 },

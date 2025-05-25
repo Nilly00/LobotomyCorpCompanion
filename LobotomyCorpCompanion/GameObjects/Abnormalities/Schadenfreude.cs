@@ -1,20 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Schadenfreude : AbnormalityOld
+    internal class Schadenfreude : Abnormality
     {
-        public Schadenfreude()
-        {
-            Name = "Schadenfreude";
-            DerivedName = "Gaze";
-            RiskLevel = RiskLevel.HE;
-            //Gift = new EgoGift(DerivedName, Slot.Hand_2, new SecondaryStats(HP:4));
-        }
+        // Singleton instance
+        private static readonly Schadenfreude _instance = new Schadenfreude();
 
-        /*internal override void SuitEffect(Employee employee)
+        // Public accessor
+        public static Schadenfreude Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Schadenfreude() : base(
+            name: "Schadenfreude",
+            riskLevel: RiskLevel.HE,
+            weapon: Schadenfreude_Weapon.Instance,
+            suit: Schadenfreude_Suit.Instance,
+            gift: Schadenfreude_Gift.Instance
+            )
         {
-            employee.SpecialEffects.Add("While on screen JUSTICE +10 base Defense becomes 0.8/0.5/0.8/1.5");
-            employee.conditionalBoni.primaryStats.Justice += 10;
-            //todo special calculation for defense in employee method
-        }*/
+        }
     }
 }

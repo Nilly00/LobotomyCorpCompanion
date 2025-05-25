@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Star_Weapon() : base(
+            origin: Star.Instance,
             name: "Sound of a Star",
+            unlockLevel: 4,
             cost: 222,
             maxCount: 1,
             requirements: new int[] { 0, 5, 5, 0, 5 },

@@ -1,19 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Helper : AbnormalityOld
+    internal class Helper : Abnormality
     {
-        public Helper()
-        {
-            Name = "All-Around Helper";
-            DerivedName = "Grinder Mk4";
-            RiskLevel = RiskLevel.HE;
+        // Singleton instance
+        private static readonly Helper _instance = new Helper();
 
-            //Gift = new EgoGift(DerivedName, Slot.Eye, new SecondaryStats(SR:2,WS:2));
-        }
+        // Public accessor
+        public static Helper Instance => _instance;
 
-        internal override void GiftEffect(Employee employee)
+        // Private constructor to prevent external instantiation
+        private Helper() : base(
+            name: "All-Around Helper",
+            riskLevel: RiskLevel.HE,
+            weapon: Helper_Weapon.Instance,
+            suit: Helper_Suit.Instance,
+            gift: Helper_Gift.Instance
+            )
         {
-            employee.SpecialEffects.Add("INSIGHT SR +3%");
         }
     }
 }

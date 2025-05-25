@@ -1,14 +1,22 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.Abnormalities
 {
-    internal class Lantern : AbnormalityOld
+    internal class Lantern : Abnormality
     {
-        public Lantern()
-        {
-            Name = "Meat Lantern";
-            DerivedName = "Lantern";
-            RiskLevel = RiskLevel.TETH;
+        // Singleton instance
+        private static readonly Lantern _instance = new Lantern();
 
-            //Gift = new EgoGift(DerivedName, Slot.Mouth_2, new SecondaryStats(HP: 5));
+        // Public accessor
+        public static Lantern Instance => _instance;
+
+        // Private constructor to prevent external instantiation
+        private Lantern() : base(
+            name: "Meat Lantern",
+            riskLevel: RiskLevel.TETH,
+            weapon: Lantern_Weapon.Instance,
+            suit: Lantern_Suit.Instance,
+            gift: Lantern_Gift.Instance
+            )
+        {
         }
     }
 }

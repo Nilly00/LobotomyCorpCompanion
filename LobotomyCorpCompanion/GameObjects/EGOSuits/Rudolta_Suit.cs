@@ -12,6 +12,7 @@
         private Rudolta_Suit() : base(
             origin: Rudolta.Instance,
             name: "Christmas",
+            unlockLevel: 3,
             cost: 40,
             maxCount: 3,
             requirements: new int[] { 2, 0, 0, 0, 0 },

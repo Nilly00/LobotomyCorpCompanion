@@ -12,6 +12,7 @@
         private Wellcheers_Suit() : base(
             origin: Wellcheers.Instance,
             name: "Soda",
+            unlockLevel: 2,
             cost: 15,
             maxCount: 5,
             requirements: new int[] { 0, 0, 0, 0, 0 },

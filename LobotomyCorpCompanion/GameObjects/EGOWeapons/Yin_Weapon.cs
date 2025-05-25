@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Yin_Weapon() : base(
+            origin: Yin.Instance,
             name: "Discord",
+            unlockLevel: 4,
             cost: 60,
             maxCount: 2,
             requirements: new int[] { 0, 0, 3, 0, 0 },

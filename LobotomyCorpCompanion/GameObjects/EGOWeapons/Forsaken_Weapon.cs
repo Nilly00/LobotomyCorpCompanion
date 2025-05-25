@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Forsaken_Weapon() : base(
+            origin: Forsaken.Instance,
             name: "Regret",
+            unlockLevel: 4,
             cost: 25,
             maxCount: 2,
             requirements: new int[] { 0, 0, 0, 0, 0 },

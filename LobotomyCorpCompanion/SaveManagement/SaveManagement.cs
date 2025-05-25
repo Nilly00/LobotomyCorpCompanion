@@ -39,15 +39,29 @@ class TestClass
 }
 */
 
-struct AbnormalitySave(bool unlocked = false, Department department = Bench.Instance, int researchLevel = 0)
+struct AbnormalitySave(bool unlocked, Department department, int researchLevel)
 {
-    internal bool unlocked;
-    internal Department department;
-    internal int researchLevel;
+    internal bool unlocked = unlocked;
+    internal Department department = department;
+    internal int researchLevel = researchLevel;
 }
 internal static class SaveManagament
 {
-    internal static Dictionary<string, AbnormalitySave> Abnormalities;
+    internal static Dictionary<string, AbnormalitySave> Abnormalities = new();
+
+    internal static void Save()
+    {
+        SaveAbnormalities();
+    }
+
+    internal static void SaveAbnormalities()
+    {
+        foreach (Abnormality abnormality in Abnormality.List)
+        {
+            Abnormalities[abnormality.name] = new AbnormalitySave(abnormality.unlocked, abnormality.department, abnormality.researchLevel);
+        }
+        //todo write abnormalities to file
+    }
 
 
 }

@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Punishing_Weapon() : base(
+            origin: Punishing.Instance,
             name: "Beak",
+            unlockLevel: 3,
             cost: 30,
             maxCount: 2,
             requirements: new int[] { 0, 0, 0, 0, 0 },

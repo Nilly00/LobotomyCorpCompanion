@@ -11,6 +11,7 @@
         // Private constructor to prevent external instantiation
         private Bear_Suit() : base(
             origin: Bear.Instance,
+            unlockLevel: 2,
             name: "Bear Paws",
             cost: 30,
             maxCount: 3,

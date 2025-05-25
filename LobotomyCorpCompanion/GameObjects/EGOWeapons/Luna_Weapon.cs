@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Luna_Weapon() : base(
+            origin: Luna.Instance,
             name: "Moonlight",
+            unlockLevel: 4,
             cost: 70,
             maxCount: 1,
             requirements: new int[] { 3, 0, 0, 0, 0 },

@@ -12,6 +12,7 @@
         private Swan_Suit() : base(
             origin: Swan.Instance,
             name: "Black Swan",
+            unlockLevel: 3,
             cost: 50,
             maxCount: 2,
             requirements: new int[] { 0, 0, 3, 0, 0 },

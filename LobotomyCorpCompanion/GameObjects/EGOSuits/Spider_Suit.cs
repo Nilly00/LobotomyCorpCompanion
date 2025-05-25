@@ -12,6 +12,7 @@
         private Spider_Suit() : base(
             origin: Spider.Instance,
             name: "Red Eyes",
+            unlockLevel: 2,
             cost: 30,
             maxCount: 1,
             requirements: new int[] { 2, 0, 0, 0, 0 },
@@ -27,7 +28,7 @@
             //the Presence of the Suit and added +5 instead of it's usual +2
             if(!origin.SameWeapon(employee))
             {
-                employee.permanentBoni.secondaryStats.MS += 2;
+                employee.permanentBonuses.secondaryStats.MS += 2;
             }
         }
     }

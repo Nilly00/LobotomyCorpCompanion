@@ -12,8 +12,9 @@
         private Apocalypse_Weapon() : base(
             origin: Apocalypse.Instance,
             name: "Twilight",
-            cost: 0,
-            maxCount: 0,
+            unlockLevel: 0,
+            cost: -1,
+            maxCount: 1,
             requirements: new int[] { 0, 0, 0, 0, 0 },
             type: DamageType.SPECIAL,
             riskLevel: RiskLevel.ALEPH,

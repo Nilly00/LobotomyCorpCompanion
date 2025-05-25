@@ -16,7 +16,9 @@ namespace LobotomyCorpCompanion.GameObjects.EGOWeapons
 
         // Private constructor to prevent external instantiation
         private Fetus_Weapon() : base(
+            origin: Fetus.Instance,
             name: "Syrinx",
+            unlockLevel: 4,
             cost: 45,
             maxCount: 1,
             requirements: new int[] { 2, 0, 0, 0, 0 },

@@ -12,6 +12,7 @@
         private Heaven_Suit() : base(
             origin: Heaven.Instance,
             name: "Heaven",
+            unlockLevel: 3,
             cost: 50,
             maxCount: 2,
             requirements: new int[] { 3, 0, 0, 0, 0 },

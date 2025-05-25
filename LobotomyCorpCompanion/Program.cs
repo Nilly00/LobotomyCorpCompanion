@@ -1,16 +1,18 @@
 ﻿
+using LobotomyCorpCompanion;
+
 class Program
 {
+    internal static class Test
+    {
+    }
     static void Main(string[] args)
     {
-        PrimaryStats stats1 = new PrimaryStats(10, 20, 30, 40);
-        PrimaryStats stats2 = new PrimaryStats(1, 2, 3, 4);
-        System.Console.WriteLine("stats1: " + stats1);
-        System.Console.WriteLine("stats2: " + stats2);
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-        stats1 += stats2;
+        //Tests.FullyGiftedEmployee();
+        Tests.RandomTest();
 
-        System.Console.WriteLine("stats1 + stats2: " + stats1);
-
+        //spider suit makes problems. Don't know why yet.
     }
 }

@@ -10,7 +10,9 @@
 
         // Private constructor to prevent external instantiation
         private Woodsman_Gift() :  base(
+            origin: Woodsman.Instance,
             name: "Logging",
+            unlockLevel: 2,
             secondaryStats: new SecondaryStats(HP: 2, SR: 2, WS: 2)
         )
         { }

@@ -12,6 +12,7 @@
         private Prince_Suit() : base(
             origin: Prince.Instance,
             name: "Spore",
+            unlockLevel: 3,
             cost: 50,
             maxCount: 3,
             requirements: new int[] { 0, 2, 0, 0, 2 },

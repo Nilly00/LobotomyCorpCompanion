@@ -12,6 +12,7 @@
         private Star_Suit() : base(
             origin: Star.Instance,
             name: "Sound of a Star",
+            unlockLevel: 4,
             cost: 150,
             maxCount: 1,
             requirements: new int[] { 0, 5, 5, 0, 5 },
