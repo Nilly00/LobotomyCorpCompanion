@@ -85,7 +85,6 @@
         }
 
     }
-
     internal struct FinalStats()
     {
         internal PrimaryStats primaryStats = new PrimaryStats();
@@ -312,6 +311,7 @@
                 this.maxStats.resistances = this.minStats.resistances * this.conditionalBonuses.resistances;
             }
         }
+
         public static int StatToRank(int stat)
         {
             return
@@ -321,6 +321,7 @@
             stat < 100 ? 4 :
                          5 ;
         }
+
         private void CalcRank()
         {
             //determine individual Stat ranks
@@ -345,6 +346,10 @@
             this.department.AddEmployee(this);
         }
 
+        public void AddGift(EgoGift gift)
+        {
+            this.gifts[(int)gift.slot]= gift;
+        }
 
         public override string ToString()
         {

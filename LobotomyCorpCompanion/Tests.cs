@@ -1,72 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using LobotomyCorpCompanion.GameObjects;
-using Newtonsoft.Json;
+﻿
+using System.Security.Cryptography;
 
 namespace LobotomyCorpCompanion
 {
+    internal static class RandomHelper
+    {
+        internal static Random random = new();
+        private static List<string> Names =
+            [
+            "Acacia","Adam","Alex","Alisa","Anastasia","Angel","Angelina","Anthony","Anton","Ara","Arang","Archer","Asera","Ashely",
+            "Aurora","Basil","Bella","Bong-Bong","Brook","Brown","Camille","Cedric","Charlotte","Christopher","Cloie","Cooper",
+            "Corbinian","Courtney","Dakota","Dana","Daniel","Daphne","Delaney","Delilah","Destiny","Devona","Dexter","Dia","Diva","BongBong"
+            ];
+
+
+        public static String Primary()
+        {
+            return Employee.primaryTitles.ElementAt(random.Next(Employee.primaryTitles.Count)).Key;
+        }
+        public static String Secondary()
+        {
+            return Employee.secondaryTitles.ElementAt(random.Next(Employee.secondaryTitles.Count)).Key;
+        }
+        public static Department Depart()
+        {
+            return Department.list.Values.ElementAt(random.Next(Department.list.Count));
+        }
+        public static String Name()
+        {
+            return Names[random.Next(Names.Count)];
+        }
+    }
     internal static class Tests
     {
-        public static void CreateEmployee()
-        {
-            System.Console.WriteLine("Please enter the name\n");
-            string name = System.Console.ReadLine();
-
-            System.Console.WriteLine("\nplease enter the primary title\n");
-            foreach(string key in Employee.primaryTitles.Keys)
-            {
-                System.Console.WriteLine(key);
-            }
-            System.Console.WriteLine("\n");
-            string primaryTitle = System.Console.ReadLine();
-
-            System.Console.WriteLine("\nplease enter the secondary title\n");
-            foreach (string key in Employee.secondaryTitles.Keys)
-            {
-                System.Console.WriteLine(key);
-            }
-            string secondaryTitle = System.Console.ReadLine();
-
-            System.Console.WriteLine("\nPlease enter the department:\n");
-
-            foreach (string departs in Department.list.Keys)
-            {
-                System.Console.WriteLine(departs);
-            }
-            Department department = Department.list[System.Console.ReadLine()];
-
-
-            EgoWeapon weapon;
-            System.Console.WriteLine("\nPlease enter the weapon:\n");
-            string temp = System.Console.ReadLine();
-            foreach(Abnormality abnormality in Abnormality.List)
-            {
-                if (abnormality.weapon != null && abnormality.weapon.name == temp)
-                {
-                    weapon = abnormality.weapon;
-                    break;
-                }
-            }
-
-            EgoSuit suit;
-            System.Console.WriteLine("\nPlease enter the suit:\n");
-            temp = System.Console.ReadLine();
-            foreach (Abnormality abnormality in Abnormality.List)
-            {
-                if (abnormality.suit != null && abnormality.suit.name == temp)
-                {
-                    suit = abnormality.suit;
-                    break;
-                }
-            }
-
-            System.Console.WriteLine("");
-            System.Console.ReadLine();
-        }
-
+        //employee without gifts
         public static void MockEmployee()
         {
             Employee BongBong = new()
@@ -76,34 +43,36 @@ namespace LobotomyCorpCompanion
             System.Console.WriteLine(BongBong);
         }
 
-        public static void FullyGiftedEmployee()
+        //employee with all gift slots filled
+        public static Employee FullyGiftedEmployee()
         {
             Employee BongBong = new()
             {
                 department = Control.Instance
             };
 
-            Apple_Gift.Instance.Add(BongBong);
-            
-            Despair_Gift.Instance.Add(BongBong);
-            Censored_Gift.Instance.Add(BongBong);
-            Wolf_Gift.Instance.Add(BongBong);
-            Greed_Gift.Instance.Add(BongBong);
-            Bloodbath_Gift.Instance.Add(BongBong);
-            Bear_Gift.Instance.Add(BongBong);
-            Army_Gift.Instance.Add(BongBong);   
-            White_Gift.Instance.Add(BongBong);
-            Apocalypse_Gift.Instance.Add(BongBong);
-            Forsaken_Gift.Instance.Add(BongBong);
-            Current_Gift.Instance.Add(BongBong);
-            Galaxy_Gift.Instance.Add(BongBong);
-            Plague_Gift.Instance.Add(BongBong);
+            BongBong.AddGift(Apple_Gift.Instance);
+            BongBong.AddGift(Despair_Gift.Instance);
+            BongBong.AddGift(Censored_Gift.Instance);
+            BongBong.AddGift(Wolf_Gift.Instance);
+            BongBong.AddGift(Greed_Gift.Instance);
+            BongBong.AddGift(Bloodbath_Gift.Instance);
+            BongBong.AddGift(Bear_Gift.Instance);
+            BongBong.AddGift(Army_Gift.Instance);
+            BongBong.AddGift(White_Gift.Instance);
+            BongBong.AddGift(Apocalypse_Gift.Instance);
+            BongBong.AddGift(Forsaken_Gift.Instance);
+            BongBong.AddGift(Current_Gift.Instance);
+            BongBong.AddGift(Galaxy_Gift.Instance);
+            BongBong.AddGift(Plague_Gift.Instance);
 
             BongBong.Calculate();
 
-            System.Console.WriteLine(BongBong);
+            return BongBong;
         }
-        public static void RandomTest()
+
+        //randomly kitted employee
+        public static Employee RandomTest()
         {
             List<string> Names =
             [
@@ -122,65 +91,41 @@ namespace LobotomyCorpCompanion
 
             EgoGift[] gifts= new EgoGift[14];
 
-            //todo change test to new structure
-            /*
-            gifts[0] = EgoGift_Brooch.List.ElementAt(random.Next(EgoGift_Brooch.List.Count));
-            gifts[1] = EgoGift_Cheek.List.ElementAt(random.Next(EgoGift_Cheek.List.Count));
-            gifts[2] = EgoGift_Eye.List.ElementAt(random.Next(EgoGift_Eye.List.Count));
-            gifts[3] = EgoGift_Face.List.ElementAt(random.Next(EgoGift_Face.List.Count));
-            gifts[4] = EgoGift_Hand_1.List.ElementAt(random.Next(EgoGift_Hand_1.List.Count));
-            gifts[5] = EgoGift_Hand_2.List.ElementAt(random.Next(EgoGift_Hand_2.List.Count));
-            gifts[6] = EgoGift_Hat.List.ElementAt(random.Next(EgoGift_Hat.List.Count));
-            gifts[7] = EgoGift_Helmet.List.ElementAt(random.Next(EgoGift_Helmet.List.Count));
-            gifts[8] = EgoGift_Left_Back.List.ElementAt(random.Next(EgoGift_Left_Back.List.Count));
-            gifts[9] = EgoGift_Right_Back.List.ElementAt(random.Next(EgoGift_Right_Back.List.Count));
-            gifts[10] = EgoGift_Mouth_1.List.ElementAt(random.Next(EgoGift_Mouth_1.List.Count));
-            gifts[11] = EgoGift_Mouth_2.List.ElementAt(random.Next(EgoGift_Mouth_2.List.Count));
-            gifts[12] = EgoGift_Neckwear.List.ElementAt(random.Next(EgoGift_Neckwear.List.Count));*/
+            gifts[0] = GiftManagement.RandomGift(Slot.Brooch);
+            gifts[1] = GiftManagement.RandomGift(Slot.Cheek);
+            gifts[2] = GiftManagement.RandomGift(Slot.Eye);
+            gifts[3] = GiftManagement.RandomGift(Slot.Face);
+            gifts[4] = GiftManagement.RandomGift(Slot.Hand_1);
+            gifts[5] = GiftManagement.RandomGift(Slot.Hand_2);
+            gifts[6] = GiftManagement.RandomGift(Slot.Hat);
+            gifts[7] = GiftManagement.RandomGift(Slot.Helmet);
+            gifts[8] = GiftManagement.RandomGift(Slot.Left_back);
+            gifts[9] = GiftManagement.RandomGift(Slot.Right_back);
+            gifts[10] = GiftManagement.RandomGift(Slot.Mouth_1);
+            gifts[11] = GiftManagement.RandomGift(Slot.Mouth_2);
+            gifts[12] = GiftManagement.RandomGift(Slot.Neckwear);
+            gifts[13] = GiftManagement.RandomGift(Slot.Special);
 
 
             Employee employee = new(
-                name: Names[random.Next(Names.Count)],
+                name: RandomHelper.Name(),
                 primaryLevels: primaryStats,
-                primaryTitle: Employee.primaryTitles.Keys.ElementAt(random.Next(Employee.primaryTitles.Count)),
-                secondaryTitle: Employee.secondaryTitles.Keys.ElementAt(random.Next(Employee.secondaryTitles.Count)),
-                department: Department.list.Values.ElementAt(random.Next(Department.list.Count)),
+                primaryTitle: RandomHelper.Primary(),
+                secondaryTitle: RandomHelper.Secondary(),
+                department: RandomHelper.Depart(),
                 daysInService: random.Next(1, 100),
                 isCaptain: random.Next(0, 2) == 1,
-                weapon: Abnormality.List.Where(a => a.weapon != null).Select(a => a.weapon).ElementAt(random.Next(Abnormality.List.Count(a => a.weapon != null))),
-                suit: Abnormality.List.Where(a => a.suit != null).Select(a => a.suit).ElementAt(random.Next(Abnormality.List.Count(a => a.suit != null))),
+                weapon: WeaponManagement.GetRandomWeapon(),
+                suit: SuitManagement.GetRandomSuit(),
                 gifts: gifts
             );
 
-            System.Console.WriteLine(employee);
-
-
-            //todo calling the origin of a weapon/suit/gift causes a null reference exception
-
+            return employee;
         }
 
         public static void SaveEmployee()
         {
-            Employee BongBong = new()
-            {
-                department = Control.Instance
-            };
-
-            Apple_Gift.Instance.Add(BongBong);
-
-            Despair_Gift.Instance.Add(BongBong);
-            Censored_Gift.Instance.Add(BongBong);
-            Wolf_Gift.Instance.Add(BongBong);
-            Greed_Gift.Instance.Add(BongBong);
-            Bloodbath_Gift.Instance.Add(BongBong);
-            Bear_Gift.Instance.Add(BongBong);
-            Army_Gift.Instance.Add(BongBong);
-            White_Gift.Instance.Add(BongBong);
-            Apocalypse_Gift.Instance.Add(BongBong);
-            Forsaken_Gift.Instance.Add(BongBong);
-            Current_Gift.Instance.Add(BongBong);
-            Galaxy_Gift.Instance.Add(BongBong);
-            Plague_Gift.Instance.Add(BongBong);
+            Employee BongBong = FullyGiftedEmployee();
 
             BongBong.Calculate();
             System.Console.WriteLine(BongBong);

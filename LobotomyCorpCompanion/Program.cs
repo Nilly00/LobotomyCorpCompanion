@@ -1,14 +1,17 @@
 ﻿class Program
 {
-    internal static class Test
-    {
-    }
     static void Main(string[] args)
     {
         Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-        Tests.SaveEmployee();
 
-        //Tests.ReadEmployee();
+        Employee employee = Tests.RandomTest();
+        System.Console.WriteLine(employee);
+
+        System.Console.WriteLine("Gifts:");
+        foreach (EgoGift gift in employee.gifts)
+        {
+            Console.WriteLine(gift.name);
+        }
     }
 }

@@ -1,5 +1,7 @@
 ﻿//global using System.Data;
-//global using System.IO;
+//global using System.IO
+global using System.Linq;
+
 global using Newtonsoft.Json;
 //global using Newtonsoft.Json.Linq;
 

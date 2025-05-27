@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LobotomyCorpCompanion.GameObjects
+﻿namespace LobotomyCorpCompanion.GameObjects
 {
 
     internal abstract class EgoEquipment
@@ -23,6 +17,25 @@ namespace LobotomyCorpCompanion.GameObjects
         internal virtual void Effect(Employee employee)
         {
             // Default effect does nothing
+        }
+
+        internal bool SameWeapon(Employee employee)
+        {
+            return employee.weapon.origin == origin;
+        }
+
+        internal bool SameSuit(Employee employee)
+        {
+            return employee.suit.origin == origin;
+        }
+
+        internal bool SameGift(Employee employee)
+        {
+            foreach (EgoGift gift in employee.gifts)
+            {
+                if (gift.origin == this.origin) return true;
+            }
+            return false;
         }
     }
     internal abstract class EgoPurchasable : EgoEquipment
@@ -152,7 +165,7 @@ namespace LobotomyCorpCompanion.GameObjects
             };
         }
 
-        public override string ToString()
+        public override readonly string ToString()
         {
             return $"Red: {red}, White: {white}, Black: {black}, Pale: {pale}";
         }
@@ -223,15 +236,7 @@ namespace LobotomyCorpCompanion.GameObjects
             this.slot = slot;
             this.secondaryStats = secondaryStats;
         }
-
-        internal void Add(Employee employee) {
-            employee.gifts[(int)slot] = this;
-        }
     }
 
-    internal static class GiftManagement
-    {
-
-    }
 }
 

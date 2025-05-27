@@ -2,8 +2,8 @@
 {
     internal abstract class Abnormality
     {
-        internal static List<Abnormality> List= new List<Abnormality>
-        {
+        internal static List<Abnormality> List=
+        [
             Alriune.Instance,
             Apocalypse.Instance,
             Army.Instance,
@@ -71,8 +71,7 @@
             Wolf.Instance,
             Woodsman.Instance,
             Yin.Instance
-
-        };
+        ];
 
 
         //this needs to be saved
@@ -132,26 +131,81 @@
                 this.department.abnormalities.Add(this);
             }
         }
-        internal virtual void increaseResearchLevel() { }
+        internal virtual void IncreaseResearchLevel() { }
+    }
 
-
-        internal bool SameWeapon(Employee employee)
-        {
-            return employee.weapon == this.weapon ? true : false;
-        }
-
-
-        internal bool SameSuit(Employee employee)
-        {
-            return employee.suit == this.suit ? true : false;
-        }
-        internal bool SameGift(Employee employee)
-        {
-            foreach (EgoGift gift in employee.gifts)
-            {
-                if (gift == this.gift) return true;
-            }
-            return false;
-        }
+    internal static class AbnormalityManagement
+    {
+        internal static List<Abnormality> AbnormalityMasterList = [
+            Alriune.Instance,
+            Apocalypse.Instance,
+            Apple.Instance,
+            Army.Instance,
+            Bald.Instance,
+            Bear.Instance,
+            Beauty.Instance,
+            Bee.Instance,
+            Big.Instance,
+            Bloodbath.Instance,
+            Butterflies.Instance,
+            Censored.Instance,
+            Cherry.Instance,
+            Crumbling.Instance,
+            Current.Instance,
+            Cute.Instance,
+            Default.Instance,
+            Despair.Instance,
+            Dont.Instance,
+            Dream.Instance,
+            Fairy.Instance,
+            Fetus.Instance,
+            Firebird.Instance,
+            Forsaken.Instance,
+            Fragments.Instance,
+            Freischütz.Instance,
+            Galaxy.Instance,
+            Greed.Instance,
+            Hatred.Instance,
+            Heaven.Instance,
+            Helper.Instance,
+            Judgement.Instance,
+            Laetitia.Instance,
+            Lantern.Instance,
+            Love.Instance,
+            Luna.Instance,
+            MHZ.Instance,
+            Monk.Instance,
+            Nest.Instance,
+            Nothing.Instance,
+            OldLady.Instance,
+            OneSin.Instance,
+            Orchestra.Instance,
+            Parasite.Instance,
+            Plague.Instance,
+            Porccubus.Instance,
+            Prince.Instance,
+            Punishing.Instance,
+            Rabbit.Instance,
+            Refraction.Instance,
+            Ridinghood.Instance,
+            Rudolta.Instance,
+            Scarecrow.Instance,
+            Schadenfreude.Instance,
+            Scorched.Instance,
+            Shoes.Instance,
+            Shy.Instance,
+            Singing.Instance,
+            Smiling.Instance,
+            Snow.Instance,
+            Spider.Instance,
+            Star.Instance,
+            Swan.Instance,
+            WallLady.Instance,
+            Wellcheers.Instance,
+            White.Instance,
+            Wolf.Instance,
+            Woodsman.Instance,
+            Yin.Instance,
+            ];
     }
 }
