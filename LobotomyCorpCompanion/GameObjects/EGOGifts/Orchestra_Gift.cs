@@ -21,7 +21,7 @@
 
         internal override void Effect(Employee employee)
         {
-            if (origin.SameSuit(employee))
+            if (SameSuit(employee))
             {
                 //todo set white resist to -1
             }

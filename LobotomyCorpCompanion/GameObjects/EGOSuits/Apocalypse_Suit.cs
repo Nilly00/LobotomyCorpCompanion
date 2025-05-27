@@ -33,7 +33,7 @@
         internal override void Effect(Employee employee)
         {
             employee.SpecialEffects.Add("Deal black damage to all enemies in the room every 5s");
-            if(origin.SameWeapon(employee))
+            if(SameWeapon(employee))
             {
                 employee.SpecialEffects.Add("Damage increases when HP lowers.");
             }

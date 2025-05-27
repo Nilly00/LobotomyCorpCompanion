@@ -21,7 +21,7 @@
 
         internal override void Effect(Employee employee)
         {
-            if (origin.SameSuit(employee))
+            if (SameSuit(employee))
             {
                 employee.permanentBonuses.secondaryStats.SP -= 10;
                 employee.permanentBonuses.secondaryStats.AS += 10;

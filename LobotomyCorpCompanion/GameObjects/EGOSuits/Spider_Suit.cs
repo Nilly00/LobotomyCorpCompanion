@@ -28,7 +28,7 @@
         {
             //If the Weapon is the same the Weapon will already have checked for 
             //the Presence of the Suit and added +5 instead of it's usual +2
-            if(!origin.SameWeapon(employee))
+            if(!SameWeapon(employee))
             {
                 employee.permanentBonuses.secondaryStats.MS += 2;
             }

@@ -27,7 +27,7 @@
         internal override void Effect(Employee employee)
         {
             //todo implement ressitance altering effect
-            if (origin.SameGift(employee))
+            if (SameGift(employee))
             {
                 employee.SpecialEffects.Add("Immune to damages that are 10 or lower during Supression.");
             }

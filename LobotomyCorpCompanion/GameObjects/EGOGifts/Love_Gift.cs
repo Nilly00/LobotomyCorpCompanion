@@ -21,7 +21,7 @@
 
         internal override void Effect(Employee employee)
         {
-            if (origin.SameSuit(employee))
+            if (SameSuit(employee))
             {
                 employee.SpecialEffects.Add("When falling below 20% HP gain a 100 RED shield that lasts for 3 seconds. 12 Second Cooldown. Half MS while shielded");
             }

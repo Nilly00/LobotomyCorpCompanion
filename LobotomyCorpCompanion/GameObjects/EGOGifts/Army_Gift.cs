@@ -21,7 +21,7 @@
 
         internal override void Effect(Employee employee)
         {
-            if (origin.SameWeapon(employee) && origin.SameSuit(employee))
+            if (SameWeapon(employee) && SameSuit(employee))
             {
                 employee.permanentBonuses.damagePercent *= 1.15;
             }

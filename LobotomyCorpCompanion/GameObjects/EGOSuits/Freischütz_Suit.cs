@@ -26,7 +26,7 @@
 
         internal override void Effect(Employee employee)
         {
-            if (origin.SameWeapon(employee))
+            if (SameWeapon(employee))
             {
                 employee.permanentBonuses.damageFlat += 3;
             }
