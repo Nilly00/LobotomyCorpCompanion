@@ -13,10 +13,12 @@
             origin: Parasite.Instance,
             name: "Hypocrisy",
             unlockLevel: 4,
+
             cost: 60,
             maxCount: 1,
-            requirements: new int[] { 0, 3, 0, 0, 0 },
+            requirements: [0, 3, 0, 0, 0],
             riskLevel: RiskLevel.WAW,
+
             resistances: new Resistances(0.7, 0.5, 1.5, 1.5)
             )
         {

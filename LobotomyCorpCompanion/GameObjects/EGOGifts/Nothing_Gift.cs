@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Nothing_Gift : EgoGift_Cheek
+    internal sealed class Nothing_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Nothing_Gift _instance = new Nothing_Gift();
@@ -13,6 +13,8 @@
             origin: Nothing.Instance,
             name: "Mimicry",
             unlockLevel: 4,
+
+            slot: Slot.Cheek,
             secondaryStats: new SecondaryStats(HP: 10)
         )
         { }

@@ -13,11 +13,13 @@
             origin: WallLady.Instance,
             name: "Screaming Wedge",
             unlockLevel: 3,
+
             cost: 35,
             maxCount: 2,
-            requirements: new int[] { 0, 2, 0, 0, 0 },
-            type: DamageType.WHITE,
+            requirements: [0, 2, 0, 0, 0],
             riskLevel: RiskLevel.HE,
+
+            type: DamageType.WHITE,
             damageMin: 7,
             damageMax: 14,
             range: 20,

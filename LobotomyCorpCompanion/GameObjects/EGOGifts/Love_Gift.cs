@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Love_Gift : EgoGift_Helmet
+    internal sealed class Love_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Love_Gift _instance = new Love_Gift();
@@ -13,6 +13,8 @@
             origin: Love.Instance,
             name: "Adoration",
             unlockLevel: 4,
+
+            slot: Slot.Helmet,
             secondaryStats: new SecondaryStats(HP: 5, SP: 10, SR: -5, WS: -5)
         )
         { }

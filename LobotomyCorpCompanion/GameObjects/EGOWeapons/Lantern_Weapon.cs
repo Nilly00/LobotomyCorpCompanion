@@ -13,11 +13,13 @@
             origin: Lantern.Instance,
             name: "Lantern",
             unlockLevel: 3,
+
             cost: 25,
             maxCount: 2,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
-            type: DamageType.BLACK,
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.TETH,
+
+            type: DamageType.BLACK, 
             damageMin: 12,
             damageMax: 18,
             range: 5,

@@ -13,11 +13,13 @@
             origin: Galaxy.Instance,
             name: "Our Galaxy",
             unlockLevel: 4,
+
             cost: 45,
             maxCount: 1,
-            requirements: new int[] { 0, 2, 0, 0, 2 },
-            type: DamageType.BLACK,
+            requirements: [0, 2, 0, 0, 2],
             riskLevel: RiskLevel.HE,
+
+            type: DamageType.BLACK, 
             damageMin: 9,
             damageMax: 15,
             range: 8,

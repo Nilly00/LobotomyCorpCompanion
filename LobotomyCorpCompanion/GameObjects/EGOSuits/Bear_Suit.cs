@@ -13,10 +13,12 @@
             origin: Bear.Instance,
             unlockLevel: 2,
             name: "Bear Paws",
+
             cost: 30,
             maxCount: 3,
-            requirements: new int[] { 0, 0, 0, 0, 2 },
+            requirements: [0, 0, 0, 0, 2],
             riskLevel: RiskLevel.HE,
+
             resistances: new Resistances(0.8, 1.0, 1.0, 1.5)
             )
         {

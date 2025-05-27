@@ -13,11 +13,13 @@
             origin: Shy.Instance,
             name: "Today's Expression",
             unlockLevel: 3,
+
             cost: 25,
             maxCount: 2,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
-            type: DamageType.BLACK,
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.TETH,
+
+            type: DamageType.BLACK, 
             damageMin: 2,
             damageMax: 3,
             range: 10,

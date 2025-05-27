@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Apple_Gift : EgoGift_Brooch
+    internal sealed class Apple_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Apple_Gift _instance = new Apple_Gift();
@@ -13,6 +13,8 @@
             origin: Apple.Instance,
             name: "Green Stem",
             unlockLevel: 2,
+
+            slot: Slot.Brooch,
             secondaryStats: new SecondaryStats(SP: 6)
         )
         { }

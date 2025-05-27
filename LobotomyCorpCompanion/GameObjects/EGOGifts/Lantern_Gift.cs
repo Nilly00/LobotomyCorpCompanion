@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Lantern_Gift : EgoGift_Mouth_2
+    internal sealed class Lantern_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Lantern_Gift _instance = new Lantern_Gift();
@@ -13,6 +13,8 @@
             origin: Lantern.Instance,
             name: "Lantern",
             unlockLevel: 2,
+
+            slot: Slot.Mouth_2,
             secondaryStats: new SecondaryStats(HP: 5)
         )
         { }

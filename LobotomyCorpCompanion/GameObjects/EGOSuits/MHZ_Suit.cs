@@ -13,10 +13,12 @@
             origin: MHZ.Instance,
             name: "Noise",
             unlockLevel: 2,
+
             cost: 30,
             maxCount: 1,
-            requirements: new int[] { 0, 2, 0, 0, 0 },
+            requirements: [0, 2, 0, 0, 0],
             riskLevel: RiskLevel.TETH,
+
             resistances: new Resistances(1.2, 0.7, 0.6, 2.0)
             )
         {

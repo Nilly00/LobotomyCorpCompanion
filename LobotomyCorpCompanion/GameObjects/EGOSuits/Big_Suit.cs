@@ -13,10 +13,12 @@
             origin: Big.Instance,
             unlockLevel: 4,
             name: "Lamp",
+
             cost: 60,
             maxCount: 1,
-            requirements: new int[] { 0, 0, 3, 3, 4 },
+            requirements: [0, 0, 3, 3, 4],
             riskLevel: RiskLevel.WAW,
+
             resistances: new Resistances(0.8, 0.7, 0.4, 1.5)
             )
         {

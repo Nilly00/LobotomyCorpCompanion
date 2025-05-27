@@ -13,10 +13,12 @@
             origin: Snow.Instance,
             name: "Frost Splinter",
             unlockLevel: 3,
+
             cost: 35,
             maxCount: 2,
-            requirements: new int[] { 2, 0, 0, 0, 0 },
+            requirements: [2, 0, 0, 0, 0],
             riskLevel: RiskLevel.HE,
+
             resistances: new Resistances(1.3, 0.6, 0.8, 1.5)
             )
         {

@@ -13,10 +13,12 @@
             origin: Yin.Instance,
             name: "Discord",
             unlockLevel: 3,
+
             cost: 50,
             maxCount: 2,
-            requirements: new int[] { 0, 0, 0, 3, 0 },
+            requirements: [0, 0, 0, 3, 0],
             riskLevel: RiskLevel.WAW,
+
             resistances: new Resistances(1.2, 0.8, 0.6, 0.5)
             )
         {

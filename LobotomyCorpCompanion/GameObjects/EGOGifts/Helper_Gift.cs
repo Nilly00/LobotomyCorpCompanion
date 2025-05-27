@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Helper_Gift : EgoGift_Eye
+    internal sealed class Helper_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Helper_Gift _instance = new Helper_Gift();
@@ -13,6 +13,8 @@
             origin: Helper.Instance,
             name: "Grinder Mk4",
             unlockLevel: 2,
+
+            slot: Slot.Eye,
             secondaryStats: new SecondaryStats(SR: 2, WS: 2)
         )
         { }

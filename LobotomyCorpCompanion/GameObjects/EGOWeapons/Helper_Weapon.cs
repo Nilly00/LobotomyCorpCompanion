@@ -13,11 +13,13 @@
             origin: Helper.Instance,
             name: "Grinder Mk4",
             unlockLevel: 4,
+
             cost: 50,
             maxCount: 1,
-            requirements: new int[] { 2, 0, 0, 0, 0 },
-            type: DamageType.RED,
+            requirements: [2, 0, 0, 0, 0],
             riskLevel: RiskLevel.HE,
+
+            type: DamageType.RED, 
             damageMin: 1,
             damageMax: 3,
             range: 4,

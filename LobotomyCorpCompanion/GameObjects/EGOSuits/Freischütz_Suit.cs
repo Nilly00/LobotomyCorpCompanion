@@ -13,10 +13,12 @@
             origin: Freischütz.Instance,
             name: "Magic Bullet",
             unlockLevel: 4,
+
             cost: 45,
             maxCount: 1,
-            requirements: new int[] { 3, 0, 0, 3, 0 },
+            requirements: [3, 0, 0, 3, 0],
             riskLevel: RiskLevel.HE,
+
             resistances: new Resistances(0.7, 0.7, 0.7, 1.5)
             )
         {

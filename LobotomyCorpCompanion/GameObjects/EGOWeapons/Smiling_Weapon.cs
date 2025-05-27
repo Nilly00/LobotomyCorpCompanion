@@ -13,11 +13,13 @@
             origin: Smiling.Instance,
             name: "Smile",
             unlockLevel: 4,
+
             cost: 222,
             maxCount: 1,
-            requirements: new int[] { 0, 0, 5, 0, 5 },
-            type: DamageType.BLACK,
+            requirements: [0, 0, 5, 0, 5],
             riskLevel: RiskLevel.ALEPH,
+
+            type: DamageType.BLACK, 
             damageMin: 12,
             damageMax: 18,
             range: 1,

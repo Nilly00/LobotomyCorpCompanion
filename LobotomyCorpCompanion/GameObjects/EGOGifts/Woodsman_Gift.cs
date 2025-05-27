@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Woodsman_Gift : EgoGift_Brooch
+    internal sealed class Woodsman_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Woodsman_Gift _instance = new Woodsman_Gift();
@@ -13,6 +13,8 @@
             origin: Woodsman.Instance,
             name: "Logging",
             unlockLevel: 2,
+
+            slot: Slot.Brooch,
             secondaryStats: new SecondaryStats(HP: 2, SR: 2, WS: 2)
         )
         { }

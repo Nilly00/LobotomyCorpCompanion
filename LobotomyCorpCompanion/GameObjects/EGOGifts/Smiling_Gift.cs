@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Smiling_Gift : EgoGift_Eye
+    internal sealed class Smiling_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Smiling_Gift _instance = new Smiling_Gift();
@@ -13,6 +13,8 @@
             origin: Smiling.Instance,
             name: "Smile",
             unlockLevel: 3,
+
+            slot: Slot.Eye,
             secondaryStats: new SecondaryStats(HP: 5, SP: 5)
         )
         { }

@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Butterflies_Gift : EgoGift_Right_Back
+    internal sealed class Butterflies_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Butterflies_Gift _instance = new Butterflies_Gift();
@@ -13,6 +13,8 @@
             origin: Butterflies.Instance,
             name: "Solemn Lament",
             unlockLevel: 3,
+
+            slot: Slot.Right_back,
             secondaryStats: new SecondaryStats(1, 1, 1, 1, 1, 1)
         )
         { }

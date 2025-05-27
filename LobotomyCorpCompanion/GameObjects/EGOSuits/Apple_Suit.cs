@@ -13,10 +13,12 @@
             origin: Apple.Instance,
             name: "Green Stem",
             unlockLevel: 3,
+
             cost: 50,
             maxCount: 2,
-            requirements: new int[] { 0, 3, 0, 0, 0 },
+            requirements: [0, 3, 0, 0, 0],
             riskLevel: RiskLevel.WAW,
+
             resistances: new Resistances(0.8, 1.2, 0.6, 1.5)
             )
         {

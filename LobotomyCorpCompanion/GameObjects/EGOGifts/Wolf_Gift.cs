@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Wolf_Gift : EgoGift_Face
+    internal sealed class Wolf_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Wolf_Gift _instance = new Wolf_Gift();
@@ -13,6 +13,8 @@
             origin: Wolf.Instance,
             unlockLevel: 3,
             name: "Cobalt Scar",
+
+            slot: Slot.Face,
             secondaryStats: new SecondaryStats(HP: 4, AS: 2, MS: 2)
         )
         { }

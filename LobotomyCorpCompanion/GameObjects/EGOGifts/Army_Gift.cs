@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Army_Gift : EgoGift_Helmet
+    internal sealed class Army_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Army_Gift _instance = new Army_Gift();
@@ -13,6 +13,8 @@
             origin: Army.Instance,
             unlockLevel: 4,
             name: "Pink",
+
+            slot: Slot.Helmet,
             secondaryStats: new SecondaryStats(AS: 5, MS: 5)
         )
         { }

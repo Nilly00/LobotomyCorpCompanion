@@ -13,11 +13,13 @@
             origin: Bee.Instance,
             name: "Hornet",
             unlockLevel: 4,
+
             cost: 60,
             maxCount: 2,
-            requirements: new int[] { 3, 0, 0, 0, 0 },
-            type: DamageType.RED,
+            requirements: [3, 0, 0, 0, 0],
             riskLevel: RiskLevel.WAW,
+
+            type: DamageType.RED, 
             damageMin: 7,
             damageMax: 8,
             range: 1,

@@ -13,11 +13,13 @@
             origin: Greed.Instance,
             name: "Gold Rush",
             unlockLevel: 4,
+
             cost: 100,
             maxCount: 1,
-            requirements: new int[] { 5, 0, 0, 0, 5 },
-            type: DamageType.RED,
+            requirements: [5, 0, 0, 0, 5],
             riskLevel: RiskLevel.ALEPH,
+
+            type: DamageType.RED, 
             damageMin: 5,
             damageMax: 6,
             range: 1,

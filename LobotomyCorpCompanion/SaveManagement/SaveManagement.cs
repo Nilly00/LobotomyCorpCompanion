@@ -47,7 +47,8 @@ struct AbnormalitySave(bool unlocked, Department department, int researchLevel)
 }
 internal static class SaveManagament
 {
-    internal static Dictionary<string, AbnormalitySave> Abnormalities = new();
+    internal static string savePath = "";
+    internal static Dictionary<string, AbnormalitySave> abnoSave = new();
 
     internal static void Save()
     {
@@ -58,7 +59,7 @@ internal static class SaveManagament
     {
         foreach (Abnormality abnormality in Abnormality.List)
         {
-            Abnormalities[abnormality.name] = new AbnormalitySave(abnormality.unlocked, abnormality.department, abnormality.researchLevel);
+            abnoSave[abnormality.name] = new AbnormalitySave(abnormality.unlocked, abnormality.department, abnormality.researchLevel);
         }
         //todo write abnormalities to file
     }

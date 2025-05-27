@@ -13,11 +13,13 @@
             origin: Wellcheers.Instance,
             name: "Soda",
             unlockLevel: 3,
+
             cost: 20,
             maxCount: 2,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
-            type: DamageType.RED,
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.ZAYIN,
+
+            type: DamageType.RED,
             damageMin: 1,
             damageMax: 2,
             range: 10,

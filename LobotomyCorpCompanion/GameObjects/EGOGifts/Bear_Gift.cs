@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Bear_Gift : EgoGift_Hat
+    internal sealed class Bear_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Bear_Gift _instance = new Bear_Gift();
@@ -13,6 +13,8 @@
             origin: Bear.Instance,
             unlockLevel: 2,
             name: "Bear Paws",
+
+            slot: Slot.Hat,
             secondaryStats: new SecondaryStats(SP: 4)
         )
         { }

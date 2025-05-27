@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Bloodbath_Gift : EgoGift_Hand_2
+    internal sealed class Bloodbath_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Bloodbath_Gift _instance = new Bloodbath_Gift();
@@ -13,6 +13,8 @@
             origin: Bloodbath.Instance,
             unlockLevel: 4,
             name: "Wrist Cutter",
+
+            slot: Slot.Hand_2,
             secondaryStats: new SecondaryStats(SR: 2, WS: 2)
         )
         { }

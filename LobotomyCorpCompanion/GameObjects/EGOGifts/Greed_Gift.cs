@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Greed_Gift : EgoGift_Hand_1
+    internal sealed class Greed_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Greed_Gift _instance = new Greed_Gift();
@@ -13,6 +13,8 @@
             origin: Greed.Instance,
             name: "Gold Rush",
             unlockLevel: 2,
+
+            slot: Slot.Hand_1,
             secondaryStats: new SecondaryStats(HP: 6)
         )
         { }

@@ -13,10 +13,12 @@
             origin: Swan.Instance,
             name: "Black Swan",
             unlockLevel: 3,
+
             cost: 50,
             maxCount: 2,
-            requirements: new int[] { 0, 0, 3, 0, 0 },
+            requirements: [0, 0, 3, 0, 0],
             riskLevel: RiskLevel.WAW,
+
             resistances: new Resistances(0.6, 1.2, 0.8, 1.5)
             )
         {

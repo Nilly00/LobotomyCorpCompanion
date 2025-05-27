@@ -13,11 +13,13 @@
             origin: Punishing.Instance,
             name: "Beak",
             unlockLevel: 3,
+
             cost: 30,
             maxCount: 2,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
-            type: DamageType.RED,
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.TETH,
+
+            type: DamageType.RED, 
             damageMin: 2,
             damageMax: 3,
             range: 10,

@@ -13,10 +13,12 @@
             origin: Rabbit.Instance,
             name: "Standard Training E.G.O",
             unlockLevel: 4,
+
             cost: 1,
             maxCount: 5,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.TETH,
+
             resistances: new Resistances(0.5, 1.0, 1.5, 2.0)
             )
         {

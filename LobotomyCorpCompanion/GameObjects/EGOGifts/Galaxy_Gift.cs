@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Galaxy_Gift : EgoGift_Neckwear
+    internal sealed class Galaxy_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Galaxy_Gift _instance = new Galaxy_Gift();
@@ -13,6 +13,8 @@
             origin: Galaxy.Instance,
             unlockLevel: 2,
             name: "Our Galaxy",
+
+            slot: Slot.Neckwear,
             secondaryStats: new SecondaryStats(SR: 3, WS: 3)
         )
         { }

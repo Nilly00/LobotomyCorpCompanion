@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Dream_Gift : EgoGift_Hat
+    internal sealed class Dream_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Dream_Gift _instance = new Dream_Gift();
@@ -13,6 +13,8 @@
             origin: Dream.Instance,
             name: "Engulfing Dream",
             unlockLevel: 2,
+
+            slot: Slot.Hat,
             secondaryStats: new SecondaryStats(SP: 4)
         )
         { }

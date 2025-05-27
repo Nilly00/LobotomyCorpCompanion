@@ -13,11 +13,13 @@
             origin: White.Instance,
             name: "Paradise Lost",
             unlockLevel: 0,
+
             cost: -1,
             maxCount: 1,
-            requirements: new int[] { 5, 5, 5, 5, 5 },
-            type: DamageType.PALE,
+            requirements: [5, 5, 5, 5, 5],
             riskLevel: RiskLevel.ALEPH,
+
+            type: DamageType.PALE,
             damageMin: 22,
             damageMax: 28,
             range: 1,

@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Laetitia_Gift : EgoGift_Helmet
+    internal sealed class Laetitia_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Laetitia_Gift _instance = new Laetitia_Gift();
@@ -13,6 +13,8 @@
             origin: Laetitia.Instance,
             name: "Laetitia",
             unlockLevel: 3,
+
+            slot: Slot.Helmet,
             secondaryStats: new SecondaryStats(SP: 4)
         )
         { }

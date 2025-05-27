@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Luna_Gift : EgoGift_Brooch
+    internal sealed class Luna_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Luna_Gift _instance = new Luna_Gift();
@@ -13,6 +13,8 @@
             origin: Luna.Instance,
             name: "Moonlight",
             unlockLevel: 3,
+
+            slot: Slot.Brooch,
             secondaryStats: new SecondaryStats(1, 1, 1, 1, 1, 1)
         )
         { }

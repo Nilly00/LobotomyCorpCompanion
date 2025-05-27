@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Refraction_Gift : EgoGift_Helmet
+    internal sealed class Refraction_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Refraction_Gift _instance = new Refraction_Gift();
@@ -13,6 +13,8 @@
             origin: Refraction.Instance,
             unlockLevel: 3,
             name: "Diffraction",
+
+            slot: Slot.Helmet,
             secondaryStats: new SecondaryStats(SP: 6)
         )
         { }

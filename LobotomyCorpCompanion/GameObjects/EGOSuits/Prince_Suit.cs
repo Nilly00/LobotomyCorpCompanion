@@ -13,10 +13,12 @@
             origin: Prince.Instance,
             name: "Spore",
             unlockLevel: 3,
+
             cost: 50,
             maxCount: 3,
-            requirements: new int[] { 0, 2, 0, 0, 2 },
+            requirements: [0, 2, 0, 0, 2],
             riskLevel: RiskLevel.WAW,
+
             resistances: new Resistances(0.8, 0.6, 1.2, 1.5)
             )
         {

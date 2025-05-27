@@ -13,10 +13,12 @@
             origin: Bee.Instance,
             name: "Hornet",
             unlockLevel: 3,
+
             cost: 50,
             maxCount: 2,
-            requirements: new int[] { 0, 0, 0, 0, 3 },
+            requirements: [0, 0, 0, 0, 3],
             riskLevel: RiskLevel.WAW,
+
             resistances: new Resistances(0.7, 0.7, 0.7, 1.5)
             )
         {

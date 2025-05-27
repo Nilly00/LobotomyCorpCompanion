@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Censored_Gift : EgoGift_Eye
+    internal sealed class Censored_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Censored_Gift _instance = new Censored_Gift();
@@ -13,6 +13,8 @@
             origin: Censored.Instance,
             name: "CENSORED",
             unlockLevel: 4,
+            
+            slot: Slot.Eye,
             secondaryStats: new SecondaryStats(SP: 10)
         )
         { }

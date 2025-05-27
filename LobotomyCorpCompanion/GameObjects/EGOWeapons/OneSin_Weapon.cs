@@ -13,11 +13,13 @@
             origin: OneSin.Instance,
             name: "Penitence",
             unlockLevel: 3,
+
             cost: 15,
             maxCount: 5,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
-            type: DamageType.WHITE,
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.ZAYIN,
+
+            type: DamageType.WHITE, 
             damageMin: 5,
             damageMax: 7,
             range: 3,

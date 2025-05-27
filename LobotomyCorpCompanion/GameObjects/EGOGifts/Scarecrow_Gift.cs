@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Scarecrow_Gift : EgoGift_Neckwear
+    internal sealed class Scarecrow_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Scarecrow_Gift _instance = new Scarecrow_Gift();
@@ -13,6 +13,8 @@
             origin: Scarecrow.Instance,
             name: "Harvest",
             unlockLevel: 2,
+
+            slot: Slot.Neckwear,
             secondaryStats: new SecondaryStats(SP: 4)
         )
         { }

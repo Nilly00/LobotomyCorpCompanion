@@ -13,10 +13,12 @@
             origin: Firebird.Instance,
             name: "Feather of Honor",
             unlockLevel: 3,
+
             cost: 50,
             maxCount: 2,
-            requirements: new int[] { 3, 0, 0, 0, 3 },
+            requirements: [3, 0, 0, 0, 3],
             riskLevel: RiskLevel.WAW,
+
             resistances: new Resistances(0.6, 0.6, 1.3, 2.0)
             )
         {

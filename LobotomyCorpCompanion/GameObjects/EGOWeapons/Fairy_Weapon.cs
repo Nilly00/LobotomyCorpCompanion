@@ -13,11 +13,13 @@
             origin: Fairy.Instance,
             name: "Wingbeat",
             unlockLevel: 3,
+
             cost: 10,
             maxCount: 5,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
-            type: DamageType.RED,
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.ZAYIN,
+
+            type: DamageType.RED, 
             damageMin: 5,
             damageMax: 7,
             range: 3,

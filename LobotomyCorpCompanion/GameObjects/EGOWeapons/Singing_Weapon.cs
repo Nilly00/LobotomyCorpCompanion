@@ -13,11 +13,13 @@
             origin: Singing.Instance,
             name: "Harmony",
             unlockLevel: 4,
+
             cost: 40,
             maxCount: 2,
-            requirements: new int[] { 2, 0, 0, 0, 2 },
-            type: DamageType.WHITE,
+            requirements: [2, 0, 0, 0, 2],
             riskLevel: RiskLevel.HE,
+
+            type: DamageType.WHITE, 
             damageMin: 30,
             damageMax: 50,
             range: 15,

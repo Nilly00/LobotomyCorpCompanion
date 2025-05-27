@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class MHZ_Gift : EgoGift_Brooch
+    internal sealed class MHZ_Gift : EgoGift
     {
         // Singleton instance
         private static readonly MHZ_Gift _instance = new MHZ_Gift();
@@ -13,6 +13,8 @@
             origin: MHZ.Instance,
             name: "Noise",
             unlockLevel: 3,
+
+            slot: Slot.Brooch,
             secondaryStats: new SecondaryStats(AS: 2, MS:2)
         )
         { }

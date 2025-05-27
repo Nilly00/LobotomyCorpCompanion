@@ -13,11 +13,13 @@
             origin:Beauty.Instance,
             name: "Horn",
             unlockLevel: 3,
+
             cost: 30,
             maxCount: 3,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
-            type: DamageType.RED,
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.TETH,
+
+            type: DamageType.RED, 
             damageMin: 5,
             damageMax: 9,
             range: 1,

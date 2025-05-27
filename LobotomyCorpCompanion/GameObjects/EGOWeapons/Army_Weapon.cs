@@ -13,11 +13,13 @@
             origin: Army.Instance,
             name: "Pink",
             unlockLevel: 4,
+
             cost: 222,
             maxCount: 1,
-            requirements: new int[] { 0, 5, 0, 0, 5 },
-            type: DamageType.WHITE,
+            requirements: [0, 5, 0, 0, 5],
             riskLevel: RiskLevel.ALEPH,
+
+            type: DamageType.WHITE, 
             damageMin: 20,
             damageMax: 24,
             range: 1,

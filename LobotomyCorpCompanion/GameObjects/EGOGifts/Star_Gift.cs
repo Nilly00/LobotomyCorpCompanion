@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Star_Gift : EgoGift_Eye
+    internal sealed class Star_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Star_Gift _instance = new Star_Gift();
@@ -13,6 +13,8 @@
             origin: Star.Instance,
             name: "Sound of a Star",
             unlockLevel: 4,
+
+            slot: Slot.Eye,
             secondaryStats: new SecondaryStats(MS: 10)
         )
         { }

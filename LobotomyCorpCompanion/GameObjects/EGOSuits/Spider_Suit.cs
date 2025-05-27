@@ -13,10 +13,12 @@
             origin: Spider.Instance,
             name: "Red Eyes",
             unlockLevel: 2,
+
             cost: 30,
             maxCount: 1,
-            requirements: new int[] { 2, 0, 0, 0, 0 },
+            requirements: [2, 0, 0, 0, 0],
             riskLevel: RiskLevel.TETH,
+
             resistances: new Resistances(0.8, 0.8, 0.8, 2.0)
             )
         {

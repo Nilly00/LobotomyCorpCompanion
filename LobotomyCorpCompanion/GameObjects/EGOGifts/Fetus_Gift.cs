@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Fetus_Gift : EgoGift_Helmet
+    internal sealed class Fetus_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Fetus_Gift _instance = new Fetus_Gift();
@@ -13,6 +13,8 @@
             origin: Fetus.Instance,
             name: "Syrinx",
             unlockLevel: 2,
+
+            slot: Slot.Helmet,
             secondaryStats: new SecondaryStats(HP: -2, SP: -2, AS: 6, MS: 6)
         )
         { }

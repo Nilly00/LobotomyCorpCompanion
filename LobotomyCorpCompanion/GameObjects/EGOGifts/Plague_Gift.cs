@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Plague_Gift : EgoGift_Special
+    internal sealed class Plague_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Plague_Gift _instance = new Plague_Gift();
@@ -13,6 +13,8 @@
             origin: Plague.Instance,
             name: "Bless",
             unlockLevel: 0,
+
+            slot: Slot.Special,
             secondaryStats: new SecondaryStats(HP: 6, SP: 6, SR: 6, WS: 6, AS: 6, MS: 6)
         )
         { }

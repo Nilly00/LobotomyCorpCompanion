@@ -1,7 +1,4 @@
-﻿
-using LobotomyCorpCompanion;
-
-class Program
+﻿class Program
 {
     internal static class Test
     {
@@ -10,9 +7,8 @@ class Program
     {
         Console.OutputEncoding = System.Text.Encoding.UTF8;
 
-        //Tests.FullyGiftedEmployee();
-        Tests.RandomTest();
+        Tests.SaveEmployee();
 
-        //spider suit makes problems. Don't know why yet.
+        //Tests.ReadEmployee();
     }
 }

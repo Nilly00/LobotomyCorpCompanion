@@ -13,10 +13,12 @@
             origin: Galaxy.Instance,
             name: "Our Galaxy",
             unlockLevel: 1,
+
             cost: 30,
             maxCount: 2,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.HE,
+
             resistances: new Resistances(0.8, 0.8, 1.2, 1.5)
             )
         {

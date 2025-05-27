@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Shoes_Gift : EgoGift_Mouth_2
+    internal sealed class Shoes_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Shoes_Gift _instance = new Shoes_Gift();
@@ -13,6 +13,8 @@
             origin: Shoes.Instance,
             name: "Sanguine Desire",
             unlockLevel: 2,
+
+            slot: Slot.Mouth_2,
             secondaryStats: new SecondaryStats(HP: 4)
         )
         { }

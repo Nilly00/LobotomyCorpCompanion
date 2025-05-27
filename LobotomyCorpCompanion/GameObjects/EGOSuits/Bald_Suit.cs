@@ -13,10 +13,12 @@
             origin: Bald.Instance,
             name: "Tough",
             unlockLevel: 4,
+
             cost: 10,
             maxCount: 5,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.ZAYIN,
+
             resistances: new Resistances(1.0, 1.0, 0.8, 2.0)
             )
         {

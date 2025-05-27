@@ -13,10 +13,12 @@
             origin: Lantern.Instance,
             name: "Lantern",
             unlockLevel: 3,
+
             cost: 30,
             maxCount: 2,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.TETH,
+
             resistances: new Resistances(0.8, 0.7, 1.2, 2.0)
             )
         {

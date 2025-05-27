@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Punishing_Gift : EgoGift_Neckwear
+    internal sealed class Punishing_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Punishing_Gift _instance = new Punishing_Gift();
@@ -13,6 +13,8 @@
             origin: Punishing.Instance,
             name: "Beak",
             unlockLevel: 2,
+
+            slot: Slot.Neckwear,
             secondaryStats: new SecondaryStats(AS: 2, MS: 2)
         )
         { }

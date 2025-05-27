@@ -13,11 +13,13 @@
             origin: Forsaken.Instance,
             name: "Regret",
             unlockLevel: 4,
+
             cost: 25,
             maxCount: 2,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
-            type: DamageType.RED,
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.TETH,
+
+            type: DamageType.RED, 
             damageMin: 10,
             damageMax: 15,
             range: 5,

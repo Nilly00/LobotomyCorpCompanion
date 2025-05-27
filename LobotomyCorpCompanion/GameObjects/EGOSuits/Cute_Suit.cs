@@ -13,10 +13,12 @@
             origin: Cute.Instance,
             name: "SO CUTE!!!",
             unlockLevel: 3,
+
             cost: 20,
             maxCount: 3,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.TETH,
+
             resistances: new Resistances(0.8, 1.2, 0.8, 2.0)
             )
         {

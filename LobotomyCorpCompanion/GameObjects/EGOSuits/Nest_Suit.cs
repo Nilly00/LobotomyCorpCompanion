@@ -13,10 +13,12 @@
             origin: Nest.Instance,
             name: "Exuviae",
             unlockLevel: 4,
+
             cost: 50,
             maxCount: 2,
-            requirements: new int[] { 0, 0, 0, 0, 3 },
+            requirements: [0, 0, 0, 0, 3],
             riskLevel: RiskLevel.WAW,
+
             resistances: new Resistances(0.6, 0.8, 1.2, 1.5)
             )
         {

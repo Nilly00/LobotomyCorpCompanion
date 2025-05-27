@@ -13,11 +13,13 @@
             origin: Scorched.Instance,
             name: "Fourth Match Flame",
             unlockLevel: 4,
+
             cost: 35,
             maxCount: 1,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
-            type: DamageType.RED,
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.TETH,
+
+            type: DamageType.RED, 
             damageMin: 20,
             damageMax: 30,
             range: 15,

@@ -13,11 +13,13 @@
             origin: Firebird.Instance,
             name: "Feather of Honour",
             unlockLevel: 0,
+
             cost: -1,
             maxCount: 3,
-            requirements: new int[] { 3, 0, 0, 0, 0 },
-            type: DamageType.WHITE,
+            requirements: [3, 0, 0, 0, 0],
             riskLevel: RiskLevel.WAW,
+
+            type: DamageType.WHITE, 
             damageMin: 4,
             damageMax: 5,
             range: 1,

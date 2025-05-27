@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Monk_Gift : EgoGift_Hand_1
+    internal sealed class Monk_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Monk_Gift _instance = new Monk_Gift();
@@ -13,6 +13,8 @@
             origin: Monk.Instance,
             unlockLevel: 3,
             name: "Amita",
+
+            slot: Slot.Hand_1,
             secondaryStats: new SecondaryStats(HP: 10, SP: -4)
         )
         { }

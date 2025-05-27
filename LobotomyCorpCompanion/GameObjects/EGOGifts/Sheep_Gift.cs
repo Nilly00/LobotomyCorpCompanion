@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Sheep_Gift : EgoGift_Hat
+    internal sealed class Sheep_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Sheep_Gift _instance = new Sheep_Gift();
@@ -13,6 +13,8 @@
             origin: Wolf.Instance,
             unlockLevel: 0,
             name: "Sheep's clothing",
+
+            slot: Slot.Hat,
             secondaryStats: new SecondaryStats(HP: 9, SP: -3)
         )
         { }

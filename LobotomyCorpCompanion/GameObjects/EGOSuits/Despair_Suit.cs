@@ -13,10 +13,12 @@
             origin: Despair.Instance,
             name: "The Sword Sharpened with Tears",
             unlockLevel: 4,
+
             cost: 60,
             maxCount: 1,
-            requirements: new int[] { 0, 0, 0, 4, 0 },
+            requirements: [0, 0, 0, 4, 0],
             riskLevel: RiskLevel.WAW,
+
             resistances: new Resistances(0.8, 0.8, 0.8, 0.8)
             )
         {

@@ -13,11 +13,13 @@
             origin: Apocalypse.Instance,
             name: "Twilight",
             unlockLevel: 0,
+
             cost: -1,
             maxCount: 1,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
-            type: DamageType.SPECIAL,
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.ALEPH,
+
+            type: DamageType.SPECIAL, 
             damageMin: 0,
             damageMax: 0,
             range: 1,

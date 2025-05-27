@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Shy_Gift : EgoGift_Eye
+    internal sealed class Shy_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Shy_Gift _instance = new Shy_Gift();
@@ -13,6 +13,8 @@
             origin: Shy.Instance,
             name: "Today's Expression",
             unlockLevel: 2,
+
+            slot: Slot.Eye,
             secondaryStats: new SecondaryStats(SP: -2, SR: 4, WS: 4)
         )
         { }

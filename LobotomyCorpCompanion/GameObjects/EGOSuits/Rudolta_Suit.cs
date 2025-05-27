@@ -13,10 +13,12 @@
             origin: Rudolta.Instance,
             name: "Christmas",
             unlockLevel: 3,
+
             cost: 40,
             maxCount: 3,
-            requirements: new int[] { 2, 0, 0, 0, 0 },
+            requirements: [2, 0, 0, 0, 0],
             riskLevel: RiskLevel.HE,
+
             resistances: new Resistances(0.8, 0.6, 1.3, 1.5)
             )
         {

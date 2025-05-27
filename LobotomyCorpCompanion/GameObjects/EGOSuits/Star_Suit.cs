@@ -13,10 +13,12 @@
             origin: Star.Instance,
             name: "Sound of a Star",
             unlockLevel: 4,
+
             cost: 150,
             maxCount: 1,
-            requirements: new int[] { 0, 5, 5, 0, 5 },
+            requirements: [0, 5, 5, 0, 5],
             riskLevel: RiskLevel.ALEPH,
+
             resistances: new Resistances(0.4, 0.4, 0.4, 1.0)
             )
         {

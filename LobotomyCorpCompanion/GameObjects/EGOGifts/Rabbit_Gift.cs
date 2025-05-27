@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Rabbit_Gift : EgoGift_Hat
+    internal sealed class Rabbit_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Rabbit_Gift _instance = new Rabbit_Gift();
@@ -13,6 +13,8 @@
             origin: Rabbit.Instance,
             name: "Standard Training E.G.O",
             unlockLevel: 4,
+
+            slot: Slot.Hat,
             secondaryStats: new SecondaryStats(HP: 2, SP: 2)
         )
         { }

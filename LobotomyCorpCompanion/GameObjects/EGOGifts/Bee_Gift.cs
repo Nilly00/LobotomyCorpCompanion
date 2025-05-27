@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class  Bee_Gift : EgoGift_Hat
+    internal sealed class  Bee_Gift : EgoGift
     {
         // Singleton instance
         private static readonly  Bee_Gift _instance = new  Bee_Gift();
@@ -13,6 +13,8 @@
             origin:  Bee.Instance,
             name: "Hornet",
             unlockLevel: 3,
+
+            slot: Slot.Hat,
             secondaryStats: new SecondaryStats(HP: 2, SP: 4)
         )
         { }

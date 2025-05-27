@@ -13,11 +13,13 @@
             origin: Censored.Instance,
             name: "CENSORED",
             unlockLevel: 4,
+
             cost: 222,
             maxCount: 1,
-            requirements: new int[] { 5, 0, 0, 0, 5 },
-            type: DamageType.BLACK,
+            requirements: [5, 0, 0, 0, 5],
             riskLevel: RiskLevel.ALEPH,
+
+            type: DamageType.BLACK, 
             damageMin: 7,
             damageMax: 11,
             range: 1,

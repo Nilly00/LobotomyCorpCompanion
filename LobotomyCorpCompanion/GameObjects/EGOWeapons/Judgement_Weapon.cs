@@ -13,11 +13,13 @@
             origin: Judgement.Instance,
             name: "Justitia",
             unlockLevel: 4,
+
             cost: 150,
             maxCount: 1,
-            requirements: new int[] { 0, 0, 0, 5, 5 },
-            type: DamageType.PALE,
+            requirements: [0, 0, 0, 5, 5],
             riskLevel: RiskLevel.ALEPH,
+
+            type: DamageType.PALE, 
             damageMin: 2,
             damageMax: 4,
             range: 1,

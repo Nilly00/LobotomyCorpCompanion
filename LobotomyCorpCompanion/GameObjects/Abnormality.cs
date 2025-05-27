@@ -99,11 +99,11 @@
             this.weapon = weapon;
             this.suit = suit;
             this.gift = gift;
-            if (SaveManagament.Abnormalities.ContainsKey(name))
+            if (SaveManagament.abnoSave.ContainsKey(name))
             {
-                this.unlocked = SaveManagament.Abnormalities[name].unlocked;
-                this.department = SaveManagament.Abnormalities[name].department;
-                this.researchLevel = SaveManagament.Abnormalities[name].researchLevel;
+                this.unlocked = SaveManagament.abnoSave[name].unlocked;
+                this.department = SaveManagament.abnoSave[name].department;
+                this.researchLevel = SaveManagament.abnoSave[name].researchLevel;
             }
             else
             {

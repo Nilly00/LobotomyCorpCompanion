@@ -13,11 +13,13 @@
             origin: Spider.Instance,
             name: "Red Eyes",
             unlockLevel: 3,
+
             cost: 20,
             maxCount: 3,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
-            type: DamageType.RED,
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.TETH,
+
+            type: DamageType.RED,
             damageMin: 7,
             damageMax: 9,
             range: 3,

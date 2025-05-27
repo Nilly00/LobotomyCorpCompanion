@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Singing_Gift : EgoGift_Cheek
+    internal sealed class Singing_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Singing_Gift _instance = new Singing_Gift();
@@ -13,6 +13,8 @@
             origin: Singing.Instance,
             name: "Harmony",
             unlockLevel: 3,
+
+            slot: Slot.Cheek,
             secondaryStats: new SecondaryStats(HP: 8, SP: -4)
         )
         { }

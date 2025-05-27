@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Wellcheers_Gift : EgoGift_Mouth_2
+    internal sealed class Wellcheers_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Wellcheers_Gift _instance = new Wellcheers_Gift();
@@ -13,6 +13,8 @@
             origin: Wellcheers.Instance,
             name: "Soda",
             unlockLevel: 1,
+
+            slot: Slot.Mouth_2,
             secondaryStats: new SecondaryStats(HP: 2)
         )
         { }

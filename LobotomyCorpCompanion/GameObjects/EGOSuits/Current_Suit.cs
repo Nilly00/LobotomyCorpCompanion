@@ -13,10 +13,12 @@
             origin: Current.Instance,
             name: "Ecstasy",
             unlockLevel: 3,
+
             cost: 40,
             maxCount: 3,
-            requirements: new int[] { 0, 0, 2, 0, 2 },
+            requirements: [0, 0, 2, 0, 2],
             riskLevel: RiskLevel.WAW,
+
             resistances: new Resistances(0.8, 0.8, 0.8, 1.5)
             )
         {

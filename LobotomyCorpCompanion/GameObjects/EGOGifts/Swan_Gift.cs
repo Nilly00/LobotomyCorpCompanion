@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-namespace LobotomyCorpCompanion.GameObjects.EGOGifts
+﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Swan_Gift : EgoGift_Hat
+    internal sealed class Swan_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Swan_Gift _instance = new Swan_Gift();
@@ -15,6 +13,8 @@ namespace LobotomyCorpCompanion.GameObjects.EGOGifts
             origin: Swan.Instance,
             unlockLevel: 3,
             name: "Black Swan",
+
+            slot: Slot.Hat,
             secondaryStats: new SecondaryStats(HP: -4, SP: -4, SR: +10, WS: +10)
         )
         { }

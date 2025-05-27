@@ -13,11 +13,13 @@
             origin: Ridinghood.Instance,
             name: "Crimson Scar",
             unlockLevel: 4,
+
             cost: 70,
             maxCount: 1,
-            requirements: new int[] { 3, 0, 0, 3, 0 },
-            type: DamageType.RED,
+            requirements: [3, 0, 0, 3, 0],
             riskLevel: RiskLevel.WAW,
+
+            type: DamageType.RED, 
             damageMin: 11,
             damageMax: 13,
             range: 1,

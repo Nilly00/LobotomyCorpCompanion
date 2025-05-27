@@ -13,11 +13,13 @@
             origin: Rabbit.Instance,
             name: "Standard Training E.G.O",
             unlockLevel: 4,
+
             cost: 1,
             maxCount: 5,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
-            type: DamageType.WHITE,
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.TETH,
+
+            type: DamageType.WHITE, 
             damageMin: 5,
             damageMax: 7,
             range: 4,

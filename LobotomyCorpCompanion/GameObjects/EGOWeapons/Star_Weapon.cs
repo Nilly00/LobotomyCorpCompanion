@@ -13,11 +13,13 @@
             origin: Star.Instance,
             name: "Sound of a Star",
             unlockLevel: 4,
+
             cost: 222,
             maxCount: 1,
-            requirements: new int[] { 0, 5, 5, 0, 5 },
-            type: DamageType.WHITE,
+            requirements: [0, 5, 5, 0, 5],
             riskLevel: RiskLevel.ALEPH,
+
+            type: DamageType.WHITE,
             damageMin: 8,
             damageMax: 12,
             range: 1,

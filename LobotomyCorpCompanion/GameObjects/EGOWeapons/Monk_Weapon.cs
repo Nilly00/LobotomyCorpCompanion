@@ -13,11 +13,13 @@
             origin: Monk.Instance,
             name: "Amita",
             unlockLevel: 4,
+
             cost: 70,
             maxCount: 1,
-            requirements: new int[] { 3, 0, 0, 0, 3 },
-            type: DamageType.RED,
+            requirements: [3, 0, 0, 0, 3],
             riskLevel: RiskLevel.WAW,
+
+            type: DamageType.RED, 
             damageMin: 3,
             damageMax: 4,
             range: 1,

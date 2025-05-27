@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Freischütz_Gift : EgoGift_Mouth_2
+    internal sealed class Freischütz_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Freischütz_Gift _instance = new Freischütz_Gift();
@@ -13,6 +13,8 @@
             origin: Freischütz.Instance,
             unlockLevel: 2,
             name: "Magic Bullet",
+
+            slot: Slot.Mouth_2,
             secondaryStats: new SecondaryStats(HP: -5, SP: -5, AS: 10, MS: 10)
         )
         { }

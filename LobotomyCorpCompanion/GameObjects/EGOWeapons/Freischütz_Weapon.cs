@@ -13,11 +13,13 @@
             origin: Freischütz.Instance,
             name: "Magic Bullet",
             unlockLevel: 4,
+
             cost: 40,
             maxCount: 1,
-            requirements: new int[] { 0, 0, 3, 0, 0 },
-            type: DamageType.BLACK,
+            requirements: [0, 0, 3, 0, 0],
             riskLevel: RiskLevel.WAW,
+
+            type: DamageType.BLACK, 
             damageMin: 20,
             damageMax: 22,
             range: 50,

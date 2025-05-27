@@ -13,11 +13,13 @@
             origin: Cute.Instance,
             name: "SO CUTE!!!",
             unlockLevel: 3,
+
             cost: 25,
             maxCount: 2,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
-            type: DamageType.RED,
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.TETH,
+
+            type: DamageType.RED, 
             damageMin: 4,
             damageMax: 6,
             range: 2,

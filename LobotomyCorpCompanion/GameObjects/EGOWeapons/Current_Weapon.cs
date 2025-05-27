@@ -13,11 +13,13 @@
             origin: Current.Instance,
             name: "Ecstasy",
             unlockLevel: 4,
+
             cost: 60,
             maxCount: 2,
-            requirements: new int[] { 2, 0, 0, 0, 3 },
-            type: DamageType.WHITE,
+            requirements: [2, 0, 0, 0, 3],
             riskLevel: RiskLevel.WAW,
+
+            type: DamageType.WHITE, 
             damageMin: 2,
             damageMax: 4,
             range: 1,

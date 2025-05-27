@@ -13,11 +13,13 @@
             origin: Woodsman.Instance,
             name: "Logging",
             unlockLevel: 4,
+
             cost: 60,
             maxCount: 2,
-            requirements: new int[] { 0, 2, 0, 0, 0 },
-            type: DamageType.RED,
+            requirements: [0, 2, 0, 0, 0],
             riskLevel: RiskLevel.HE,
+
+            type: DamageType.RED,
             damageMin: 15,
             damageMax: 21,
             range: 1,

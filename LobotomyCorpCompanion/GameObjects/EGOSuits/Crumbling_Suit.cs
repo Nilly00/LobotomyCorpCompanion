@@ -13,10 +13,12 @@
             origin: Crumbling.Instance,
             name: "Life for a Daredevil",
             unlockLevel: 2,
+
             cost: 30,
             maxCount: 1,
-            requirements: new int[] { 0, 2, 0, 0, 0 },
+            requirements: [0, 2, 0, 0, 0],
             riskLevel: RiskLevel.TETH,
+
             resistances: new Resistances(0.6, 0.9, 0.9, 2.0)
             )
         {

@@ -13,11 +13,13 @@
             origin: Bear.Instance,
             name: "Bear Paws",
             unlockLevel: 3,
+
             cost: 40,
             maxCount: 2,
-            requirements: new int[] { 2, 0, 0, 0, 0 },
-            type: DamageType.RED,
+            requirements: [2, 0, 0, 0, 0],
             riskLevel: RiskLevel.HE,
+
+            type: DamageType.RED, 
             damageMin: 6,
             damageMax: 7,
             range: 1,

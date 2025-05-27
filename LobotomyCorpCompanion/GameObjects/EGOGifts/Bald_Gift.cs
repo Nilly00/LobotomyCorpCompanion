@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Bald_Gift : EgoGift_Eye
+    internal sealed class Bald_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Bald_Gift _instance = new Bald_Gift();
@@ -13,6 +13,8 @@
             origin: Bald.Instance,
             name: "Tough",
             unlockLevel: 3,
+
+            slot: Slot.Eye,
             secondaryStats: new SecondaryStats(AS: 2, MS: 2)
         )
         { }

@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Orchestra_Gift : EgoGift_Eye
+    internal sealed class Orchestra_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Orchestra_Gift _instance = new Orchestra_Gift();
@@ -13,6 +13,8 @@
             origin: Orchestra.Instance,
             name: "Da Capo",
             unlockLevel: 4,
+
+            slot: Slot.Eye,
             secondaryStats: new SecondaryStats(SR: 4, WS: 4)
         )
         { }

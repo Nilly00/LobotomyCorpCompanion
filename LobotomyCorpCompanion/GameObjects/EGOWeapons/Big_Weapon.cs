@@ -13,11 +13,13 @@
             origin: Big.Instance,
             name: "Lamp",
             unlockLevel: 4,
+
             cost: 70,
             maxCount: 1,
-            requirements: new int[] { 3, 3, 0, 0, 0 },
-            type: DamageType.BLACK,
+            requirements: [3, 3, 0, 0, 0],
             riskLevel: RiskLevel.WAW,
+
+            type: DamageType.BLACK, 
             damageMin: 22,
             damageMax: 28,
             range: 5,

@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Schadenfreude_Gift : EgoGift_Hand_2
+    internal sealed class Schadenfreude_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Schadenfreude_Gift _instance = new Schadenfreude_Gift();
@@ -13,6 +13,8 @@
             origin: Schadenfreude.Instance,
             name: "Gaze",
             unlockLevel: 2,
+
+            slot: Slot.Hand_2,
             secondaryStats: new SecondaryStats(HP: 4)
         )
         { }

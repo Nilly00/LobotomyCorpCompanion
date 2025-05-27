@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Spider_Gift : EgoGift_Eye
+    internal sealed class Spider_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Spider_Gift _instance = new Spider_Gift();
@@ -13,6 +13,8 @@
             origin: Spider.Instance,
             name: "Red Eyes",
             unlockLevel: 2,
+
+            slot: Slot.Eye,
             secondaryStats: new SecondaryStats(SR: 3, WS: 3)
         )
         { }

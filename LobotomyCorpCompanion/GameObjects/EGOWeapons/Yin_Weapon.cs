@@ -13,11 +13,13 @@
             origin: Yin.Instance,
             name: "Discord",
             unlockLevel: 4,
+
             cost: 60,
             maxCount: 2,
-            requirements: new int[] { 0, 0, 3, 0, 0 },
-            type: DamageType.BLACK,
+            requirements: [0, 0, 3, 0, 0],
             riskLevel: RiskLevel.WAW,
+
+            type: DamageType.BLACK,
             damageMin: 8,
             damageMax: 13,
             range: 1,

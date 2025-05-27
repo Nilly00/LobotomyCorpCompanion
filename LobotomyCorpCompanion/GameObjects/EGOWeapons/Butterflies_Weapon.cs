@@ -13,11 +13,13 @@
             origin: Butterflies.Instance,
             name: "Solemn Lament",
             unlockLevel: 4,
+
             cost: 50,
             maxCount: 1,
-            requirements: new int[] { 0, 0, 0, 3, 0 },
-            type: DamageType.BLACK_WHITE,
+            requirements: [0, 0, 0, 3, 0],
             riskLevel: RiskLevel.HE,
+
+            type: DamageType.BLACK_WHITE, 
             damageMin: 2,
             damageMax: 2,
             range: 10,

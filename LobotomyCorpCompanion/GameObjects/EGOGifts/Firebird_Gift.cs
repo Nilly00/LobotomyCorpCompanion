@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Firebird_Gift : EgoGift_Hat
+    internal sealed class Firebird_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Firebird_Gift _instance = new Firebird_Gift();
@@ -13,6 +13,8 @@
             origin: Firebird.Instance,
             name: "Feather of Honor",
             unlockLevel: 3,
+
+            slot: Slot.Hat,
             secondaryStats: new SecondaryStats(SP: 2, AS: 4, MS: 4)
         )
         { }

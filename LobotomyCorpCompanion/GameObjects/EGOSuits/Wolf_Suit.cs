@@ -13,10 +13,12 @@
             origin: Wolf.Instance,
             name: "Cobalt Scar",
             unlockLevel: 4,
+
             cost: 60,
             maxCount: 1,
-            requirements: new int[] { 4, 0, 0, 0, 4 },
+            requirements: [4, 0, 0, 0, 4],
             riskLevel: RiskLevel.WAW,
+
             resistances: new Resistances(0.4, 0.8, 0.7, 2.0)
             )
         {

@@ -13,11 +13,13 @@
             origin: Prince.Instance,
             name: "Spore",
             unlockLevel: 4,
+
             cost: 50,
             maxCount: 3,
-            requirements: new int[] { 0, 0, 2, 0, 2 },
-            type: DamageType.WHITE,
+            requirements: [0, 0, 2, 0, 2],
             riskLevel: RiskLevel.WAW,
+
+            type: DamageType.WHITE, 
             damageMin: 8,
             damageMax: 16,
             range: 1,

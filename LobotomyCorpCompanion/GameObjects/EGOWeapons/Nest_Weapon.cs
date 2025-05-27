@@ -13,11 +13,13 @@
             origin: Nest.Instance,
             name: "Exuviae",
             unlockLevel: 4,
+
             cost: 60,
             maxCount: 2,
-            requirements: new int[] { 0, 0, 0, 0, 4 },
-            type: DamageType.RED,
+            requirements: [0, 0, 0, 0, 4],
             riskLevel: RiskLevel.WAW,
+
+            type: DamageType.RED, 
             damageMin: 35,
             damageMax: 50,
             range: 1,

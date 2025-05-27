@@ -13,11 +13,13 @@
             origin: Refraction.Instance,
             name: "Dimensional Refraction Variant",
             unlockLevel: 4,
+
             cost: 50,
             maxCount: 3,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
-            type: DamageType.WHITE,
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.WAW,
+
+            type: DamageType.WHITE, 
             damageMin: 15,
             damageMax: 17,
             range: 3,

@@ -13,10 +13,12 @@
             origin: Default.Instance,
             name: "Standard Uniform",
             unlockLevel: 0,
+
             cost: -1,
             maxCount: -1,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.ZAYIN,
+
             resistances: new Resistances(1.0, 1.0, 1.5, 2.0)
             )
         {

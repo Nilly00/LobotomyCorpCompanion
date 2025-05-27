@@ -13,11 +13,13 @@
             origin: Fragments.Instance,
             name: "Fragments from Somewhere",
             unlockLevel: 3,
+
             cost: 20,
             maxCount: 3,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
-            type: DamageType.BLACK,
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.TETH,
+
+            type: DamageType.BLACK, 
             damageMin: 5,
             damageMax: 9,
             range: 4,

@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Fairy_Gift : EgoGift_Hand_2
+    internal sealed class Fairy_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Fairy_Gift _instance = new Fairy_Gift();
@@ -13,6 +13,8 @@
             origin: Fairy.Instance,
             unlockLevel: 1,
             name: "Wingbeat",
+
+            slot: Slot.Hand_2,
             secondaryStats: new SecondaryStats(SR: 2, WS: 2)
         )
         { }

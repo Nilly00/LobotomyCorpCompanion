@@ -13,10 +13,12 @@
             origin: Smiling.Instance,
             name: "Smile",
             unlockLevel: 4,
+
             cost: 120,
             maxCount: 1,
-            requirements: new int[] { 0, 0, 5, 0, 5 },
+            requirements: [0, 0, 5, 0, 5],
             riskLevel: RiskLevel.ALEPH,
+
             resistances: new Resistances(0.5, 0.5, 0.2, 1.0)
             )
         {

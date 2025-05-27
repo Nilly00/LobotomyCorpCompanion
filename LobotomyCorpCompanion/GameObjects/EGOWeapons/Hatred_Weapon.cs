@@ -13,11 +13,13 @@
             origin: Hatred.Instance,
             name: "In the Name of Love and Hate",
             unlockLevel: 4,
+
             cost: 70,
             maxCount: 1,
-            requirements: new int[] { 3, 0, 0, 3, 4 },
-            type: DamageType.HEALING,
+            requirements: [3, 0, 0, 3, 4],
             riskLevel: RiskLevel.WAW,
+
+            type: DamageType.HEALING, 
             damageMin: 5,
             damageMax: 8,
             range: 1,

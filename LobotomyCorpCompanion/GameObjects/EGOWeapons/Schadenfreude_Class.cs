@@ -13,11 +13,13 @@
             origin: Schadenfreude.Instance,
             name: "Gaze",
             unlockLevel: 4,
+
             cost: 45,
             maxCount: 1,
-            requirements: new int[] { 0, 2, 2, 0, 0 },
-            type: DamageType.RED,
+            requirements: [0, 2, 2, 0, 0],
             riskLevel: RiskLevel.HE,
+
+            type: DamageType.RED, 
             damageMin: 1,
             damageMax: 4,
             range: 4,

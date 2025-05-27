@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Heaven_Gift : EgoGift_Helmet
+    internal sealed class Heaven_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Heaven_Gift _instance = new Heaven_Gift();
@@ -13,6 +13,8 @@
             origin: Heaven.Instance,
             name: "Heaven",
             unlockLevel: 3,
+
+            slot: Slot.Helmet,
             secondaryStats: new SecondaryStats(HP: 4, SR: 2, WS: 2)
         )
         { }

@@ -13,11 +13,13 @@
             origin: Scarecrow.Instance,
             name: "Harvest",
             unlockLevel: 3,
+
             cost: 45,
             maxCount: 3,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
-            type: DamageType.BLACK,
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.HE,
+
+            type: DamageType.BLACK, 
             damageMin: 6,
             damageMax: 12,
             range: 4,

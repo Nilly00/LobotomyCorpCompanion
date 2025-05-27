@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class OneSin_Gift : EgoGift_Hat
+    internal sealed class OneSin_Gift : EgoGift
     {
         // Singleton instance
         private static readonly OneSin_Gift _instance = new OneSin_Gift();
@@ -13,6 +13,8 @@
             origin: OneSin.Instance,
             name: "Penitence",
             unlockLevel: 1,
+
+            slot: Slot.Hat,
             secondaryStats: new SecondaryStats(SP: 2)
         )
         { }

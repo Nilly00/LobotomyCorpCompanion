@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Judgement_Gift : EgoGift_Eye
+    internal sealed class Judgement_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Judgement_Gift _instance = new Judgement_Gift();
@@ -13,6 +13,8 @@
             origin: Judgement.Instance,
             name: "Justitia",
             unlockLevel: 3,
+
+            slot: Slot.Eye,
             secondaryStats: new SecondaryStats(AS: 3, MS: 3)
         )
         { }

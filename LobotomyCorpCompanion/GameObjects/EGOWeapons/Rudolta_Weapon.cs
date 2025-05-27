@@ -13,11 +13,13 @@
             origin: Rudolta.Instance,
             name: "Christmas",
             unlockLevel: 3,
+
             cost: 35,
             maxCount: 3,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
-            type: DamageType.WHITE,
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.HE,
+
+            type: DamageType.WHITE, 
             damageMin: 11,
             damageMax: 13,
             range: 1,

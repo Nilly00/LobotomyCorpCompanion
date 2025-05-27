@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal class Crumbling_Gift : EgoGift_Hat
+    internal class Crumbling_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Crumbling_Gift _instance = new Crumbling_Gift();
@@ -13,6 +13,8 @@
             origin: Crumbling.Instance,
             name: "Inspired Bravery",
             unlockLevel: 0,
+
+            slot: Slot.Hat,
             secondaryStats: new SecondaryStats(AS: 10, MS: 10)
         )
         { }
@@ -24,7 +26,7 @@
 
 
         // Constructor for derived classes to use
-        protected Crumbling_Gift(Abnormality origin, string name, SecondaryStats secondaryStats, short unlockLevel) : base(origin, name, secondaryStats, unlockLevel) { }
+        protected Crumbling_Gift(string name, SecondaryStats secondaryStats) : base(Crumbling.Instance, name, 0, Slot.Hat, secondaryStats) { }
     }
 
     internal sealed class Crumbling_B_Gift : Crumbling_Gift
@@ -33,12 +35,10 @@
         private static readonly Crumbling_B_Gift _instance = new Crumbling_B_Gift();
 
         // Public accessor
-        public static Crumbling_B_Gift Instance => _instance;
+        public static new Crumbling_B_Gift Instance => _instance;
 
         // Private constructor to prevent external instantiation
         private Crumbling_B_Gift() : base(
-            origin: Crumbling.Instance,
-            unlockLevel: 0,
             name: "Reckless Foolishness (Blue)",
             secondaryStats: new SecondaryStats(HP: -5, AS: 10, MS: 10)
         )
@@ -50,12 +50,10 @@
         private static readonly Crumbling_O_Gift _instance = new Crumbling_O_Gift();
 
         // Public accessor
-        public static Crumbling_O_Gift Instance => _instance;
+        public static new Crumbling_O_Gift Instance => _instance;
 
         // Private constructor to prevent external instantiation
         private Crumbling_O_Gift() : base(
-            origin: Crumbling.Instance,
-            unlockLevel: 0,
             name: "Reckless Foolishness (Orange)",
             secondaryStats: new SecondaryStats(HP: -10, AS: 15, MS: 15)
         )
@@ -67,12 +65,10 @@
         private static readonly Crumbling_R_Gift _instance = new Crumbling_R_Gift();
 
         // Public accessor
-        public static Crumbling_R_Gift Instance => _instance;
+        public static new Crumbling_R_Gift Instance => _instance;
 
         // Private constructor to prevent external instantiation
         private Crumbling_R_Gift() : base(
-            origin: Crumbling.Instance,
-            unlockLevel: 0,
             name: "Reckless Foolishness (Red)",
             secondaryStats: new SecondaryStats(HP: -20, AS: 20, MS: 20)
         )

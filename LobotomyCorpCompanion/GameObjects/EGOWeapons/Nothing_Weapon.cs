@@ -13,11 +13,13 @@
             origin: Nothing.Instance,
             name: "Mimicry",
             unlockLevel: 4,
+
             cost: 222,
             maxCount: 1,
-            requirements: new int[] { 5, 0, 0, 0, 5 },
-            type: DamageType.RED,
+            requirements: [5, 0, 0, 0, 5],
             riskLevel: RiskLevel.ALEPH,
+
+            type: DamageType.RED, 
             damageMin: 10,
             damageMax: 14,
             range: 1,

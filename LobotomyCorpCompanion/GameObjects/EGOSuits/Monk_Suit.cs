@@ -13,10 +13,12 @@
             origin: Monk.Instance,
             name: "Amita",
             unlockLevel: 4,
+
             cost: 50,
             maxCount: 2,
-            requirements: new int[] { 0, 2, 2, 0, 0 },
+            requirements: [0, 2, 2, 0, 0],
             riskLevel: RiskLevel.WAW,
+
             resistances: new Resistances(0.5, 1.3, 0.7, 1.5)
             )
         {

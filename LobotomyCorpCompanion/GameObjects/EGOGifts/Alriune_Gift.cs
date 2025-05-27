@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Alriune_Gift : EgoGift_Hat
+    internal sealed class Alriune_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Alriune_Gift _instance = new Alriune_Gift();
@@ -13,6 +13,8 @@
             origin: Alriune.Instance,
             name: "Faint Aroma",
             unlockLevel: 2,
+
+            slot: Slot.Hat,
             secondaryStats: new SecondaryStats(SP: 4, WS: 2)
         )
         { }

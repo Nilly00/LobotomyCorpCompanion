@@ -13,10 +13,12 @@
             origin: Shy.Instance,
             name: "Today's Expression",
             unlockLevel: 4,
+
             cost: 30,
             maxCount: 1,
-            requirements: new int[] { 2, 0, 0, 0, 0 },
+            requirements: [2, 0, 0, 0, 0],
             riskLevel: RiskLevel.TETH,
+
             resistances: new Resistances(0.7, 0.6, 1.5, 2.0)
             )
         {

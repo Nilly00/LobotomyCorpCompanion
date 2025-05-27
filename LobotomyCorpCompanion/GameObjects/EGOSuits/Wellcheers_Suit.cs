@@ -13,10 +13,12 @@
             origin: Wellcheers.Instance,
             name: "Soda",
             unlockLevel: 2,
+
             cost: 15,
             maxCount: 5,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.ZAYIN,
+
             resistances: new Resistances(0.8, 1.0, 1.0, 2.0)
             )
         {

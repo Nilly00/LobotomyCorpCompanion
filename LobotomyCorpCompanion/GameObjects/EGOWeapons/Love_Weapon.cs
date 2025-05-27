@@ -13,11 +13,13 @@
             origin: Love.Instance,
             name: "Adoration",
             unlockLevel: 4,
+
             cost: 222,
             maxCount: 1,
-            requirements: new int[] { 0, 0, 5, 0, 5 },
-            type: DamageType.BLACK,
+            requirements: [0, 0, 5, 0, 5],
             riskLevel: RiskLevel.ALEPH,
+
+            type: DamageType.BLACK, 
             damageMin: 22,
             damageMax: 44,
             range: 1,

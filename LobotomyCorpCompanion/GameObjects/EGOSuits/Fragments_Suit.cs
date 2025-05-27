@@ -13,10 +13,12 @@
             origin: Fragments.Instance,
             name: "Fragments from Somewhere",
             unlockLevel: 3,
+
             cost: 25,
             maxCount: 2,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.TETH,
+
             resistances: new Resistances(1.0, 1.2, 0.6, 2.0)
             )
         {

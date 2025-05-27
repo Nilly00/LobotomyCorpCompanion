@@ -13,11 +13,13 @@
             origin: Crumbling.Instance,
             name: "Life for a Daredevil",
             unlockLevel: 3,
+
             cost: 35,
             maxCount: 1,
-            requirements: new int[] { 0, 0, 2, 0, 0 },
-            type: DamageType.PALE,
+            requirements: [0, 0, 2, 0, 0],
             riskLevel: RiskLevel.HE,
+
+            type: DamageType.PALE, 
             damageMin: 7,
             damageMax: 9,
             range: 4,

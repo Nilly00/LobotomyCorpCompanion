@@ -13,11 +13,13 @@
             origin: Bloodbath.Instance,
             unlockLevel: 3,
             name: "Wrist Cutter",
+
             cost: 25,
             maxCount: 2,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
-            type: DamageType.WHITE,
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.TETH,
+
+            type: DamageType.WHITE, 
             damageMin: 2,
             damageMax: 3,
             range: 2,

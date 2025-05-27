@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LobotomyCorpCompanion.GameObjects.EGOWeapons
+﻿namespace LobotomyCorpCompanion.GameObjects.EGOWeapons
 {
     internal sealed class Fetus_Weapon : EgoWeapon
     {
@@ -14,16 +8,19 @@ namespace LobotomyCorpCompanion.GameObjects.EGOWeapons
         // Public accessor
         public static Fetus_Weapon Instance => _instance;
 
+
         // Private constructor to prevent external instantiation
         private Fetus_Weapon() : base(
             origin: Fetus.Instance,
             name: "Syrinx",
             unlockLevel: 4,
+
             cost: 45,
             maxCount: 1,
-            requirements: new int[] { 2, 0, 0, 0, 0 },
-            type: DamageType.WHITE,
+            requirements: [2, 0, 0, 0, 0],
             riskLevel: RiskLevel.HE,
+
+            type: DamageType.WHITE,
             damageMin: 3,
             damageMax: 3,
             range: 10,

@@ -13,11 +13,13 @@
             origin: Default.Instance,
             name: "Standard Riot Stick",
             unlockLevel: 0,
+
             cost: -1,
             maxCount: -1,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
-            type: DamageType.RED,
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.ZAYIN,
+
+            type: DamageType.RED, 
             damageMin: 4,
             damageMax: 6,
             range: 3,

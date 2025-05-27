@@ -13,11 +13,13 @@
             origin: OldLady.Instance,
             name: "Solitude",
             unlockLevel: 3,
+
             cost: 30,
             maxCount: 2,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
-            type: DamageType.WHITE,
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.TETH,
+
+            type: DamageType.WHITE, 
             damageMin: 2,
             damageMax: 3,
             range: 10,

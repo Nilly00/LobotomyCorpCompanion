@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Rudolta_Gift : EgoGift_Hat
+    internal sealed class Rudolta_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Rudolta_Gift _instance = new Rudolta_Gift();
@@ -13,6 +13,8 @@
             origin: Rudolta.Instance,
             name: "Christmas",
             unlockLevel: 2,
+
+            slot: Slot.Hat,
             secondaryStats: new SecondaryStats(HP: -4, SP: 8)
         )
         { }

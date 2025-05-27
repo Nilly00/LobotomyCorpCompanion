@@ -13,11 +13,13 @@
             origin: Porccubus.Instance,
             name: "Pleasure",
             unlockLevel: 4,
+
             cost: 45,
             maxCount: 1,
-            requirements: new int[] { 0, 0, 3, 0, 0 },
-            type: DamageType.BLACK,
+            requirements: [0, 0, 3, 0, 0],
             riskLevel: RiskLevel.HE,
+
+            type: DamageType.BLACK, 
             damageMin: 1,
             damageMax: 4,
             range: 1,

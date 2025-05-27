@@ -13,11 +13,13 @@
             origin: Dream.Instance,
             name: "Engulfing Dream",
             unlockLevel: 3,
+
             cost: 25,
             maxCount: 2,
-            requirements: new int[] { 0, 0, 0, 0, 0 },
-            type: DamageType.WHITE,
+            requirements: [0, 0, 0, 0, 0],
             riskLevel: RiskLevel.TETH,
+
+            type: DamageType.WHITE, 
             damageMin: 1,
             damageMax: 2,
             range: 8,

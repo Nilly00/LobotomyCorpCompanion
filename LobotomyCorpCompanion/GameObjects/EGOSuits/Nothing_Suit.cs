@@ -13,10 +13,12 @@
             origin: Nothing.Instance,
             name: "Mimicry",
             unlockLevel: 4,
+
             cost: 120,
             maxCount: 1,
-            requirements: new int[] { 5, 0, 0, 0, 5 },
+            requirements: [5, 0, 0, 0, 5],
             riskLevel: RiskLevel.ALEPH,
+
             resistances: new Resistances(0.2, 0.2, 0.5, 1.0)
             )
         {

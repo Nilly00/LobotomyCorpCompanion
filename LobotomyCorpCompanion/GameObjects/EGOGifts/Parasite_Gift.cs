@@ -1,6 +1,6 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects.EGOGifts
 {
-    internal sealed class Parasite_Gift : EgoGift_Helmet
+    internal sealed class Parasite_Gift : EgoGift
     {
         // Singleton instance
         private static readonly Parasite_Gift _instance = new Parasite_Gift();
@@ -13,6 +13,8 @@
             origin: Parasite.Instance,
             name: "Hypocrisy",
             unlockLevel: 3,
+
+            slot: Slot.Helmet,
             secondaryStats: new SecondaryStats(HP:3, SP:3)
         )
         { }

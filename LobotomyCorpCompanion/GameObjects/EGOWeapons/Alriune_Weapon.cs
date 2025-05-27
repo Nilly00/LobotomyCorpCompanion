@@ -13,11 +13,13 @@
             origin: Alriune.Instance,
             name: "Faint Aroma",
             unlockLevel: 4,
+
             cost: 60,
             maxCount: 2,
-            requirements: new int[] { 0, 3, 0, 0, 0 },
-            type: DamageType.WHITE,
+            requirements: new short[] { 0, 3, 0, 0, 0 },
             riskLevel: RiskLevel.WAW,
+
+            type: DamageType.WHITE,
             damageMin: 10,
             damageMax: 20,
             range: 1,
