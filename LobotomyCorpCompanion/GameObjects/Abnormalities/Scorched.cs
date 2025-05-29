@@ -3,7 +3,7 @@
     internal class Scorched : Abnormality
     {
         // Singleton instance
-        private static readonly Scorched _instance = new Scorched();
+        private static readonly Scorched _instance = new();
 
         // Public accessor
         public static Scorched Instance => _instance;

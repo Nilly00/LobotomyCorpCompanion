@@ -3,7 +3,7 @@
     internal sealed class Fragments_Suit : EgoSuit
     {
         // Singleton instance
-        private static readonly Fragments_Suit _instance = new Fragments_Suit();
+        private static readonly Fragments_Suit _instance = new();
 
         // Public accessor
         public static Fragments_Suit Instance => _instance;

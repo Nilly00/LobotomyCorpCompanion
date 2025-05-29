@@ -3,7 +3,7 @@
     internal sealed class WallLady_Weapon : EgoWeapon
     {
         // Singleton instance
-        private static readonly WallLady_Weapon _instance = new WallLady_Weapon();
+        private static readonly WallLady_Weapon _instance = new();
 
         // Public accessor
         public static WallLady_Weapon Instance => _instance;
@@ -29,7 +29,7 @@
 
         internal override void Effect(Employee employee)
         {
-            if (employee.ranks[0] < 3 && employee.ranks[1] < 3)
+            if (employee.Ranks[0] < 3 && employee.Ranks[1] < 3)
             {
                 employee.SpecialEffects.Add("50% chance to take 5 SP damage with each attack");
             }

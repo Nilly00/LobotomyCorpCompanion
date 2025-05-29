@@ -3,7 +3,7 @@
     internal class Greed : Abnormality
     {
         // Singleton instance
-        private static readonly Greed _instance = new Greed();
+        private static readonly Greed _instance = new();
 
         // Public accessor
         public static Greed Instance => _instance;

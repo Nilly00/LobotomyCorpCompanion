@@ -3,7 +3,7 @@
     internal class Bald : Abnormality
     {
         // Singleton instance
-        private static readonly Bald _instance = new Bald();
+        private static readonly Bald _instance = new();
 
         // Public accessor
         public static Bald Instance => _instance;

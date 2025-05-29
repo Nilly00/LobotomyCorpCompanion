@@ -3,7 +3,7 @@
     internal sealed class Extraction : Department
     {
         // Singleton instance
-        private static readonly Extraction _instance = new Extraction();
+        private static readonly Extraction _instance = new();
 
         // Public accessor
         public static Extraction Instance => _instance;
@@ -15,23 +15,23 @@
         {
             if (employee.isCaptain)
             {
-                employee.permanentBonuses.attackSpeedPercent *= 1.2;
-                employee.permanentBonuses.resistances += 0.2;
+                employee.PermanentBonuses.attackSpeedPercent *= 1.2;
+                employee.PermanentBonuses.resistances += 0.2;
             }
             else if (employee.daysInService > 6)
             {
-                employee.permanentBonuses.attackSpeedPercent *= 1.1;
-                employee.permanentBonuses.resistances += 0.1;
+                employee.PermanentBonuses.attackSpeedPercent *= 1.1;
+                employee.PermanentBonuses.resistances += 0.1;
             }
             else if (employee.daysInService > 2)
             {
-                employee.permanentBonuses.attackSpeedPercent *= 1.06;
-                employee.permanentBonuses.resistances += 0.06;
+                employee.PermanentBonuses.attackSpeedPercent *= 1.06;
+                employee.PermanentBonuses.resistances += 0.06;
             }
             else
             {
-                employee.permanentBonuses.attackSpeedPercent *= 1.03;
-                employee.permanentBonuses.resistances += 0.03;
+                employee.PermanentBonuses.attackSpeedPercent *= 1.03;
+                employee.PermanentBonuses.resistances += 0.03;
             }
         }
     }

@@ -3,7 +3,7 @@
     internal sealed class Judgement_Weapon : EgoWeapon
     {
         // Singleton instance
-        private static readonly Judgement_Weapon _instance = new Judgement_Weapon();
+        private static readonly Judgement_Weapon _instance = new();
 
         // Public accessor
         public static Judgement_Weapon Instance => _instance;

@@ -5,7 +5,7 @@ namespace LobotomyCorpCompanion.GameObjects.Abnormalities
     internal class Rabbit : Abnormality
     {
         // Singleton instance
-        private static readonly Rabbit _instance = new Rabbit();
+        private static readonly Rabbit _instance = new();
 
         // Public accessor
         public static Rabbit Instance => _instance;

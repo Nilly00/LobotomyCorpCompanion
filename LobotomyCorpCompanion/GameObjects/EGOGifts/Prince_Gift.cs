@@ -3,7 +3,7 @@
     internal sealed class Prince_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Prince_Gift _instance = new Prince_Gift();
+        private static readonly Prince_Gift _instance = new();
 
         // Public accessor
         public static Prince_Gift Instance => _instance;

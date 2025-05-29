@@ -3,7 +3,7 @@
     internal sealed class Wolf_Weapon : EgoWeapon
     {
         // Singleton instance
-        private static readonly Wolf_Weapon _instance = new Wolf_Weapon();
+        private static readonly Wolf_Weapon _instance = new();
 
         // Public accessor
         public static Wolf_Weapon Instance => _instance;
@@ -31,7 +31,7 @@
         {
             employee.SpecialEffects.Add("Deals DOT");
             employee.SpecialEffects.Add("While below 50% HP +50% damage and FRIENDLY FIRE!");
-            employee.conditionalBonuses.damagePercent *= 1.5;
+            employee.ConditionalBonuses.damagePercent *= 1.5;
         }
     }
 }

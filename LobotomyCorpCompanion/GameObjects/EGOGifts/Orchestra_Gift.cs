@@ -3,7 +3,7 @@
     internal sealed class Orchestra_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Orchestra_Gift _instance = new Orchestra_Gift();
+        private static readonly Orchestra_Gift _instance = new();
 
         // Public accessor
         public static Orchestra_Gift Instance => _instance;

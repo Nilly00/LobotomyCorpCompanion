@@ -3,7 +3,7 @@
     internal sealed class Wellcheers_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Wellcheers_Gift _instance = new Wellcheers_Gift();
+        private static readonly Wellcheers_Gift _instance = new();
 
         // Public accessor
         public static Wellcheers_Gift Instance => _instance;

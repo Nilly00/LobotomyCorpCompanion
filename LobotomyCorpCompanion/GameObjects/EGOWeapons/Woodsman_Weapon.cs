@@ -3,7 +3,7 @@
     internal sealed class Woodsman_Weapon : EgoWeapon
     {
         // Singleton instance
-        private static readonly Woodsman_Weapon _instance = new Woodsman_Weapon();
+        private static readonly Woodsman_Weapon _instance = new();
 
         // Public accessor
         public static Woodsman_Weapon Instance => _instance;

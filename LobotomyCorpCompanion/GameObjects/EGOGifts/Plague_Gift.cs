@@ -3,7 +3,7 @@
     internal sealed class Plague_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Plague_Gift _instance = new Plague_Gift();
+        private static readonly Plague_Gift _instance = new();
 
         // Public accessor
         public static Plague_Gift Instance => _instance;

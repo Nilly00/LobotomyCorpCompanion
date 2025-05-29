@@ -3,7 +3,7 @@
     internal class Crumbling : Abnormality
     {
         // Singleton instance
-        private static readonly Crumbling _instance = new Crumbling();
+        private static readonly Crumbling _instance = new();
 
         // Public accessor
         public static Crumbling Instance => _instance;

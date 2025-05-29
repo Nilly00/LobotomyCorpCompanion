@@ -3,7 +3,7 @@
     internal sealed class Scorched_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Scorched_Gift _instance = new Scorched_Gift();
+        private static readonly Scorched_Gift _instance = new();
 
         // Public accessor
         public static Scorched_Gift Instance => _instance;

@@ -3,7 +3,7 @@
     internal class Heaven : Abnormality
     {
         // Singleton instance
-        private static readonly Heaven _instance = new Heaven();
+        private static readonly Heaven _instance = new();
 
         // Public accessor
         public static Heaven Instance => _instance;

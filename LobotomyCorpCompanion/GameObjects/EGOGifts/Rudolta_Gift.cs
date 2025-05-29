@@ -3,7 +3,7 @@
     internal sealed class Rudolta_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Rudolta_Gift _instance = new Rudolta_Gift();
+        private static readonly Rudolta_Gift _instance = new();
 
         // Public accessor
         public static Rudolta_Gift Instance => _instance;

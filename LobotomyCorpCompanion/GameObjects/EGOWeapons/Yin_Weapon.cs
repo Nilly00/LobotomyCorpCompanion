@@ -3,7 +3,7 @@
     internal sealed class Yin_Weapon : EgoWeapon
     {
         // Singleton instance
-        private static readonly Yin_Weapon _instance = new Yin_Weapon();
+        private static readonly Yin_Weapon _instance = new();
 
         // Public accessor
         public static Yin_Weapon Instance => _instance;

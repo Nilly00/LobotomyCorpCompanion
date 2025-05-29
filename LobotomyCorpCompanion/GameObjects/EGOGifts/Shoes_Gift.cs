@@ -3,7 +3,7 @@
     internal sealed class Shoes_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Shoes_Gift _instance = new Shoes_Gift();
+        private static readonly Shoes_Gift _instance = new();
 
         // Public accessor
         public static Shoes_Gift Instance => _instance;
@@ -23,9 +23,9 @@
         {
             if (SameWeapon(employee))
             {
-                employee.permanentBonuses.secondaryStats.SR -= 10;
-                employee.permanentBonuses.secondaryStats.WS -= 10;
-                employee.permanentBonuses.secondaryStats.AS += 10;
+                employee.PermanentBonuses.secondaryStats.SR -= 10;
+                employee.PermanentBonuses.secondaryStats.WS -= 10;
+                employee.PermanentBonuses.secondaryStats.AS += 10;
             }
         }
     }

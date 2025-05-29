@@ -3,7 +3,7 @@
     internal class Laetitia : Abnormality
     {
         // Singleton instance
-        private static readonly Laetitia _instance = new Laetitia();
+        private static readonly Laetitia _instance = new();
 
         // Public accessor
         public static Laetitia Instance => _instance;

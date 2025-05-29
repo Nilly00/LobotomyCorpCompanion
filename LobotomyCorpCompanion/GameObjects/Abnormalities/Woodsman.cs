@@ -3,7 +3,7 @@
     internal class Woodsman : Abnormality
     {
         // Singleton instance
-        private static readonly Woodsman _instance = new Woodsman();
+        private static readonly Woodsman _instance = new();
 
         // Public accessor
         public static Woodsman Instance => _instance;

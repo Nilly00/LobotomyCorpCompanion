@@ -3,7 +3,7 @@
     internal class Beauty : Abnormality
     {
         // Singleton instance
-        private static readonly Beauty _instance = new Beauty();
+        private static readonly Beauty _instance = new();
 
         // Public accessor
         public static Beauty Instance => _instance;

@@ -3,7 +3,7 @@
     internal sealed class Scarecrow_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Scarecrow_Gift _instance = new Scarecrow_Gift();
+        private static readonly Scarecrow_Gift _instance = new();
 
         // Public accessor
         public static Scarecrow_Gift Instance => _instance;

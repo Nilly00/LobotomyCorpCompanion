@@ -3,7 +3,7 @@
     internal sealed class Galaxy_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Galaxy_Gift _instance = new Galaxy_Gift();
+        private static readonly Galaxy_Gift _instance = new();
 
         // Public accessor
         public static Galaxy_Gift Instance => _instance;

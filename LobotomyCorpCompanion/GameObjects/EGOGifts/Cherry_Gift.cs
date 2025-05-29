@@ -3,7 +3,7 @@
     internal sealed class Cherry_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Cherry_Gift _instance = new Cherry_Gift();
+        private static readonly Cherry_Gift _instance = new();
 
         // Public accessor
         public static Cherry_Gift Instance => _instance;

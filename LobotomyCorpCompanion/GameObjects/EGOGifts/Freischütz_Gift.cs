@@ -3,7 +3,7 @@
     internal sealed class Freischütz_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Freischütz_Gift _instance = new Freischütz_Gift();
+        private static readonly Freischütz_Gift _instance = new();
 
         // Public accessor
         public static Freischütz_Gift Instance => _instance;
@@ -23,7 +23,7 @@
         {
             if (SameWeapon(employee))
             {
-                employee.permanentBonuses.damageFlat += 3;
+                employee.PermanentBonuses.damageFlat += 3;
             }
         }
     }

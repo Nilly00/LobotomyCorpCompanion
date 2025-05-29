@@ -3,7 +3,7 @@
     internal class White : Abnormality
     {
         // Singleton instance
-        private static readonly White _instance = new White();
+        private static readonly White _instance = new();
 
         // Public accessor
         public static White Instance => _instance;

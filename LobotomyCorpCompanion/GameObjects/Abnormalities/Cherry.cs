@@ -3,7 +3,7 @@
     internal class Cherry : Abnormality
     {
         // Singleton instance
-        private static readonly Cherry _instance = new Cherry();
+        private static readonly Cherry _instance = new();
 
         // Public accessor
         public static Cherry Instance => _instance;

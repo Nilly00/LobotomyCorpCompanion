@@ -3,7 +3,7 @@
     internal sealed class Spider_Weapon : EgoWeapon
     {
         // Singleton instance
-        private static readonly Spider_Weapon _instance = new Spider_Weapon();
+        private static readonly Spider_Weapon _instance = new();
 
         // Public accessor
         public static Spider_Weapon Instance => _instance;
@@ -29,10 +29,10 @@
 
         internal override void Effect(Employee employee)
         {
-            if (employee.ranks[0] < 1)
+            if (employee.Ranks[0] < 1)
             {
                 employee.SpecialEffects.Add("+2.5 MS during supression or combat");
-                employee.conditionalBonuses.secondaryStats.MS += 2;
+                employee.ConditionalBonuses.secondaryStats.MS += 2;
             }
         }
     }

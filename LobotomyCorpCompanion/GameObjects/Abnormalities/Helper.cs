@@ -3,7 +3,7 @@
     internal class Helper : Abnormality
     {
         // Singleton instance
-        private static readonly Helper _instance = new Helper();
+        private static readonly Helper _instance = new();
 
         // Public accessor
         public static Helper Instance => _instance;

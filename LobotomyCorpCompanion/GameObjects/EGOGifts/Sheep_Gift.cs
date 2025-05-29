@@ -3,7 +3,7 @@
     internal sealed class Sheep_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Sheep_Gift _instance = new Sheep_Gift();
+        private static readonly Sheep_Gift _instance = new();
 
         // Public accessor
         public static Sheep_Gift Instance => _instance;

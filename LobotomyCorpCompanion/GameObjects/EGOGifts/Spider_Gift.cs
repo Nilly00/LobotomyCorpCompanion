@@ -3,7 +3,7 @@
     internal sealed class Spider_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Spider_Gift _instance = new Spider_Gift();
+        private static readonly Spider_Gift _instance = new();
 
         // Public accessor
         public static Spider_Gift Instance => _instance;

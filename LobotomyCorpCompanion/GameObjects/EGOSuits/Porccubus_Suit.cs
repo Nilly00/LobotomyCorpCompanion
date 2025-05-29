@@ -3,7 +3,7 @@
     internal sealed class Porccubus_Suit : EgoSuit
     {
         // Singleton instance
-        private static readonly Porccubus_Suit _instance = new Porccubus_Suit();
+        private static readonly Porccubus_Suit _instance = new();
 
         // Public accessor
         public static Porccubus_Suit Instance => _instance;

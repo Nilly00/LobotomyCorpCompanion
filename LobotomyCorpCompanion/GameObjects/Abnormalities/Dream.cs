@@ -3,7 +3,7 @@
     internal class Dream : Abnormality
     {
         // Singleton instance
-        private static readonly Dream _instance = new Dream();
+        private static readonly Dream _instance = new();
 
         // Public accessor
         public static Dream Instance => _instance;

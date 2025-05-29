@@ -3,7 +3,7 @@
     internal sealed class  Bee_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly  Bee_Gift _instance = new  Bee_Gift();
+        private static readonly Bee_Gift _instance = new();
 
         // Public accessor
         public static  Bee_Gift Instance => _instance;

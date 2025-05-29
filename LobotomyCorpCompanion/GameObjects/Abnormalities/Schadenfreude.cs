@@ -3,7 +3,7 @@
     internal class Schadenfreude : Abnormality
     {
         // Singleton instance
-        private static readonly Schadenfreude _instance = new Schadenfreude();
+        private static readonly Schadenfreude _instance = new();
 
         // Public accessor
         public static Schadenfreude Instance => _instance;

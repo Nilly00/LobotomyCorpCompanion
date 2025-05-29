@@ -3,7 +3,7 @@
     internal class Refraction : Abnormality
     {
         // Singleton instance
-        private static readonly Refraction _instance = new Refraction();
+        private static readonly Refraction _instance = new();
 
         // Public accessor
         public static Refraction Instance => _instance;

@@ -3,7 +3,7 @@
     internal sealed class Parasite_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Parasite_Gift _instance = new Parasite_Gift();
+        private static readonly Parasite_Gift _instance = new();
 
         // Public accessor
         public static Parasite_Gift Instance => _instance;

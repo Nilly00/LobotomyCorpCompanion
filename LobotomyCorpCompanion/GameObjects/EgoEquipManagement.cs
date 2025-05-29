@@ -109,7 +109,7 @@ namespace LobotomyCorpCompanion.GameObjects
         //gift list assemblers
         private static List<EgoGift> GetBroochList()
         {
-            List<EgoGift> List = new();
+            List<EgoGift> List = [];
             foreach (EgoGift gift in GiftMasterList)
             {
                 if (gift.slot == Slot.Brooch) List.Add(gift);
@@ -118,7 +118,7 @@ namespace LobotomyCorpCompanion.GameObjects
         }
         private static List<EgoGift> GetCheekList()
         {
-            List<EgoGift> List = new();
+            List<EgoGift> List = [];
             foreach (EgoGift gift in GiftMasterList)
             {
                 if (gift.slot == Slot.Cheek) List.Add(gift);
@@ -127,7 +127,7 @@ namespace LobotomyCorpCompanion.GameObjects
         }
         private static List<EgoGift> GetEyeList()
         {
-            List<EgoGift> List = new();
+            List<EgoGift> List = [];
             foreach (EgoGift gift in GiftMasterList)
             {
                 if (gift.slot == Slot.Eye) List.Add(gift);
@@ -136,7 +136,7 @@ namespace LobotomyCorpCompanion.GameObjects
         }
         private static List<EgoGift> GetFaceList()
         {
-            List<EgoGift> List = new();
+            List<EgoGift> List = [];
             foreach (EgoGift gift in GiftMasterList)
             {
                 if (gift.slot == Slot.Face) List.Add(gift);
@@ -145,7 +145,7 @@ namespace LobotomyCorpCompanion.GameObjects
         }
         private static List<EgoGift> GetHand_1List()
         {
-            List<EgoGift> List = new();
+            List<EgoGift> List = [];
             foreach (EgoGift gift in GiftMasterList)
             {
                 if (gift.slot == Slot.Hand_1) List.Add(gift);
@@ -154,7 +154,7 @@ namespace LobotomyCorpCompanion.GameObjects
         }
         private static List<EgoGift> GetHand_2List()
         {
-            List<EgoGift> List = new();
+            List<EgoGift> List = [];
             foreach (EgoGift gift in GiftMasterList)
             {
                 if (gift.slot == Slot.Hand_2) List.Add(gift);
@@ -163,7 +163,7 @@ namespace LobotomyCorpCompanion.GameObjects
         }
         private static List<EgoGift> GetHatList()
         {
-            List<EgoGift> List = new();
+            List<EgoGift> List = [];
             foreach (EgoGift gift in GiftMasterList)
             {
                 if (gift.slot == Slot.Hat) List.Add(gift);
@@ -172,7 +172,7 @@ namespace LobotomyCorpCompanion.GameObjects
         }
         private static List<EgoGift> GetHelmetList()
         {
-            List<EgoGift> List = new();
+            List<EgoGift> List = [];
             foreach (EgoGift gift in GiftMasterList)
             {
                 if (gift.slot == Slot.Helmet) List.Add(gift);
@@ -181,7 +181,7 @@ namespace LobotomyCorpCompanion.GameObjects
         }
         private static List<EgoGift> GetLeft_backList()
         {
-            List<EgoGift> List = new();
+            List<EgoGift> List = [];
             foreach (EgoGift gift in GiftMasterList)
             {
                 if (gift.slot == Slot.Left_back) List.Add(gift);
@@ -190,7 +190,7 @@ namespace LobotomyCorpCompanion.GameObjects
         }
         private static List<EgoGift> GetRight_backList()
         {
-            List<EgoGift> List = new();
+            List<EgoGift> List = [];
             foreach (EgoGift gift in GiftMasterList)
             {
                 if (gift.slot == Slot.Right_back) List.Add(gift);
@@ -199,7 +199,7 @@ namespace LobotomyCorpCompanion.GameObjects
         }
         private static List<EgoGift> GetMouth_1List()
         {
-            List<EgoGift> List = new();
+            List<EgoGift> List = [];
             foreach (EgoGift gift in GiftMasterList)
             {
                 if (gift.slot == Slot.Mouth_1) List.Add(gift);
@@ -208,7 +208,7 @@ namespace LobotomyCorpCompanion.GameObjects
         }
         private static List<EgoGift> GetMouth_2List()
         {
-            List<EgoGift> List = new();
+            List<EgoGift> List = [];
             foreach (EgoGift gift in GiftMasterList)
             {
                 if (gift.slot == Slot.Mouth_2) List.Add(gift);
@@ -217,7 +217,7 @@ namespace LobotomyCorpCompanion.GameObjects
         }
         private static List<EgoGift> GetNeckwearList()
         {
-            List<EgoGift> List = new();
+            List<EgoGift> List = [];
             foreach (EgoGift gift in GiftMasterList)
             {
                 if (gift.slot == Slot.Neckwear) List.Add(gift);
@@ -226,7 +226,7 @@ namespace LobotomyCorpCompanion.GameObjects
         }
         private static List<EgoGift> GetSpecialList()
         {
-            List<EgoGift> List = new();
+            List<EgoGift> List = [];
             foreach (EgoGift gift in GiftMasterList)
             {
                 if (gift.slot == Slot.Special) List.Add(gift);
@@ -241,6 +241,29 @@ namespace LobotomyCorpCompanion.GameObjects
 
             List<EgoGift> list = GetList(slot);
             return list.ElementAt(random.Next(list.Count));
+        }
+
+        public static EgoGift[] RandomGiftSet()
+        {
+            EgoGift[] gifts =
+                [
+                RandomGift(Slot.Brooch),
+                RandomGift(Slot.Cheek),
+                RandomGift(Slot.Eye),
+                RandomGift(Slot.Face),
+                RandomGift(Slot.Hand_1),
+                RandomGift(Slot.Hand_2),
+                RandomGift(Slot.Hat),
+                RandomGift(Slot.Helmet),
+                RandomGift(Slot.Left_back),
+                RandomGift(Slot.Right_back),
+                RandomGift(Slot.Mouth_1),
+                RandomGift(Slot.Mouth_2),
+                RandomGift(Slot.Neckwear),
+                RandomGift(Slot.Special),
+            ];
+
+            return gifts;
         }
     }
 

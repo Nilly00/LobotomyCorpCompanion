@@ -3,7 +3,7 @@
     internal sealed class Singing_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Singing_Gift _instance = new Singing_Gift();
+        private static readonly Singing_Gift _instance = new();
 
         // Public accessor
         public static Singing_Gift Instance => _instance;
@@ -22,7 +22,7 @@
         internal override void Effect(Employee employee)
         {
             employee.SpecialEffects.Add("Upon taking WHITE damage, recover 20% of the damage as SP and Attack Speed +10");
-            employee.conditionalBonuses.secondaryStats.AS += 10;
+            employee.ConditionalBonuses.secondaryStats.AS += 10;
         }
     }
 }

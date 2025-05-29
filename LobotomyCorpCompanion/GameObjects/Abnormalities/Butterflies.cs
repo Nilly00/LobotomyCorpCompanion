@@ -3,7 +3,7 @@
     internal class Butterflies : Abnormality
     {
         // Singleton instance
-        private static readonly Butterflies _instance = new Butterflies();
+        private static readonly Butterflies _instance = new();
 
         // Public accessor
         public static Butterflies Instance => _instance;

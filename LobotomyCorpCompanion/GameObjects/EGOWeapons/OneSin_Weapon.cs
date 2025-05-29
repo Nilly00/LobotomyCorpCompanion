@@ -3,7 +3,7 @@
     internal sealed class OneSin_Weapon : EgoWeapon
     {
         // Singleton instance
-        private static readonly OneSin_Weapon _instance = new OneSin_Weapon();
+        private static readonly OneSin_Weapon _instance = new();
 
         // Public accessor
         public static OneSin_Weapon Instance => _instance;
@@ -29,7 +29,7 @@
 
         internal override void Effect(Employee employee)
         {
-            if (employee.ranks[3] > 2)
+            if (employee.Ranks[3] > 2)
             {
                 employee.SpecialEffects.Add("5% chance to recover 10 SP on attack");
             }

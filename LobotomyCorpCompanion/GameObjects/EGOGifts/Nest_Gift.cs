@@ -3,7 +3,7 @@
     internal sealed class Nest_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Nest_Gift _instance = new Nest_Gift();
+        private static readonly Nest_Gift _instance = new();
 
         // Public accessor
         public static Nest_Gift Instance => _instance;

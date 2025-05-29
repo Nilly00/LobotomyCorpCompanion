@@ -3,7 +3,7 @@
     internal sealed class Schadenfreude_Suit : EgoSuit
     {
         // Singleton instance
-        private static readonly Schadenfreude_Suit _instance = new Schadenfreude_Suit();
+        private static readonly Schadenfreude_Suit _instance = new();
 
         // Public accessor
         public static Schadenfreude_Suit Instance => _instance;
@@ -27,7 +27,7 @@
         internal override void Effect(Employee employee)
         {
             employee.SpecialEffects.Add("JUSTICE and Defense boosted while on screen");
-            employee.conditionalBonuses.primaryStats.Justice += 10;
+            employee.ConditionalBonuses.primaryStats.Justice += 10;
             //todo figure out how to do this nonesense
         }
     }

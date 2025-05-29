@@ -3,7 +3,7 @@
     internal sealed class MHZ_Suit : EgoSuit
     {
         // Singleton instance
-        private static readonly MHZ_Suit _instance = new MHZ_Suit();
+        private static readonly MHZ_Suit _instance = new();
 
         // Public accessor
         public static MHZ_Suit Instance => _instance;

@@ -3,7 +3,7 @@
     internal class Ridinghood : Abnormality
     {
         // Singleton instance
-        private static readonly Ridinghood _instance = new Ridinghood();
+        private static readonly Ridinghood _instance = new();
 
         // Public accessor
         public static Ridinghood Instance => _instance;

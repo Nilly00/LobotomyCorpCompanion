@@ -3,7 +3,7 @@
     internal class Crumbling_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Crumbling_Gift _instance = new Crumbling_Gift();
+        private static readonly Crumbling_Gift _instance = new();
 
         // Public accessor
         public static Crumbling_Gift Instance => _instance;
@@ -32,7 +32,7 @@
     internal sealed class Crumbling_B_Gift : Crumbling_Gift
     {
         // Singleton instance
-        private static readonly Crumbling_B_Gift _instance = new Crumbling_B_Gift();
+        private static readonly Crumbling_B_Gift _instance = new();
 
         // Public accessor
         public static new Crumbling_B_Gift Instance => _instance;
@@ -47,7 +47,7 @@
     internal sealed class Crumbling_O_Gift : Crumbling_Gift
     {
         // Singleton instance
-        private static readonly Crumbling_O_Gift _instance = new Crumbling_O_Gift();
+        private static readonly Crumbling_O_Gift _instance = new();
 
         // Public accessor
         public static new Crumbling_O_Gift Instance => _instance;
@@ -62,7 +62,7 @@
     internal sealed class Crumbling_R_Gift : Crumbling_Gift
     {
         // Singleton instance
-        private static readonly Crumbling_R_Gift _instance = new Crumbling_R_Gift();
+        private static readonly Crumbling_R_Gift _instance = new();
 
         // Public accessor
         public static new Crumbling_R_Gift Instance => _instance;

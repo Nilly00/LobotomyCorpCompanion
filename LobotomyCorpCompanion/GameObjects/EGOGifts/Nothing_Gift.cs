@@ -3,7 +3,7 @@
     internal sealed class Nothing_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Nothing_Gift _instance = new Nothing_Gift();
+        private static readonly Nothing_Gift _instance = new();
 
         // Public accessor
         public static Nothing_Gift Instance => _instance;
@@ -21,7 +21,7 @@
 
         internal override void Effect(Employee employee)
         {
-            employee.permanentBonuses.HPHealing *= 1.05f;
+            employee.PermanentBonuses.HPHealing *= 1.05f;
         }
     }
 }

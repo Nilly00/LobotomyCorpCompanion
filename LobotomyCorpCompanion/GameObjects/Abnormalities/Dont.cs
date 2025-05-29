@@ -3,7 +3,7 @@
     internal class Dont : Abnormality
     {
         // Singleton instance
-        private static readonly Dont _instance = new Dont();
+        private static readonly Dont _instance = new();
 
         // Public accessor
         public static Dont Instance => _instance;

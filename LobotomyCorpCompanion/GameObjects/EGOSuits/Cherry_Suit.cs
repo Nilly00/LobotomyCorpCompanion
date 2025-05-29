@@ -3,7 +3,7 @@
     internal sealed class Cherry_Suit : EgoSuit
     {
         // Singleton instance
-        private static readonly Cherry_Suit _instance = new Cherry_Suit();
+        private static readonly Cherry_Suit _instance = new();
 
         // Public accessor
         public static Cherry_Suit Instance => _instance;

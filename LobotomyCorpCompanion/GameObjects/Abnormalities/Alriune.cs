@@ -3,7 +3,7 @@
     internal class Alriune : Abnormality
     {
         // Singleton instance
-        private static readonly Alriune _instance = new Alriune();
+        private static readonly Alriune _instance = new();
 
         // Public accessor
         public static Alriune Instance => _instance;

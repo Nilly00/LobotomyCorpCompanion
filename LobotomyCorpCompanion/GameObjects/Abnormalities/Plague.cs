@@ -3,7 +3,7 @@
     internal class Plague : Abnormality
     {
         // Singleton instance
-        private static readonly Plague _instance = new Plague();
+        private static readonly Plague _instance = new();
 
         // Public accessor
         public static Plague Instance => _instance;

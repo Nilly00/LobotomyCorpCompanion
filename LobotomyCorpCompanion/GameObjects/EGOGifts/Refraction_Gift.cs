@@ -3,7 +3,7 @@
     internal sealed class Refraction_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Refraction_Gift _instance = new Refraction_Gift();
+        private static readonly Refraction_Gift _instance = new();
 
         // Public accessor
         public static Refraction_Gift Instance => _instance;

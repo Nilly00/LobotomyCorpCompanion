@@ -3,7 +3,7 @@
     internal sealed class Yin_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Yin_Gift _instance = new Yin_Gift();
+        private static readonly Yin_Gift _instance = new();
 
         // Public accessor
         public static Yin_Gift Instance => _instance;

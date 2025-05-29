@@ -3,7 +3,7 @@
     internal sealed class Apocalypse_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Apocalypse_Gift _instance = new Apocalypse_Gift();
+        private static readonly Apocalypse_Gift _instance = new();
 
         // Public accessor
         public static Apocalypse_Gift Instance => _instance;

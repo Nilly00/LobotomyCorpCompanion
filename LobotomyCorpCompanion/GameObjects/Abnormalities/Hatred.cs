@@ -3,7 +3,7 @@
     internal class Hatred : Abnormality
     {
         // Singleton instance
-        private static readonly Hatred _instance = new Hatred();
+        private static readonly Hatred _instance = new();
 
         // Public accessor
         public static Hatred Instance => _instance;

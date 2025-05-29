@@ -3,7 +3,7 @@
     internal sealed class Fairy_Suit : EgoSuit
     {
         // Singleton instance
-        private static readonly Fairy_Suit _instance = new Fairy_Suit();
+        private static readonly Fairy_Suit _instance = new();
 
         // Public accessor
         public static Fairy_Suit Instance => _instance;

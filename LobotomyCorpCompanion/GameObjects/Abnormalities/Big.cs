@@ -3,7 +3,7 @@
     internal class Big : Abnormality
     {
         // Singleton instance
-        private static readonly Big _instance = new Big();
+        private static readonly Big _instance = new();
 
         // Public accessor
         public static Big Instance => _instance;

@@ -3,7 +3,7 @@
     internal sealed class Forsaken_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Forsaken_Gift _instance = new Forsaken_Gift();
+        private static readonly Forsaken_Gift _instance = new();
 
         // Public accessor
         public static Forsaken_Gift Instance => _instance;

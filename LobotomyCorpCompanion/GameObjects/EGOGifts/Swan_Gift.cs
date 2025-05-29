@@ -3,7 +3,7 @@
     internal sealed class Swan_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Swan_Gift _instance = new Swan_Gift();
+        private static readonly Swan_Gift _instance = new();
 
         // Public accessor
         public static Swan_Gift Instance => _instance;

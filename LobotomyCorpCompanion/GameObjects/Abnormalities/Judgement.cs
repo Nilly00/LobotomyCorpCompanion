@@ -3,7 +3,7 @@
     internal class Judgement : Abnormality
     {
         // Singleton instance
-        private static readonly Judgement _instance = new Judgement();
+        private static readonly Judgement _instance = new();
 
         // Public accessor
         public static Judgement Instance => _instance;

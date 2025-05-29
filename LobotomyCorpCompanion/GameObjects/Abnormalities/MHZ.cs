@@ -3,7 +3,7 @@
     internal class MHZ : Abnormality
     {
         // Singleton instance
-        private static readonly MHZ _instance = new MHZ();
+        private static readonly MHZ _instance = new();
 
         // Public accessor
         public static MHZ Instance => _instance;

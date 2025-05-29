@@ -3,7 +3,7 @@
     internal class Nest : Abnormality
     {
         // Singleton instance
-        private static readonly Nest _instance = new Nest();
+        private static readonly Nest _instance = new();
 
         // Public accessor
         public static Nest Instance => _instance;

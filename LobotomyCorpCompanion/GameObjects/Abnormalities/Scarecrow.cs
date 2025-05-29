@@ -3,7 +3,7 @@
     internal class Scarecrow : Abnormality
     {
         // Singleton instance
-        private static readonly Scarecrow _instance = new Scarecrow();
+        private static readonly Scarecrow _instance = new();
 
         // Public accessor
         public static Scarecrow Instance => _instance;

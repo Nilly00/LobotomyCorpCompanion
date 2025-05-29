@@ -3,7 +3,7 @@
     internal sealed class Orchestra_Suit : EgoSuit
     {
         // Singleton instance
-        private static readonly Orchestra_Suit _instance = new Orchestra_Suit();
+        private static readonly Orchestra_Suit _instance = new();
 
         // Public accessor
         public static Orchestra_Suit Instance => _instance;

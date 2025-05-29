@@ -3,7 +3,7 @@
     internal class Wellcheers : Abnormality
     {
         // Singleton instance
-        private static readonly Wellcheers _instance = new Wellcheers();
+        private static readonly Wellcheers _instance = new();
 
         // Public accessor
         public static Wellcheers Instance => _instance;

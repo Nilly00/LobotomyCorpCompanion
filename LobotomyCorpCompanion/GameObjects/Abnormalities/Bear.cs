@@ -3,7 +3,7 @@
     internal class Bear : Abnormality
     {
         // Singleton instance
-        private static readonly Bear _instance = new Bear();
+        private static readonly Bear _instance = new();
 
         // Public accessor
         public static Bear Instance => _instance;

@@ -3,7 +3,7 @@
     internal class Bloodbath : Abnormality
     {
         // Singleton instance
-        private static readonly Bloodbath _instance = new Bloodbath();
+        private static readonly Bloodbath _instance = new();
 
         // Public accessor
         public static Bloodbath Instance => _instance;

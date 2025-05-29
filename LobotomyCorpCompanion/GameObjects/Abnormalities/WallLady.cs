@@ -3,7 +3,7 @@
     internal class WallLady : Abnormality
     {
         // Singleton instance
-        private static readonly WallLady _instance = new WallLady();
+        private static readonly WallLady _instance = new();
 
         // Public accessor
         public static WallLady Instance => _instance;

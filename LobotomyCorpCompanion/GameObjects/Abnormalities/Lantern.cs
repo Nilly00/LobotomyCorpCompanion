@@ -3,7 +3,7 @@
     internal class Lantern : Abnormality
     {
         // Singleton instance
-        private static readonly Lantern _instance = new Lantern();
+        private static readonly Lantern _instance = new();
 
         // Public accessor
         public static Lantern Instance => _instance;

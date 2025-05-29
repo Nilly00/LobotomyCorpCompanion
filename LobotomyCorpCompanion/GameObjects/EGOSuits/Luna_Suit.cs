@@ -3,7 +3,7 @@
     internal sealed class Luna_Suit : EgoSuit
     {
         // Singleton instance
-        private static readonly Luna_Suit _instance = new Luna_Suit();
+        private static readonly Luna_Suit _instance = new();
 
         // Public accessor
         public static Luna_Suit Instance => _instance;

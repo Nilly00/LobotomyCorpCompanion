@@ -3,7 +3,7 @@
     internal class Fragments : Abnormality
     {
         // Singleton instance
-        private static readonly Fragments _instance = new Fragments();
+        private static readonly Fragments _instance = new();
 
         // Public accessor
         public static Fragments Instance => _instance;

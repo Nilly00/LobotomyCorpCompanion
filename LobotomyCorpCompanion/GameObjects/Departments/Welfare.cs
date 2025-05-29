@@ -3,7 +3,7 @@
     internal sealed class Welfare : Department
     {
         // Singleton instance
-        private static readonly Welfare _instance = new Welfare();
+        private static readonly Welfare _instance = new();
 
         // Public accessor
         public static Welfare Instance => _instance;
@@ -15,19 +15,19 @@
         {
             if (employee.isCaptain)
             {
-                employee.permanentBonuses.resistances += 0.2;
+                employee.PermanentBonuses.resistances += 0.2;
             }
             else if (employee.daysInService > 6)
             {
-                employee.permanentBonuses.resistances += 0.1;
+                employee.PermanentBonuses.resistances += 0.1;
             }
             else if (employee.daysInService > 2)
             {
-                employee.permanentBonuses.resistances += 0.06;
+                employee.PermanentBonuses.resistances += 0.06;
             }
             else
             {
-                employee.permanentBonuses.resistances += 0.03;
+                employee.PermanentBonuses.resistances += 0.03;
             }
         }
     }

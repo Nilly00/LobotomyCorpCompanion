@@ -3,7 +3,7 @@
     internal sealed class Ridinghood_Weapon : EgoWeapon
     {
         // Singleton instance
-        private static readonly Ridinghood_Weapon _instance = new Ridinghood_Weapon();
+        private static readonly Ridinghood_Weapon _instance = new();
 
         // Public accessor
         public static Ridinghood_Weapon Instance => _instance;
@@ -30,7 +30,7 @@
         internal override void Effect(Employee employee)
         {
             employee.SpecialEffects.Add("While below 50% HP +50% damage and FRIENDLY FIRE!");
-            employee.conditionalBonuses.damagePercent *= 1.5;
+            employee.ConditionalBonuses.damagePercent *= 1.5;
         }
     }
 }

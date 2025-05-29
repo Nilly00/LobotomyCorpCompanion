@@ -3,7 +3,7 @@
     internal class Monk : Abnormality
     {
         // Singleton instance
-        private static readonly Monk _instance = new Monk();
+        private static readonly Monk _instance = new();
 
         // Public accessor
         public static Monk Instance => _instance;

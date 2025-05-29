@@ -3,7 +3,7 @@
     internal class Love : Abnormality
     {
         // Singleton instance
-        private static readonly Love _instance = new Love();
+        private static readonly Love _instance = new();
 
         // Public accessor
         public static Love Instance => _instance;

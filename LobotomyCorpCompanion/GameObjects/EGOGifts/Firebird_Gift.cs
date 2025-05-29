@@ -3,7 +3,7 @@
     internal sealed class Firebird_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Firebird_Gift _instance = new Firebird_Gift();
+        private static readonly Firebird_Gift _instance = new();
 
         // Public accessor
         public static Firebird_Gift Instance => _instance;

@@ -3,7 +3,7 @@
     internal sealed class Spider_Suit : EgoSuit
     {
         // Singleton instance
-        private static readonly Spider_Suit _instance = new Spider_Suit();
+        private static readonly Spider_Suit _instance = new();
 
         // Public accessor
         public static Spider_Suit Instance => _instance;
@@ -30,7 +30,7 @@
             //the Presence of the Suit and added +5 instead of it's usual +2
             if(!SameWeapon(employee))
             {
-                employee.permanentBonuses.secondaryStats.MS += 2;
+                employee.PermanentBonuses.secondaryStats.MS += 2;
             }
         }
     }

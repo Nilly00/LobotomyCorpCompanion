@@ -3,7 +3,7 @@
     internal sealed class Porccubus_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Porccubus_Gift _instance = new Porccubus_Gift();
+        private static readonly Porccubus_Gift _instance = new();
 
         // Public accessor
         public static Porccubus_Gift Instance => _instance;

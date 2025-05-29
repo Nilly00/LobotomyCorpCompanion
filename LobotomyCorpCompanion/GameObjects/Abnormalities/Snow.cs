@@ -3,7 +3,7 @@
     internal class Snow : Abnormality
     {
         // Singleton instance
-        private static readonly Snow _instance = new Snow();
+        private static readonly Snow _instance = new();
 
         // Public accessor
         public static Snow Instance => _instance;

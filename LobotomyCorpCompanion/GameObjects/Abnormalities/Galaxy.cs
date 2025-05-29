@@ -3,7 +3,7 @@
     internal class Galaxy : Abnormality
     {
         // Singleton instance
-        private static readonly Galaxy _instance = new Galaxy();
+        private static readonly Galaxy _instance = new();
 
         // Public accessor
         public static Galaxy Instance => _instance;

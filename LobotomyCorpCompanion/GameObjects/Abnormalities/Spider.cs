@@ -3,7 +3,7 @@
     internal class Spider : Abnormality
     {
         // Singleton instance
-        private static readonly Spider _instance = new Spider();
+        private static readonly Spider _instance = new();
 
         // Public accessor
         public static Spider Instance => _instance;

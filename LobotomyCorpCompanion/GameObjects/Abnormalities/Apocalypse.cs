@@ -3,7 +3,7 @@
     internal class Apocalypse : Abnormality
     {
         // Singleton instance
-        private static readonly Apocalypse _instance = new Apocalypse();
+        private static readonly Apocalypse _instance = new();
 
         // Public accessor
         public static Apocalypse Instance => _instance;

@@ -3,7 +3,7 @@
     internal class Porccubus : Abnormality
     {
         // Singleton instance
-        private static readonly Porccubus _instance = new Porccubus();
+        private static readonly Porccubus _instance = new();
 
         // Public accessor
         public static Porccubus Instance => _instance;

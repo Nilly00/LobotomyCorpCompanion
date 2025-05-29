@@ -3,7 +3,7 @@
     internal class Freischütz : Abnormality
     {
         // Singleton instance
-        private static readonly Freischütz _instance = new Freischütz();
+        private static readonly Freischütz _instance = new();
 
         // Public accessor
         public static Freischütz Instance => _instance;

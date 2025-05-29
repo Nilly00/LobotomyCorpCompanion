@@ -3,7 +3,7 @@
     internal class Firebird : Abnormality
     {
         // Singleton instance
-        private static readonly Firebird _instance = new Firebird();
+        private static readonly Firebird _instance = new();
 
         // Public accessor
         public static Firebird Instance => _instance;

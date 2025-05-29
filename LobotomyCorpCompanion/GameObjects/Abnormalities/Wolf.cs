@@ -3,7 +3,7 @@
     internal class Wolf : Abnormality
     {
         // Singleton instance
-        private static readonly Wolf _instance = new Wolf();
+        private static readonly Wolf _instance = new();
 
         // Public accessor
         public static Wolf Instance => _instance;

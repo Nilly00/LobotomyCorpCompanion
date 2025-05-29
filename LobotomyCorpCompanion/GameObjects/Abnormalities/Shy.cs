@@ -3,7 +3,7 @@
     internal class Shy : Abnormality
     {
         // Singleton instance
-        private static readonly Shy _instance = new Shy();
+        private static readonly Shy _instance = new();
 
         // Public accessor
         public static Shy Instance => _instance;

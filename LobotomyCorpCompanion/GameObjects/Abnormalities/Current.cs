@@ -3,7 +3,7 @@
     internal class Current : Abnormality
     {
         // Singleton instance
-        private static readonly Current _instance = new Current();
+        private static readonly Current _instance = new();
 
         // Public accessor
         public static Current Instance => _instance;

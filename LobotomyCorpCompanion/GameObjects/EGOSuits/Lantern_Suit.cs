@@ -3,7 +3,7 @@
     internal sealed class Lantern_Suit : EgoSuit
     {
         // Singleton instance
-        private static readonly Lantern_Suit _instance = new Lantern_Suit();
+        private static readonly Lantern_Suit _instance = new();
 
         // Public accessor
         public static Lantern_Suit Instance => _instance;

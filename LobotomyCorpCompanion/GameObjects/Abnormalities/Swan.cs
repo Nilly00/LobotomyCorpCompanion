@@ -3,7 +3,7 @@
     internal class Swan : Abnormality
     {
         // Singleton instance
-        private static readonly Swan _instance = new Swan();
+        private static readonly Swan _instance = new();
 
         // Public accessor
         public static Swan Instance => _instance;

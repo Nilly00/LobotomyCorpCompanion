@@ -3,7 +3,7 @@
     internal class Smiling : Abnormality
     {
         // Singleton instance
-        private static readonly Smiling _instance = new Smiling();
+        private static readonly Smiling _instance = new();
 
         // Public accessor
         public static Smiling Instance => _instance;

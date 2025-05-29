@@ -3,7 +3,7 @@
     internal class Luna : Abnormality
     {
         // Singleton instance
-        private static readonly Luna _instance = new Luna();
+        private static readonly Luna _instance = new();
 
         // Public accessor
         public static Luna Instance => _instance;

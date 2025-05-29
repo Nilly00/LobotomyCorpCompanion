@@ -3,7 +3,7 @@
     internal class Star : Abnormality
     {
         // Singleton instance
-        private static readonly Star _instance = new Star();
+        private static readonly Star _instance = new();
 
         // Public accessor
         public static Star Instance => _instance;

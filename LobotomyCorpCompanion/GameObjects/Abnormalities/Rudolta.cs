@@ -3,7 +3,7 @@
     internal class Rudolta : Abnormality
     {
         // Singleton instance
-        private static readonly Rudolta _instance = new Rudolta();
+        private static readonly Rudolta _instance = new();
 
         // Public accessor
         public static Rudolta Instance => _instance;

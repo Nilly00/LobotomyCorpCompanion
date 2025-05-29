@@ -10,8 +10,8 @@
         internal bool enabled;
 
         //calculated at runtime
-        internal List<Abnormality> abnormalities = new List<Abnormality>();
-        internal List<Employee> employees = new List<Employee>();
+        internal List<Abnormality> abnormalities = [];
+        internal List<Employee> employees = [];
 
         internal static readonly FrozenDictionary<string, Department> list = new Dictionary<string, Department>
         {

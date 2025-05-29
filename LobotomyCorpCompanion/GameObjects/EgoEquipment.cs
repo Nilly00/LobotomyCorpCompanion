@@ -1,18 +1,11 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects
 {
 
-    internal abstract class EgoEquipment
+    internal abstract class EgoEquipment(Abnormality origin, string name, short unlockLevel)
     {
-        internal readonly Abnormality origin;
-        internal readonly string name;
-        internal readonly short unlockLevel;
-
-        protected EgoEquipment(Abnormality origin, string name, short unlockLevel)
-        {
-            this.origin = origin;
-            this.name = name;
-            this.unlockLevel = unlockLevel;
-        }
+        internal readonly Abnormality origin = origin;
+        internal readonly string name = name;
+        internal readonly short unlockLevel = unlockLevel;
 
         internal virtual void Effect(Employee employee)
         {
@@ -21,46 +14,36 @@
 
         internal bool SameWeapon(Employee employee)
         {
-            return employee.weapon.origin == origin;
+            return employee.GetWeapon().origin == origin;
         }
 
         internal bool SameSuit(Employee employee)
         {
-            return employee.suit.origin == origin;
+            return employee.GetSuit().origin == origin;
         }
 
         internal bool SameGift(Employee employee)
         {
-            foreach (EgoGift gift in employee.gifts)
+            foreach (EgoGift gift in employee.GetGifts())
             {
                 if (gift.origin == this.origin) return true;
             }
             return false;
         }
     }
-    internal abstract class EgoPurchasable : EgoEquipment
+    internal abstract class EgoPurchasable(
+        Abnormality origin,
+        string name,
+        short unlockLevel,
+        short cost,
+        short maxCount,
+        short[] requirements,
+        RiskLevel riskLevel) : EgoEquipment(origin, name, unlockLevel)
     {
-        internal short cost;
-        internal short maxCount;
-        internal short[] requirements; //{Fortitude, Prudence, Temperance, Justice, AgentRank}
-        internal RiskLevel riskLevel;
-
-        protected EgoPurchasable(
-            Abnormality origin, 
-            string name, 
-            short unlockLevel, 
-            short cost, 
-            short maxCount, 
-            short[] requirements, 
-            RiskLevel riskLevel)
-
-            : base(origin, name, unlockLevel)
-        {
-            this.cost = cost;
-            this.maxCount = maxCount;
-            this.requirements = requirements;
-            this.riskLevel = riskLevel;
-        }
+        internal short cost = cost;
+        internal short maxCount = maxCount;
+        internal short[] requirements = requirements; //{Fortitude, Prudence, Temperance, Justice, AgentRank}
+        internal RiskLevel riskLevel = riskLevel;
 
         internal virtual bool CheckRequirements(Employee employee)
         {
@@ -69,46 +52,34 @@
         }
     }
 
-    internal abstract class EgoWeapon : EgoPurchasable
+    internal abstract class EgoWeapon(
+        Abnormality origin,
+        string name,
+        short unlockLevel,
+
+        short cost,
+        short maxCount,
+        short[] requirements,
+        RiskLevel riskLevel,
+
+        DamageType type,
+        int damageMin,
+        int damageMax,
+        int range,
+        double attackSpeed) : EgoPurchasable(
+              origin,
+              name,
+              unlockLevel,
+              cost,
+              maxCount,
+              requirements,
+              riskLevel)
     {
-        internal readonly DamageType type;
-        internal readonly int damageMin;
-        internal readonly int damageMax;
-        internal readonly int range;
-        internal readonly double attackSpeed;
-
-        protected EgoWeapon(
-            Abnormality origin,
-            string name,
-            short unlockLevel,
-
-            short cost,
-            short maxCount,
-            short[] requirements,
-            RiskLevel riskLevel,
-
-            DamageType type,
-            int damageMin,
-            int damageMax,
-            int range,
-            double attackSpeed)
-
-            : base(
-                  origin,
-                  name,
-                  unlockLevel,
-                  cost,
-                  maxCount,
-                  requirements,
-                  riskLevel)
-        {
-            this.type = type;
-            this.damageMin = damageMin;
-            this.damageMax = damageMax;
-            this.range = range;
-            this.attackSpeed = attackSpeed;
-        }
-
+        internal readonly DamageType type = type;
+        internal readonly int damageMin = damageMin;
+        internal readonly int damageMax = damageMax;
+        internal readonly int range = range;
+        internal readonly double attackSpeed = attackSpeed;
 
         internal virtual void WeaponCalculate()
         {
@@ -170,33 +141,26 @@
             return $"Red: {red}, White: {white}, Black: {black}, Pale: {pale}";
         }
     }
-    internal abstract class EgoSuit : EgoPurchasable
+    internal abstract class EgoSuit(
+        Abnormality origin,
+        string name,
+        short unlockLevel,
+
+        short cost,
+        short maxCount,
+        short[] requirements,
+        RiskLevel riskLevel,
+
+        Resistances resistances) : EgoPurchasable(
+              origin,
+              name,
+              unlockLevel,
+              cost,
+              maxCount,
+              requirements,
+              riskLevel)
     {
-        internal readonly Resistances resistances;
-
-        protected EgoSuit(
-            Abnormality origin,
-            string name,
-            short unlockLevel,
-
-            short cost,
-            short maxCount,
-            short[] requirements,
-            RiskLevel riskLevel,
-
-            Resistances resistances)
-
-            : base(
-                  origin,
-                  name,
-                  unlockLevel,
-                  cost,
-                  maxCount,
-                  requirements,
-                  riskLevel)
-        {
-            this.resistances = resistances;
-        }
+        internal readonly Resistances resistances = resistances;
     }
 
     enum Slot
@@ -216,26 +180,19 @@
         Neckwear = 12,
         Special = 13,
     }
-    internal abstract class EgoGift : EgoEquipment
+    internal abstract class EgoGift(
+        Abnormality origin,
+        string name,
+        short unlockLevel,
+
+        Slot slot,
+        SecondaryStats secondaryStats) : EgoEquipment(
+              origin,
+              name,
+              unlockLevel)
     {
-        internal readonly Slot slot;
-        internal readonly SecondaryStats secondaryStats; //HP,SP,WR,WS,AS,MS
-        protected EgoGift(
-            Abnormality origin,
-            string name,
-            short unlockLevel,
-
-            Slot slot,
-            SecondaryStats secondaryStats)
-
-            : base(
-                  origin,
-                  name,
-                  unlockLevel)
-        {
-            this.slot = slot;
-            this.secondaryStats = secondaryStats;
-        }
+        internal readonly Slot slot = slot;
+        internal readonly SecondaryStats secondaryStats = secondaryStats; //HP,SP,WR,WS,AS,MS
     }
 
 }

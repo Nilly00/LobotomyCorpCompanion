@@ -3,7 +3,7 @@
     internal sealed class MHZ_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly MHZ_Gift _instance = new MHZ_Gift();
+        private static readonly MHZ_Gift _instance = new();
 
         // Public accessor
         public static MHZ_Gift Instance => _instance;
@@ -23,8 +23,8 @@
         {
             if (SameSuit(employee))
             {
-                employee.permanentBonuses.secondaryStats.SP -= 10;
-                employee.permanentBonuses.secondaryStats.AS += 10;
+                employee.PermanentBonuses.secondaryStats.SP -= 10;
+                employee.PermanentBonuses.secondaryStats.AS += 10;
             }
         }
     }

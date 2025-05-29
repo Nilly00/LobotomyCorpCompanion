@@ -3,7 +3,7 @@
     internal sealed class Shoes_Weapon : EgoWeapon
     {
         // Singleton instance
-        private static readonly Shoes_Weapon _instance = new Shoes_Weapon();
+        private static readonly Shoes_Weapon _instance = new();
 
         // Public accessor
         public static Shoes_Weapon Instance => _instance;
@@ -29,9 +29,9 @@
 
         internal override void Effect(Employee employee)
         {
-            if (employee.ranks[2] > 3)
+            if (employee.Ranks[2] > 3)
             {
-                employee.permanentBonuses.damageFlat += 4;
+                employee.PermanentBonuses.damageFlat += 4;
                 employee.SpecialEffects.Add("take SP damage equal to 4% of Max. SP on each attack");
             }
         }

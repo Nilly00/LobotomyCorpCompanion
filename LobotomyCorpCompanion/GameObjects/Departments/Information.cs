@@ -3,7 +3,7 @@
     internal sealed class Information : Department
     {
         // Singleton instance
-        private static readonly Information _instance = new Information();
+        private static readonly Information _instance = new();
 
         // Public accessor
         public static Information Instance => _instance;
@@ -20,19 +20,19 @@
         {
             if (employee.isCaptain)
             {
-                employee.permanentBonuses.primaryStats.Temperance += 10;
+                employee.PermanentBonuses.primaryStats.Temperance += 10;
             }
             else if (employee.daysInService > 6)
             {
-                employee.permanentBonuses.primaryStats.Temperance += 7;
+                employee.PermanentBonuses.primaryStats.Temperance += 7;
             }
             else if (employee.daysInService > 2)
             {
-                employee.permanentBonuses.primaryStats.Temperance += 5;
+                employee.PermanentBonuses.primaryStats.Temperance += 5;
             }
             else
             {
-                employee.permanentBonuses.primaryStats.Temperance += 3;
+                employee.PermanentBonuses.primaryStats.Temperance += 3;
             }
         }
     }

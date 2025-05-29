@@ -3,7 +3,7 @@
     internal sealed class Woodsman_Suit : EgoSuit
     {
         // Singleton instance
-        private static readonly Woodsman_Suit _instance = new Woodsman_Suit();
+        private static readonly Woodsman_Suit _instance = new();
 
         // Public accessor
         public static Woodsman_Suit Instance => _instance;

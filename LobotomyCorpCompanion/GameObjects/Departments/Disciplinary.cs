@@ -3,7 +3,7 @@
     internal sealed class Disciplinary : Department
     {
         // Singleton instance
-        private static readonly Disciplinary _instance = new Disciplinary();
+        private static readonly Disciplinary _instance = new();
 
         // Public accessor
         public static Disciplinary Instance => _instance;
@@ -20,19 +20,19 @@
         {
             if (employee.isCaptain)
             {
-                employee.permanentBonuses.damagePercent *= 1.2;
+                employee.PermanentBonuses.damagePercent *= 1.2;
             }
             else if (employee.daysInService > 6)
             {
-                employee.permanentBonuses.damagePercent *= 1.1;
+                employee.PermanentBonuses.damagePercent *= 1.1;
             }
             else if (employee.daysInService > 2)
             {
-                employee.permanentBonuses.damagePercent *= 1.06;
+                employee.PermanentBonuses.damagePercent *= 1.06;
             }
             else
             {
-                employee.permanentBonuses.damagePercent *= 1.03;
+                employee.PermanentBonuses.damagePercent *= 1.03;
             }
         }
     }

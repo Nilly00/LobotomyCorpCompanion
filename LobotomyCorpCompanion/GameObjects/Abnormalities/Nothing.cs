@@ -3,7 +3,7 @@
     internal class Nothing : Abnormality
     {
         // Singleton instance
-        private static readonly Nothing _instance = new Nothing();
+        private static readonly Nothing _instance = new();
 
         // Public accessor
         public static Nothing Instance => _instance;

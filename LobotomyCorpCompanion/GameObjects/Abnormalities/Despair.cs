@@ -3,7 +3,7 @@
     internal class Despair : Abnormality
     {
         // Singleton instance
-        private static readonly Despair _instance = new Despair();
+        private static readonly Despair _instance = new();
 
         // Public accessor
         public static Despair Instance => _instance;

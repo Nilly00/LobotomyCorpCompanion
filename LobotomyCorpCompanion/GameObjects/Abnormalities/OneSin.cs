@@ -3,7 +3,7 @@
     internal class OneSin : Abnormality
     {
         // Singleton instance
-        private static readonly OneSin _instance = new OneSin();
+        private static readonly OneSin _instance = new();
 
         // Public accessor
         public static OneSin Instance => _instance;

@@ -3,7 +3,7 @@
     internal class Cute : Abnormality
     {
         // Singleton instance
-        private static readonly Cute _instance = new Cute();
+        private static readonly Cute _instance = new();
 
         // Public accessor
         public static Cute Instance => _instance;

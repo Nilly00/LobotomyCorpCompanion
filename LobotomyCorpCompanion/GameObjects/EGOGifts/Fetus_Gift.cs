@@ -3,7 +3,7 @@
     internal sealed class Fetus_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Fetus_Gift _instance = new Fetus_Gift();
+        private static readonly Fetus_Gift _instance = new();
 
         // Public accessor
         public static Fetus_Gift Instance => _instance;
@@ -21,7 +21,7 @@
 
         internal override void Effect(Employee employee)
         {
-            employee.permanentBonuses.resistances.white *= 0.95;
+            employee.PermanentBonuses.resistances.white *= 0.95;
         }
     }
 }

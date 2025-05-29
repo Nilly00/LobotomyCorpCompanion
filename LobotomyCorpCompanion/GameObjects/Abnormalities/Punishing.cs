@@ -3,7 +3,7 @@
     internal class Punishing : Abnormality
     {
         // Singleton instance
-        private static readonly Punishing _instance = new Punishing();
+        private static readonly Punishing _instance = new();
 
         // Public accessor
         public static Punishing Instance => _instance;

@@ -3,7 +3,7 @@
     internal class Prince : Abnormality
     {
         // Singleton instance
-        private static readonly Prince _instance = new Prince();
+        private static readonly Prince _instance = new();
 
         // Public accessor
         public static Prince Instance => _instance;

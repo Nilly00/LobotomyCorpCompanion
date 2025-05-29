@@ -3,7 +3,7 @@
     internal class Army : Abnormality
     {
         // Singleton instance
-        private static readonly Army _instance = new Army();
+        private static readonly Army _instance = new();
 
         // Public accessor
         public static Army Instance => _instance;

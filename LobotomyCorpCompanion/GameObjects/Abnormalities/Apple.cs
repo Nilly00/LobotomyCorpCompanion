@@ -3,7 +3,7 @@
     internal class Apple : Abnormality
     {
         // Singleton instance
-        private static readonly Apple _instance = new Apple();
+        private static readonly Apple _instance = new();
 
         // Public accessor
         public static Apple Instance => _instance;

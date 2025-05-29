@@ -3,7 +3,7 @@
     internal sealed class White_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly White_Gift _instance = new White_Gift();
+        private static readonly White_Gift _instance = new();
 
         // Public accessor
         public static White_Gift Instance => _instance;

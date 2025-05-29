@@ -3,7 +3,7 @@
     internal class Shoes : Abnormality
     {
         // Singleton instance
-        private static readonly Shoes _instance = new Shoes();
+        private static readonly Shoes _instance = new();
 
         // Public accessor
         public static Shoes Instance => _instance;

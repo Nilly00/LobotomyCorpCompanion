@@ -3,7 +3,7 @@
     internal sealed class Training : Department
     {
         // Singleton instance
-        private static readonly Training _instance = new Training();
+        private static readonly Training _instance = new();
 
         // Public accessor
         public static Training Instance => _instance;
@@ -15,7 +15,7 @@
         {
             if (employee.isCaptain)
             {
-                employee.permanentBonuses.primaryStats += 4;
+                employee.PermanentBonuses.primaryStats += 4;
             }
         }
     }

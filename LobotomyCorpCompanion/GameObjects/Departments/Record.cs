@@ -3,7 +3,7 @@
     internal sealed class Record : Department
     {
         // Singleton instance
-        private static readonly Record _instance = new Record();
+        private static readonly Record _instance = new();
 
         // Public accessor
         public static Record Instance => _instance;
@@ -20,19 +20,19 @@
         {
             if (employee.isCaptain)
             {
-                employee.permanentBonuses.primaryStats += 6;
+                employee.PermanentBonuses.primaryStats += 6;
             }
             else if (employee.daysInService > 6)
             {
-                employee.permanentBonuses.primaryStats += 4;
+                employee.PermanentBonuses.primaryStats += 4;
             }
             else if (employee.daysInService > 2)
             {
-                employee.permanentBonuses.primaryStats += 3;
+                employee.PermanentBonuses.primaryStats += 3;
             }
             else
             {
-                employee.permanentBonuses.primaryStats += 2;
+                employee.PermanentBonuses.primaryStats += 2;
             }
         }
     }

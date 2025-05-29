@@ -3,7 +3,7 @@
     internal sealed class Censored_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Censored_Gift _instance = new Censored_Gift();
+        private static readonly Censored_Gift _instance = new();
 
         // Public accessor
         public static Censored_Gift Instance => _instance;

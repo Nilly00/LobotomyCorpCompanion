@@ -3,7 +3,7 @@
     internal sealed class Firebird_Suit : EgoSuit
     {
         // Singleton instance
-        private static readonly Firebird_Suit _instance = new Firebird_Suit();
+        private static readonly Firebird_Suit _instance = new();
 
         // Public accessor
         public static Firebird_Suit Instance => _instance;

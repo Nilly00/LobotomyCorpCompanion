@@ -3,7 +3,7 @@
     internal sealed class Ridinghood_Suit : EgoSuit
     {
         // Singleton instance
-        private static readonly Ridinghood_Suit _instance = new Ridinghood_Suit();
+        private static readonly Ridinghood_Suit _instance = new();
 
         // Public accessor
         public static Ridinghood_Suit Instance => _instance;
@@ -27,7 +27,7 @@
         internal override void Effect(Employee employee)
         {
             employee.SpecialEffects.Add("Movement Speed +30% when suppressing");
-            employee.conditionalBonuses.MovespeedPercent *= 1.3;
+            employee.ConditionalBonuses.MovespeedPercent *= 1.3;
         }
     }
 }

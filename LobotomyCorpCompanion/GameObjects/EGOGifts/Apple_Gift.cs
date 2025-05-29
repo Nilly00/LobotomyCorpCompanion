@@ -3,7 +3,7 @@
     internal sealed class Apple_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Apple_Gift _instance = new Apple_Gift();
+        private static readonly Apple_Gift _instance = new();
 
         // Public accessor
         public static Apple_Gift Instance => _instance;
@@ -23,7 +23,7 @@
         {
             if (true) //todo proper weapon check
             {
-                employee.permanentBonuses.damageFlat += 5;
+                employee.PermanentBonuses.damageFlat += 5;
             }
         }
     }

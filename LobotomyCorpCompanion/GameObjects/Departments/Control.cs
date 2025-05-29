@@ -20,19 +20,19 @@
         {
             if (employee.isCaptain)
             {
-                employee.permanentBonuses.secondaryStats.MS += 10;
+                employee.PermanentBonuses.secondaryStats.MS += 10;
             }
             else if (employee.daysInService > 6)
             {
-                employee.permanentBonuses.secondaryStats.MS += 7;
+                employee.PermanentBonuses.secondaryStats.MS += 7;
             }
             else if (employee.daysInService > 2)
             {
-                employee.permanentBonuses.secondaryStats.MS += 5;
+                employee.PermanentBonuses.secondaryStats.MS += 5;
             }
             else
             {
-                employee.permanentBonuses.secondaryStats.MS += 3;
+                employee.PermanentBonuses.secondaryStats.MS += 3;
             }
         }
     }

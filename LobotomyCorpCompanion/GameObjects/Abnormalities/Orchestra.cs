@@ -3,7 +3,7 @@
     internal class Orchestra : Abnormality
     {
         // Singleton instance
-        private static readonly Orchestra _instance = new Orchestra();
+        private static readonly Orchestra _instance = new();
 
         // Public accessor
         public static Orchestra Instance => _instance;

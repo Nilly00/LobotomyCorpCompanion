@@ -3,7 +3,7 @@
     internal class Singing : Abnormality
     {
         // Singleton instance
-        private static readonly Singing _instance = new Singing();
+        private static readonly Singing _instance = new();
 
         // Public accessor
         public static Singing Instance => _instance;

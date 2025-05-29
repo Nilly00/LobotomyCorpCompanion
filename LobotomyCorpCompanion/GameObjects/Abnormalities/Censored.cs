@@ -3,7 +3,7 @@
     internal class Censored : Abnormality
     {
         // Singleton instance
-        private static readonly Censored _instance = new Censored();
+        private static readonly Censored _instance = new();
 
         // Public accessor
         public static Censored Instance => _instance;

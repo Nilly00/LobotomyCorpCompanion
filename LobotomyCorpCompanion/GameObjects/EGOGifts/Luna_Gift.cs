@@ -3,7 +3,7 @@
     internal sealed class Luna_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Luna_Gift _instance = new Luna_Gift();
+        private static readonly Luna_Gift _instance = new();
 
         // Public accessor
         public static Luna_Gift Instance => _instance;

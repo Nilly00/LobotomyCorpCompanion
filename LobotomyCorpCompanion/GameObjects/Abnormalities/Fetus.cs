@@ -3,7 +3,7 @@
     internal class Fetus : Abnormality
     {
         // Singleton instance
-        private static readonly Fetus _instance = new Fetus();
+        private static readonly Fetus _instance = new();
 
         // Public accessor
         public static Fetus Instance => _instance;

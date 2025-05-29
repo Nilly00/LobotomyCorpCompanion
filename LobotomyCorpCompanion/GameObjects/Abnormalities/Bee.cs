@@ -3,7 +3,7 @@
     internal class Bee : Abnormality
     {
         // Singleton instance
-        private static readonly Bee _instance = new Bee();
+        private static readonly Bee _instance = new();
 
         // Public accessor
         public static Bee Instance => _instance;

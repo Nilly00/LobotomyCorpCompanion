@@ -3,7 +3,7 @@
     internal sealed class Singing_Weapon : EgoWeapon
     {
         // Singleton instance
-        private static readonly Singing_Weapon _instance = new Singing_Weapon();
+        private static readonly Singing_Weapon _instance = new();
 
         // Public accessor
         public static Singing_Weapon Instance => _instance;
@@ -30,7 +30,7 @@
         internal override void Effect(Employee employee)
         {
             employee.SpecialEffects.Add("When above 10% HP consume 5% HP twice for +30% damage");
-            employee.conditionalBonuses.damagePercent *= 1.3;
+            employee.ConditionalBonuses.damagePercent *= 1.3;
         }
     }
 }

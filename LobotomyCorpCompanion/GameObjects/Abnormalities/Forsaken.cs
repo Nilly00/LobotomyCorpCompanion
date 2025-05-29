@@ -3,7 +3,7 @@
     internal class Forsaken : Abnormality
     {
         // Singleton instance
-        private static readonly Forsaken _instance = new Forsaken();
+        private static readonly Forsaken _instance = new();
 
         // Public accessor
         public static Forsaken Instance => _instance;

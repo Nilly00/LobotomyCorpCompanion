@@ -3,7 +3,7 @@
     internal class Parasite : Abnormality
     {
         // Singleton instance
-        private static readonly Parasite _instance = new Parasite();
+        private static readonly Parasite _instance = new();
 
         // Public accessor
         public static Parasite Instance => _instance;

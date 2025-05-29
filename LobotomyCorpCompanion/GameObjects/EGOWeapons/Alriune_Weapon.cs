@@ -3,7 +3,7 @@
     internal sealed class Alriune_Weapon : EgoWeapon
     {
         // Singleton instance
-        private static readonly Alriune_Weapon _instance = new Alriune_Weapon();
+        private static readonly Alriune_Weapon _instance = new();
 
         // Public accessor
         public static Alriune_Weapon Instance => _instance;
@@ -16,7 +16,7 @@
 
             cost: 60,
             maxCount: 2,
-            requirements: new short[] { 0, 3, 0, 0, 0 },
+            requirements: [0, 3, 0, 0, 0],
             riskLevel: RiskLevel.WAW,
 
             type: DamageType.WHITE,

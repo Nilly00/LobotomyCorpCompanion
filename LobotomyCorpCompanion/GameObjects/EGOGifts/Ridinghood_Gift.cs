@@ -3,7 +3,7 @@
     internal sealed class Ridinghood_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Ridinghood_Gift _instance = new Ridinghood_Gift();
+        private static readonly Ridinghood_Gift _instance = new();
 
         // Public accessor
         public static Ridinghood_Gift Instance => _instance;

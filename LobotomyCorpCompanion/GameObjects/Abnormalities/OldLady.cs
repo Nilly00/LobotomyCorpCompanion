@@ -3,7 +3,7 @@
     internal class OldLady : Abnormality
     {
         // Singleton instance
-        private static readonly OldLady _instance = new OldLady();
+        private static readonly OldLady _instance = new();
 
         // Public accessor
         public static OldLady Instance => _instance;

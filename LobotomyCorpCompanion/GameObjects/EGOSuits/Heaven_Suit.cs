@@ -3,7 +3,7 @@
     internal sealed class Heaven_Suit : EgoSuit
     {
         // Singleton instance
-        private static readonly Heaven_Suit _instance = new Heaven_Suit();
+        private static readonly Heaven_Suit _instance = new();
 
         // Public accessor
         public static Heaven_Suit Instance => _instance;

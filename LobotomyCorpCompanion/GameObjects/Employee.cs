@@ -1,6 +1,8 @@
 ﻿namespace LobotomyCorpCompanion.GameObjects
 {
-    internal struct PrimaryStats(int fortitude = 0, int prudence = 0, int temperance = 0, int justice = 0)
+
+    //todo change structs to classes
+    internal class PrimaryStats(int fortitude = 0, int prudence = 0, int temperance = 0, int justice = 0)
     {
         internal int Fortitude  = fortitude;
         internal int Prudence   = prudence;
@@ -28,12 +30,12 @@
                 Justice = summand1.Justice += increase
             };
         }
-        public override readonly string ToString() { 
+        public override string ToString() { 
             return $"Fortitude: {Fortitude}, Prudence: {Prudence},\n Temperance: {Temperance}, Justice: {Justice}";
         }
 
     }
-    internal struct SecondaryStats(int HP = 0, int SP = 0, int SR = 0, int WS = 0, int AS = 0, int MS = 0)
+    internal class SecondaryStats(int HP = 0, int SP = 0, int SR = 0, int WS = 0, int AS = 0, int MS = 0)
     {
         internal int HP = HP;
         internal int SP = SP;
@@ -55,11 +57,11 @@
             };
         }
     }
-    internal struct StatSet()
+    internal class StatSet()
     {
-        internal PrimaryStats primaryStats = new PrimaryStats();
-        internal SecondaryStats secondaryStats = new SecondaryStats();
-        internal Resistances resistances = new Resistances();
+        internal PrimaryStats primaryStats = new();
+        internal SecondaryStats secondaryStats = new();
+        internal Resistances resistances = new();
         internal int damageFlat = 0;
         internal double damagePercent = 1.0;
         internal double attackSpeedPercent = 1.0;
@@ -83,13 +85,12 @@
                 SPHealing =         set.SPHealing           * boni.SPHealing
             };
         }
-
     }
-    internal struct FinalStats()
+    internal class FinalStats()
     {
-        internal PrimaryStats primaryStats = new PrimaryStats();
-        internal SecondaryStats secondaryStats = new SecondaryStats();
-        internal Resistances resistances = new Resistances();
+        internal PrimaryStats primaryStats = new();
+        internal SecondaryStats secondaryStats = new();
+        internal Resistances resistances = new();
         internal int damageMin = 0;
         internal int damageMax = 0;
         internal double attackSpeed= 1.0;
@@ -97,9 +98,11 @@
         internal double HPHealing = 1.0;
         internal double SPHealing = 1.0;
     }
+
     internal class Employee
     {
-        internal static FrozenDictionary<string, SecondaryStats> primaryTitles = new Dictionary<string, SecondaryStats>{
+        
+        internal static FrozenDictionary<string, SecondaryStats> PrimaryTitles = new Dictionary<string, SecondaryStats>{
             {"Blunt",               new SecondaryStats(HP: 3                                            )},
             {"Indecisive",          new SecondaryStats(HP: 3,   SP:-2                                   )},
             {"Lazy",                new SecondaryStats(HP: 3,           SR:-2,  WS:-2                   )},
@@ -138,7 +141,8 @@
             {"Sharp-Tempered",      new SecondaryStats(3,3,3,3,5,5)},
             {"Steadfast",           new SecondaryStats(3,3,3,3,5,5)},
         }.ToFrozenDictionary();
-        internal static FrozenDictionary<string, SecondaryStats> secondaryTitles = new Dictionary<string, SecondaryStats>
+        
+        internal static FrozenDictionary<string, SecondaryStats> SecondaryTitles = new Dictionary<string, SecondaryStats>
         {
             { "Newbie",         new SecondaryStats(2,2,2,2,2,2) },
             { "Employee",       new SecondaryStats(2,2,2,2,2,2) },
@@ -173,78 +177,139 @@
         internal static StatSet globalBonuses = new();
 
         //saved stats
-        private string name = "BongBong";
-        private PrimaryStats primaryLevels = new(15, 15, 15, 15);
-        private string primaryTitle = "Blunt";
-        private string secondaryTitle = "Newbie";
+        internal string name;
+        private PrimaryStats primaryLevels;
+        private string primaryTitle;
+        private string secondaryTitle;        
+        internal Department department;        
+        internal int daysInService;        
+        private EgoWeapon weapon;        
+        private EgoSuit suit;        
+        private readonly EgoGift[] gifts;
 
-        internal Department department = Department.list["Bench"];
-        internal int daysInService = 0;
-        internal bool isCaptain = false;
+        //derived stats        
+        internal bool isCaptain;        
+        internal int[] Ranks { get; private set; } = [1, 1, 1, 1, 1];        
+        internal StatSet PermanentBonuses = new();        
+        internal StatSet ConditionalBonuses = new();        
+        internal StatSet IntrinsicStats = new();        
+        internal FinalStats MinStats = new();        
+        internal FinalStats MaxStats = new();        
+        internal List<string> SpecialEffects = [];
 
-        internal EgoWeapon weapon = Default_Weapon.Instance;
-        internal EgoSuit suit = Default_Suit.Instance;
-        internal EgoGift[] gifts = new EgoGift[14];
-
-        //derived stats
-        internal int[] ranks = [1,1,1,1,1];
-
-        internal StatSet permanentBonuses = new();
-        internal StatSet conditionalBonuses = new();
-
-        internal List<string> SpecialEffects= new();
-
-        internal StatSet intrinsicStats= new();
-        internal FinalStats minStats = new();
-        internal FinalStats maxStats = new();
-
-        public Employee()
-        {
-            this.Calculate();
-        }
-
-        public Employee(string name,
-            PrimaryStats primaryLevels, 
-            string primaryTitle,
-            string secondaryTitle,
-            Department department,
-            int daysInService,
-            bool isCaptain,
-            EgoWeapon weapon,
-            EgoSuit suit,
-            EgoGift[] gifts
+        public Employee(
+            string name = "BongBong",
+            PrimaryStats primaryLevels = default,
+            string primaryTitle = "Blunt",
+            string secondaryTitle = "Newbie",
+            Department department = null,
+            int daysInService = 0,
+            bool isCaptain = false,
+            EgoWeapon weapon = null,
+            EgoSuit suit = null,
+            EgoGift[] gifts = null
             )
         {
             this.name = name;
-            this.primaryLevels = primaryLevels;
+            if (primaryLevels.Fortitude == 0 && primaryLevels.Prudence == 0 && primaryLevels.Temperance == 0 && primaryLevels.Justice == 0)
+            {
+                this.primaryLevels = new PrimaryStats(15, 15, 15, 15);
+            }
+            else
+            {
+                this.primaryLevels = primaryLevels;
+            }
             this.primaryTitle = primaryTitle;
             this.secondaryTitle = secondaryTitle;
-            this.department = department;
+            this.department = department ?? Department.list["Bench"];
             this.daysInService = daysInService;
             this.isCaptain = isCaptain;
-            this.weapon = weapon;
-            this.suit = suit;
-            this.gifts = gifts;
+            this.weapon = weapon ?? Default_Weapon.Instance;
+            this.suit = suit ?? Default_Suit.Instance;
+            this.gifts = gifts ?? new EgoGift[14];
+            Calculate();
+        }
+
+
+        public void SetPrimary(String title)
+        {
+            if (PrimaryTitles.ContainsKey(title))
+            {
+                primaryTitle = title;
+                Calculate();
+            }
+            else
+            {
+                throw new Exception("Error: Supplied Primary Title does not exist");
+            }
+        }
+        public String GetPrimary() { return this.primaryTitle; }
+
+        public void SetSecondary(String title)
+        {
+            if (SecondaryTitles.ContainsKey(title))
+            {
+                secondaryTitle = title;
+                Calculate();
+            }
+            else
+            {
+                throw new Exception("Error: Supplied Secondary Title does not exist");
+            }
+        }
+        public String GetSecondary() { return this.secondaryTitle; }
+
+        public void SetPrimaryStats(PrimaryStats stats)
+        {
+            primaryLevels = stats;
+            Calculate();
+        }
+        public PrimaryStats GetPrimaryStats() {  return primaryLevels; }
+
+        public int[] GetRanks(){ return Ranks; }
+
+
+        public void AddGift(EgoGift gift)
+        {
+            this.gifts[(int)gift.slot] = gift;
             this.Calculate();
         }
+        public EgoGift[] GetGifts(){ return this.gifts; }
+        public EgoGift GetGift(Slot slot){ return this.gifts[(int)slot]; }
+
+        public void SetWeapon(EgoWeapon weapon)
+        {
+            this.weapon = weapon;
+            this.Calculate();
+        }
+        public EgoWeapon GetWeapon(){ return this.weapon; }
+
+        public void SetSuit(EgoSuit suit)
+        {
+            this.suit = suit;
+            this.Calculate();
+        }
+        public EgoSuit GetSuit(){ return this.suit; }
+
 
         public void Calculate()
         {
             //Console.WriteLine("Permanent Bonuses Resistances: " + this.permanentBonuses.resistances.ToString());
-            this.permanentBonuses.secondaryStats += primaryTitles[this.primaryTitle];
-            this.permanentBonuses.secondaryStats += secondaryTitles[this.secondaryTitle];
-            this.conditionalBonuses += globalBonuses;
-            this.department.ServiceBenefits(this);
+            Reset();
+            PermanentBonuses.secondaryStats += PrimaryTitles[this.primaryTitle];
+            PermanentBonuses.secondaryStats += SecondaryTitles[this.secondaryTitle];
+            ConditionalBonuses += globalBonuses;
+            department.ServiceBenefits(this);
 
-            this.weapon.Effect(this);
-            this.suit.Effect(this);
+            weapon.Effect(this);
+            suit.Effect(this);
 
             //apply gift bonuses and special effects
             foreach (EgoGift gift in this.gifts)
             {
                 if (gift != null)
                 {
-                    this.permanentBonuses.secondaryStats += gift.secondaryStats;
+                    this.PermanentBonuses.secondaryStats += gift.secondaryStats;
                     gift.Effect(this);
                 }
             }
@@ -260,55 +325,64 @@
             //todo weapon calculations
         }
 
+        //resets most derived stats to default
+        private void Reset()
+        {
+            Ranks = [1, 1, 1, 1, 1];
+            PermanentBonuses = new();
+            ConditionalBonuses = new();
+            IntrinsicStats = new();
+            SpecialEffects = [];
+        }
         private void CalcMinStats()
         {
-            this.minStats.primaryStats = this.primaryLevels + this.permanentBonuses.primaryStats;
-            this.minStats.secondaryStats.HP = this.minStats.primaryStats.Fortitude;
-            this.minStats.secondaryStats.SP = this.minStats.primaryStats.Prudence;
-            this.minStats.secondaryStats.SR = this.minStats.primaryStats.Temperance;
-            this.minStats.secondaryStats.WS = this.minStats.primaryStats.Temperance;
-            this.minStats.secondaryStats.AS = this.minStats.primaryStats.Justice;
-            this.minStats.secondaryStats.MS = (int) (this.minStats.primaryStats.Justice * this.permanentBonuses.MovespeedPercent);
-            this.minStats.secondaryStats += this.permanentBonuses.secondaryStats;
+            this.MinStats.primaryStats = this.primaryLevels + this.PermanentBonuses.primaryStats;
+            this.MinStats.secondaryStats.HP = this.MinStats.primaryStats.Fortitude;
+            this.MinStats.secondaryStats.SP = this.MinStats.primaryStats.Prudence;
+            this.MinStats.secondaryStats.SR = this.MinStats.primaryStats.Temperance;
+            this.MinStats.secondaryStats.WS = this.MinStats.primaryStats.Temperance;
+            this.MinStats.secondaryStats.AS = this.MinStats.primaryStats.Justice;
+            this.MinStats.secondaryStats.MS = (int) (this.MinStats.primaryStats.Justice * this.PermanentBonuses.MovespeedPercent);
+            this.MinStats.secondaryStats += this.PermanentBonuses.secondaryStats;
 
-            this.minStats.damageMin = (int)((this.weapon.damageMin + this.permanentBonuses.damageFlat) * this.permanentBonuses.damagePercent);
-            this.minStats.damageMax = (int)((this.weapon.damageMax + this.permanentBonuses.damageFlat) * this.permanentBonuses.damagePercent);
+            this.MinStats.damageMin = (int)((this.weapon.damageMin + this.PermanentBonuses.damageFlat) * this.PermanentBonuses.damagePercent);
+            this.MinStats.damageMax = (int)((this.weapon.damageMax + this.PermanentBonuses.damageFlat) * this.PermanentBonuses.damagePercent);
 
             //White Night special case
             if (this.suit == White_Suit.Instance && White.Instance.department != Bench.Instance)
             {
-                this.minStats.resistances = (new Resistances(0.2, 0.2, 0.2, 0.2) * this.permanentBonuses.resistances);
+                this.MinStats.resistances = (new Resistances(0.2, 0.2, 0.2, 0.2) * this.PermanentBonuses.resistances);
             }
             else
             {
-                this.minStats.resistances = this.suit.resistances * this.permanentBonuses.resistances;
+                this.MinStats.resistances = this.suit.resistances * this.PermanentBonuses.resistances;
             }
         }
 
         private void CalcMaxStats()
         {
-            this.maxStats.primaryStats = this.minStats.primaryStats + this.conditionalBonuses.primaryStats;
-            this.maxStats.secondaryStats.HP = this.maxStats.primaryStats.Fortitude;
-            this.maxStats.secondaryStats.SP = this.maxStats.primaryStats.Prudence;
-            this.maxStats.secondaryStats.SR = this.maxStats.primaryStats.Temperance;
-            this.maxStats.secondaryStats.WS = this.maxStats.primaryStats.Temperance;
-            this.maxStats.secondaryStats.AS = this.maxStats.primaryStats.Justice;
-            this.maxStats.secondaryStats.MS = (int)(this.maxStats.primaryStats.Justice * (this.permanentBonuses.MovespeedPercent * this.conditionalBonuses.MovespeedPercent));
+            this.MaxStats.primaryStats = this.MinStats.primaryStats + this.ConditionalBonuses.primaryStats;
+            this.MaxStats.secondaryStats.HP = this.MaxStats.primaryStats.Fortitude;
+            this.MaxStats.secondaryStats.SP = this.MaxStats.primaryStats.Prudence;
+            this.MaxStats.secondaryStats.SR = this.MaxStats.primaryStats.Temperance;
+            this.MaxStats.secondaryStats.WS = this.MaxStats.primaryStats.Temperance;
+            this.MaxStats.secondaryStats.AS = this.MaxStats.primaryStats.Justice;
+            this.MaxStats.secondaryStats.MS = (int)(this.MaxStats.primaryStats.Justice * (this.PermanentBonuses.MovespeedPercent * this.ConditionalBonuses.MovespeedPercent));
 
-            this.maxStats.secondaryStats += this.permanentBonuses.secondaryStats;
-            this.maxStats.secondaryStats += this.conditionalBonuses.secondaryStats;
+            this.MaxStats.secondaryStats += this.PermanentBonuses.secondaryStats;
+            this.MaxStats.secondaryStats += this.ConditionalBonuses.secondaryStats;
 
-            this.maxStats.damageMin = (int)((this.weapon.damageMin + this.permanentBonuses.damageFlat + this.conditionalBonuses.damageFlat) * (this.permanentBonuses.damagePercent * this.conditionalBonuses.damagePercent));
-            this.maxStats.damageMax = (int)((this.weapon.damageMax + this.permanentBonuses.damageFlat + this.conditionalBonuses.damageFlat) * (this.permanentBonuses.damagePercent * this.conditionalBonuses.damagePercent));
+            this.MaxStats.damageMin = (int)((this.weapon.damageMin + this.PermanentBonuses.damageFlat + this.ConditionalBonuses.damageFlat) * (this.PermanentBonuses.damagePercent * this.ConditionalBonuses.damagePercent));
+            this.MaxStats.damageMax = (int)((this.weapon.damageMax + this.PermanentBonuses.damageFlat + this.ConditionalBonuses.damageFlat) * (this.PermanentBonuses.damagePercent * this.ConditionalBonuses.damagePercent));
 
             //Schadenfreude special case
             if (this.suit == Schadenfreude_Suit.Instance)
             {
-                this.maxStats.resistances = (new Resistances(0.8,0.5,0.8,1.5) *(this.permanentBonuses.resistances * this.conditionalBonuses.resistances));
+                this.MaxStats.resistances = (new Resistances(0.8,0.5,0.8,1.5) *(this.PermanentBonuses.resistances * this.ConditionalBonuses.resistances));
             }
             else
             {
-                this.maxStats.resistances = this.minStats.resistances * this.conditionalBonuses.resistances;
+                this.MaxStats.resistances = this.MinStats.resistances * this.ConditionalBonuses.resistances;
             }
         }
 
@@ -325,13 +399,13 @@
         private void CalcRank()
         {
             //determine individual Stat ranks
-            this.ranks[0] = StatToRank((int)this.primaryLevels.Fortitude);
-            this.ranks[1] = StatToRank((int)this.primaryLevels.Prudence);
-            this.ranks[2] = StatToRank((int)this.primaryLevels.Temperance);
-            this.ranks[3] = StatToRank((int)this.primaryLevels.Justice);
+            this.Ranks[0] = StatToRank((int)this.primaryLevels.Fortitude);
+            this.Ranks[1] = StatToRank((int)this.primaryLevels.Prudence);
+            this.Ranks[2] = StatToRank((int)this.primaryLevels.Temperance);
+            this.Ranks[3] = StatToRank((int)this.primaryLevels.Justice);
             //determine employee Rank
-            int points = this.ranks[0] + this.ranks[1] + this.ranks[2] + this.ranks[3];
-                this.ranks[4] =
+            int points = this.Ranks[0] + this.Ranks[1] + this.Ranks[2] + this.Ranks[3];
+                this.Ranks[4] =
                 points <  6 ? 1 :
                 points <  9 ? 2 :
                 points < 12 ? 3 :
@@ -339,17 +413,14 @@
                               5 ;
         }
 
-        public void MoveToDepartment(Department department)
+        public void SetDepartment(Department department)
         {
             this.department.RemoveEmployee(this);
             this.department = department;
             this.department.AddEmployee(this);
         }
 
-        public void AddGift(EgoGift gift)
-        {
-            this.gifts[(int)gift.slot]= gift;
-        }
+
 
         public override string ToString()
         {
@@ -384,7 +455,7 @@
 
             string formatted;
             //add name and employee rank;
-            formatted = String.Format(" {0,-20}({1})\n", this.name, this.ranks[4]);
+            formatted = String.Format(" {0,-20}({1})\n", this.name, this.Ranks[4]);
             //title
             formatted += String.Format(" {0,-36}{1}\n", this.primaryTitle, this.secondaryTitle);
             formatted += String.Format(" In {0,-15} for {1,2} Days\n",this.department.name, this.daysInService);
@@ -393,14 +464,14 @@
             formatted += String.Format("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓ ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
             //                          ┃ Damage: 100/100 - 100/100       ┃ ┃ Resistances:  R.R/R.R  W.W/W.W  ┃
             formatted += String.Format("┃ Damage: {0,3}/{1,3} - {2,3}/{3,3}       ┃ ┃ Resistances:  {4:F1}/{5:F1}  {6:F1}/{7:F1}  ┃\n",
-                this.minStats.damageMin, this.minStats.damageMax, this.maxStats.damageMin, this.maxStats.damageMax,
-                this.minStats.resistances.red, this.maxStats.resistances.red, this.minStats.resistances.white, this.maxStats.resistances.white
+                this.MinStats.damageMin, this.MinStats.damageMax, this.MaxStats.damageMin, this.MaxStats.damageMax,
+                this.MinStats.resistances.red, this.MaxStats.resistances.red, this.MinStats.resistances.white, this.MaxStats.resistances.white
                 );
             //                          ┃ Speed:  10.00/10.00 Range: 10   ┃ ┃               B.B/B.B  P.P/P.P  ┃
             formatted += String.Format("┃ Speed:  {0,5:F}/{1,5:F} Range: {2,2:D}   ┃ ┃               {3:F1}/{4:F1}  {5:F1}/{6:F1}  ┃\n",
-                this.minStats.attackSpeed,this.maxStats.attackSpeed,this.weapon.range, 
-                this.minStats.resistances.black, this.maxStats.resistances.black,
-                this.minStats.resistances.pale, this.maxStats.resistances.pale
+                this.MinStats.attackSpeed,this.MaxStats.attackSpeed,this.weapon.range, 
+                this.MinStats.resistances.black, this.MaxStats.resistances.black,
+                this.MinStats.resistances.pale, this.MaxStats.resistances.pale
                 );
             //                          ┃ Type:   Black       Rank: Aleph ┃ ┃ Rank:           Aleph           ┃
             formatted += String.Format("┃ Type:   {0,5}       Rank: {1,5} ┃ ┃ Rank:           {2,5}           ┃\n",
@@ -412,41 +483,41 @@
             formatted += String.Format("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
                                       //┃ Fortitude  (R)  aaa/bbb + xx/yy  ┃ Prudence   (R)  aaa/bbb + xx/yy  ┃
             formatted += String.Format("┃ Fortitude  ({0})  {1,3}/{2,3} + {3,2}/{4,2}  ┃ Prudence   ({5})  {6,3}/{7,3} + {8,2}/{9,2}  ┃\n",
-                this.ranks[0], this.minStats.primaryStats.Fortitude, this.maxStats.primaryStats.Fortitude,
-                this.permanentBonuses.primaryStats.Fortitude, this.permanentBonuses.primaryStats.Fortitude + this.conditionalBonuses.primaryStats.Fortitude,
-                this.ranks[1], this.minStats.primaryStats.Prudence, this.maxStats.primaryStats.Prudence,
-                this.permanentBonuses.primaryStats.Prudence, this.permanentBonuses.primaryStats.Prudence + this.conditionalBonuses.primaryStats.Prudence
+                this.Ranks[0], this.MinStats.primaryStats.Fortitude, this.MaxStats.primaryStats.Fortitude,
+                this.PermanentBonuses.primaryStats.Fortitude, this.PermanentBonuses.primaryStats.Fortitude + this.ConditionalBonuses.primaryStats.Fortitude,
+                this.Ranks[1], this.MinStats.primaryStats.Prudence, this.MaxStats.primaryStats.Prudence,
+                this.PermanentBonuses.primaryStats.Prudence, this.PermanentBonuses.primaryStats.Prudence + this.ConditionalBonuses.primaryStats.Prudence
                 );
             formatted += String.Format("┃┌────────────────────────────────┐┃┌────────────────────────────────┐┃\n");
                                       //┃│ Health         aaa/bbb + xx/yy │┃│ Sanity         aaa/bbb + xx/yy │┃
             formatted += String.Format("┃│ Health         {0,3}/{1,3} + {2,2}/{3,2} │┃│ Sanity         {4,3}/{5,3} + {6,2}/{7,2} │┃\n",
-                this.minStats.secondaryStats.HP, this.maxStats.secondaryStats.HP,
-                this.permanentBonuses.secondaryStats.HP, this.permanentBonuses.secondaryStats.HP + this.conditionalBonuses.secondaryStats.HP,
-                this.minStats.secondaryStats.SP, this.maxStats.secondaryStats.SP,
-                this.permanentBonuses.secondaryStats.SP, this.permanentBonuses.secondaryStats.SP + this.conditionalBonuses.secondaryStats.SP
+                this.MinStats.secondaryStats.HP, this.MaxStats.secondaryStats.HP,
+                this.PermanentBonuses.secondaryStats.HP, this.PermanentBonuses.secondaryStats.HP + this.ConditionalBonuses.secondaryStats.HP,
+                this.MinStats.secondaryStats.SP, this.MaxStats.secondaryStats.SP,
+                this.PermanentBonuses.secondaryStats.SP, this.PermanentBonuses.secondaryStats.SP + this.ConditionalBonuses.secondaryStats.SP
                 );
             formatted += String.Format("┃└────────────────────────────────┘┃└────────────────────────────────┘┃\n");
                                       //┃ Temperance (R)  aaa/bbb + xx/yy  ┃ Justice    (R)  aaa/bbb + xx/yy  ┃
             formatted += String.Format("┃ Temperance ({0})  {1,3}/{2,3} + {3,2}/{4,2}  ┃ Justice    ({5})  {6,3}/{7,3} + {8,2}/{9,2}  ┃\n",
-                this.ranks[2], this.minStats.primaryStats.Temperance, this.maxStats.primaryStats.Temperance,
-                this.permanentBonuses.primaryStats.Temperance, this.permanentBonuses.primaryStats.Temperance + this.conditionalBonuses.primaryStats.Temperance,
-                this.ranks[3], this.minStats.primaryStats.Justice, this.maxStats.primaryStats.Justice,
-                this.permanentBonuses.primaryStats.Justice, this.permanentBonuses.primaryStats.Justice + this.conditionalBonuses.primaryStats.Justice
+                this.Ranks[2], this.MinStats.primaryStats.Temperance, this.MaxStats.primaryStats.Temperance,
+                this.PermanentBonuses.primaryStats.Temperance, this.PermanentBonuses.primaryStats.Temperance + this.ConditionalBonuses.primaryStats.Temperance,
+                this.Ranks[3], this.MinStats.primaryStats.Justice, this.MaxStats.primaryStats.Justice,
+                this.PermanentBonuses.primaryStats.Justice, this.PermanentBonuses.primaryStats.Justice + this.ConditionalBonuses.primaryStats.Justice
                 );
             formatted += String.Format("┃┌────────────────────────────────┐┃┌────────────────────────────────┐┃\n");
                                       //┃│ Work Rate      aaa/bbb + xx/yy │┃│ Attack Speed   aaa/bbb + xx/yy │┃
             formatted += String.Format("┃│ Work Rate      {0,3}/{1,3} + {2,2}/{3,2} │┃│ Attack Speed   {4,3}/{5,3} + {6,2}/{7,2} │┃\n",
-                this.minStats.secondaryStats.SR, this.maxStats.secondaryStats.SR,
-                this.permanentBonuses.secondaryStats.SR, this.permanentBonuses.secondaryStats.SR + this.conditionalBonuses.secondaryStats.SR,
-                this.minStats.secondaryStats.AS, this.maxStats.secondaryStats.AS,
-                this.permanentBonuses.secondaryStats.AS, this.permanentBonuses.secondaryStats.AS + this.conditionalBonuses.secondaryStats.AS
+                this.MinStats.secondaryStats.SR, this.MaxStats.secondaryStats.SR,
+                this.PermanentBonuses.secondaryStats.SR, this.PermanentBonuses.secondaryStats.SR + this.ConditionalBonuses.secondaryStats.SR,
+                this.MinStats.secondaryStats.AS, this.MaxStats.secondaryStats.AS,
+                this.PermanentBonuses.secondaryStats.AS, this.PermanentBonuses.secondaryStats.AS + this.ConditionalBonuses.secondaryStats.AS
                 );
                                       //┃│ Work Speed     aaa/bbb + xx/yy │┃│ Movement Speed aaa/bbb + xx/yy │┃
             formatted += String.Format("┃│ Work Speed     {0,3}/{1,3} + {2,2}/{3,2} │┃│ Movement Speed {4,3}/{5,3} + {6,2}/{7,2} │┃\n",
-                this.minStats.secondaryStats.WS, this.maxStats.secondaryStats.WS,
-                this.permanentBonuses.secondaryStats.WS, this.permanentBonuses.secondaryStats.WS + this.conditionalBonuses.secondaryStats.WS,
-                this.minStats.secondaryStats.MS, this.maxStats.secondaryStats.MS,
-                this.permanentBonuses.secondaryStats.MS, this.permanentBonuses.secondaryStats.MS + this.conditionalBonuses.secondaryStats.MS
+                this.MinStats.secondaryStats.WS, this.MaxStats.secondaryStats.WS,
+                this.PermanentBonuses.secondaryStats.WS, this.PermanentBonuses.secondaryStats.WS + this.ConditionalBonuses.secondaryStats.WS,
+                this.MinStats.secondaryStats.MS, this.MaxStats.secondaryStats.MS,
+                this.PermanentBonuses.secondaryStats.MS, this.PermanentBonuses.secondaryStats.MS + this.ConditionalBonuses.secondaryStats.MS
                 );
             formatted += String.Format("┃└────────────────────────────────┘┃└────────────────────────────────┘┃\n");
             formatted += String.Format("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");

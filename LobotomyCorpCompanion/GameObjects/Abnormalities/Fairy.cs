@@ -3,7 +3,7 @@
     internal class Fairy : Abnormality
     {
         // Singleton instance
-        private static readonly Fairy _instance = new Fairy();
+        private static readonly Fairy _instance = new();
 
         // Public accessor
         public static Fairy Instance => _instance;

@@ -3,7 +3,7 @@
     internal sealed class Army_Gift : EgoGift
     {
         // Singleton instance
-        private static readonly Army_Gift _instance = new Army_Gift();
+        private static readonly Army_Gift _instance = new();
 
         // Public accessor
         public static Army_Gift Instance => _instance;
@@ -23,7 +23,7 @@
         {
             if (SameWeapon(employee) && SameSuit(employee))
             {
-                employee.permanentBonuses.damagePercent *= 1.15;
+                employee.PermanentBonuses.damagePercent *= 1.15;
             }
         }
     }

@@ -3,7 +3,7 @@
     internal class Default : Abnormality
     {
         // Singleton instance
-        private static readonly Default _instance = new Default();
+        private static readonly Default _instance = new();
 
         // Public accessor
         public static Default Instance => _instance;

@@ -3,7 +3,7 @@
     internal sealed class Freischütz_Weapon : EgoWeapon
     {
         // Singleton instance
-        private static readonly Freischütz_Weapon _instance = new Freischütz_Weapon();
+        private static readonly Freischütz_Weapon _instance = new();
 
         // Public accessor
         public static Freischütz_Weapon Instance => _instance;
