@@ -14,17 +14,17 @@
 
         internal bool SameWeapon(Employee employee)
         {
-            return employee.GetWeapon().origin == origin;
+            return employee.Weapon.origin == origin;
         }
 
         internal bool SameSuit(Employee employee)
         {
-            return employee.GetSuit().origin == origin;
+            return employee.Suit.origin == origin;
         }
 
         internal bool SameGift(Employee employee)
         {
-            foreach (EgoGift gift in employee.GetGifts())
+            foreach (EgoGift gift in employee.Gifts)
             {
                 if (gift.origin == this.origin) return true;
             }
@@ -91,7 +91,7 @@
         }
     }
 
-    internal struct Resistances
+    internal class Resistances
     {
         internal double red;
         internal double white;
@@ -136,7 +136,7 @@
             };
         }
 
-        public override readonly string ToString()
+        public override string ToString()
         {
             return $"Red: {red}, White: {white}, Black: {black}, Pale: {pale}";
         }

@@ -178,24 +178,80 @@
 
         //saved stats
         internal string name;
-        private PrimaryStats primaryLevels;
+        private PrimaryStats primaryStats;
+        internal PrimaryStats PrimaryStats
+        {
+            get { return primaryStats; }
+            set { primaryStats = value; this.Calculate(); }
+        } 
+
         private string primaryTitle;
-        private string secondaryTitle;        
-        internal Department department;        
-        internal int daysInService;        
-        private EgoWeapon weapon;        
+        internal string PrimaryTitle
+        {
+            get { return primaryTitle; }
+            set { primaryTitle = value; this.Calculate(); }
+        }
+
+        private string secondaryTitle;
+        internal string SecondaryTitle
+        {
+            get { return secondaryTitle; }
+            set { secondaryTitle = value; this.Calculate(); }
+        }
+
+        private Department department;
+        internal Department Department
+        {
+            get { return department; }
+            set
+            {
+                this.department.RemoveEmployee(this);
+                this.isCaptain = false;
+                this.department = value;
+                this.department.AddEmployee(this);
+                Calculate();
+            }
+        }
+
+        private int daysInService;
+        internal int DaysInService
+        {
+            get { return daysInService; }
+            set { daysInService = value; Calculate(); }
+        }
+
+        private EgoWeapon weapon;
+        internal EgoWeapon Weapon
+        {
+            get { return weapon; }
+            set { weapon = value; Calculate(); }
+        }
+
         private EgoSuit suit;        
+        internal EgoSuit Suit
+        {
+            get { return suit; }
+            set { suit = value; Calculate(); }
+        }
+
         private readonly EgoGift[] gifts;
+        internal EgoGift[] Gifts { get { return gifts; } }
+        public void AddGift(EgoGift gift)
+        {
+            this.gifts[(int)gift.slot] = gift;
+            this.Calculate();
+        }
+        public EgoGift Gift(Slot slot) { return this.gifts[(int)slot]; }
 
         //derived stats        
         internal bool isCaptain;        
         internal int[] Ranks { get; private set; } = [1, 1, 1, 1, 1];        
-        internal StatSet PermanentBonuses = new();        
-        internal StatSet ConditionalBonuses = new();        
-        internal StatSet IntrinsicStats = new();        
-        internal FinalStats MinStats = new();        
-        internal FinalStats MaxStats = new();        
-        internal List<string> SpecialEffects = [];
+        internal StatSet PermanentBonuses { get; private set; } = new();        
+        internal StatSet ConditionalBonuses { get; private set; } = new();        
+        internal StatSet IntrinsicStats { get; private set; } = new();        
+        internal FinalStats MinStats { get; private set; } = new();        
+        internal FinalStats MaxStats { get; private set; } = new();        
+        internal List<string> SpecialEffects { get; private set; } = [];
 
         public Employee(
             string name = "BongBong",
@@ -213,15 +269,15 @@
             this.name = name;
             if (primaryLevels.Fortitude == 0 && primaryLevels.Prudence == 0 && primaryLevels.Temperance == 0 && primaryLevels.Justice == 0)
             {
-                this.primaryLevels = new PrimaryStats(15, 15, 15, 15);
+                this.primaryStats = new PrimaryStats(15, 15, 15, 15);
             }
             else
             {
-                this.primaryLevels = primaryLevels;
+                this.primaryStats = primaryLevels;
             }
             this.primaryTitle = primaryTitle;
             this.secondaryTitle = secondaryTitle;
-            this.department = department ?? Department.list["Bench"];
+            this.department = department ?? Bench.Instance;
             this.daysInService = daysInService;
             this.isCaptain = isCaptain;
             this.weapon = weapon ?? Default_Weapon.Instance;
@@ -230,66 +286,6 @@
             Calculate();
         }
 
-
-        public void SetPrimary(String title)
-        {
-            if (PrimaryTitles.ContainsKey(title))
-            {
-                primaryTitle = title;
-                Calculate();
-            }
-            else
-            {
-                throw new Exception("Error: Supplied Primary Title does not exist");
-            }
-        }
-        public String GetPrimary() { return this.primaryTitle; }
-
-        public void SetSecondary(String title)
-        {
-            if (SecondaryTitles.ContainsKey(title))
-            {
-                secondaryTitle = title;
-                Calculate();
-            }
-            else
-            {
-                throw new Exception("Error: Supplied Secondary Title does not exist");
-            }
-        }
-        public String GetSecondary() { return this.secondaryTitle; }
-
-        public void SetPrimaryStats(PrimaryStats stats)
-        {
-            primaryLevels = stats;
-            Calculate();
-        }
-        public PrimaryStats GetPrimaryStats() {  return primaryLevels; }
-
-        public int[] GetRanks(){ return Ranks; }
-
-
-        public void AddGift(EgoGift gift)
-        {
-            this.gifts[(int)gift.slot] = gift;
-            this.Calculate();
-        }
-        public EgoGift[] GetGifts(){ return this.gifts; }
-        public EgoGift GetGift(Slot slot){ return this.gifts[(int)slot]; }
-
-        public void SetWeapon(EgoWeapon weapon)
-        {
-            this.weapon = weapon;
-            this.Calculate();
-        }
-        public EgoWeapon GetWeapon(){ return this.weapon; }
-
-        public void SetSuit(EgoSuit suit)
-        {
-            this.suit = suit;
-            this.Calculate();
-        }
-        public EgoSuit GetSuit(){ return this.suit; }
 
 
         public void Calculate()
@@ -336,7 +332,7 @@
         }
         private void CalcMinStats()
         {
-            this.MinStats.primaryStats = this.primaryLevels + this.PermanentBonuses.primaryStats;
+            this.MinStats.primaryStats = this.primaryStats + this.PermanentBonuses.primaryStats;
             this.MinStats.secondaryStats.HP = this.MinStats.primaryStats.Fortitude;
             this.MinStats.secondaryStats.SP = this.MinStats.primaryStats.Prudence;
             this.MinStats.secondaryStats.SR = this.MinStats.primaryStats.Temperance;
@@ -399,10 +395,10 @@
         private void CalcRank()
         {
             //determine individual Stat ranks
-            this.Ranks[0] = StatToRank((int)this.primaryLevels.Fortitude);
-            this.Ranks[1] = StatToRank((int)this.primaryLevels.Prudence);
-            this.Ranks[2] = StatToRank((int)this.primaryLevels.Temperance);
-            this.Ranks[3] = StatToRank((int)this.primaryLevels.Justice);
+            this.Ranks[0] = StatToRank((int)this.primaryStats.Fortitude);
+            this.Ranks[1] = StatToRank((int)this.primaryStats.Prudence);
+            this.Ranks[2] = StatToRank((int)this.primaryStats.Temperance);
+            this.Ranks[3] = StatToRank((int)this.primaryStats.Justice);
             //determine employee Rank
             int points = this.Ranks[0] + this.Ranks[1] + this.Ranks[2] + this.Ranks[3];
                 this.Ranks[4] =
@@ -413,12 +409,7 @@
                               5 ;
         }
 
-        public void SetDepartment(Department department)
-        {
-            this.department.RemoveEmployee(this);
-            this.department = department;
-            this.department.AddEmployee(this);
-        }
+
 
 
 
@@ -455,82 +446,82 @@
 
             string formatted;
             //add name and employee rank;
-            formatted = String.Format(" {0,-20}({1})\n", this.name, this.Ranks[4]);
+            formatted = string.Format(" {0,-20}({1})\n", this.name, this.Ranks[4]);
             //title
-            formatted += String.Format(" {0,-36}{1}\n", this.primaryTitle, this.secondaryTitle);
-            formatted += String.Format(" In {0,-15} for {1,2} Days\n",this.department.name, this.daysInService);
+            formatted += string.Format(" {0,-36}{1}\n", this.primaryTitle, this.secondaryTitle);
+            formatted += string.Format(" In {0,-15} for {1,2} Days\n",this.department.name, this.daysInService);
 
             //equip boxes
-            formatted += String.Format("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓ ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
+            formatted += string.Format("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓ ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
             //                          ┃ Damage: 100/100 - 100/100       ┃ ┃ Resistances:  R.R/R.R  W.W/W.W  ┃
-            formatted += String.Format("┃ Damage: {0,3}/{1,3} - {2,3}/{3,3}       ┃ ┃ Resistances:  {4:F1}/{5:F1}  {6:F1}/{7:F1}  ┃\n",
+            formatted += string.Format("┃ Damage: {0,3}/{1,3} - {2,3}/{3,3}       ┃ ┃ Resistances:  {4:F1}/{5:F1}  {6:F1}/{7:F1}  ┃\n",
                 this.MinStats.damageMin, this.MinStats.damageMax, this.MaxStats.damageMin, this.MaxStats.damageMax,
                 this.MinStats.resistances.red, this.MaxStats.resistances.red, this.MinStats.resistances.white, this.MaxStats.resistances.white
                 );
             //                          ┃ Speed:  10.00/10.00 Range: 10   ┃ ┃               B.B/B.B  P.P/P.P  ┃
-            formatted += String.Format("┃ Speed:  {0,5:F}/{1,5:F} Range: {2,2:D}   ┃ ┃               {3:F1}/{4:F1}  {5:F1}/{6:F1}  ┃\n",
+            formatted += string.Format("┃ Speed:  {0,5:F}/{1,5:F} Range: {2,2:D}   ┃ ┃               {3:F1}/{4:F1}  {5:F1}/{6:F1}  ┃\n",
                 this.MinStats.attackSpeed,this.MaxStats.attackSpeed,this.weapon.range, 
                 this.MinStats.resistances.black, this.MaxStats.resistances.black,
                 this.MinStats.resistances.pale, this.MaxStats.resistances.pale
                 );
             //                          ┃ Type:   Black       Rank: Aleph ┃ ┃ Rank:           Aleph           ┃
-            formatted += String.Format("┃ Type:   {0,5}       Rank: {1,5} ┃ ┃ Rank:           {2,5}           ┃\n",
+            formatted += string.Format("┃ Type:   {0,5}       Rank: {1,5} ┃ ┃ Rank:           {2,5}           ┃\n",
                 this.weapon.type, this.weapon.riskLevel, this.suit.riskLevel
                 );
-            formatted += String.Format("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛ ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
+            formatted += string.Format("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛ ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
 
             //main boxes
-            formatted += String.Format("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
+            formatted += string.Format("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");
                                       //┃ Fortitude  (R)  aaa/bbb + xx/yy  ┃ Prudence   (R)  aaa/bbb + xx/yy  ┃
-            formatted += String.Format("┃ Fortitude  ({0})  {1,3}/{2,3} + {3,2}/{4,2}  ┃ Prudence   ({5})  {6,3}/{7,3} + {8,2}/{9,2}  ┃\n",
+            formatted += string.Format("┃ Fortitude  ({0})  {1,3}/{2,3} + {3,2}/{4,2}  ┃ Prudence   ({5})  {6,3}/{7,3} + {8,2}/{9,2}  ┃\n",
                 this.Ranks[0], this.MinStats.primaryStats.Fortitude, this.MaxStats.primaryStats.Fortitude,
                 this.PermanentBonuses.primaryStats.Fortitude, this.PermanentBonuses.primaryStats.Fortitude + this.ConditionalBonuses.primaryStats.Fortitude,
                 this.Ranks[1], this.MinStats.primaryStats.Prudence, this.MaxStats.primaryStats.Prudence,
                 this.PermanentBonuses.primaryStats.Prudence, this.PermanentBonuses.primaryStats.Prudence + this.ConditionalBonuses.primaryStats.Prudence
                 );
-            formatted += String.Format("┃┌────────────────────────────────┐┃┌────────────────────────────────┐┃\n");
+            formatted += string.Format("┃┌────────────────────────────────┐┃┌────────────────────────────────┐┃\n");
                                       //┃│ Health         aaa/bbb + xx/yy │┃│ Sanity         aaa/bbb + xx/yy │┃
-            formatted += String.Format("┃│ Health         {0,3}/{1,3} + {2,2}/{3,2} │┃│ Sanity         {4,3}/{5,3} + {6,2}/{7,2} │┃\n",
+            formatted += string.Format("┃│ Health         {0,3}/{1,3} + {2,2}/{3,2} │┃│ Sanity         {4,3}/{5,3} + {6,2}/{7,2} │┃\n",
                 this.MinStats.secondaryStats.HP, this.MaxStats.secondaryStats.HP,
                 this.PermanentBonuses.secondaryStats.HP, this.PermanentBonuses.secondaryStats.HP + this.ConditionalBonuses.secondaryStats.HP,
                 this.MinStats.secondaryStats.SP, this.MaxStats.secondaryStats.SP,
                 this.PermanentBonuses.secondaryStats.SP, this.PermanentBonuses.secondaryStats.SP + this.ConditionalBonuses.secondaryStats.SP
                 );
-            formatted += String.Format("┃└────────────────────────────────┘┃└────────────────────────────────┘┃\n");
+            formatted += string.Format("┃└────────────────────────────────┘┃└────────────────────────────────┘┃\n");
                                       //┃ Temperance (R)  aaa/bbb + xx/yy  ┃ Justice    (R)  aaa/bbb + xx/yy  ┃
-            formatted += String.Format("┃ Temperance ({0})  {1,3}/{2,3} + {3,2}/{4,2}  ┃ Justice    ({5})  {6,3}/{7,3} + {8,2}/{9,2}  ┃\n",
+            formatted += string.Format("┃ Temperance ({0})  {1,3}/{2,3} + {3,2}/{4,2}  ┃ Justice    ({5})  {6,3}/{7,3} + {8,2}/{9,2}  ┃\n",
                 this.Ranks[2], this.MinStats.primaryStats.Temperance, this.MaxStats.primaryStats.Temperance,
                 this.PermanentBonuses.primaryStats.Temperance, this.PermanentBonuses.primaryStats.Temperance + this.ConditionalBonuses.primaryStats.Temperance,
                 this.Ranks[3], this.MinStats.primaryStats.Justice, this.MaxStats.primaryStats.Justice,
                 this.PermanentBonuses.primaryStats.Justice, this.PermanentBonuses.primaryStats.Justice + this.ConditionalBonuses.primaryStats.Justice
                 );
-            formatted += String.Format("┃┌────────────────────────────────┐┃┌────────────────────────────────┐┃\n");
+            formatted += string.Format("┃┌────────────────────────────────┐┃┌────────────────────────────────┐┃\n");
                                       //┃│ Work Rate      aaa/bbb + xx/yy │┃│ Attack Speed   aaa/bbb + xx/yy │┃
-            formatted += String.Format("┃│ Work Rate      {0,3}/{1,3} + {2,2}/{3,2} │┃│ Attack Speed   {4,3}/{5,3} + {6,2}/{7,2} │┃\n",
+            formatted += string.Format("┃│ Work Rate      {0,3}/{1,3} + {2,2}/{3,2} │┃│ Attack Speed   {4,3}/{5,3} + {6,2}/{7,2} │┃\n",
                 this.MinStats.secondaryStats.SR, this.MaxStats.secondaryStats.SR,
                 this.PermanentBonuses.secondaryStats.SR, this.PermanentBonuses.secondaryStats.SR + this.ConditionalBonuses.secondaryStats.SR,
                 this.MinStats.secondaryStats.AS, this.MaxStats.secondaryStats.AS,
                 this.PermanentBonuses.secondaryStats.AS, this.PermanentBonuses.secondaryStats.AS + this.ConditionalBonuses.secondaryStats.AS
                 );
                                       //┃│ Work Speed     aaa/bbb + xx/yy │┃│ Movement Speed aaa/bbb + xx/yy │┃
-            formatted += String.Format("┃│ Work Speed     {0,3}/{1,3} + {2,2}/{3,2} │┃│ Movement Speed {4,3}/{5,3} + {6,2}/{7,2} │┃\n",
+            formatted += string.Format("┃│ Work Speed     {0,3}/{1,3} + {2,2}/{3,2} │┃│ Movement Speed {4,3}/{5,3} + {6,2}/{7,2} │┃\n",
                 this.MinStats.secondaryStats.WS, this.MaxStats.secondaryStats.WS,
                 this.PermanentBonuses.secondaryStats.WS, this.PermanentBonuses.secondaryStats.WS + this.ConditionalBonuses.secondaryStats.WS,
                 this.MinStats.secondaryStats.MS, this.MaxStats.secondaryStats.MS,
                 this.PermanentBonuses.secondaryStats.MS, this.PermanentBonuses.secondaryStats.MS + this.ConditionalBonuses.secondaryStats.MS
                 );
-            formatted += String.Format("┃└────────────────────────────────┘┃└────────────────────────────────┘┃\n");
-            formatted += String.Format("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
+            formatted += string.Format("┃└────────────────────────────────┘┃└────────────────────────────────┘┃\n");
+            formatted += string.Format("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
 
             //special effects
-            formatted += String.Format("Special effects:\n");
-            formatted += String.Format("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓ \n");
+            formatted += string.Format("Special effects:\n");
+            formatted += string.Format("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓ \n");
 
             foreach(string effect in this.SpecialEffects)
             {
-                               formatted += String.Format("┃ {0,-67} ┃\n", effect);
+                               formatted += string.Format("┃ {0,-67} ┃\n", effect);
             }
-            formatted += String.Format("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
+            formatted += string.Format("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n");
 
             return formatted;
         }

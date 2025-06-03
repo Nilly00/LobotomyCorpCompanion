@@ -22,11 +22,11 @@
             {
                 employee.PermanentBonuses.primaryStats += 6;
             }
-            else if (employee.daysInService > 6)
+            else if (employee.DaysInService > 6)
             {
                 employee.PermanentBonuses.primaryStats += 4;
             }
-            else if (employee.daysInService > 2)
+            else if (employee.DaysInService > 2)
             {
                 employee.PermanentBonuses.primaryStats += 3;
             }

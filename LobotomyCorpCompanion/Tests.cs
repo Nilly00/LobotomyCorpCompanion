@@ -6,7 +6,7 @@ namespace LobotomyCorpCompanion
     internal static class RandomHelper
     {
         internal static Random random = new();
-        private static List<string> Names =
+        private static readonly List<string> Names =
             [
             "Acacia","Adam","Alex","Alisa","Anastasia","Angel","Angelina","Anthony","Anton","Ara","Arang","Archer","Asera","Ashely",
             "Aurora","Basil","Bella","Bong-Bong","Brook","Brown","Camille","Cedric","Charlotte","Christopher","Cloie","Cooper",
@@ -16,31 +16,39 @@ namespace LobotomyCorpCompanion
 
         public static String Primary()
         {
-            return Employee.primaryTitles.ElementAt(random.Next(Employee.primaryTitles.Count)).Key;
+            return Employee.PrimaryTitles.ElementAt(random.Next(Employee.PrimaryTitles.Count)).Key;
         }
         public static String Secondary()
         {
-            return Employee.secondaryTitles.ElementAt(random.Next(Employee.secondaryTitles.Count)).Key;
-        }
-        public static Department Depart()
-        {
-            return Department.list.Values.ElementAt(random.Next(Department.list.Count));
+            return Employee.SecondaryTitles.ElementAt(random.Next(Employee.SecondaryTitles.Count)).Key;
         }
         public static String Name()
         {
             return Names[random.Next(Names.Count)];
         }
+
+        public static PrimaryStats PrimaryStats()
+        {
+            PrimaryStats stats = new(
+                fortitude: random.Next(15, 100),
+                prudence: random.Next(15, 100),
+                temperance: random.Next(15, 100),
+                justice: random.Next(15, 100)
+            );
+
+            return stats;
+        }
     }
     internal static class Tests
     {
         //employee without gifts
-        public static void MockEmployee()
+        public static Employee MockEmployee()
         {
             Employee BongBong = new()
             {
-                department = Control.Instance
+                Department = Control.Instance
             };
-            System.Console.WriteLine(BongBong);
+            return BongBong;
         }
 
         //employee with all gift slots filled
@@ -48,7 +56,7 @@ namespace LobotomyCorpCompanion
         {
             Employee BongBong = new()
             {
-                department = Control.Instance
+                Department = Control.Instance
             };
 
             BongBong.AddGift(Apple_Gift.Instance);
@@ -74,51 +82,30 @@ namespace LobotomyCorpCompanion
         //randomly kitted employee
         public static Employee RandomTest()
         {
-            List<string> Names =
-            [
-                "Acacia","Adam","Alex","Alisa","Anastasia","Angel","Angelina","Anthony","Anton","Ara","Arang","Archer","Asera","Ashely",
-                "Aurora","Basil","Bella","Bong-Bong","Brook","Brown","Camille","Cedric","Charlotte","Christopher","Cloie","Cooper",
-                "Corbinian","Courtney","Dakota","Dana","Daniel","Daphne","Delaney","Delilah","Destiny","Devona","Dexter","Dia","Diva"
-            ];
             Random random = new();
-
-            PrimaryStats primaryStats = new(
-                fortitude: random.Next(15, 100),
-                prudence: random.Next(15, 100),
-                temperance: random.Next(15, 100),
-                justice: random.Next(15, 100)
-            );
-
-            EgoGift[] gifts= new EgoGift[14];
-
-            gifts[0] = GiftManagement.RandomGift(Slot.Brooch);
-            gifts[1] = GiftManagement.RandomGift(Slot.Cheek);
-            gifts[2] = GiftManagement.RandomGift(Slot.Eye);
-            gifts[3] = GiftManagement.RandomGift(Slot.Face);
-            gifts[4] = GiftManagement.RandomGift(Slot.Hand_1);
-            gifts[5] = GiftManagement.RandomGift(Slot.Hand_2);
-            gifts[6] = GiftManagement.RandomGift(Slot.Hat);
-            gifts[7] = GiftManagement.RandomGift(Slot.Helmet);
-            gifts[8] = GiftManagement.RandomGift(Slot.Left_back);
-            gifts[9] = GiftManagement.RandomGift(Slot.Right_back);
-            gifts[10] = GiftManagement.RandomGift(Slot.Mouth_1);
-            gifts[11] = GiftManagement.RandomGift(Slot.Mouth_2);
-            gifts[12] = GiftManagement.RandomGift(Slot.Neckwear);
-            gifts[13] = GiftManagement.RandomGift(Slot.Special);
-
 
             Employee employee = new(
                 name: RandomHelper.Name(),
-                primaryLevels: primaryStats,
+                primaryLevels: RandomHelper.PrimaryStats(),
                 primaryTitle: RandomHelper.Primary(),
                 secondaryTitle: RandomHelper.Secondary(),
-                department: RandomHelper.Depart(),
+                department: DepartmentManagement.GetRandom(),
                 daysInService: random.Next(1, 100),
-                isCaptain: random.Next(0, 2) == 1,
-                weapon: WeaponManagement.GetRandomWeapon(),
+                weapon: WeaponManagement.GetRandom(),
                 suit: SuitManagement.GetRandomSuit(),
-                gifts: gifts
+                gifts: GiftManagement.RandomGiftSet()
             );
+
+            return employee;
+        }
+        
+        //set functionality test
+        public static Employee SetTest()
+        {
+            Employee employee = MockEmployee();
+            employee.AddGift(Freischütz_Gift.Instance);
+            employee.Weapon = Freischütz_Weapon.Instance;
+            employee.Suit = Freischütz_Suit.Instance;
 
             return employee;
         }

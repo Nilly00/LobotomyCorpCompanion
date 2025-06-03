@@ -22,11 +22,11 @@
             {
                 employee.PermanentBonuses.damagePercent *= 1.2;
             }
-            else if (employee.daysInService > 6)
+            else if (employee.DaysInService > 6)
             {
                 employee.PermanentBonuses.damagePercent *= 1.1;
             }
-            else if (employee.daysInService > 2)
+            else if (employee.DaysInService > 2)
             {
                 employee.PermanentBonuses.damagePercent *= 1.06;
             }

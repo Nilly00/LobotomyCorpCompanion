@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography;
 using LobotomyCorpCompanion.GameObjects.EGOSuits;
 using LobotomyCorpCompanion.GameObjects.EGOWeapons;
 
@@ -6,8 +7,7 @@ namespace LobotomyCorpCompanion.GameObjects
 {
     internal static class GiftManagement
     {
-        //gift stuff
-        private static readonly List<EgoGift> GiftMasterList;
+        public static readonly List<EgoGift> GiftMasterList;
         static GiftManagement()
         {
             //building the master list like this ensures all instances are initialised
@@ -234,7 +234,12 @@ namespace LobotomyCorpCompanion.GameObjects
             return List;
         }
 
-        //return a random gift for the specified slot
+
+        public static EgoGift GetByName(string name)
+        {
+            return GiftManagement.GiftMasterList.FirstOrDefault(w => w.name == name);
+        }
+
         public static EgoGift RandomGift(Slot slot)
         {
             Random random = new();
@@ -269,7 +274,7 @@ namespace LobotomyCorpCompanion.GameObjects
 
     internal static class SuitManagement
     {
-        private static readonly List<EgoSuit> SuitMasterList;
+        public static readonly List<EgoSuit> SuitMasterList;
 
         static SuitManagement()
         {
@@ -342,6 +347,11 @@ namespace LobotomyCorpCompanion.GameObjects
             ];
         }
 
+
+        public static EgoSuit GetByName(string name)
+        {
+            return SuitManagement.SuitMasterList.FirstOrDefault(w => w.name == name);
+        }
         public static EgoSuit GetRandomSuit()
         {
             Random random = new();
@@ -351,7 +361,7 @@ namespace LobotomyCorpCompanion.GameObjects
 
     internal static class WeaponManagement
     {
-        private static readonly List<EgoWeapon> WeaponMasterList;
+        public static readonly List<EgoWeapon> WeaponMasterList;
 
         static WeaponManagement()
         {
@@ -426,10 +436,123 @@ namespace LobotomyCorpCompanion.GameObjects
             ];
         }
 
-        public static EgoWeapon GetRandomWeapon()
+        public static EgoWeapon GetByName(string name)
+        {
+            return WeaponManagement.WeaponMasterList.FirstOrDefault(w => w.name == name);
+        }
+        public static EgoWeapon GetRandom()
         {
             Random random = new();
             return WeaponMasterList.ElementAt(random.Next(WeaponMasterList.Count));
+        }
+    }
+
+    internal static class AbnormalityManagement
+    {
+        internal readonly static List<Abnormality> AbnormalityMasterList = [
+            Alriune.Instance,
+            Apocalypse.Instance,
+            Apple.Instance,
+            Army.Instance,
+            Bald.Instance,
+            Bear.Instance,
+            Beauty.Instance,
+            Bee.Instance,
+            Big.Instance,
+            Bloodbath.Instance,
+            Butterflies.Instance,
+            Censored.Instance,
+            Cherry.Instance,
+            Crumbling.Instance,
+            Current.Instance,
+            Cute.Instance,
+            Default.Instance,
+            Despair.Instance,
+            Dont.Instance,
+            Dream.Instance,
+            Fairy.Instance,
+            Fetus.Instance,
+            Firebird.Instance,
+            Forsaken.Instance,
+            Fragments.Instance,
+            Freischütz.Instance,
+            Galaxy.Instance,
+            Greed.Instance,
+            Hatred.Instance,
+            Heaven.Instance,
+            Helper.Instance,
+            Judgement.Instance,
+            Laetitia.Instance,
+            Lantern.Instance,
+            Love.Instance,
+            Luna.Instance,
+            MHZ.Instance,
+            Monk.Instance,
+            Nest.Instance,
+            Nothing.Instance,
+            OldLady.Instance,
+            OneSin.Instance,
+            Orchestra.Instance,
+            Parasite.Instance,
+            Plague.Instance,
+            Porccubus.Instance,
+            Prince.Instance,
+            Punishing.Instance,
+            Rabbit.Instance,
+            Refraction.Instance,
+            Ridinghood.Instance,
+            Rudolta.Instance,
+            Scarecrow.Instance,
+            Schadenfreude.Instance,
+            Scorched.Instance,
+            Shoes.Instance,
+            Shy.Instance,
+            Singing.Instance,
+            Smiling.Instance,
+            Snow.Instance,
+            Spider.Instance,
+            Star.Instance,
+            Swan.Instance,
+            WallLady.Instance,
+            Wellcheers.Instance,
+            White.Instance,
+            Wolf.Instance,
+            Woodsman.Instance,
+            Yin.Instance,
+            ];
+    }
+
+    internal static class DepartmentManagement
+    {
+        public static readonly List<Department> DepartmentMasterList;
+
+        static DepartmentManagement()
+        {
+            //building the master list like this ensures all instances are initialised
+            DepartmentMasterList =
+                [
+                Architecture.Instance,
+                CentralCommand.Instance,
+                Control.Instance,
+                Disciplinary.Instance,
+                Extraction.Instance,
+                Information.Instance,
+                Record.Instance,
+                Safety.Instance,
+                Training.Instance,
+                Welfare.Instance,
+                Bench.Instance
+                ];
+        }
+
+        public static Department GetByName(string name)
+        {
+            return DepartmentManagement.DepartmentMasterList.FirstOrDefault(x=> x.name == name);
+        }
+        public static Department GetRandom()
+        {
+            Random random = new();
+            return DepartmentMasterList.ElementAt(random.Next(DepartmentMasterList.Count));
         }
     }
 }

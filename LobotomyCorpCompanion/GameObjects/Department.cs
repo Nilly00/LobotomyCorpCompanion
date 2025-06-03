@@ -10,23 +10,9 @@
         internal bool enabled;
 
         //calculated at runtime
-        internal List<Abnormality> abnormalities = [];
-        internal List<Employee> employees = [];
-
-        internal static readonly FrozenDictionary<string, Department> list = new Dictionary<string, Department>
-        {
-            {"Architecture Team",       Architecture.Instance           },
-            {"Central Command Team",    CentralCommand.Instance         },
-            {"Control Team",            Control.Instance                },
-            {"Disciplinary Team",       Disciplinary.Instance           },
-            {"Extraction Team",         Extraction.Instance             },
-            {"Information Team",        Information.Instance            },
-            {"Record Team",             Record.Instance                 },
-            {"Safety Team",             Safety.Instance                 },
-            {"Trainign Team",           Training.Instance               },
-            {"Welfare Team",            Welfare.Instance                },
-            {"Bench",                   Bench.Instance                  },
-        }.ToFrozenDictionary();
+        internal readonly List<Abnormality> abnormalities = [];
+        private readonly List<Employee> employees = [];
+        
         protected Department(string name,int employeeCap = 5,int abnormalityCap = 4)
         {
             this.name = name;
@@ -46,13 +32,12 @@
         internal virtual void ServiceBenefits(Employee employee)
         {
         }
-        //todo
+        
         internal void AddEmployee(Employee employee)
         {
-            employee.department.RemoveEmployee(employee);
             employees.Add(employee);
         }
-        //todo
+        
         internal void RemoveEmployee(Employee employee)
         {
             employees.Remove(employee);
@@ -69,7 +54,7 @@
 
             foreach (Employee employee in employees)
             {
-                if (employee.daysInService > 7 && employee.daysInService > captain.daysInService)
+                if (employee.DaysInService > 7 && employee.DaysInService > captain.DaysInService)
                 {
                     captain = employee;
                     captainChanged = true;

@@ -18,12 +18,12 @@
                 employee.PermanentBonuses.attackSpeedPercent *= 1.2;
                 employee.PermanentBonuses.resistances += 0.2;
             }
-            else if (employee.daysInService > 6)
+            else if (employee.DaysInService > 6)
             {
                 employee.PermanentBonuses.attackSpeedPercent *= 1.1;
                 employee.PermanentBonuses.resistances += 0.1;
             }
-            else if (employee.daysInService > 2)
+            else if (employee.DaysInService > 2)
             {
                 employee.PermanentBonuses.attackSpeedPercent *= 1.06;
                 employee.PermanentBonuses.resistances += 0.06;
