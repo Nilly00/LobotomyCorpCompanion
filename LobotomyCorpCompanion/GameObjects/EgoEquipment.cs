@@ -42,6 +42,7 @@
     {
         internal short cost = cost;
         internal short maxCount = maxCount;
+        internal short used = 0;
         internal short[] requirements = requirements; //{Fortitude, Prudence, Temperance, Justice, AgentRank}
         internal RiskLevel riskLevel = riskLevel;
 
@@ -49,6 +50,10 @@
         {
             //todo implement default check
             return false;
+        }
+        internal bool IsAvailable()
+        {
+            return ((this.maxCount - this.used) != 0);
         }
     }
 

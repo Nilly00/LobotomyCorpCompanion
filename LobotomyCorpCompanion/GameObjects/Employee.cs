@@ -224,14 +224,24 @@
         internal EgoWeapon Weapon
         {
             get { return weapon; }
-            set { weapon = value; Calculate(); }
+            set { 
+                weapon.used--; 
+                weapon = value; 
+                weapon.used++; 
+                Calculate(); 
+            }
         }
 
         private EgoSuit suit;        
         internal EgoSuit Suit
         {
             get { return suit; }
-            set { suit = value; Calculate(); }
+            set {
+                suit.used--;
+                suit = value;
+                suit.used++;
+                Calculate(); 
+            }
         }
 
         private readonly EgoGift[] gifts;
@@ -255,7 +265,7 @@
 
         public Employee(
             string name = "BongBong",
-            PrimaryStats primaryLevels = default,
+            PrimaryStats primaryStats = null,
             string primaryTitle = "Blunt",
             string secondaryTitle = "Newbie",
             Department department = null,
@@ -267,14 +277,8 @@
             )
         {
             this.name = name;
-            if (primaryLevels.Fortitude == 0 && primaryLevels.Prudence == 0 && primaryLevels.Temperance == 0 && primaryLevels.Justice == 0)
-            {
-                this.primaryStats = new PrimaryStats(15, 15, 15, 15);
-            }
-            else
-            {
-                this.primaryStats = primaryLevels;
-            }
+
+            this.primaryStats = primaryStats ?? new(15,15,15,15);
             this.primaryTitle = primaryTitle;
             this.secondaryTitle = secondaryTitle;
             this.department = department ?? Bench.Instance;
@@ -286,6 +290,29 @@
             Calculate();
         }
 
+        //ask sam which is better this or the one in EmployeeSave
+        public Employee(EmployeeSave save)
+        {
+            EgoGift[] giftArray = new EgoGift[14];
+            foreach (string gift in save.gifts)
+            {
+                {
+                    if (gift == null) { continue; }
+                    EgoGift current = GiftManagement.GetByName(gift);
+                    giftArray[(int)current.slot] = current;
+                }
+            }
+            name = save.name;
+            primaryStats = save.primaryStats;
+            primaryTitle = save.primaryTitle;
+            secondaryTitle = save.secondaryTitle;
+            department = DepartmentManagement.GetByName(save.department);
+            daysInService = save.daysInService;
+            weapon = WeaponManagement.GetByName(save.weapon);
+            suit = SuitManagement.GetByName(save.suit);
+            gifts = giftArray;
+            this.Calculate();
+        }
 
 
         public void Calculate()
@@ -409,10 +436,6 @@
                               5 ;
         }
 
-
-
-
-
         public override string ToString()
         {
 
@@ -449,7 +472,7 @@
             formatted = string.Format(" {0,-20}({1})\n", this.name, this.Ranks[4]);
             //title
             formatted += string.Format(" {0,-36}{1}\n", this.primaryTitle, this.secondaryTitle);
-            formatted += string.Format(" In {0,-15} for {1,2} Days\n",this.department.name, this.daysInService);
+            formatted += string.Format(" In {0,-15} for {1,2} Days\n",this.department.Name, this.daysInService);
 
             //equip boxes
             formatted += string.Format("┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓ ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n");

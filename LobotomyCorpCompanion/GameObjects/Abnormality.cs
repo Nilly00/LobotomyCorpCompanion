@@ -27,7 +27,7 @@
             this.weapon = weapon;
             this.suit = suit;
             this.gift = gift;
-            if (SaveManagament.abnoSave.TryGetValue(name, out AbnormalitySave value))
+            if (SaveManagament.abnormalities.TryGetValue(name, out AbnormalitySave value))
             {
                 this.unlocked = value.unlocked;
                 this.department = value.department;
@@ -39,7 +39,7 @@
                 this.department = Bench.Instance;
                 this.researchLevel = 0;
             }
-            this.department.abnormalities.Add(this);
+            this.department.Abnormalities.Add(this);
         }
 
         internal void Unlock()
@@ -55,9 +55,9 @@
             }
             if (this.department != department)
             {
-                this.department.abnormalities.Remove(this);
+                this.department.Abnormalities.Remove(this);
                 this.department = department;
-                this.department.abnormalities.Add(this);
+                this.department.Abnormalities.Add(this);
             }
         }
         internal virtual void IncreaseResearchLevel() { }
