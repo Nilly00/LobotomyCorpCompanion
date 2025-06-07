@@ -7,11 +7,11 @@ namespace LobotomyCorpCompanion.GameObjects
 {
     internal static class GiftManagement
     {
-        private static readonly List<EgoGift> GiftMasterList;
+        private static readonly List<EgoGift> MasterList;
         static GiftManagement()
         {
             //building the master list like this ensures all instances are initialised
-            GiftMasterList =
+            MasterList =
             [
                 Alriune_Gift.Instance,
                 Apocalypse_Gift.Instance,
@@ -110,7 +110,7 @@ namespace LobotomyCorpCompanion.GameObjects
         private static List<EgoGift> GetBroochList()
         {
             List<EgoGift> List = [];
-            foreach (EgoGift gift in GiftMasterList)
+            foreach (EgoGift gift in MasterList)
             {
                 if (gift.slot == Slot.Brooch && gift.origin.unlocked) List.Add(gift);
             }
@@ -119,7 +119,7 @@ namespace LobotomyCorpCompanion.GameObjects
         private static List<EgoGift> GetCheekList()
         {
             List<EgoGift> List = [];
-            foreach (EgoGift gift in GiftMasterList )
+            foreach (EgoGift gift in MasterList )
             {
                 if (gift.slot == Slot.Cheek && gift.origin.unlocked) List.Add(gift);
             }
@@ -128,7 +128,7 @@ namespace LobotomyCorpCompanion.GameObjects
         private static List<EgoGift> GetEyeList()
         {
             List<EgoGift> List = [];
-            foreach (EgoGift gift in GiftMasterList)
+            foreach (EgoGift gift in MasterList)
             {
                 if (gift.slot == Slot.Eye && gift.origin.unlocked) List.Add(gift);
             }
@@ -137,7 +137,7 @@ namespace LobotomyCorpCompanion.GameObjects
         private static List<EgoGift> GetFaceList()
         {
             List<EgoGift> List = [];
-            foreach (EgoGift gift in GiftMasterList)
+            foreach (EgoGift gift in MasterList)
             {
                 if (gift.slot == Slot.Face && gift.origin.unlocked) List.Add(gift);
             }
@@ -146,7 +146,7 @@ namespace LobotomyCorpCompanion.GameObjects
         private static List<EgoGift> GetHand_1List()
         {
             List<EgoGift> List = [];
-            foreach (EgoGift gift in GiftMasterList)
+            foreach (EgoGift gift in MasterList)
             {
                 if (gift.slot == Slot.Hand_1 && gift.origin.unlocked) List.Add(gift);
             }
@@ -155,7 +155,7 @@ namespace LobotomyCorpCompanion.GameObjects
         private static List<EgoGift> GetHand_2List()
         {
             List<EgoGift> List = [];
-            foreach (EgoGift gift in GiftMasterList)
+            foreach (EgoGift gift in MasterList)
             {
                 if (gift.slot == Slot.Hand_2 && gift.origin.unlocked) List.Add(gift);
             }
@@ -164,7 +164,7 @@ namespace LobotomyCorpCompanion.GameObjects
         private static List<EgoGift> GetHatList()
         {
             List<EgoGift> List = [];
-            foreach (EgoGift gift in GiftMasterList)
+            foreach (EgoGift gift in MasterList)
             {
                 if (gift.slot == Slot.Hat && gift.origin.unlocked) List.Add(gift);
             }
@@ -173,7 +173,7 @@ namespace LobotomyCorpCompanion.GameObjects
         private static List<EgoGift> GetHelmetList()
         {
             List<EgoGift> List = [];
-            foreach (EgoGift gift in GiftMasterList)
+            foreach (EgoGift gift in MasterList)
             {
                 if (gift.slot == Slot.Helmet && gift.origin.unlocked) List.Add(gift);
             }
@@ -182,7 +182,7 @@ namespace LobotomyCorpCompanion.GameObjects
         private static List<EgoGift> GetLeft_backList()
         {
             List<EgoGift> List = [];
-            foreach (EgoGift gift in GiftMasterList)
+            foreach (EgoGift gift in MasterList)
             {
                 if (gift.slot == Slot.Left_back && gift.origin.unlocked) List.Add(gift);
             }
@@ -191,7 +191,7 @@ namespace LobotomyCorpCompanion.GameObjects
         private static List<EgoGift> GetRight_backList()
         {
             List<EgoGift> List = [];
-            foreach (EgoGift gift in GiftMasterList)
+            foreach (EgoGift gift in MasterList)
             {
                 if (gift.slot == Slot.Right_back && gift.origin.unlocked) List.Add(gift);
             }
@@ -200,7 +200,7 @@ namespace LobotomyCorpCompanion.GameObjects
         private static List<EgoGift> GetMouth_1List()
         {
             List<EgoGift> List = [];
-            foreach (EgoGift gift in GiftMasterList)
+            foreach (EgoGift gift in MasterList)
             {
                 if (gift.slot == Slot.Mouth_1 && gift.origin.unlocked) List.Add(gift);
             }
@@ -209,7 +209,7 @@ namespace LobotomyCorpCompanion.GameObjects
         private static List<EgoGift> GetMouth_2List()
         {
             List<EgoGift> List = [];
-            foreach (EgoGift gift in GiftMasterList)
+            foreach (EgoGift gift in MasterList)
             {
                 if (gift.slot == Slot.Mouth_2 && gift.origin.unlocked) List.Add(gift);
             }
@@ -218,7 +218,7 @@ namespace LobotomyCorpCompanion.GameObjects
         private static List<EgoGift> GetNeckwearList()
         {
             List<EgoGift> List = [];
-            foreach (EgoGift gift in GiftMasterList)
+            foreach (EgoGift gift in MasterList)
             {
                 if (gift.slot == Slot.Neckwear && gift.origin.unlocked) List.Add(gift);
             }
@@ -227,7 +227,7 @@ namespace LobotomyCorpCompanion.GameObjects
         private static List<EgoGift> GetSpecialList()
         {
             List<EgoGift> List = [];
-            foreach (EgoGift gift in GiftMasterList)
+            foreach (EgoGift gift in MasterList)
             {
                 if (gift.slot == Slot.Special && gift.origin.unlocked   ) List.Add(gift);
             }
@@ -237,7 +237,7 @@ namespace LobotomyCorpCompanion.GameObjects
 
         public static EgoGift GetByName(string name)
         {
-            return GiftManagement.GiftMasterList.FirstOrDefault(w => w.name == name);
+            return GiftManagement.MasterList.FirstOrDefault(w => w.name == name);
         }
 
         public static EgoGift RandomGift(Slot slot)
@@ -273,11 +273,11 @@ namespace LobotomyCorpCompanion.GameObjects
 
     internal static class SuitManagement
     {
-        private static readonly List<EgoSuit> SuitMasterList;
+        private static readonly List<EgoSuit> MasterList;
         static SuitManagement()
         {
             //building the master list like this ensures all instances are initialised
-            SuitMasterList = [
+            MasterList = [
                 Alriune_Suit.Instance,
                 Apocalypse_Suit.Instance,
                 Apple_Suit.Instance,
@@ -346,7 +346,7 @@ namespace LobotomyCorpCompanion.GameObjects
         }
         public static EgoSuit GetByName(string name)
         {
-            return SuitManagement.SuitMasterList.FirstOrDefault(w => w.name == name);
+            return SuitManagement.MasterList.FirstOrDefault(w => w.name == name);
         }
         public static EgoSuit GetRandomSuit()
         {
@@ -354,7 +354,7 @@ namespace LobotomyCorpCompanion.GameObjects
             EgoSuit suit;
             do
             {
-                suit = SuitMasterList.ElementAt(random.Next(SuitMasterList.Count));
+                suit = MasterList.ElementAt(random.Next(MasterList.Count));
 
             }while (!suit.IsAvailable());
             return suit;
@@ -362,19 +362,19 @@ namespace LobotomyCorpCompanion.GameObjects
         public static List<EgoSuit> GetList()
         {
             List<EgoSuit> list = [];
-            foreach (EgoSuit suit in SuitMasterList) { if (suit.origin.unlocked && suit.IsAvailable()) list.Add(suit); }
+            foreach (EgoSuit suit in MasterList) { if (suit.origin.unlocked && suit.IsAvailable()) list.Add(suit); }
             return list;
         }
     }
     
     internal static class WeaponManagement
     {
-        private static readonly List<EgoWeapon> WeaponMasterList;
+        private static readonly List<EgoWeapon> MasterList;
 
         static WeaponManagement()
         {
             //building the master list like this ensures all instances are initialised
-            WeaponMasterList = [
+            MasterList = [
             Alriune_Weapon.Instance,
             Apocalypse_Weapon.Instance,
             Apple_Weapon.Instance,
@@ -447,12 +447,12 @@ namespace LobotomyCorpCompanion.GameObjects
         public static List<EgoWeapon> GetList()
         {
             List<EgoWeapon> list = [];
-            foreach (EgoWeapon weapon in WeaponMasterList){ if (weapon.origin.unlocked && weapon.IsAvailable()) list.Add(weapon);}
+            foreach (EgoWeapon weapon in MasterList){ if (weapon.origin.unlocked && weapon.IsAvailable()) list.Add(weapon);}
             return list;
         }
         public static EgoWeapon GetByName(string name)
         {
-            return WeaponManagement.WeaponMasterList.FirstOrDefault(w => w.name == name);
+            return WeaponManagement.MasterList.FirstOrDefault(w => w.name == name);
         }
         public static EgoWeapon GetRandom()
         {
@@ -460,7 +460,7 @@ namespace LobotomyCorpCompanion.GameObjects
             EgoWeapon weapon;
             do
             {
-                weapon = WeaponMasterList.ElementAt(random.Next(WeaponMasterList.Count)); ;
+                weapon = MasterList.ElementAt(random.Next(MasterList.Count)); ;
             } while (!weapon.IsAvailable());
             return weapon;
         }
@@ -468,7 +468,7 @@ namespace LobotomyCorpCompanion.GameObjects
 
     internal static class AbnormalityManagement
     {
-        internal readonly static List<Abnormality> AbnormalityMasterList = [
+        internal readonly static List<Abnormality> MasterList = [
             Alriune.Instance,
             Apocalypse.Instance,
             Apple.Instance,
@@ -543,12 +543,12 @@ namespace LobotomyCorpCompanion.GameObjects
 
     internal static class DepartmentManagement
     {
-        public static readonly List<Department> DepartmentMasterList;
+        public static readonly List<Department> MasterList;
 
         static DepartmentManagement()
         {
             //building the master list like this ensures all instances are initialised
-            DepartmentMasterList =
+            MasterList =
                 [
                 Architecture.Instance,
                 CentralCommand.Instance,
@@ -566,7 +566,7 @@ namespace LobotomyCorpCompanion.GameObjects
 
         public static Department GetByName(string name)
         {
-            return DepartmentManagement.DepartmentMasterList.FirstOrDefault(x=> x.Name == name);
+            return DepartmentManagement.MasterList.FirstOrDefault(x=> x.Name == name);
         }
         public static Department GetRandom()
         {
@@ -574,7 +574,7 @@ namespace LobotomyCorpCompanion.GameObjects
             Department department;
             do
             {
-                department = DepartmentMasterList.ElementAt(random.Next(DepartmentMasterList.Count)); ;
+                department = MasterList.ElementAt(random.Next(MasterList.Count)); ;
             } while (!department.JobAvailable());
             return department;
         }
