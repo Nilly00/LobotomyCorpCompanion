@@ -23,7 +23,7 @@
         {
             if (SameWeapon(employee))
             {
-                employee.PermanentBonuses.damageFlat += 3;
+                employee.PermanentBonuses.DamageFlat += 3;
             }
         }
     }

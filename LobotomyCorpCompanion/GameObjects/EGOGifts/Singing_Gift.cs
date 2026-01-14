@@ -22,7 +22,7 @@
         internal override void Effect(Employee employee)
         {
             employee.SpecialEffects.Add("Upon taking WHITE damage, recover 20% of the damage as SP and Attack Speed +10");
-            employee.ConditionalBonuses.secondaryStats.AS += 10;
+            employee.ConditionalBonuses.SecondaryStats.AS += 10;
         }
     }
 }

@@ -3,16 +3,16 @@
     internal abstract class Abnormality
     {
         //this needs to be saved
-        internal bool unlocked;
-        internal Department department;
-        internal int researchLevel;
+        internal bool Unlocked { get; set; }
+        internal Department Department { get; set; }
+        internal int ResearchLevel { get; set; }
 
         //unchanging
-        internal readonly string name;
-        internal readonly RiskLevel riskLevel;
-        internal readonly EgoWeapon? weapon;
-        internal readonly EgoSuit? suit;
-        internal readonly EgoGift? gift;
+        internal string Name { get; init; }
+        internal RiskLevel RiskLevel { get; init; }
+        internal EgoWeapon? Weapon { get; init; }
+        internal EgoSuit? Suit { get; init; }
+        internal EgoGift? Gift { get; init; }
 
         protected Abnormality(
             string name,
@@ -22,42 +22,29 @@
             EgoGift? gift = null
             )
         {
-            this.name = name;
-            this.riskLevel = riskLevel;
-            this.weapon = weapon;
-            this.suit = suit;
-            this.gift = gift;
-            if (SaveManagament.abnormalities.TryGetValue(name, out AbnormalitySave value))
-            {
-                this.unlocked = value.unlocked;
-                this.department = value.department;
-                this.researchLevel = value.researchLevel;
-            }
-            else
-            {
-                this.unlocked = false;
-                this.department = Bench.Instance;
-                this.researchLevel = 0;
-            }
-            this.department.Abnormalities.Add(this);
+            this.Name = name;
+            this.RiskLevel = riskLevel;
+            this.Weapon = weapon;
+            this.Suit = suit;
+            this.Gift = gift;
+            this.Unlocked = false;
+            this.Department = Bench.Instance;
+            this.ResearchLevel = 0;
+            this.Department.Abnormalities.Add(this);
         }
 
         internal void Unlock()
         {
-            this.unlocked = true;
-            this.researchLevel = 0;
+            this.Unlocked = true;
+            
         }
         internal void MoveToDepartment(Department department)
         {
-            if (this.unlocked == false)
+            if (this.Department != department)
             {
-                Unlock();
-            }
-            if (this.department != department)
-            {
-                this.department.Abnormalities.Remove(this);
-                this.department = department;
-                this.department.Abnormalities.Add(this);
+                this.Department.Abnormalities.Remove(this);
+                this.Department = department;
+                this.Department.Abnormalities.Add(this);
             }
         }
         internal virtual void IncreaseResearchLevel() { }

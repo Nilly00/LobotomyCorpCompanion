@@ -1,14 +1,10 @@
-﻿//global using System.Data;
-//global using System.IO
-//global using Newtonsoft.Json.Linq;
-global using System;
+﻿global using System;
+global using System.IO;
 global using System.Linq;
-
-global using Newtonsoft.Json;
-
-
+global using System.Text.Json;
 global using System.Collections.Generic;
 global using System.Collections.Frozen;
+
 
 global using LobotomyCorpCompanion;
 global using LobotomyCorpCompanion.GameObjects;

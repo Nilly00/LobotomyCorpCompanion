@@ -30,8 +30,8 @@
         internal override void Effect(Employee employee)
         {
             employee.SpecialEffects.Add("Each time an attack target dies, Fortitude and Justice will rise by 3 up to 30");
-            employee.ConditionalBonuses.primaryStats.Fortitude += 30;
-            employee.ConditionalBonuses.primaryStats.Justice += 30;
+            employee.ConditionalBonuses.PrimaryStats.Fortitude += 30;
+            employee.ConditionalBonuses.PrimaryStats.Justice += 30;
             employee.SpecialEffects.Add("Decrease the target’s Movement Speed on normal attack");
         }
 

@@ -13,26 +13,26 @@
 
         internal override void ClerkEffect()
         {
-            Employee.globalBonuses.secondaryStats.AS += 5;
+            Employee.GlobalBonuses.SecondaryStats.AS += 5;
         }
 
         internal override void ServiceBenefits(Employee employee)
         {
-            if (employee.isCaptain)
+            if (employee.IsCaptain)
             {
-                employee.PermanentBonuses.damagePercent *= 1.2;
+                employee.PermanentBonuses.DamagePercent *= 1.2;
             }
             else if (employee.DaysInService > 6)
             {
-                employee.PermanentBonuses.damagePercent *= 1.1;
+                employee.PermanentBonuses.DamagePercent *= 1.1;
             }
             else if (employee.DaysInService > 2)
             {
-                employee.PermanentBonuses.damagePercent *= 1.06;
+                employee.PermanentBonuses.DamagePercent *= 1.06;
             }
             else
             {
-                employee.PermanentBonuses.damagePercent *= 1.03;
+                employee.PermanentBonuses.DamagePercent *= 1.03;
             }
         }
     }

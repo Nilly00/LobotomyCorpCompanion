@@ -17,6 +17,8 @@
             gift: OneSin_Gift.Instance
             )
         {
+            Unlocked = true;
+            Department = Control.Instance;
         }
     }
 }

@@ -31,7 +31,7 @@
         {
             employee.SpecialEffects.Add("Deals DOT");
             employee.SpecialEffects.Add("While below 50% HP +50% damage and FRIENDLY FIRE!");
-            employee.ConditionalBonuses.damagePercent *= 1.5;
+            employee.ConditionalBonuses.DamagePercent *= 1.5;
         }
     }
 }

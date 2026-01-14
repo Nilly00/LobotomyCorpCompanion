@@ -30,7 +30,6 @@
         internal override void Effect(Employee employee)
         {
             employee.SpecialEffects.Add("Recover 40% of damage taken when hit");
-            //todo fully calculate this 
         }
         /*
         internal override void WeaponCalculate()

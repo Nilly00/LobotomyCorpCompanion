@@ -1,14 +1,140 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using LobotomyCorpCompanion.GameObjects.EGOSuits;
 using LobotomyCorpCompanion.GameObjects.EGOWeapons;
 
 namespace LobotomyCorpCompanion.GameObjects
 {
-    internal static class GiftManagement
+    internal static class DepartmentManager
     {
-        private static readonly List<EgoGift> MasterList;
-        static GiftManagement()
+        public static List<Department> MasterList { get; }
+
+        static DepartmentManager()
+        {
+            //building the master list like this ensures all instances are initialised
+            MasterList =
+                [
+                Architecture.Instance,
+                CentralCommand.Instance,
+                Control.Instance,
+                Disciplinary.Instance,
+                Extraction.Instance,
+                Information.Instance,
+                Record.Instance,
+                Safety.Instance,
+                Training.Instance,
+                Welfare.Instance,
+                Bench.Instance
+                ];
+        }
+
+        public static Department GetByName(string name)
+        {
+            return MasterList.FirstOrDefault(x => x.Name == name);
+        }
+        public static Department GetRandom()
+        {
+            Random random = new();
+            Department department;
+            do
+            {
+                department = MasterList.ElementAt(random.Next(MasterList.Count)); ;
+            } while (!department.JobAvailable());
+            return department;
+        }
+    }
+
+    internal static class AbnormalityManager
+    {
+        internal static List<Abnormality> MasterList { get; }
+
+        static AbnormalityManager()
+        {
+            MasterList = [
+            Alriune.Instance,
+            Apocalypse.Instance,
+            Apple.Instance,
+            Army.Instance,
+            Bald.Instance,
+            Bear.Instance,
+            Beauty.Instance,
+            Bee.Instance,
+            Big.Instance,
+            Bloodbath.Instance,
+            Butterflies.Instance,
+            Censored.Instance,
+            Cherry.Instance,
+            Crumbling.Instance,
+            Current.Instance,
+            Cute.Instance,
+            Default.Instance,
+            Despair.Instance,
+            Dont.Instance,
+            Dream.Instance,
+            Fairy.Instance,
+            Fetus.Instance,
+            Firebird.Instance,
+            Forsaken.Instance,
+            Fragments.Instance,
+            Freischütz.Instance,
+            Galaxy.Instance,
+            Greed.Instance,
+            Hatred.Instance,
+            Heaven.Instance,
+            Helper.Instance,
+            Judgement.Instance,
+            Laetitia.Instance,
+            Lantern.Instance,
+            Love.Instance,
+            Luna.Instance,
+            MHZ.Instance,
+            Monk.Instance,
+            Nest.Instance,
+            Nothing.Instance,
+            OldLady.Instance,
+            OneSin.Instance,
+            Orchestra.Instance,
+            Parasite.Instance,
+            Plague.Instance,
+            Porccubus.Instance,
+            Prince.Instance,
+            Punishing.Instance,
+            Rabbit.Instance,
+            Refraction.Instance,
+            Ridinghood.Instance,
+            Rudolta.Instance,
+            Scarecrow.Instance,
+            Schadenfreude.Instance,
+            Scorched.Instance,
+            Shoes.Instance,
+            Shy.Instance,
+            Singing.Instance,
+            Smiling.Instance,
+            Snow.Instance,
+            Spider.Instance,
+            Star.Instance,
+            Swan.Instance,
+            WallLady.Instance,
+            Wellcheers.Instance,
+            White.Instance,
+            Wolf.Instance,
+            Woodsman.Instance,
+            Yin.Instance,
+            ];
+        }
+
+        internal static Abnormality GetByName(string name)
+        {
+            return MasterList.FirstOrDefault(A => A.Name == name);
+        }
+
+    }
+
+    internal static class GiftManager
+    {
+        private static List<EgoGift> MasterList { get;}
+        static GiftManager()
         {
             //building the master list like this ensures all instances are initialised
             MasterList =
@@ -86,158 +212,18 @@ namespace LobotomyCorpCompanion.GameObjects
         }
         public static List<EgoGift> GetList(Slot slot)
         {
-            return slot switch
-            {
-                Slot.Brooch => GetBroochList(),
-                Slot.Cheek => GetCheekList(),
-                Slot.Eye => GetEyeList(),
-                Slot.Face => GetFaceList(),
-                Slot.Hand_1 => GetHand_1List(),
-                Slot.Hand_2 => GetHand_2List(),
-                Slot.Hat => GetHatList(),
-                Slot.Helmet => GetHelmetList(),
-                Slot.Left_back => GetLeft_backList(),
-                Slot.Right_back => GetRight_backList(),
-                Slot.Mouth_1 => GetMouth_1List(),
-                Slot.Mouth_2 => GetMouth_2List(),
-                Slot.Neckwear => GetNeckwearList(),
-                Slot.Special => GetSpecialList(),
-                _ => throw new Exception("EquipManagement.GetList(slot) unknown slot supplied")
-            };
-        }
-
-        //gift list assemblers
-        private static List<EgoGift> GetBroochList()
-        {
             List<EgoGift> List = [];
             foreach (EgoGift gift in MasterList)
             {
-                if (gift.slot == Slot.Brooch && gift.origin.unlocked) List.Add(gift);
+                if (gift.Slot == slot) List.Add(gift);
+                //if (gift.Slot == slot && gift.Origin.Unlocked && gift.Origin.ResearchLevel >= gift.UnlockLevel) List.Add(gift) ;
             }
             return List;
         }
-        private static List<EgoGift> GetCheekList()
-        {
-            List<EgoGift> List = [];
-            foreach (EgoGift gift in MasterList )
-            {
-                if (gift.slot == Slot.Cheek && gift.origin.unlocked) List.Add(gift);
-            }
-            return List;
-        }
-        private static List<EgoGift> GetEyeList()
-        {
-            List<EgoGift> List = [];
-            foreach (EgoGift gift in MasterList)
-            {
-                if (gift.slot == Slot.Eye && gift.origin.unlocked) List.Add(gift);
-            }
-            return List;
-        }
-        private static List<EgoGift> GetFaceList()
-        {
-            List<EgoGift> List = [];
-            foreach (EgoGift gift in MasterList)
-            {
-                if (gift.slot == Slot.Face && gift.origin.unlocked) List.Add(gift);
-            }
-            return List;
-        }
-        private static List<EgoGift> GetHand_1List()
-        {
-            List<EgoGift> List = [];
-            foreach (EgoGift gift in MasterList)
-            {
-                if (gift.slot == Slot.Hand_1 && gift.origin.unlocked) List.Add(gift);
-            }
-            return List;
-        }
-        private static List<EgoGift> GetHand_2List()
-        {
-            List<EgoGift> List = [];
-            foreach (EgoGift gift in MasterList)
-            {
-                if (gift.slot == Slot.Hand_2 && gift.origin.unlocked) List.Add(gift);
-            }
-            return List;
-        }
-        private static List<EgoGift> GetHatList()
-        {
-            List<EgoGift> List = [];
-            foreach (EgoGift gift in MasterList)
-            {
-                if (gift.slot == Slot.Hat && gift.origin.unlocked) List.Add(gift);
-            }
-            return List;
-        }
-        private static List<EgoGift> GetHelmetList()
-        {
-            List<EgoGift> List = [];
-            foreach (EgoGift gift in MasterList)
-            {
-                if (gift.slot == Slot.Helmet && gift.origin.unlocked) List.Add(gift);
-            }
-            return List;
-        }
-        private static List<EgoGift> GetLeft_backList()
-        {
-            List<EgoGift> List = [];
-            foreach (EgoGift gift in MasterList)
-            {
-                if (gift.slot == Slot.Left_back && gift.origin.unlocked) List.Add(gift);
-            }
-            return List;
-        }
-        private static List<EgoGift> GetRight_backList()
-        {
-            List<EgoGift> List = [];
-            foreach (EgoGift gift in MasterList)
-            {
-                if (gift.slot == Slot.Right_back && gift.origin.unlocked) List.Add(gift);
-            }
-            return List;
-        }
-        private static List<EgoGift> GetMouth_1List()
-        {
-            List<EgoGift> List = [];
-            foreach (EgoGift gift in MasterList)
-            {
-                if (gift.slot == Slot.Mouth_1 && gift.origin.unlocked) List.Add(gift);
-            }
-            return List;
-        }
-        private static List<EgoGift> GetMouth_2List()
-        {
-            List<EgoGift> List = [];
-            foreach (EgoGift gift in MasterList)
-            {
-                if (gift.slot == Slot.Mouth_2 && gift.origin.unlocked) List.Add(gift);
-            }
-            return List;
-        }
-        private static List<EgoGift> GetNeckwearList()
-        {
-            List<EgoGift> List = [];
-            foreach (EgoGift gift in MasterList)
-            {
-                if (gift.slot == Slot.Neckwear && gift.origin.unlocked) List.Add(gift);
-            }
-            return List;
-        }
-        private static List<EgoGift> GetSpecialList()
-        {
-            List<EgoGift> List = [];
-            foreach (EgoGift gift in MasterList)
-            {
-                if (gift.slot == Slot.Special && gift.origin.unlocked   ) List.Add(gift);
-            }
-            return List;
-        }
-
 
         public static EgoGift GetByName(string name)
         {
-            return GiftManagement.MasterList.FirstOrDefault(w => w.name == name);
+            return MasterList.FirstOrDefault(w => w.Name == name);
         }
 
         public static EgoGift RandomGift(Slot slot)
@@ -271,10 +257,10 @@ namespace LobotomyCorpCompanion.GameObjects
         }
     }
 
-    internal static class SuitManagement
+    internal static class SuitManager
     {
-        private static readonly List<EgoSuit> MasterList;
-        static SuitManagement()
+        private static List<EgoSuit> MasterList { get; }
+        static SuitManager()
         {
             //building the master list like this ensures all instances are initialised
             MasterList = [
@@ -346,11 +332,14 @@ namespace LobotomyCorpCompanion.GameObjects
         }
         public static EgoSuit GetByName(string name)
         {
-            return SuitManagement.MasterList.FirstOrDefault(w => w.name == name);
+            return MasterList.FirstOrDefault(w => w.Name == name);
         }
-        public static EgoSuit GetRandomSuit()
+        public static EgoSuit GetRandom()
         {
             Random random = new();
+
+            return MasterList.ElementAt(random.Next(MasterList.Count));
+            //the below checks if the thing has been unlocked but for demonstration we skip it.
             EgoSuit suit;
             do
             {
@@ -362,16 +351,16 @@ namespace LobotomyCorpCompanion.GameObjects
         public static List<EgoSuit> GetList()
         {
             List<EgoSuit> list = [];
-            foreach (EgoSuit suit in MasterList) { if (suit.origin.unlocked && suit.IsAvailable()) list.Add(suit); }
+            foreach (EgoSuit suit in MasterList) { if (suit.IsAvailable()) list.Add(suit); }
             return list;
         }
     }
     
-    internal static class WeaponManagement
+    internal static class WeaponManager
     {
-        private static readonly List<EgoWeapon> MasterList;
+        private static List<EgoWeapon> MasterList { get; }
 
-        static WeaponManagement()
+        static WeaponManager()
         {
             //building the master list like this ensures all instances are initialised
             MasterList = [
@@ -444,139 +433,28 @@ namespace LobotomyCorpCompanion.GameObjects
             ];
         }
 
-        public static List<EgoWeapon> GetList()
-        {
-            List<EgoWeapon> list = [];
-            foreach (EgoWeapon weapon in MasterList){ if (weapon.origin.unlocked && weapon.IsAvailable()) list.Add(weapon);}
-            return list;
-        }
+
         public static EgoWeapon GetByName(string name)
         {
-            return WeaponManagement.MasterList.FirstOrDefault(w => w.name == name);
+            return MasterList.FirstOrDefault(w => w.Name == name);
         }
         public static EgoWeapon GetRandom()
         {
             Random random = new();
+            return MasterList.ElementAt(random.Next(MasterList.Count));
+            //the below checks if the thing has been unlocked but for demonstration we skip it.
             EgoWeapon weapon;
             do
             {
-                weapon = MasterList.ElementAt(random.Next(MasterList.Count)); ;
+                weapon = MasterList.ElementAt(random.Next(MasterList.Count));
             } while (!weapon.IsAvailable());
             return weapon;
         }
-    }
-
-    internal static class AbnormalityManagement
-    {
-        internal readonly static List<Abnormality> MasterList = [
-            Alriune.Instance,
-            Apocalypse.Instance,
-            Apple.Instance,
-            Army.Instance,
-            Bald.Instance,
-            Bear.Instance,
-            Beauty.Instance,
-            Bee.Instance,
-            Big.Instance,
-            Bloodbath.Instance,
-            Butterflies.Instance,
-            Censored.Instance,
-            Cherry.Instance,
-            Crumbling.Instance,
-            Current.Instance,
-            Cute.Instance,
-            Default.Instance,
-            Despair.Instance,
-            Dont.Instance,
-            Dream.Instance,
-            Fairy.Instance,
-            Fetus.Instance,
-            Firebird.Instance,
-            Forsaken.Instance,
-            Fragments.Instance,
-            Freischütz.Instance,
-            Galaxy.Instance,
-            Greed.Instance,
-            Hatred.Instance,
-            Heaven.Instance,
-            Helper.Instance,
-            Judgement.Instance,
-            Laetitia.Instance,
-            Lantern.Instance,
-            Love.Instance,
-            Luna.Instance,
-            MHZ.Instance,
-            Monk.Instance,
-            Nest.Instance,
-            Nothing.Instance,
-            OldLady.Instance,
-            OneSin.Instance,
-            Orchestra.Instance,
-            Parasite.Instance,
-            Plague.Instance,
-            Porccubus.Instance,
-            Prince.Instance,
-            Punishing.Instance,
-            Rabbit.Instance,
-            Refraction.Instance,
-            Ridinghood.Instance,
-            Rudolta.Instance,
-            Scarecrow.Instance,
-            Schadenfreude.Instance,
-            Scorched.Instance,
-            Shoes.Instance,
-            Shy.Instance,
-            Singing.Instance,
-            Smiling.Instance,
-            Snow.Instance,
-            Spider.Instance,
-            Star.Instance,
-            Swan.Instance,
-            WallLady.Instance,
-            Wellcheers.Instance,
-            White.Instance,
-            Wolf.Instance,
-            Woodsman.Instance,
-            Yin.Instance,
-            ];
-    }
-
-    internal static class DepartmentManagement
-    {
-        public static readonly List<Department> MasterList;
-
-        static DepartmentManagement()
+        public static List<EgoWeapon> GetList()
         {
-            //building the master list like this ensures all instances are initialised
-            MasterList =
-                [
-                Architecture.Instance,
-                CentralCommand.Instance,
-                Control.Instance,
-                Disciplinary.Instance,
-                Extraction.Instance,
-                Information.Instance,
-                Record.Instance,
-                Safety.Instance,
-                Training.Instance,
-                Welfare.Instance,
-                Bench.Instance
-                ];
-        }
-
-        public static Department GetByName(string name)
-        {
-            return DepartmentManagement.MasterList.FirstOrDefault(x=> x.Name == name);
-        }
-        public static Department GetRandom()
-        {
-            Random random = new();
-            Department department;
-            do
-            {
-                department = MasterList.ElementAt(random.Next(MasterList.Count)); ;
-            } while (!department.JobAvailable());
-            return department;
+            List<EgoWeapon> list = [];
+            foreach (EgoWeapon weapon in MasterList) { if (weapon.IsAvailable()) list.Add(weapon); }
+            return list;
         }
     }
 }

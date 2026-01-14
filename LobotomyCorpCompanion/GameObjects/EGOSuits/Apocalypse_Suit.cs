@@ -26,18 +26,34 @@
 
         internal override bool CheckRequirements(Employee employee)
         {
-            //todo implement special check
-            return false;
+            return base.CheckRequirements(employee) &&
+                employee.MinStats.PrimaryStats.Fortitude >= 110 &&
+                employee.MinStats.PrimaryStats.Prudence >= 110 &&
+                employee.MinStats.PrimaryStats.Temperance >= 110 &&
+                employee.MinStats.PrimaryStats.Justice >= 110;
         }
 
         internal override void Effect(Employee employee)
         {
-            employee.SpecialEffects.Add("Deal black damage to all enemies in the room every 5s");
+
             if(SameWeapon(employee))
             {
                 employee.SpecialEffects.Add("Damage increases when HP lowers.");
             }
-            employee.SpecialEffects.Add("Prevents Apocalypse Bird from appearing.");
+            //prevents double adding of this effect as the weapon has the same effect
+            else
+            {
+                employee.SpecialEffects.Add("Prevents Apocalypse Bird from appearing.");
+            }
+            if (SameWeapon(employee) && SameGift(employee))
+            {
+                employee.SpecialEffects.Add("Deal R/W/B/P damage to all enemies in the room every 5s");
+            }
+            else
+            {
+                employee.SpecialEffects.Add("Deal black damage to all enemies in the room every 5s");
+            }
+
         }
     }
 }

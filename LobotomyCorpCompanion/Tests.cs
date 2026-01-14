@@ -1,5 +1,5 @@
 ﻿
-using System.Security.Cryptography;
+
 
 namespace LobotomyCorpCompanion
 {
@@ -16,11 +16,11 @@ namespace LobotomyCorpCompanion
 
         public static String Primary()
         {
-            return Employee.PrimaryTitles.ElementAt(random.Next(Employee.PrimaryTitles.Count)).Key;
+            return Employee.PRIMARYTITLES.ElementAt(random.Next(Employee.PRIMARYTITLES.Count)).Key;
         }
         public static String Secondary()
         {
-            return Employee.SecondaryTitles.ElementAt(random.Next(Employee.SecondaryTitles.Count)).Key;
+            return Employee.SECONDARYTITLES.ElementAt(random.Next(Employee.SECONDARYTITLES.Count)).Key;
         }
         public static String Name()
         {
@@ -30,10 +30,10 @@ namespace LobotomyCorpCompanion
         public static PrimaryStats PrimaryStats()
         {
             PrimaryStats stats = new(
-                fortitude: random.Next(15, 100),
-                prudence: random.Next(15, 100),
-                temperance: random.Next(15, 100),
-                justice: random.Next(15, 100)
+                Fortitude: random.Next(15, 100),
+                Prudence: random.Next(15, 100),
+                Temperance: random.Next(15, 100),
+                Justice: random.Next(15, 100)
             );
 
             return stats;
@@ -82,23 +82,22 @@ namespace LobotomyCorpCompanion
         //randomly kitted employee
         public static Employee RandomTest()
         {
-            Random random = new();
-
+            Random random = new Random();
             Employee employee = new(
                 name: RandomHelper.Name(),
-                primaryLevels: RandomHelper.PrimaryStats(),
+                primaryStats: RandomHelper.PrimaryStats(),
                 primaryTitle: RandomHelper.Primary(),
                 secondaryTitle: RandomHelper.Secondary(),
-                department: DepartmentManagement.GetRandom(),
+                department: DepartmentManager.GetRandom(),
                 daysInService: random.Next(1, 100),
-                weapon: WeaponManagement.GetRandom(),
-                suit: SuitManagement.GetRandomSuit(),
-                gifts: GiftManagement.RandomGiftSet()
+                weapon: WeaponManager.GetRandom(),
+                suit: SuitManager.GetRandom(),
+                gifts: GiftManager.RandomGiftSet()
             );
 
             return employee;
         }
-        
+
         //set functionality test
         public static Employee SetTest()
         {
@@ -108,27 +107,6 @@ namespace LobotomyCorpCompanion
             employee.Suit = Freischütz_Suit.Instance;
 
             return employee;
-        }
-
-        public static void SaveEmployee()
-        {
-            Employee BongBong = FullyGiftedEmployee();
-
-            BongBong.Calculate();
-            System.Console.WriteLine(BongBong);
-
-            //write bongbong to file
-            var serialisedResult = JsonConvert.SerializeObject(BongBong);
-            File.WriteAllText(@"...\BongBong.json", serialisedResult);
-        }
-
-        public static void ReadEmployee()
-        {
-            string readJson = File.ReadAllText(@"...\BongBong.json");
-            var loadedEmployee = JsonConvert.DeserializeObject<Employee>(readJson);
-            System.Console.WriteLine(loadedEmployee);
-
-            //todo make sure all fields are saved and loaded
         }
     }
 }

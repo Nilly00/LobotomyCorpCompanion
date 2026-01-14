@@ -30,7 +30,7 @@
         internal override void Effect(Employee employee)
         {
             employee.SpecialEffects.Add("When above 10% HP consume 5% HP twice for +30% damage");
-            employee.ConditionalBonuses.damagePercent *= 1.3;
+            employee.ConditionalBonuses.DamagePercent *= 1.3;
         }
     }
 }

@@ -13,25 +13,25 @@
 
         internal override void ServiceBenefits(Employee employee)
         {
-            if (employee.isCaptain)
+            if (employee.IsCaptain)
             {
-                employee.PermanentBonuses.attackSpeedPercent *= 1.2;
-                employee.PermanentBonuses.resistances += 0.2;
+                employee.PermanentBonuses.AttackSpeedPercent *= 1.2;
+                employee.PermanentBonuses.Resistances += 0.2;
             }
             else if (employee.DaysInService > 6)
             {
-                employee.PermanentBonuses.attackSpeedPercent *= 1.1;
-                employee.PermanentBonuses.resistances += 0.1;
+                employee.PermanentBonuses.AttackSpeedPercent *= 1.1;
+                employee.PermanentBonuses.Resistances += 0.1;
             }
             else if (employee.DaysInService > 2)
             {
-                employee.PermanentBonuses.attackSpeedPercent *= 1.06;
-                employee.PermanentBonuses.resistances += 0.06;
+                employee.PermanentBonuses.AttackSpeedPercent *= 1.06;
+                employee.PermanentBonuses.Resistances += 0.06;
             }
             else
             {
-                employee.PermanentBonuses.attackSpeedPercent *= 1.03;
-                employee.PermanentBonuses.resistances += 0.03;
+                employee.PermanentBonuses.AttackSpeedPercent *= 1.03;
+                employee.PermanentBonuses.Resistances += 0.03;
             }
         }
     }

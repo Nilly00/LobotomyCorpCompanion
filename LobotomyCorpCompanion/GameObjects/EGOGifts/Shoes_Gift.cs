@@ -23,9 +23,9 @@
         {
             if (SameWeapon(employee))
             {
-                employee.PermanentBonuses.secondaryStats.SR -= 10;
-                employee.PermanentBonuses.secondaryStats.WS -= 10;
-                employee.PermanentBonuses.secondaryStats.AS += 10;
+                employee.PermanentBonuses.SecondaryStats.SR -= 10;
+                employee.PermanentBonuses.SecondaryStats.WS -= 10;
+                employee.PermanentBonuses.SecondaryStats.AS += 10;
             }
         }
     }

@@ -21,9 +21,9 @@
 
         internal override void Effect(Employee employee)
         {
-            if (true) //todo proper weapon check
+            if (SameWeapon(employee))
             {
-                employee.PermanentBonuses.damageFlat += 5;
+                employee.PermanentBonuses.DamageFlat += 5;
             }
         }
     }

@@ -23,8 +23,8 @@
         {
             if (SameSuit(employee))
             {
-                employee.PermanentBonuses.secondaryStats.SP -= 10;
-                employee.PermanentBonuses.secondaryStats.AS += 10;
+                employee.PermanentBonuses.SecondaryStats.SP -= 10;
+                employee.PermanentBonuses.SecondaryStats.AS += 10;
             }
         }
     }

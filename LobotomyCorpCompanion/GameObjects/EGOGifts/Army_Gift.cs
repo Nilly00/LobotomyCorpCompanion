@@ -23,7 +23,7 @@
         {
             if (SameWeapon(employee) && SameSuit(employee))
             {
-                employee.PermanentBonuses.damagePercent *= 1.15;
+                employee.PermanentBonuses.DamagePercent *= 1.15;
             }
         }
     }

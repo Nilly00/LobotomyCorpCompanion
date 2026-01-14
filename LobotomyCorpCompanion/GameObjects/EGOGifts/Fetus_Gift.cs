@@ -21,7 +21,7 @@
 
         internal override void Effect(Employee employee)
         {
-            employee.PermanentBonuses.resistances.white *= 0.95;
+            employee.PermanentBonuses.Resistances.White *= 0.95;
         }
     }
 }

@@ -23,7 +23,7 @@
         {
             if (SameSuit(employee))
             {
-                //todo set white resist to -1
+                employee.SpecialEffects.Add("White resist becomes -1");
             }
         }
     }

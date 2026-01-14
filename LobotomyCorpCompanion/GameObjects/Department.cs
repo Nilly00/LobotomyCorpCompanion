@@ -7,7 +7,7 @@
         internal int EmployeeCap { get; init; } = 5;
         internal int AbnormalityCap { get; init; } = 4;
         //read from save
-        internal bool enabled;
+        internal bool Enabled { get; private set; }
 
         //calculated at runtime
         internal List<Abnormality> Abnormalities { get; private set; } = [];
@@ -20,12 +20,12 @@
             this.AbnormalityCap = abnormalityCap;
             if (Abnormalities.Count > 0)
             {
-                this.enabled = true;
+                this.Enabled = true;
                 this.ClerkEffect();
             }
             else
             {
-                this.enabled = false;
+                this.Enabled = false;
             }
         }
         internal virtual void ClerkEffect(){}
@@ -38,7 +38,7 @@
         internal void RemoveEmployee(Employee employee)
         {
             Employees.Remove(employee);
-            if (employee.isCaptain)
+            if (employee.IsCaptain)
             {
                 DetermineCaptain();
             }
@@ -67,7 +67,7 @@
             }
             if (captainChanged)
             {
-                captain.isCaptain = true;
+                captain.IsCaptain = true;
                 captain.Calculate();
             }
         }

@@ -29,13 +29,16 @@
 
         internal override bool CheckRequirements(Employee employee)
         {
-            //todo special check
-            return false;
+            return base.CheckRequirements(employee) &&
+                employee.MinStats.PrimaryStats.Fortitude >= 110 &&
+                employee.MinStats.PrimaryStats.Prudence >= 110 &&
+                employee.MinStats.PrimaryStats.Temperance >= 110 &&
+                employee.MinStats.PrimaryStats.Justice >= 110;
         }
 
         internal override void Effect(Employee employee)
         {
-            //todo special effect
+            employee.SpecialEffects.Add("Prevents Apocalypse Bird from appearing.");
         }
 
         internal override void WeaponCalculate()

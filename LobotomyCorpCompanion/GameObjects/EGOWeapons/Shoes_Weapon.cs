@@ -31,7 +31,7 @@
         {
             if (employee.Ranks[2] > 3)
             {
-                employee.PermanentBonuses.damageFlat += 4;
+                employee.PermanentBonuses.DamageFlat += 4;
                 employee.SpecialEffects.Add("take SP damage equal to 4% of Max. SP on each attack");
             }
         }

@@ -30,7 +30,7 @@
             //the Presence of the Suit and added +5 instead of it's usual +2
             if(!SameWeapon(employee))
             {
-                employee.PermanentBonuses.secondaryStats.MS += 2;
+                employee.PermanentBonuses.SecondaryStats.MS += 2;
             }
         }
     }

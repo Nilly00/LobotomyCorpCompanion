@@ -32,7 +32,7 @@
             if (employee.Ranks[0] < 1)
             {
                 employee.SpecialEffects.Add("+2.5 MS during supression or combat");
-                employee.ConditionalBonuses.secondaryStats.MS += 2;
+                employee.ConditionalBonuses.SecondaryStats.MS += 2;
             }
         }
     }

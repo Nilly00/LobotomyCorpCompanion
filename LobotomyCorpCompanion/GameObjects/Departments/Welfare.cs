@@ -13,21 +13,21 @@
 
         internal override void ServiceBenefits(Employee employee)
         {
-            if (employee.isCaptain)
+            if (employee.IsCaptain)
             {
-                employee.PermanentBonuses.resistances += 0.2;
+                employee.PermanentBonuses.Resistances += 0.2;
             }
             else if (employee.DaysInService > 6)
             {
-                employee.PermanentBonuses.resistances += 0.1;
+                employee.PermanentBonuses.Resistances += 0.1;
             }
             else if (employee.DaysInService > 2)
             {
-                employee.PermanentBonuses.resistances += 0.06;
+                employee.PermanentBonuses.Resistances += 0.06;
             }
             else
             {
-                employee.PermanentBonuses.resistances += 0.03;
+                employee.PermanentBonuses.Resistances += 0.03;
             }
         }
     }

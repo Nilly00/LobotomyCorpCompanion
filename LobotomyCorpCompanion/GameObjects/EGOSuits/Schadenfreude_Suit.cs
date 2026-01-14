@@ -27,7 +27,7 @@
         internal override void Effect(Employee employee)
         {
             employee.SpecialEffects.Add("JUSTICE and Defense boosted while on screen");
-            employee.ConditionalBonuses.primaryStats.Justice += 10;
+            employee.ConditionalBonuses.PrimaryStats.Justice += 10;
             //todo figure out how to do this nonesense
         }
     }
